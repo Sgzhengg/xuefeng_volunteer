@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学锋志愿教练 - 启动指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .status {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .status h2 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .status p {
+            color: #856404;
+            line-height: 1.6;
+        }
+
+        .steps {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .steps h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .step {
+            background: white;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .step h3 {
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .step code {
+            background: #f1f1f1;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+
+        .step p {
+            color: #666;
+            line-height: 1.6;
+            margin-top: 8px;
+        }
+
+        .button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .info {
+            background: #d1ecf1;
+            border: 2px solid #0c5460;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .info h3 {
+            color: #0c5460;
+            margin-bottom: 10px;
+        }
+
+        .info ul {
+            color: #0c5460;
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+
+        .progress {
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 30px;
+            margin: 20px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            width: 0%;
+            animation: progress 2s ease-in-out infinite;
+        }
+
+        @keyframes progress {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            100% { width: 100%; }
+        }
+
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #333;
+            font-weight: bold;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 学锋志愿教练</h1>
+        <p class="subtitle">AI驱动的智能高考志愿填报助手</p>
+
+        <div class="status">
+            <h2>⚠️ 应用正在启动中...</h2>
+            <div class="progress">
+                <div class="progress-bar"></div>
+                <div class="progress-text">正在启动 Flutter Web 应用...</div>
+            </div>
+            <p><strong>首次启动可能需要 1-3 分钟，请耐心等待。</strong></p>
+            <p>Edge 浏览器将自动打开应用界面。</p>
+        </div>
+
+        <div class="steps">
+            <h2>🚀 启动步骤</h2>
+
+            <div class="step">
+                <h3>方法 1：使用启动脚本（推荐）</h3>
+                <p>双击运行项目中的 <code>START_WEB_SIMPLE.bat</code> 文件</p>
+            </div>
+
+            <div class="step">
+                <h3>方法 2：手动启动</h3>
+                <p>在项目目录打开命令行，运行：</p>
+                <code>cd "d:\雪峰志愿教练"</code><br><br>
+                <code>START_WEB_SIMPLE.bat</code>
+            </div>
+
+            <div class="step">
+                <h3>方法 3：直接运行 Flutter</h3>
+                <p>在命令行中运行：</p>
+                <code>set PUB_HOSTED_URL=https://pub.flutter-io.cn</code><br>
+                <code>set FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn</code><br>
+                <code>flutter run -d edge --web-port 8081 --dart-define=OPENROUTER_API_KEY=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</code>
+            </div>
+        </div>
+
+        <div class="info">
+            <h3>📋 服务信息</h3>
+            <ul>
+                <li><strong>前端地址：</strong> http://localhost:8081</li>
+                <li><strong>后端API：</strong> http://localhost:8000</li>
+                <li><strong>API文档：</strong> http://localhost:8000/docs</li>
+                <li><strong>浏览器：</strong> Microsoft Edge</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <button class="button" onclick="window.location.reload()">
+                🔄 刷新页面检查启动状态
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // 每30秒自动刷新页面检查应用是否已启动
+        setTimeout(() => {
+            window.location.reload();
+        }, 30000);
+
+        // 检查后端服务是否可用
+        fetch('http://localhost:8000/health')
+            .then(response => response.json())
+            .then(data => {
+                console.log('✅ 后端服务运行正常:', data);
+            })
+            .catch(error => {
+                console.log('⚠️ 后端服务未启动');
+            });
+
+        // 检查前端服务是否可用
+        fetch('http://localhost:8081')
+            .then(response => {
+                if (response.ok) {
+                    console.log('✅ 前端服务已启动');
+                    document.querySelector('.status h2').textContent = '✅ 应用已启动！';
+                    document.querySelector('.progress-text').textContent = '正在自动跳转...';
+                    setTimeout(() => {
+                        window.location.href = 'http://localhost:8081';
+                    }, 2000);
+                }
+            })
+            .catch(error => {
+                console.log('⏳ 前端服务尚未启动');
+            });
+    </script>
+</body>
+</html>

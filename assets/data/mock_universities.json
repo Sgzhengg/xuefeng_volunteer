@@ -1,0 +1,59 @@
+{
+  "universities": [
+    {
+      "id": 1,
+      "name": "北京大学",
+      "province": "北京",
+      "level": "985",
+      "type": "综合",
+      "ranking": 1,
+      "min_score_2024": 685,
+      "employment_rate": 0.98,
+      "avg_salary": 15000
+    },
+    {
+      "id": 2,
+      "name": "清华大学",
+      "province": "北京",
+      "level": "985",
+      "type": "综合",
+      "ranking": 2,
+      "min_score_2024": 690,
+      "employment_rate": 0.99,
+      "avg_salary": 16000
+    },
+    {
+      "id": 3,
+      "name": "浙江大学",
+      "province": "浙江",
+      "level": "985",
+      "type": "综合",
+      "ranking": 3,
+      "min_score_2024": 675,
+      "employment_rate": 0.97,
+      "avg_salary": 14000
+    },
+    {
+      "id": 4,
+      "name": "上海交通大学",
+      "province": "上海",
+      "level": "985",
+      "type": "综合",
+      "ranking": 4,
+      "min_score_2024": 680,
+      "employment_rate": 0.98,
+      "avg_salary": 14500
+    },
+    {
+      "id": 5,
+      "name": "南京大学",
+      "province": "江苏",
+      "level": "985",
+      "type": "综合",
+      "ranking": 5,
+      "min_score_2024": 670,
+      "employment_rate": 0.96,
+      "avg_salary": 13500
+    }
+  ]
+}

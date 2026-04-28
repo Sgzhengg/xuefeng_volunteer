@@ -1,0 +1,3774 @@
+{
+  "metadata": {
+    "generated_at": "2026-04-23T13:03:20.122959",
+    "years_analyzed": [
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ]
+  },
+  "university_score_trends": {
+    "浙江": {
+      "first_batch_scores": [
+        {
+          "year": 2025,
+          "score": 650
+        },
+        {
+          "year": 2024,
+          "score": 645
+        },
+        {
+          "year": 2023,
+          "score": 640
+        },
+        {
+          "year": 2021,
+          "score": 650
+        },
+        {
+          "year": 2022,
+          "score": 656
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2025,
+          "score": 600
+        },
+        {
+          "year": 2024,
+          "score": 595
+        },
+        {
+          "year": 2023,
+          "score": 590
+        },
+        {
+          "year": 2021,
+          "score": 600
+        },
+        {
+          "year": 2022,
+          "score": 606
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 0.92,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 1.0,
+        "direction": "rising"
+      }
+    },
+    "江苏": {
+      "first_batch_scores": [
+        {
+          "year": 2025,
+          "score": 640
+        },
+        {
+          "year": 2021,
+          "score": 640
+        },
+        {
+          "year": 2022,
+          "score": 646
+        },
+        {
+          "year": 2023,
+          "score": 652
+        },
+        {
+          "year": 2024,
+          "score": 659
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2025,
+          "score": 590
+        },
+        {
+          "year": 2021,
+          "score": 590
+        },
+        {
+          "year": 2022,
+          "score": 595
+        },
+        {
+          "year": 2023,
+          "score": 601
+        },
+        {
+          "year": 2024,
+          "score": 607
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 2.97,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 2.88,
+        "direction": "rising"
+      }
+    },
+    "广东": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 635
+        },
+        {
+          "year": 2022,
+          "score": 641
+        },
+        {
+          "year": 2023,
+          "score": 647
+        },
+        {
+          "year": 2024,
+          "score": 654
+        },
+        {
+          "year": 2025,
+          "score": 660
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 585
+        },
+        {
+          "year": 2022,
+          "score": 590
+        },
+        {
+          "year": 2023,
+          "score": 596
+        },
+        {
+          "year": 2024,
+          "score": 602
+        },
+        {
+          "year": 2025,
+          "score": 608
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.94,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.93,
+        "direction": "rising"
+      }
+    },
+    "山东": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 630
+        },
+        {
+          "year": 2022,
+          "score": 636
+        },
+        {
+          "year": 2023,
+          "score": 642
+        },
+        {
+          "year": 2024,
+          "score": 648
+        },
+        {
+          "year": 2025,
+          "score": 655
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 580
+        },
+        {
+          "year": 2022,
+          "score": 585
+        },
+        {
+          "year": 2023,
+          "score": 591
+        },
+        {
+          "year": 2024,
+          "score": 597
+        },
+        {
+          "year": 2025,
+          "score": 603
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.97,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.97,
+        "direction": "rising"
+      }
+    },
+    "河南": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 625
+        },
+        {
+          "year": 2022,
+          "score": 631
+        },
+        {
+          "year": 2023,
+          "score": 637
+        },
+        {
+          "year": 2024,
+          "score": 643
+        },
+        {
+          "year": 2025,
+          "score": 650
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 575
+        },
+        {
+          "year": 2022,
+          "score": 580
+        },
+        {
+          "year": 2023,
+          "score": 586
+        },
+        {
+          "year": 2024,
+          "score": 592
+        },
+        {
+          "year": 2025,
+          "score": 598
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 4.0,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 4.0,
+        "direction": "rising"
+      }
+    },
+    "四川": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 630
+        },
+        {
+          "year": 2022,
+          "score": 636
+        },
+        {
+          "year": 2023,
+          "score": 642
+        },
+        {
+          "year": 2024,
+          "score": 648
+        },
+        {
+          "year": 2025,
+          "score": 655
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 580
+        },
+        {
+          "year": 2022,
+          "score": 585
+        },
+        {
+          "year": 2023,
+          "score": 591
+        },
+        {
+          "year": 2024,
+          "score": 597
+        },
+        {
+          "year": 2025,
+          "score": 603
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.97,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.97,
+        "direction": "rising"
+      }
+    },
+    "湖北": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 628
+        },
+        {
+          "year": 2022,
+          "score": 634
+        },
+        {
+          "year": 2023,
+          "score": 640
+        },
+        {
+          "year": 2024,
+          "score": 646
+        },
+        {
+          "year": 2025,
+          "score": 653
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 578
+        },
+        {
+          "year": 2022,
+          "score": 583
+        },
+        {
+          "year": 2023,
+          "score": 589
+        },
+        {
+          "year": 2024,
+          "score": 595
+        },
+        {
+          "year": 2025,
+          "score": 601
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.98,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.98,
+        "direction": "rising"
+      }
+    },
+    "湖南": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 626
+        },
+        {
+          "year": 2022,
+          "score": 632
+        },
+        {
+          "year": 2023,
+          "score": 638
+        },
+        {
+          "year": 2024,
+          "score": 644
+        },
+        {
+          "year": 2025,
+          "score": 651
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 576
+        },
+        {
+          "year": 2022,
+          "score": 581
+        },
+        {
+          "year": 2023,
+          "score": 587
+        },
+        {
+          "year": 2024,
+          "score": 593
+        },
+        {
+          "year": 2025,
+          "score": 599
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.99,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.99,
+        "direction": "rising"
+      }
+    },
+    "河北": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 624
+        },
+        {
+          "year": 2022,
+          "score": 630
+        },
+        {
+          "year": 2023,
+          "score": 636
+        },
+        {
+          "year": 2024,
+          "score": 642
+        },
+        {
+          "year": 2025,
+          "score": 648
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 574
+        },
+        {
+          "year": 2022,
+          "score": 579
+        },
+        {
+          "year": 2023,
+          "score": 585
+        },
+        {
+          "year": 2024,
+          "score": 591
+        },
+        {
+          "year": 2025,
+          "score": 596
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.85,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.83,
+        "direction": "rising"
+      }
+    },
+    "安徽": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 622
+        },
+        {
+          "year": 2022,
+          "score": 628
+        },
+        {
+          "year": 2023,
+          "score": 634
+        },
+        {
+          "year": 2024,
+          "score": 640
+        },
+        {
+          "year": 2025,
+          "score": 646
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 572
+        },
+        {
+          "year": 2022,
+          "score": 577
+        },
+        {
+          "year": 2023,
+          "score": 583
+        },
+        {
+          "year": 2024,
+          "score": 589
+        },
+        {
+          "year": 2025,
+          "score": 594
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.86,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.85,
+        "direction": "rising"
+      }
+    },
+    "福建": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 620
+        },
+        {
+          "year": 2022,
+          "score": 626
+        },
+        {
+          "year": 2023,
+          "score": 632
+        },
+        {
+          "year": 2024,
+          "score": 638
+        },
+        {
+          "year": 2025,
+          "score": 644
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 570
+        },
+        {
+          "year": 2022,
+          "score": 575
+        },
+        {
+          "year": 2023,
+          "score": 581
+        },
+        {
+          "year": 2024,
+          "score": 587
+        },
+        {
+          "year": 2025,
+          "score": 592
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.87,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.86,
+        "direction": "rising"
+      }
+    },
+    "江西": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 618
+        },
+        {
+          "year": 2022,
+          "score": 624
+        },
+        {
+          "year": 2023,
+          "score": 630
+        },
+        {
+          "year": 2024,
+          "score": 636
+        },
+        {
+          "year": 2025,
+          "score": 642
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 568
+        },
+        {
+          "year": 2022,
+          "score": 573
+        },
+        {
+          "year": 2023,
+          "score": 579
+        },
+        {
+          "year": 2024,
+          "score": 585
+        },
+        {
+          "year": 2025,
+          "score": 590
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.88,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.87,
+        "direction": "rising"
+      }
+    },
+    "辽宁": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 616
+        },
+        {
+          "year": 2022,
+          "score": 622
+        },
+        {
+          "year": 2023,
+          "score": 628
+        },
+        {
+          "year": 2024,
+          "score": 634
+        },
+        {
+          "year": 2025,
+          "score": 640
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 566
+        },
+        {
+          "year": 2022,
+          "score": 571
+        },
+        {
+          "year": 2023,
+          "score": 577
+        },
+        {
+          "year": 2024,
+          "score": 582
+        },
+        {
+          "year": 2025,
+          "score": 588
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.9,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.89,
+        "direction": "rising"
+      }
+    },
+    "陕西": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 614
+        },
+        {
+          "year": 2022,
+          "score": 620
+        },
+        {
+          "year": 2023,
+          "score": 626
+        },
+        {
+          "year": 2024,
+          "score": 632
+        },
+        {
+          "year": 2025,
+          "score": 638
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 564
+        },
+        {
+          "year": 2022,
+          "score": 569
+        },
+        {
+          "year": 2023,
+          "score": 575
+        },
+        {
+          "year": 2024,
+          "score": 580
+        },
+        {
+          "year": 2025,
+          "score": 586
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.91,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.9,
+        "direction": "rising"
+      }
+    },
+    "重庆": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 612
+        },
+        {
+          "year": 2022,
+          "score": 618
+        },
+        {
+          "year": 2023,
+          "score": 624
+        },
+        {
+          "year": 2024,
+          "score": 630
+        },
+        {
+          "year": 2025,
+          "score": 636
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 562
+        },
+        {
+          "year": 2022,
+          "score": 567
+        },
+        {
+          "year": 2023,
+          "score": 573
+        },
+        {
+          "year": 2024,
+          "score": 578
+        },
+        {
+          "year": 2025,
+          "score": 584
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.92,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.91,
+        "direction": "rising"
+      }
+    },
+    "北京": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 620
+        },
+        {
+          "year": 2022,
+          "score": 626
+        },
+        {
+          "year": 2023,
+          "score": 632
+        },
+        {
+          "year": 2024,
+          "score": 638
+        },
+        {
+          "year": 2025,
+          "score": 644
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 570
+        },
+        {
+          "year": 2022,
+          "score": 575
+        },
+        {
+          "year": 2023,
+          "score": 581
+        },
+        {
+          "year": 2024,
+          "score": 587
+        },
+        {
+          "year": 2025,
+          "score": 592
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.87,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.86,
+        "direction": "rising"
+      }
+    },
+    "天津": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 618
+        },
+        {
+          "year": 2022,
+          "score": 624
+        },
+        {
+          "year": 2023,
+          "score": 630
+        },
+        {
+          "year": 2024,
+          "score": 636
+        },
+        {
+          "year": 2025,
+          "score": 642
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 568
+        },
+        {
+          "year": 2022,
+          "score": 573
+        },
+        {
+          "year": 2023,
+          "score": 579
+        },
+        {
+          "year": 2024,
+          "score": 585
+        },
+        {
+          "year": 2025,
+          "score": 590
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.88,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.87,
+        "direction": "rising"
+      }
+    },
+    "上海": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 625
+        },
+        {
+          "year": 2022,
+          "score": 631
+        },
+        {
+          "year": 2023,
+          "score": 637
+        },
+        {
+          "year": 2024,
+          "score": 643
+        },
+        {
+          "year": 2025,
+          "score": 650
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 575
+        },
+        {
+          "year": 2022,
+          "score": 580
+        },
+        {
+          "year": 2023,
+          "score": 586
+        },
+        {
+          "year": 2024,
+          "score": 592
+        },
+        {
+          "year": 2025,
+          "score": 598
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 4.0,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 4.0,
+        "direction": "rising"
+      }
+    },
+    "山西": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 610
+        },
+        {
+          "year": 2022,
+          "score": 616
+        },
+        {
+          "year": 2023,
+          "score": 622
+        },
+        {
+          "year": 2024,
+          "score": 628
+        },
+        {
+          "year": 2025,
+          "score": 634
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 560
+        },
+        {
+          "year": 2022,
+          "score": 565
+        },
+        {
+          "year": 2023,
+          "score": 571
+        },
+        {
+          "year": 2024,
+          "score": 576
+        },
+        {
+          "year": 2025,
+          "score": 582
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.93,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.93,
+        "direction": "rising"
+      }
+    },
+    "吉林": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 612
+        },
+        {
+          "year": 2022,
+          "score": 618
+        },
+        {
+          "year": 2023,
+          "score": 624
+        },
+        {
+          "year": 2024,
+          "score": 630
+        },
+        {
+          "year": 2025,
+          "score": 636
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 562
+        },
+        {
+          "year": 2022,
+          "score": 567
+        },
+        {
+          "year": 2023,
+          "score": 573
+        },
+        {
+          "year": 2024,
+          "score": 578
+        },
+        {
+          "year": 2025,
+          "score": 584
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.92,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.91,
+        "direction": "rising"
+      }
+    },
+    "黑龙江": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 608
+        },
+        {
+          "year": 2022,
+          "score": 614
+        },
+        {
+          "year": 2023,
+          "score": 620
+        },
+        {
+          "year": 2024,
+          "score": 626
+        },
+        {
+          "year": 2025,
+          "score": 632
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 558
+        },
+        {
+          "year": 2022,
+          "score": 563
+        },
+        {
+          "year": 2023,
+          "score": 569
+        },
+        {
+          "year": 2024,
+          "score": 574
+        },
+        {
+          "year": 2025,
+          "score": 580
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.95,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.94,
+        "direction": "rising"
+      }
+    },
+    "海南": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 608
+        },
+        {
+          "year": 2022,
+          "score": 614
+        },
+        {
+          "year": 2023,
+          "score": 620
+        },
+        {
+          "year": 2024,
+          "score": 626
+        },
+        {
+          "year": 2025,
+          "score": 632
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 558
+        },
+        {
+          "year": 2022,
+          "score": 563
+        },
+        {
+          "year": 2023,
+          "score": 569
+        },
+        {
+          "year": 2024,
+          "score": 574
+        },
+        {
+          "year": 2025,
+          "score": 580
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.95,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.94,
+        "direction": "rising"
+      }
+    },
+    "贵州": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 608
+        },
+        {
+          "year": 2022,
+          "score": 614
+        },
+        {
+          "year": 2023,
+          "score": 620
+        },
+        {
+          "year": 2024,
+          "score": 626
+        },
+        {
+          "year": 2025,
+          "score": 632
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 558
+        },
+        {
+          "year": 2022,
+          "score": 563
+        },
+        {
+          "year": 2023,
+          "score": 569
+        },
+        {
+          "year": 2024,
+          "score": 574
+        },
+        {
+          "year": 2025,
+          "score": 580
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.95,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.94,
+        "direction": "rising"
+      }
+    },
+    "云南": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 605
+        },
+        {
+          "year": 2022,
+          "score": 611
+        },
+        {
+          "year": 2023,
+          "score": 617
+        },
+        {
+          "year": 2024,
+          "score": 623
+        },
+        {
+          "year": 2025,
+          "score": 629
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 555
+        },
+        {
+          "year": 2022,
+          "score": 560
+        },
+        {
+          "year": 2023,
+          "score": 566
+        },
+        {
+          "year": 2024,
+          "score": 571
+        },
+        {
+          "year": 2025,
+          "score": 577
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.97,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.96,
+        "direction": "rising"
+      }
+    },
+    "甘肃": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 602
+        },
+        {
+          "year": 2022,
+          "score": 608
+        },
+        {
+          "year": 2023,
+          "score": 614
+        },
+        {
+          "year": 2024,
+          "score": 620
+        },
+        {
+          "year": 2025,
+          "score": 626
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 552
+        },
+        {
+          "year": 2022,
+          "score": 557
+        },
+        {
+          "year": 2023,
+          "score": 563
+        },
+        {
+          "year": 2024,
+          "score": 568
+        },
+        {
+          "year": 2025,
+          "score": 574
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.99,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.99,
+        "direction": "rising"
+      }
+    },
+    "青海": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 595
+        },
+        {
+          "year": 2022,
+          "score": 600
+        },
+        {
+          "year": 2023,
+          "score": 606
+        },
+        {
+          "year": 2024,
+          "score": 612
+        },
+        {
+          "year": 2025,
+          "score": 618
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 545
+        },
+        {
+          "year": 2022,
+          "score": 550
+        },
+        {
+          "year": 2023,
+          "score": 555
+        },
+        {
+          "year": 2024,
+          "score": 561
+        },
+        {
+          "year": 2025,
+          "score": 566
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.87,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.85,
+        "direction": "rising"
+      }
+    },
+    "内蒙古": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 600
+        },
+        {
+          "year": 2022,
+          "score": 606
+        },
+        {
+          "year": 2023,
+          "score": 612
+        },
+        {
+          "year": 2024,
+          "score": 618
+        },
+        {
+          "year": 2025,
+          "score": 624
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 550
+        },
+        {
+          "year": 2022,
+          "score": 555
+        },
+        {
+          "year": 2023,
+          "score": 561
+        },
+        {
+          "year": 2024,
+          "score": 566
+        },
+        {
+          "year": 2025,
+          "score": 572
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 4.0,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 4.0,
+        "direction": "rising"
+      }
+    },
+    "广西": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 606
+        },
+        {
+          "year": 2022,
+          "score": 612
+        },
+        {
+          "year": 2023,
+          "score": 618
+        },
+        {
+          "year": 2024,
+          "score": 624
+        },
+        {
+          "year": 2025,
+          "score": 630
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 556
+        },
+        {
+          "year": 2022,
+          "score": 561
+        },
+        {
+          "year": 2023,
+          "score": 567
+        },
+        {
+          "year": 2024,
+          "score": 572
+        },
+        {
+          "year": 2025,
+          "score": 578
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.96,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.96,
+        "direction": "rising"
+      }
+    },
+    "西藏": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 590
+        },
+        {
+          "year": 2022,
+          "score": 595
+        },
+        {
+          "year": 2023,
+          "score": 601
+        },
+        {
+          "year": 2024,
+          "score": 607
+        },
+        {
+          "year": 2025,
+          "score": 613
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 540
+        },
+        {
+          "year": 2022,
+          "score": 545
+        },
+        {
+          "year": 2023,
+          "score": 550
+        },
+        {
+          "year": 2024,
+          "score": 556
+        },
+        {
+          "year": 2025,
+          "score": 561
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.9,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.89,
+        "direction": "rising"
+      }
+    },
+    "宁夏": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 598
+        },
+        {
+          "year": 2022,
+          "score": 603
+        },
+        {
+          "year": 2023,
+          "score": 609
+        },
+        {
+          "year": 2024,
+          "score": 615
+        },
+        {
+          "year": 2025,
+          "score": 621
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 548
+        },
+        {
+          "year": 2022,
+          "score": 553
+        },
+        {
+          "year": 2023,
+          "score": 558
+        },
+        {
+          "year": 2024,
+          "score": 564
+        },
+        {
+          "year": 2025,
+          "score": 569
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.85,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.83,
+        "direction": "rising"
+      }
+    },
+    "新疆": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 592
+        },
+        {
+          "year": 2022,
+          "score": 597
+        },
+        {
+          "year": 2023,
+          "score": 603
+        },
+        {
+          "year": 2024,
+          "score": 609
+        },
+        {
+          "year": 2025,
+          "score": 615
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 542
+        },
+        {
+          "year": 2022,
+          "score": 547
+        },
+        {
+          "year": 2023,
+          "score": 552
+        },
+        {
+          "year": 2024,
+          "score": 558
+        },
+        {
+          "year": 2025,
+          "score": 563
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.89,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.87,
+        "direction": "rising"
+      }
+    },
+    "香港": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 630
+        },
+        {
+          "year": 2022,
+          "score": 636
+        },
+        {
+          "year": 2023,
+          "score": 642
+        },
+        {
+          "year": 2024,
+          "score": 648
+        },
+        {
+          "year": 2025,
+          "score": 655
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 580
+        },
+        {
+          "year": 2022,
+          "score": 585
+        },
+        {
+          "year": 2023,
+          "score": 591
+        },
+        {
+          "year": 2024,
+          "score": 597
+        },
+        {
+          "year": 2025,
+          "score": 603
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.97,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.97,
+        "direction": "rising"
+      }
+    },
+    "澳门": {
+      "first_batch_scores": [
+        {
+          "year": 2021,
+          "score": 620
+        },
+        {
+          "year": 2022,
+          "score": 626
+        },
+        {
+          "year": 2023,
+          "score": 632
+        },
+        {
+          "year": 2024,
+          "score": 638
+        },
+        {
+          "year": 2025,
+          "score": 644
+        }
+      ],
+      "second_batch_scores": [
+        {
+          "year": 2021,
+          "score": 570
+        },
+        {
+          "year": 2022,
+          "score": 575
+        },
+        {
+          "year": 2023,
+          "score": 581
+        },
+        {
+          "year": 2024,
+          "score": 587
+        },
+        {
+          "year": 2025,
+          "score": 592
+        }
+      ],
+      "first_batch_trend": {
+        "change_rate": 3.87,
+        "direction": "rising"
+      },
+      "second_batch_trend": {
+        "change_rate": 3.86,
+        "direction": "rising"
+      }
+    }
+  },
+  "major_score_trends": {},
+  "major_popularity_trends": {
+    "top_50": [
+      {
+        "major_code": "100101",
+        "major_name": "基础医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100102",
+        "major_name": "生物医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100103",
+        "major_name": "生物信息学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100201",
+        "major_name": "临床医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100202",
+        "major_name": "麻醉学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100203",
+        "major_name": "医学影像学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100204",
+        "major_name": "精神医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100205",
+        "major_name": "儿科学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100206",
+        "major_name": "眼视光医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100207",
+        "major_name": "放射医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100301",
+        "major_name": "口腔医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100401",
+        "major_name": "预防医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100402",
+        "major_name": "食品卫生与营养学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100403",
+        "major_name": "全球健康学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100501",
+        "major_name": "中医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100502",
+        "major_name": "针灸推拿学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100503",
+        "major_name": "藏医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100504",
+        "major_name": "蒙医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100505",
+        "major_name": "维医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100506",
+        "major_name": "壮医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100507",
+        "major_name": "哈医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100508",
+        "major_name": "傣医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100509",
+        "major_name": "回医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100510",
+        "major_name": "中医康复学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100511",
+        "major_name": "中医养生学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100512",
+        "major_name": "中医儿科学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100513",
+        "major_name": "中医骨伤科学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100601",
+        "major_name": "中西医临床医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100701",
+        "major_name": "药学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100702",
+        "major_name": "药物制剂",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100703",
+        "major_name": "临床药学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100704",
+        "major_name": "药事管理",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100705",
+        "major_name": "药物分析",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100706",
+        "major_name": "药物化学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100707",
+        "major_name": "海洋药学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100801",
+        "major_name": "中药学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100802",
+        "major_name": "中药资源与开发",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100803",
+        "major_name": "藏药学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100804",
+        "major_name": "蒙药学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100805",
+        "major_name": "中药制药",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100806",
+        "major_name": "中草药栽培与鉴定",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100901",
+        "major_name": "医学检验技术",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100902",
+        "major_name": "医学实验技术",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100903",
+        "major_name": "医学影像技术",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100904",
+        "major_name": "眼视光学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100905",
+        "major_name": "康复治疗学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100906",
+        "major_name": "口腔医学技术",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100907",
+        "major_name": "卫生检验与检疫",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100908",
+        "major_name": "听力与言语康复学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "101001",
+        "major_name": "护理学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      }
+    ],
+    "rising_majors": [
+      {
+        "major_code": "100101",
+        "major_name": "基础医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100102",
+        "major_name": "生物医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100103",
+        "major_name": "生物信息学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100201",
+        "major_name": "临床医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100202",
+        "major_name": "麻醉学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100203",
+        "major_name": "医学影像学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100204",
+        "major_name": "精神医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100205",
+        "major_name": "儿科学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100206",
+        "major_name": "眼视光医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100207",
+        "major_name": "放射医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100301",
+        "major_name": "口腔医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100401",
+        "major_name": "预防医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100402",
+        "major_name": "食品卫生与营养学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100403",
+        "major_name": "全球健康学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100501",
+        "major_name": "中医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100502",
+        "major_name": "针灸推拿学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100503",
+        "major_name": "藏医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100504",
+        "major_name": "蒙医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100505",
+        "major_name": "维医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      },
+      {
+        "major_code": "100506",
+        "major_name": "壮医学",
+        "category": "医学",
+        "popularity_score": 78,
+        "hot_level": 3,
+        "trend": "rising"
+      }
+    ],
+    "stable_majors": [
+      {
+        "major_code": "070101",
+        "major_name": "数学与应用数学",
+        "category": "理学",
+        "popularity_score": 72,
+        "hot_level": 3,
+        "trend": "stable"
+      },
+      {
+        "major_code": "070102",
+        "major_name": "信息与计算科学",
+        "category": "理学",
+        "popularity_score": 72,
+        "hot_level": 3,
+        "trend": "stable"
+      },
+      {
+        "major_code": "070103",
+        "major_name": "数理基础科学",
+        "category": "理学",
+        "popularity_score": 72,
+        "hot_level": 3,
+        "trend": "stable"
+      },
+      {
+        "major_code": "070104",
+        "major_name": "数据计算及应用",
+        "category": "理学",
+        "popularity_score": 72,
+        "hot_level": 3,
+        "trend": "stable"
+      },
+      {
+        "major_code": "070201",
+        "major_name": "物理学",
+        "category": "理学",
+        "popularity_score": 72,
+        "hot_level": 3,
+        "trend": "stable"
+      },
+      {
+        "major_code": "070202",
+        "major_name": "应用物理学",
+        "category": "理学",
+        "popularity_score": 72,
+        "hot_level": 3,
+        "trend": "stable"
+      },
+      {
+        "major_code": "070203",
+        "major_name": "核物理",
+        "category": "理学",
+        "popularity_score": 72,
+        "hot_level": 3,
+        "trend": "stable"
+      },
+      {
+        "major_code": "070204",
+        "major_name": "声学",
+        "category": "理学",
+        "popularity_score": 72,
+        "hot_level": 3,
+        "trend": "stable"
+      },
+      {
+        "major_code": "070301",
+        "major_name": "化学",
+        "category": "理学",
+        "popularity_score": 72,
+        "hot_level": 3,
+        "trend": "stable"
+      },
+      {
+        "major_code": "070302",
+        "major_name": "应用化学",
+        "category": "理学",
+        "popularity_score": 72,
+        "hot_level": 3,
+        "trend": "stable"
+      },
+      {
+        "major_code": "070303",
+        "major_name": "化学生物学",
+        "category": "理学",
+        "popularity_score": 72,
+        "hot_level": 3,
+        "trend": "stable"
+      },
+      {
+        "major_code": "070304",
+        "major_name": "分子科学与工程",
+        "category": "理学",
+        "popularity_score": 72,
+        "hot_level": 3,
+        "trend": "stable"
+      },
+      {
+        "major_code": "070305",
+        "major_name": "能源化学",
+        "category": "理学",
+        "popularity_score": 72,
+        "hot_level": 3,
+        "trend": "stable"
+      },
+      {
+        "major_code": "070401",
+        "major_name": "天文学",
+        "category": "理学",
+        "popularity_score": 72,
+        "hot_level": 3,
+        "trend": "stable"
+      },
+      {
+        "major_code": "070501",
+        "major_name": "地理科学",
+        "category": "理学",
+        "popularity_score": 72,
+        "hot_level": 3,
+        "trend": "stable"
+      },
+      {
+        "major_code": "070502",
+        "major_name": "自然地理与资源环境",
+        "category": "理学",
+        "popularity_score": 72,
+        "hot_level": 3,
+        "trend": "stable"
+      },
+      {
+        "major_code": "070503",
+        "major_name": "人文地理与城乡规划",
+        "category": "理学",
+        "popularity_score": 72,
+        "hot_level": 3,
+        "trend": "stable"
+      },
+      {
+        "major_code": "070504",
+        "major_name": "地理信息科学",
+        "category": "理学",
+        "popularity_score": 72,
+        "hot_level": 3,
+        "trend": "stable"
+      },
+      {
+        "major_code": "070601",
+        "major_name": "大气科学",
+        "category": "理学",
+        "popularity_score": 72,
+        "hot_level": 3,
+        "trend": "stable"
+      },
+      {
+        "major_code": "070602",
+        "major_name": "应用气象学",
+        "category": "理学",
+        "popularity_score": 72,
+        "hot_level": 3,
+        "trend": "stable"
+      }
+    ],
+    "category_distribution": {
+      "哲学": 4,
+      "经济学": 16,
+      "法学": 24,
+      "教育学": 14,
+      "文学": 77,
+      "历史学": 6,
+      "理学": 37,
+      "工学": 174,
+      "农学": 22,
+      "医学": 52,
+      "艺术学": 41,
+      "管理学": 51
+    }
+  },
+  "provincial_competition_trends": {
+    "广东": {
+      "competition_index": 634.0,
+      "competition_level": "high",
+      "first_batch_line": 660,
+      "second_batch_line": 608,
+      "gap": 52
+    },
+    "山东": {
+      "competition_index": 629.0,
+      "competition_level": "high",
+      "first_batch_line": 655,
+      "second_batch_line": 603,
+      "gap": 52
+    },
+    "四川": {
+      "competition_index": 629.0,
+      "competition_level": "high",
+      "first_batch_line": 655,
+      "second_batch_line": 603,
+      "gap": 52
+    },
+    "香港": {
+      "competition_index": 629.0,
+      "competition_level": "high",
+      "first_batch_line": 655,
+      "second_batch_line": 603,
+      "gap": 52
+    },
+    "湖北": {
+      "competition_index": 627.0,
+      "competition_level": "high",
+      "first_batch_line": 653,
+      "second_batch_line": 601,
+      "gap": 52
+    },
+    "浙江": {
+      "competition_index": 625.0,
+      "competition_level": "high",
+      "first_batch_line": 650,
+      "second_batch_line": 600,
+      "gap": 50
+    },
+    "湖南": {
+      "competition_index": 625.0,
+      "competition_level": "high",
+      "first_batch_line": 651,
+      "second_batch_line": 599,
+      "gap": 52
+    },
+    "河南": {
+      "competition_index": 624.0,
+      "competition_level": "high",
+      "first_batch_line": 650,
+      "second_batch_line": 598,
+      "gap": 52
+    },
+    "上海": {
+      "competition_index": 624.0,
+      "competition_level": "high",
+      "first_batch_line": 650,
+      "second_batch_line": 598,
+      "gap": 52
+    },
+    "河北": {
+      "competition_index": 622.0,
+      "competition_level": "high",
+      "first_batch_line": 648,
+      "second_batch_line": 596,
+      "gap": 52
+    },
+    "安徽": {
+      "competition_index": 620.0,
+      "competition_level": "high",
+      "first_batch_line": 646,
+      "second_batch_line": 594,
+      "gap": 52
+    },
+    "福建": {
+      "competition_index": 618.0,
+      "competition_level": "high",
+      "first_batch_line": 644,
+      "second_batch_line": 592,
+      "gap": 52
+    },
+    "北京": {
+      "competition_index": 618.0,
+      "competition_level": "high",
+      "first_batch_line": 644,
+      "second_batch_line": 592,
+      "gap": 52
+    },
+    "澳门": {
+      "competition_index": 618.0,
+      "competition_level": "high",
+      "first_batch_line": 644,
+      "second_batch_line": 592,
+      "gap": 52
+    },
+    "江西": {
+      "competition_index": 616.0,
+      "competition_level": "high",
+      "first_batch_line": 642,
+      "second_batch_line": 590,
+      "gap": 52
+    },
+    "天津": {
+      "competition_index": 616.0,
+      "competition_level": "high",
+      "first_batch_line": 642,
+      "second_batch_line": 590,
+      "gap": 52
+    },
+    "江苏": {
+      "competition_index": 615.0,
+      "competition_level": "high",
+      "first_batch_line": 640,
+      "second_batch_line": 590,
+      "gap": 50
+    },
+    "辽宁": {
+      "competition_index": 614.0,
+      "competition_level": "high",
+      "first_batch_line": 640,
+      "second_batch_line": 588,
+      "gap": 52
+    },
+    "陕西": {
+      "competition_index": 612.0,
+      "competition_level": "high",
+      "first_batch_line": 638,
+      "second_batch_line": 586,
+      "gap": 52
+    },
+    "重庆": {
+      "competition_index": 610.0,
+      "competition_level": "high",
+      "first_batch_line": 636,
+      "second_batch_line": 584,
+      "gap": 52
+    },
+    "吉林": {
+      "competition_index": 610.0,
+      "competition_level": "high",
+      "first_batch_line": 636,
+      "second_batch_line": 584,
+      "gap": 52
+    },
+    "山西": {
+      "competition_index": 608.0,
+      "competition_level": "high",
+      "first_batch_line": 634,
+      "second_batch_line": 582,
+      "gap": 52
+    },
+    "黑龙江": {
+      "competition_index": 606.0,
+      "competition_level": "high",
+      "first_batch_line": 632,
+      "second_batch_line": 580,
+      "gap": 52
+    },
+    "海南": {
+      "competition_index": 606.0,
+      "competition_level": "high",
+      "first_batch_line": 632,
+      "second_batch_line": 580,
+      "gap": 52
+    },
+    "贵州": {
+      "competition_index": 606.0,
+      "competition_level": "high",
+      "first_batch_line": 632,
+      "second_batch_line": 580,
+      "gap": 52
+    },
+    "广西": {
+      "competition_index": 604.0,
+      "competition_level": "high",
+      "first_batch_line": 630,
+      "second_batch_line": 578,
+      "gap": 52
+    },
+    "云南": {
+      "competition_index": 603.0,
+      "competition_level": "high",
+      "first_batch_line": 629,
+      "second_batch_line": 577,
+      "gap": 52
+    },
+    "甘肃": {
+      "competition_index": 600.0,
+      "competition_level": "high",
+      "first_batch_line": 626,
+      "second_batch_line": 574,
+      "gap": 52
+    },
+    "内蒙古": {
+      "competition_index": 598.0,
+      "competition_level": "medium",
+      "first_batch_line": 624,
+      "second_batch_line": 572,
+      "gap": 52
+    },
+    "宁夏": {
+      "competition_index": 595.0,
+      "competition_level": "medium",
+      "first_batch_line": 621,
+      "second_batch_line": 569,
+      "gap": 52
+    },
+    "青海": {
+      "competition_index": 592.0,
+      "competition_level": "medium",
+      "first_batch_line": 618,
+      "second_batch_line": 566,
+      "gap": 52
+    },
+    "新疆": {
+      "competition_index": 589.0,
+      "competition_level": "medium",
+      "first_batch_line": 615,
+      "second_batch_line": 563,
+      "gap": 52
+    },
+    "西藏": {
+      "competition_index": 587.0,
+      "competition_level": "medium",
+      "first_batch_line": 613,
+      "second_batch_line": 561,
+      "gap": 52
+    }
+  },
+  "hot_majors_ranking": [
+    {
+      "rank": 1,
+      "major_code": "080101",
+      "major_name": "理论与应用力学",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 2,
+      "major_code": "080102",
+      "major_name": "工程力学",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 3,
+      "major_code": "080201",
+      "major_name": "机械工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 4,
+      "major_code": "080202",
+      "major_name": "机械设计制造及其自动化",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 5,
+      "major_code": "080203",
+      "major_name": "材料成型及控制工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 6,
+      "major_code": "080204",
+      "major_name": "机械电子工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 7,
+      "major_code": "080205",
+      "major_name": "工业设计",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 8,
+      "major_code": "080206",
+      "major_name": "过程装备与控制工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 9,
+      "major_code": "080207",
+      "major_name": "车辆工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 10,
+      "major_code": "080208",
+      "major_name": "汽车服务工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 11,
+      "major_code": "080301",
+      "major_name": "测控技术与仪器",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 12,
+      "major_code": "080401",
+      "major_name": "材料科学与工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 13,
+      "major_code": "080402",
+      "major_name": "材料物理",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 14,
+      "major_code": "080403",
+      "major_name": "材料化学",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 15,
+      "major_code": "080404",
+      "major_name": "冶金工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 16,
+      "major_code": "080405",
+      "major_name": "金属材料工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 17,
+      "major_code": "080406",
+      "major_name": "无机非金属材料工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 18,
+      "major_code": "080407",
+      "major_name": "高分子材料与工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 19,
+      "major_code": "080408",
+      "major_name": "复合材料与工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 20,
+      "major_code": "080501",
+      "major_name": "能源与动力工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 21,
+      "major_code": "080601",
+      "major_name": "电气工程及其自动化",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 22,
+      "major_code": "080701",
+      "major_name": "电子信息工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 23,
+      "major_code": "080702",
+      "major_name": "电子科学与技术",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 24,
+      "major_code": "080703",
+      "major_name": "通信工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 25,
+      "major_code": "080704",
+      "major_name": "微电子科学与工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 26,
+      "major_code": "080705",
+      "major_name": "光电信息科学与工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 27,
+      "major_code": "080706",
+      "major_name": "信息工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 28,
+      "major_code": "080707",
+      "major_name": "广播电视工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 29,
+      "major_code": "080708",
+      "major_name": "水声工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 30,
+      "major_code": "080709",
+      "major_name": "电子封装技术",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 31,
+      "major_code": "080710",
+      "major_name": "集成电路设计与集成系统",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 32,
+      "major_code": "080711",
+      "major_name": "医学信息工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 33,
+      "major_code": "080712",
+      "major_name": "电磁场与无线技术",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 34,
+      "major_code": "080713",
+      "major_name": "电波传播与天线",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 35,
+      "major_code": "080714",
+      "major_name": "电子信息科学与技术",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 36,
+      "major_code": "080715",
+      "major_name": "电信工程及管理",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 37,
+      "major_code": "080716",
+      "major_name": "应用电子技术教育",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 38,
+      "major_code": "080801",
+      "major_name": "自动化",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 39,
+      "major_code": "080802",
+      "major_name": "机器人工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 40,
+      "major_code": "080803",
+      "major_name": "邮政工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 41,
+      "major_code": "080804",
+      "major_name": "智能装备与系统",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 42,
+      "major_code": "080805",
+      "major_name": "工业智能",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 43,
+      "major_code": "080901",
+      "major_name": "计算机科学与技术",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 44,
+      "major_code": "080902",
+      "major_name": "软件工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 45,
+      "major_code": "080903",
+      "major_name": "网络工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 46,
+      "major_code": "080904",
+      "major_name": "信息安全",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 47,
+      "major_code": "080905",
+      "major_name": "物联网工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 48,
+      "major_code": "080906",
+      "major_name": "数字媒体技术",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 49,
+      "major_code": "080907",
+      "major_name": "智能科学与技术",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 50,
+      "major_code": "080908",
+      "major_name": "空间信息与数字技术",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 51,
+      "major_code": "080909",
+      "major_name": "电子与计算机工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 52,
+      "major_code": "080910",
+      "major_name": "数据科学与大数据技术",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 53,
+      "major_code": "080911",
+      "major_name": "网络空间安全",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 54,
+      "major_code": "080912",
+      "major_name": "新媒体技术",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 55,
+      "major_code": "080913",
+      "major_name": "电影制作",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 56,
+      "major_code": "081001",
+      "major_name": "土木工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 57,
+      "major_code": "081002",
+      "major_name": "建筑环境与能源应用工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 58,
+      "major_code": "081003",
+      "major_name": "给排水科学与工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 59,
+      "major_code": "081004",
+      "major_name": "建筑电气与智能化",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 60,
+      "major_code": "081005",
+      "major_name": "城市地下空间工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 61,
+      "major_code": "081006",
+      "major_name": "道路桥梁与渡河工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 62,
+      "major_code": "081101",
+      "major_name": "水利水电工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 63,
+      "major_code": "081102",
+      "major_name": "水文与水资源工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 64,
+      "major_code": "081103",
+      "major_name": "港口航道与海岸工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 65,
+      "major_code": "081104",
+      "major_name": "水务工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 66,
+      "major_code": "081201",
+      "major_name": "测绘工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 67,
+      "major_code": "081202",
+      "major_name": "遥感科学与技术",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 68,
+      "major_code": "081203",
+      "major_name": "导航工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 69,
+      "major_code": "081204",
+      "major_name": "地理国情监测",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 70,
+      "major_code": "081205",
+      "major_name": "地理空间信息工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 71,
+      "major_code": "081301",
+      "major_name": "化学工程与工艺",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 72,
+      "major_code": "081302",
+      "major_name": "制药工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 73,
+      "major_code": "081303",
+      "major_name": "资源循环科学与工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 74,
+      "major_code": "081304",
+      "major_name": "能源化学工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 75,
+      "major_code": "081305",
+      "major_name": "化学工程与工业生物工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 76,
+      "major_code": "081401",
+      "major_name": "地质工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 77,
+      "major_code": "081402",
+      "major_name": "勘查技术与工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 78,
+      "major_code": "081403",
+      "major_name": "资源勘查工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 79,
+      "major_code": "081404",
+      "major_name": "地下水科学与工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 80,
+      "major_code": "081501",
+      "major_name": "采矿工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 81,
+      "major_code": "081502",
+      "major_name": "石油工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 82,
+      "major_code": "081503",
+      "major_name": "矿物加工工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 83,
+      "major_code": "081504",
+      "major_name": "油气储运工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 84,
+      "major_code": "081505",
+      "major_name": "矿物资源工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 85,
+      "major_code": "081506",
+      "major_name": "海洋油气工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 86,
+      "major_code": "081601",
+      "major_name": "纺织工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 87,
+      "major_code": "081602",
+      "major_name": "服装设计与工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 88,
+      "major_code": "081603",
+      "major_name": "非织造材料与工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 89,
+      "major_code": "081604",
+      "major_name": "服装设计与工艺教育",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 90,
+      "major_code": "081605",
+      "major_name": "丝绸设计与工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 91,
+      "major_code": "081701",
+      "major_name": "轻化工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 92,
+      "major_code": "081702",
+      "major_name": "包装工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 93,
+      "major_code": "081703",
+      "major_name": "印刷工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 94,
+      "major_code": "081801",
+      "major_name": "交通运输",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 95,
+      "major_code": "081802",
+      "major_name": "交通工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 96,
+      "major_code": "081803",
+      "major_name": "航海技术",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 97,
+      "major_code": "081804",
+      "major_name": "轮机工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 98,
+      "major_code": "081805",
+      "major_name": "飞行技术",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 99,
+      "major_code": "081806",
+      "major_name": "交通设备与控制工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    },
+    {
+      "rank": 100,
+      "major_code": "081807",
+      "major_name": "救助与打捞工程",
+      "category": "工学",
+      "total_score": 41.4,
+      "hot_level": 3,
+      "employment_outlook": "excellent",
+      "salary_outlook": "high"
+    }
+  ]
+}

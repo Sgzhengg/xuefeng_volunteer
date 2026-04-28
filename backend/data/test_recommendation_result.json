@@ -1,0 +1,260 @@
+{
+  "success": true,
+  "data": {
+    "basic_info": {
+      "province": "浙江",
+      "score": 680,
+      "rank": 10874,
+      "subject_type": "理科",
+      "target_majors": [
+        "计算机科学与技术",
+        "人工智能"
+      ],
+      "generated_at": "2026-04-23 14:34:31"
+    },
+    "冲刺": [
+      {
+        "university_id": "1",
+        "university_name": "北京大学",
+        "university_level": "985",
+        "university_type": "综合",
+        "province": "北京",
+        "city": "北京",
+        "major": "计算机科学与技术",
+        "probability": 30,
+        "probability_range": "25-35%",
+        "category": "冲刺",
+        "score_gap": -1,
+        "rank_gap": -57226,
+        "suggestions": [
+          "分数接近，可以尝试",
+          "建议放在志愿前面",
+          "需要一些运气"
+        ],
+        "university_highlights": [
+          "全国排名#23",
+          "软科排名#23",
+          "12个国家重点学科"
+        ],
+        "major_highlights": [
+          "就业前景：市场需求旺盛，就业率高，薪资水平较高，发展前景广阔",
+          "核心课程丰富",
+          "薪资前景：起薪较高，发展潜力大，资深工程师年薪可观"
+        ],
+        "employment_info": {
+          "employment_rate": 0.96,
+          "average_salary": "8000-15000元/月",
+          "top_employers": [
+            "华为",
+            "腾讯",
+            "阿里巴巴"
+          ]
+        },
+        "university_employment": {
+          "employment_rate": 0.97,
+          "graduate_school_rate": 0.3
+        }
+      },
+      {
+        "university_id": "2",
+        "university_name": "清华大学",
+        "university_level": "985",
+        "university_type": "综合",
+        "province": "北京",
+        "city": "北京",
+        "major": "计算机科学与技术",
+        "probability": 30,
+        "probability_range": "25-35%",
+        "category": "冲刺",
+        "score_gap": -1,
+        "rank_gap": -57226,
+        "suggestions": [
+          "分数接近，可以尝试",
+          "建议放在志愿前面",
+          "需要一些运气"
+        ],
+        "university_highlights": [
+          "全国排名#2",
+          "软科排名#2",
+          "14个国家重点学科"
+        ],
+        "major_highlights": [
+          "就业前景：市场需求旺盛，就业率高，薪资水平较高，发展前景广阔",
+          "核心课程丰富",
+          "薪资前景：起薪较高，发展潜力大，资深工程师年薪可观"
+        ],
+        "employment_info": {
+          "employment_rate": 0.96,
+          "average_salary": "8000-15000元/月",
+          "top_employers": [
+            "华为",
+            "腾讯",
+            "阿里巴巴"
+          ]
+        },
+        "university_employment": {
+          "employment_rate": 0.97,
+          "graduate_school_rate": 0.3
+        }
+      },
+      {
+        "university_id": "5",
+        "university_name": "浙江大学",
+        "university_level": "985",
+        "university_type": "综合",
+        "province": "浙江",
+        "city": "杭州",
+        "major": "计算机科学与技术",
+        "probability": 30,
+        "probability_range": "25-35%",
+        "category": "冲刺",
+        "score_gap": -1,
+        "rank_gap": -57226,
+        "suggestions": [
+          "分数接近，可以尝试",
+          "建议放在志愿前面",
+          "需要一些运气"
+        ],
+        "university_highlights": [
+          "全国排名#39",
+          "软科排名#39",
+          "13个国家重点学科"
+        ],
+        "major_highlights": [
+          "就业前景：市场需求旺盛，就业率高，薪资水平较高，发展前景广阔",
+          "核心课程丰富",
+          "薪资前景：起薪较高，发展潜力大，资深工程师年薪可观"
+        ],
+        "employment_info": {
+          "employment_rate": 0.96,
+          "average_salary": "8000-15000元/月",
+          "top_employers": [
+            "华为",
+            "腾讯",
+            "阿里巴巴"
+          ]
+        },
+        "university_employment": {
+          "employment_rate": 0.97,
+          "graduate_school_rate": 0.3
+        }
+      },
+      {
+        "university_id": "3",
+        "university_name": "复旦大学",
+        "university_level": "985",
+        "university_type": "综合",
+        "province": "上海",
+        "city": "上海",
+        "major": "计算机科学与技术",
+        "probability": 30,
+        "probability_range": "25-35%",
+        "category": "冲刺",
+        "score_gap": -1,
+        "rank_gap": -57226,
+        "suggestions": [
+          "分数接近，可以尝试",
+          "建议放在志愿前面",
+          "需要一些运气"
+        ],
+        "university_highlights": [
+          "全国排名#20",
+          "软科排名#20",
+          "11个国家重点学科"
+        ],
+        "major_highlights": [
+          "就业前景：市场需求旺盛，就业率高，薪资水平较高，发展前景广阔",
+          "核心课程丰富",
+          "薪资前景：起薪较高，发展潜力大，资深工程师年薪可观"
+        ],
+        "employment_info": {
+          "employment_rate": 0.96,
+          "average_salary": "8000-15000元/月",
+          "top_employers": [
+            "华为",
+            "腾讯",
+            "阿里巴巴"
+          ]
+        },
+        "university_employment": {
+          "employment_rate": 0.97,
+          "graduate_school_rate": 0.3
+        }
+      },
+      {
+        "university_id": "4",
+        "university_name": "上海交通大学",
+        "university_level": "985",
+        "university_type": "综合",
+        "province": "上海",
+        "city": "上海",
+        "major": "计算机科学与技术",
+        "probability": 30,
+        "probability_range": "25-35%",
+        "category": "冲刺",
+        "score_gap": -1,
+        "rank_gap": -57226,
+        "suggestions": [
+          "分数接近，可以尝试",
+          "建议放在志愿前面",
+          "需要一些运气"
+        ],
+        "university_highlights": [
+          "全国排名#31",
+          "软科排名#31",
+          "25个国家重点学科"
+        ],
+        "major_highlights": [
+          "就业前景：市场需求旺盛，就业率高，薪资水平较高，发展前景广阔",
+          "核心课程丰富",
+          "薪资前景：起薪较高，发展潜力大，资深工程师年薪可观"
+        ],
+        "employment_info": {
+          "employment_rate": 0.96,
+          "average_salary": "8000-15000元/月",
+          "top_employers": [
+            "华为",
+            "腾讯",
+            "阿里巴巴"
+          ]
+        },
+        "university_employment": {
+          "employment_rate": 0.97,
+          "graduate_school_rate": 0.3
+        }
+      }
+    ],
+    "稳妥": [],
+    "保底": [],
+    "垫底": [],
+    "analysis": {
+      "total_count": 5,
+      "category_counts": {
+        "冲刺": 5,
+        "稳妥": 0,
+        "保底": 0,
+        "垫底": 0
+      },
+      "score_distribution": {},
+      "university_levels": {
+        "冲刺": {
+          "985": 5
+        },
+        "稳妥": {},
+        "保底": {},
+        "垫底": {}
+      },
+      "major_distribution": {},
+      "comments": [
+        "匹配院校较少，建议扩大专业范围"
+      ]
+    },
+    "advice": [
+      "有5个冲刺院校，建议选择1-2个最有希望的",
+      "稳妥院校不足，建议补充",
+      "保底院校不足，建议补充",
+      "建议至少有1个垫底院校",
+      "建议比例：冲刺20%，稳妥40%，保底30%，垫底10%"
+    ]
+  }
+}

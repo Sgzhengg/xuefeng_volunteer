@@ -1,0 +1,7350 @@
+{
+  "metadata": {
+    "total_cities": 92,
+    "generated_at": "2026-04-23T13:05:52.613204"
+  },
+  "cities": {
+    "三亚": {
+      "basic_info": {
+        "province": "海南",
+        "city_level": "地级市",
+        "population": "449万",
+        "area": "14249km²",
+        "gdp": "6249亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "优良"
+      },
+      "education": {
+        "university_count": 85,
+        "985_211_count": 0,
+        "education_level": "教育资源较丰富",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 78.98,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "上海": {
+      "basic_info": {
+        "province": "上海",
+        "city_level": "直辖市",
+        "population": "1590万",
+        "area": "19090km²",
+        "gdp": "39090亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "18-25万元",
+        "gdp_growth": "6.5%-7.5%",
+        "disposable_income": "6-8万元/年",
+        "economic_level": "发达"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "金融",
+          "贸易",
+          "航运",
+          "汽车"
+        ],
+        "leading_companies": [
+          "上汽集团",
+          "宝钢集团",
+          "交通银行",
+          "浦发银行",
+          "拼多多"
+        ],
+        "industrial_parks": [
+          "张江高科",
+          "外高桥",
+          "紫竹高新区"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "高",
+        "rent": "3500-8000元/月（单间）",
+        "food_cost": "2000-3500元/月",
+        "transportation": "500-1000元/月",
+        "overall_level": "高"
+      },
+      "climate": {
+        "climate_type": "亚热带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "良好"
+      },
+      "education": {
+        "university_count": 102,
+        "985_211_count": 10,
+        "education_level": "教育资源丰富",
+        "key_universities": [
+          "复旦大学",
+          "上海交通大学",
+          "同济大学",
+          "华东师范大学",
+          "上海财经大学",
+          "上海外国语大学",
+          "华东理工大学",
+          "东华大学",
+          "上海大学",
+          "第二军医大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "96%以上",
+        "average_salary": "8000-15000元/月",
+        "job_opportunities": "丰富",
+        "major_employers": [
+          "上汽集团",
+          "宝钢集团",
+          "交通银行",
+          "浦发银行",
+          "拼多多"
+        ],
+        "hot_industries": [
+          "金融",
+          "贸易",
+          "航运",
+          "汽车"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 81.8,
+        "livability_level": "宜居",
+        "advantages": [
+          "经济发达",
+          "国际化程度高",
+          "就业机会多",
+          "交通便利"
+        ],
+        "challenges": [
+          "生活成本高",
+          "竞争激烈",
+          "工作压力大"
+        ]
+      }
+    },
+    "东莞": {
+      "basic_info": {
+        "province": "广东",
+        "city_level": "地级市",
+        "population": "760万",
+        "area": "15760km²",
+        "gdp": "10760亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 0,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.2,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "中山": {
+      "basic_info": {
+        "province": "广东",
+        "city_level": "地级市",
+        "population": "505万",
+        "area": "11905km²",
+        "gdp": "9905亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 0,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.1,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "临汾": {
+      "basic_info": {
+        "province": "未知",
+        "city_level": "地级市",
+        "population": "428万",
+        "area": "18428km²",
+        "gdp": "10428亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.56,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "乌鲁木齐": {
+      "basic_info": {
+        "province": "新疆",
+        "city_level": "省会城市",
+        "population": "522万",
+        "area": "15522km²",
+        "gdp": "7522亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "温带大陆性气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 89,
+        "985_211_count": 1,
+        "education_level": "教育资源较丰富",
+        "key_universities": [
+          "新疆大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.44,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "保定": {
+      "basic_info": {
+        "province": "河北",
+        "city_level": "地级市",
+        "population": "499万",
+        "area": "5299km²",
+        "gdp": "6299亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 2,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.98,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "兰州": {
+      "basic_info": {
+        "province": "甘肃",
+        "city_level": "省会城市",
+        "population": "682万",
+        "area": "16882km²",
+        "gdp": "11882亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 2,
+        "985_211_count": 2,
+        "education_level": "教育资源较少",
+        "key_universities": [
+          "兰州大学",
+          "兰州大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.64,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "包头": {
+      "basic_info": {
+        "province": "内蒙古",
+        "city_level": "地级市",
+        "population": "386万",
+        "area": "6386km²",
+        "gdp": "10386亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 84,
+        "985_211_count": 0,
+        "education_level": "教育资源较丰富",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.72,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "北京": {
+      "basic_info": {
+        "province": "北京",
+        "city_level": "直辖市",
+        "population": "1972万",
+        "area": "18472km²",
+        "gdp": "38472亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "18-25万元",
+        "gdp_growth": "6.5%-7.5%",
+        "disposable_income": "6-8万元/年",
+        "economic_level": "发达"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "金融",
+          "科技",
+          "文化",
+          "教育"
+        ],
+        "leading_companies": [
+          "中国石油",
+          "工商银行",
+          "建设银行",
+          "中国移动",
+          "京东"
+        ],
+        "industrial_parks": [
+          "中关村科技园",
+          "亦庄开发区",
+          "临空经济区"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "高",
+        "rent": "3500-8000元/月（单间）",
+        "food_cost": "2000-3500元/月",
+        "transportation": "500-1000元/月",
+        "overall_level": "高"
+      },
+      "climate": {
+        "climate_type": "温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 114,
+        "985_211_count": 23,
+        "education_level": "教育资源丰富",
+        "key_universities": [
+          "北京大学",
+          "清华大学",
+          "北京航空航天大学",
+          "中国人民大学",
+          "北京师范大学",
+          "北京理工大学",
+          "中央民族大学",
+          "北京交通大学",
+          "北京工业大学",
+          "北京科技大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "96%以上",
+        "average_salary": "8000-15000元/月",
+        "job_opportunities": "丰富",
+        "major_employers": [
+          "中国石油",
+          "工商银行",
+          "建设银行",
+          "中国移动",
+          "京东"
+        ],
+        "hot_industries": [
+          "金融",
+          "科技",
+          "文化",
+          "教育"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 81.44,
+        "livability_level": "宜居",
+        "advantages": [
+          "教育资源顶尖",
+          "文化底蕴深厚",
+          "就业机会多",
+          "医疗水平高"
+        ],
+        "challenges": [
+          "房价高",
+          "交通拥堵",
+          "工作压力大",
+          "冬季寒冷干燥"
+        ]
+      }
+    },
+    "十堰": {
+      "basic_info": {
+        "province": "未知",
+        "city_level": "地级市",
+        "population": "473万",
+        "area": "10073km²",
+        "gdp": "11073亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.46,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "南京": {
+      "basic_info": {
+        "province": "江苏",
+        "city_level": "省会城市",
+        "population": "1436万",
+        "area": "17836km²",
+        "gdp": "19836亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "软件",
+          "电子",
+          "汽车",
+          "石化"
+        ],
+        "leading_companies": [
+          "苏宁易购",
+          "汇通达",
+          "国电南瑞",
+          "焦点科技"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "良好"
+      },
+      "education": {
+        "university_count": 11,
+        "985_211_count": 8,
+        "education_level": "教育资源丰富",
+        "key_universities": [
+          "南京大学",
+          "东南大学",
+          "南京航空航天大学",
+          "南京理工大学",
+          "中国药科大学",
+          "河海大学",
+          "南京师范大学",
+          "南京农业大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "苏宁易购",
+          "汇通达",
+          "国电南瑞",
+          "焦点科技"
+        ],
+        "hot_industries": [
+          "软件",
+          "电子",
+          "汽车",
+          "石化"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.72,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "南宁": {
+      "basic_info": {
+        "province": "广西",
+        "city_level": "省会城市",
+        "population": "710万",
+        "area": "18110km²",
+        "gdp": "7110亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 3,
+        "985_211_count": 1,
+        "education_level": "教育资源较少",
+        "key_universities": [
+          "广西大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.2,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "南昌": {
+      "basic_info": {
+        "province": "江西",
+        "city_level": "省会城市",
+        "population": "285万",
+        "area": "6285km²",
+        "gdp": "4285亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 5,
+        "985_211_count": 1,
+        "education_level": "教育资源一般",
+        "key_universities": [
+          "南昌大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.7,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "南通": {
+      "basic_info": {
+        "province": "江苏",
+        "city_level": "地级市",
+        "population": "677万",
+        "area": "18677km²",
+        "gdp": "4677亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.54,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "南阳": {
+      "basic_info": {
+        "province": "河南",
+        "city_level": "地级市",
+        "population": "783万",
+        "area": "6783km²",
+        "gdp": "7783亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 0,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.66,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "厦门": {
+      "basic_info": {
+        "province": "未知",
+        "city_level": "计划单列市",
+        "population": "775万",
+        "area": "8575km²",
+        "gdp": "3575亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "电子",
+          "旅游",
+          "贸易",
+          "金融"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "优良"
+      },
+      "education": {
+        "university_count": 2,
+        "985_211_count": 2,
+        "education_level": "教育资源较少",
+        "key_universities": [
+          "厦门大学",
+          "厦门大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "电子",
+          "旅游",
+          "贸易",
+          "金融"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 89.5,
+        "livability_level": "非常宜居",
+        "advantages": [
+          "环境优美",
+          "气候宜人",
+          "空气质量好",
+          "文艺氛围"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "台州": {
+      "basic_info": {
+        "province": "浙江",
+        "city_level": "地级市",
+        "population": "597万",
+        "area": "17997km²",
+        "gdp": "3997亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 0,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.94,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "合肥": {
+      "basic_info": {
+        "province": "安徽",
+        "city_level": "省会城市",
+        "population": "555万",
+        "area": "9555km²",
+        "gdp": "7555亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 89,
+        "985_211_count": 3,
+        "education_level": "教育资源较丰富",
+        "key_universities": [
+          "中国科学技术大学",
+          "安徽大学",
+          "合肥工业大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.1,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "呼和浩特": {
+      "basic_info": {
+        "province": "内蒙古",
+        "city_level": "省会城市",
+        "population": "348万",
+        "area": "7548km²",
+        "gdp": "5548亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 6,
+        "985_211_count": 1,
+        "education_level": "教育资源一般",
+        "key_universities": [
+          "内蒙古大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.96,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "咸阳": {
+      "basic_info": {
+        "province": "陕西",
+        "city_level": "地级市",
+        "population": "621万",
+        "area": "16221km²",
+        "gdp": "5221亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 85,
+        "985_211_count": 0,
+        "education_level": "教育资源较丰富",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.42,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "哈尔滨": {
+      "basic_info": {
+        "province": "黑龙江",
+        "city_level": "省会城市",
+        "population": "682万",
+        "area": "7282km²",
+        "gdp": "5282亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "温带大陆性气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 7,
+        "985_211_count": 3,
+        "education_level": "教育资源一般",
+        "key_universities": [
+          "哈尔滨工业大学",
+          "东北林业大学",
+          "哈尔滨工程大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.64,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "唐山": {
+      "basic_info": {
+        "province": "河北",
+        "city_level": "地级市",
+        "population": "205万",
+        "area": "8605km²",
+        "gdp": "9605亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 84,
+        "985_211_count": 0,
+        "education_level": "教育资源较丰富",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.1,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "嘉兴": {
+      "basic_info": {
+        "province": "浙江",
+        "city_level": "地级市",
+        "population": "705万",
+        "area": "6105km²",
+        "gdp": "10105亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 0,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.1,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "四平": {
+      "basic_info": {
+        "province": "吉林",
+        "city_level": "地级市",
+        "population": "462万",
+        "area": "11862km²",
+        "gdp": "9862亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.24,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "大同": {
+      "basic_info": {
+        "province": "未知",
+        "city_level": "地级市",
+        "population": "374万",
+        "area": "14774km²",
+        "gdp": "6774亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 84,
+        "985_211_count": 0,
+        "education_level": "教育资源较丰富",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.48,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "大连": {
+      "basic_info": {
+        "province": "未知",
+        "city_level": "计划单列市",
+        "population": "621万",
+        "area": "6021km²",
+        "gdp": "7021亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "软件",
+          "装备制造",
+          "石化",
+          "航运"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 89,
+        "985_211_count": 2,
+        "education_level": "教育资源较丰富",
+        "key_universities": [
+          "大连理工大学",
+          "大连海事大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "软件",
+          "装备制造",
+          "石化",
+          "航运"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 78.42,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "天津": {
+      "basic_info": {
+        "province": "天津",
+        "city_level": "直辖市",
+        "population": "805万",
+        "area": "15405km²",
+        "gdp": "13405亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "航空航天",
+          "石油化工",
+          "汽车",
+          "港口"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 93,
+        "985_211_count": 4,
+        "education_level": "教育资源较丰富",
+        "key_universities": [
+          "天津大学",
+          "南开大学",
+          "天津医科大学",
+          "河北工业大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "航空航天",
+          "石油化工",
+          "汽车",
+          "港口"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.1,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "太原": {
+      "basic_info": {
+        "province": "山西",
+        "city_level": "省会城市",
+        "population": "740万",
+        "area": "19340km²",
+        "gdp": "11340亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 5,
+        "985_211_count": 1,
+        "education_level": "教育资源一般",
+        "key_universities": [
+          "太原理工大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.8,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "宁波": {
+      "basic_info": {
+        "province": "未知",
+        "city_level": "计划单列市",
+        "population": "304万",
+        "area": "19504km²",
+        "gdp": "18504亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "港口",
+          "石化",
+          "纺织",
+          "家电"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "港口",
+          "石化",
+          "纺织",
+          "家电"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.08,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "宜昌": {
+      "basic_info": {
+        "province": "湖北",
+        "city_level": "地级市",
+        "population": "784万",
+        "area": "6784km²",
+        "gdp": "4784亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.68,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "常州": {
+      "basic_info": {
+        "province": "江苏",
+        "city_level": "地级市",
+        "population": "467万",
+        "area": "15467km²",
+        "gdp": "10467亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 85,
+        "985_211_count": 0,
+        "education_level": "教育资源较丰富",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.34,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "广州": {
+      "basic_info": {
+        "province": "广东",
+        "city_level": "省会城市",
+        "population": "1602万",
+        "area": "8102km²",
+        "gdp": "28102亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "18-25万元",
+        "gdp_growth": "6.5%-7.5%",
+        "disposable_income": "6-8万元/年",
+        "economic_level": "发达"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "贸易",
+          "汽车",
+          "电子",
+          "化工"
+        ],
+        "leading_companies": [
+          "广汽集团",
+          "网易",
+          "南方电网",
+          "保利地产",
+          "广药集团"
+        ],
+        "industrial_parks": [
+          "广州科学城",
+          "南沙新区",
+          "天河智慧城"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "高",
+        "rent": "3500-8000元/月（单间）",
+        "food_cost": "2000-3500元/月",
+        "transportation": "500-1000元/月",
+        "overall_level": "高"
+      },
+      "climate": {
+        "climate_type": "亚热带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "良好"
+      },
+      "education": {
+        "university_count": 8,
+        "985_211_count": 4,
+        "education_level": "教育资源丰富",
+        "key_universities": [
+          "华南理工大学",
+          "中山大学",
+          "暨南大学",
+          "华南师范大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "96%以上",
+        "average_salary": "8000-15000元/月",
+        "job_opportunities": "丰富",
+        "major_employers": [
+          "广汽集团",
+          "网易",
+          "南方电网",
+          "保利地产",
+          "广药集团"
+        ],
+        "hot_industries": [
+          "贸易",
+          "汽车",
+          "电子",
+          "化工"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 80.04,
+        "livability_level": "宜居",
+        "advantages": [
+          "美食之都",
+          "商贸发达",
+          "气候宜人",
+          "生活成本相对较低"
+        ],
+        "challenges": [
+          "夏季炎热潮湿",
+          "交通拥堵"
+        ]
+      }
+    },
+    "延吉": {
+      "basic_info": {
+        "province": "未知",
+        "city_level": "地级市",
+        "population": "549万",
+        "area": "8349km²",
+        "gdp": "9349亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 1,
+        "education_level": "教育资源较少",
+        "key_universities": [
+          "延边大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.98,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "开封": {
+      "basic_info": {
+        "province": "未知",
+        "city_level": "地级市",
+        "population": "543万",
+        "area": "17343km²",
+        "gdp": "9343亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 85,
+        "985_211_count": 0,
+        "education_level": "教育资源较丰富",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.86,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "徐州": {
+      "basic_info": {
+        "province": "江苏",
+        "city_level": "地级市",
+        "population": "205万",
+        "area": "16405km²",
+        "gdp": "11405亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 2,
+        "985_211_count": 1,
+        "education_level": "教育资源较少",
+        "key_universities": [
+          "中国矿业大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.1,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "惠州": {
+      "basic_info": {
+        "province": "广东",
+        "city_level": "地级市",
+        "population": "286万",
+        "area": "18286km²",
+        "gdp": "7286亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 0,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.72,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "成都": {
+      "basic_info": {
+        "province": "四川",
+        "city_level": "省会城市",
+        "population": "1128万",
+        "area": "18828km²",
+        "gdp": "12828亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "电子",
+          "汽车",
+          "航空",
+          "金融"
+        ],
+        "leading_companies": [
+          "成都银行",
+          "新希望集团",
+          "通威股份",
+          "四川航空"
+        ],
+        "industrial_parks": [
+          "成都高新区",
+          "天府新区",
+          "双流航空港"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 10,
+        "985_211_count": 5,
+        "education_level": "教育资源较丰富",
+        "key_universities": [
+          "四川大学",
+          "电子科技大学",
+          "四川大学",
+          "西南交通大学",
+          "电子科技大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "成都银行",
+          "新希望集团",
+          "通威股份",
+          "四川航空"
+        ],
+        "hot_industries": [
+          "电子",
+          "汽车",
+          "航空",
+          "金融"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 78.56,
+        "livability_level": "较宜居",
+        "advantages": [
+          "美食丰富",
+          "生活节奏慢",
+          "气候宜人",
+          "文化多元"
+        ],
+        "challenges": [
+          "就业机会相对一线较少",
+          "冬季阴冷"
+        ]
+      }
+    },
+    "扬州": {
+      "basic_info": {
+        "province": "未知",
+        "city_level": "地级市",
+        "population": "358万",
+        "area": "11758km²",
+        "gdp": "3758亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.16,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "拉萨": {
+      "basic_info": {
+        "province": "西藏",
+        "city_level": "省会城市",
+        "population": "512万",
+        "area": "13712km²",
+        "gdp": "8712亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "高原山地气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "优良"
+      },
+      "education": {
+        "university_count": 86,
+        "985_211_count": 1,
+        "education_level": "教育资源较丰富",
+        "key_universities": [
+          "西藏大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 80.24,
+        "livability_level": "宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "新乡": {
+      "basic_info": {
+        "province": "河南",
+        "city_level": "地级市",
+        "population": "311万",
+        "area": "8711km²",
+        "gdp": "6711亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.22,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "无锡": {
+      "basic_info": {
+        "province": "江苏",
+        "city_level": "地级市",
+        "population": "525万",
+        "area": "15525km²",
+        "gdp": "19525亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 1,
+        "education_level": "教育资源较少",
+        "key_universities": [
+          "江南大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.5,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "昆明": {
+      "basic_info": {
+        "province": "云南",
+        "city_level": "省会城市",
+        "population": "443万",
+        "area": "8243km²",
+        "gdp": "6243亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带高原季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "优良"
+      },
+      "education": {
+        "university_count": 90,
+        "985_211_count": 1,
+        "education_level": "教育资源较丰富",
+        "key_universities": [
+          "云南大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 88.86,
+        "livability_level": "非常宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "杨凌": {
+      "basic_info": {
+        "province": "未知",
+        "city_level": "地级市",
+        "population": "261万",
+        "area": "8661km²",
+        "gdp": "6661亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 1,
+        "education_level": "教育资源较少",
+        "key_universities": [
+          "西北农林科技大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.22,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "杭州": {
+      "basic_info": {
+        "province": "浙江",
+        "city_level": "省会城市",
+        "population": "895万",
+        "area": "16295km²",
+        "gdp": "16295亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "互联网",
+          "电商",
+          "金融",
+          "软件"
+        ],
+        "leading_companies": [
+          "阿里巴巴",
+          "蚂蚁集团",
+          "吉利汽车",
+          "海康威视",
+          "网易"
+        ],
+        "industrial_parks": [
+          "未来科技城",
+          "滨江高新区",
+          "萧山经开区"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "良好"
+      },
+      "education": {
+        "university_count": 7,
+        "985_211_count": 2,
+        "education_level": "教育资源一般",
+        "key_universities": [
+          "浙江大学",
+          "浙江大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "阿里巴巴",
+          "蚂蚁集团",
+          "吉利汽车",
+          "海康威视",
+          "网易"
+        ],
+        "hot_industries": [
+          "互联网",
+          "电商",
+          "金融",
+          "软件"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 79.9,
+        "livability_level": "较宜居",
+        "advantages": [
+          "风景优美",
+          "互联网产业发达",
+          "人文底蕴",
+          "交通便利"
+        ],
+        "challenges": [
+          "房价高",
+          "交通拥堵",
+          "夏季炎热"
+        ]
+      }
+    },
+    "柳州": {
+      "basic_info": {
+        "province": "广西",
+        "city_level": "地级市",
+        "population": "606万",
+        "area": "10806km²",
+        "gdp": "8806亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 84,
+        "985_211_count": 0,
+        "education_level": "教育资源较丰富",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.12,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "桂林": {
+      "basic_info": {
+        "province": "广西",
+        "city_level": "地级市",
+        "population": "453万",
+        "area": "18453km²",
+        "gdp": "4453亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 3,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.06,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "武汉": {
+      "basic_info": {
+        "province": "湖北",
+        "city_level": "省会城市",
+        "population": "1100万",
+        "area": "10900km²",
+        "gdp": "17900亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "光电子",
+          "汽车",
+          "钢铁",
+          "生物医药"
+        ],
+        "leading_companies": [
+          "东风汽车",
+          "葛洲坝集团",
+          "九州通",
+          "华星光电"
+        ],
+        "industrial_parks": [
+          "东湖高新区",
+          "武汉经开区",
+          "临空港经开区"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "良好"
+      },
+      "education": {
+        "university_count": 54,
+        "985_211_count": 8,
+        "education_level": "教育资源丰富",
+        "key_universities": [
+          "华中科技大学",
+          "武汉大学",
+          "华中农业大学",
+          "中国地质大学(武汉)",
+          "武汉理工大学",
+          "华中师范大学",
+          "华中农业大学",
+          "中南财经政法大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "东风汽车",
+          "葛洲坝集团",
+          "九州通",
+          "华星光电"
+        ],
+        "hot_industries": [
+          "光电子",
+          "汽车",
+          "钢铁",
+          "生物医药"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.0,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "汕头": {
+      "basic_info": {
+        "province": "未知",
+        "city_level": "地级市",
+        "population": "398万",
+        "area": "15398km²",
+        "gdp": "10398亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.96,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "沈阳": {
+      "basic_info": {
+        "province": "辽宁",
+        "city_level": "省会城市",
+        "population": "225万",
+        "area": "17025km²",
+        "gdp": "9025亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 6,
+        "985_211_count": 2,
+        "education_level": "教育资源一般",
+        "key_universities": [
+          "东北大学",
+          "辽宁大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.5,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "泉州": {
+      "basic_info": {
+        "province": "福建",
+        "city_level": "地级市",
+        "population": "295万",
+        "area": "9895km²",
+        "gdp": "4895亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 43,
+        "985_211_count": 0,
+        "education_level": "教育资源较丰富",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.9,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "泸州": {
+      "basic_info": {
+        "province": "未知",
+        "city_level": "地级市",
+        "population": "703万",
+        "area": "12703km²",
+        "gdp": "7703亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 43,
+        "985_211_count": 0,
+        "education_level": "教育资源较丰富",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.06,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "洛阳": {
+      "basic_info": {
+        "province": "河南",
+        "city_level": "地级市",
+        "population": "789万",
+        "area": "16989km²",
+        "gdp": "11989亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.78,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "济南": {
+      "basic_info": {
+        "province": "山东",
+        "city_level": "省会城市",
+        "population": "424万",
+        "area": "10624km²",
+        "gdp": "8624亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 4,
+        "985_211_count": 1,
+        "education_level": "教育资源较少",
+        "key_universities": [
+          "山东大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.48,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "海口": {
+      "basic_info": {
+        "province": "海南",
+        "city_level": "省会城市",
+        "population": "406万",
+        "area": "13006km²",
+        "gdp": "5006亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "优良"
+      },
+      "education": {
+        "university_count": 3,
+        "985_211_count": 1,
+        "education_level": "教育资源较少",
+        "key_universities": [
+          "海南大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 80.12,
+        "livability_level": "宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "淮南": {
+      "basic_info": {
+        "province": "未知",
+        "city_level": "地级市",
+        "population": "775万",
+        "area": "13375km²",
+        "gdp": "5375亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.5,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "深圳": {
+      "basic_info": {
+        "province": "未知",
+        "city_level": "计划单列市",
+        "population": "2122万",
+        "area": "8622km²",
+        "gdp": "28622亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "18-25万元",
+        "gdp_growth": "6.5%-7.5%",
+        "disposable_income": "6-8万元/年",
+        "economic_level": "发达"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "电子",
+          "互联网",
+          "金融",
+          "新能源"
+        ],
+        "leading_companies": [
+          "华为",
+          "腾讯",
+          "比亚迪",
+          "中国平安",
+          "招商银行"
+        ],
+        "industrial_parks": [
+          "南山科技园",
+          "坂田华为基地",
+          "前海深港合作区"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "高",
+        "rent": "3500-8000元/月（单间）",
+        "food_cost": "2000-3500元/月",
+        "transportation": "500-1000元/月",
+        "overall_level": "高"
+      },
+      "climate": {
+        "climate_type": "亚热带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "优良"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "96%以上",
+        "average_salary": "8000-15000元/月",
+        "job_opportunities": "丰富",
+        "major_employers": [
+          "华为",
+          "腾讯",
+          "比亚迪",
+          "中国平安",
+          "招商银行"
+        ],
+        "hot_industries": [
+          "电子",
+          "互联网",
+          "金融",
+          "新能源"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 90.44,
+        "livability_level": "非常宜居",
+        "advantages": [
+          "气候温暖",
+          "科技创新活跃",
+          "年轻活力",
+          "空气质量好"
+        ],
+        "challenges": [
+          "生活成本高",
+          "房价高",
+          "教育资源相对紧张"
+        ]
+      }
+    },
+    "温州": {
+      "basic_info": {
+        "province": "浙江",
+        "city_level": "地级市",
+        "population": "341万",
+        "area": "11141km²",
+        "gdp": "3141亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.82,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "湘潭": {
+      "basic_info": {
+        "province": "湖南",
+        "city_level": "地级市",
+        "population": "553万",
+        "area": "6553km²",
+        "gdp": "4553亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 84,
+        "985_211_count": 0,
+        "education_level": "教育资源较丰富",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.06,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "潍坊": {
+      "basic_info": {
+        "province": "山东",
+        "city_level": "地级市",
+        "population": "237万",
+        "area": "7437km²",
+        "gdp": "11437亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 42,
+        "985_211_count": 0,
+        "education_level": "教育资源较丰富",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.74,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "烟台": {
+      "basic_info": {
+        "province": "山东",
+        "city_level": "地级市",
+        "population": "677万",
+        "area": "9077km²",
+        "gdp": "7077亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.54,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "牡丹江": {
+      "basic_info": {
+        "province": "未知",
+        "city_level": "地级市",
+        "population": "410万",
+        "area": "8810km²",
+        "gdp": "3810亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 84,
+        "985_211_count": 0,
+        "education_level": "教育资源较丰富",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.2,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "珠海": {
+      "basic_info": {
+        "province": "广东",
+        "city_level": "地级市",
+        "population": "751万",
+        "area": "19951km²",
+        "gdp": "11951亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "优良"
+      },
+      "education": {
+        "university_count": 85,
+        "985_211_count": 0,
+        "education_level": "教育资源较丰富",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 81.02,
+        "livability_level": "宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "石嘴山": {
+      "basic_info": {
+        "province": "未知",
+        "city_level": "地级市",
+        "population": "504万",
+        "area": "11304km²",
+        "gdp": "6304亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.08,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "石家庄": {
+      "basic_info": {
+        "province": "河北",
+        "city_level": "省会城市",
+        "population": "708万",
+        "area": "7908km²",
+        "gdp": "5908亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 4,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.16,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "石河子": {
+      "basic_info": {
+        "province": "未知",
+        "city_level": "地级市",
+        "population": "651万",
+        "area": "11451km²",
+        "gdp": "3451亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 1,
+        "education_level": "教育资源较少",
+        "key_universities": [
+          "石河子大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.02,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "福州": {
+      "basic_info": {
+        "province": "福建",
+        "city_level": "省会城市",
+        "population": "633万",
+        "area": "18633km²",
+        "gdp": "7633亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 47,
+        "985_211_count": 1,
+        "education_level": "教育资源较丰富",
+        "key_universities": [
+          "福州大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.66,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "绍兴": {
+      "basic_info": {
+        "province": "浙江",
+        "city_level": "地级市",
+        "population": "707万",
+        "area": "15707km²",
+        "gdp": "10707亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 85,
+        "985_211_count": 0,
+        "education_level": "教育资源较丰富",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.14,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "绵阳": {
+      "basic_info": {
+        "province": "四川",
+        "city_level": "地级市",
+        "population": "563万",
+        "area": "8363km²",
+        "gdp": "6363亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 44,
+        "985_211_count": 0,
+        "education_level": "教育资源较丰富",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.26,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "芜湖": {
+      "basic_info": {
+        "province": "安徽",
+        "city_level": "地级市",
+        "population": "622万",
+        "area": "7222km²",
+        "gdp": "8222亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.44,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "苏州": {
+      "basic_info": {
+        "province": "江苏",
+        "city_level": "地级市",
+        "population": "1489万",
+        "area": "12289km²",
+        "gdp": "19289亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "电子",
+          "机械",
+          "纺织",
+          "化工"
+        ],
+        "leading_companies": [
+          "恒力集团",
+          "沙钢集团",
+          "金螳螂",
+          "亨通光电"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 1,
+        "education_level": "教育资源较少",
+        "key_universities": [
+          "苏州大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "恒力集团",
+          "沙钢集团",
+          "金螳螂",
+          "亨通光电"
+        ],
+        "hot_industries": [
+          "电子",
+          "机械",
+          "纺织",
+          "化工"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.78,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "荆州": {
+      "basic_info": {
+        "province": "湖北",
+        "city_level": "地级市",
+        "population": "636万",
+        "area": "16836km²",
+        "gdp": "5836亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.72,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "蚌埠": {
+      "basic_info": {
+        "province": "安徽",
+        "city_level": "地级市",
+        "population": "235万",
+        "area": "9235km²",
+        "gdp": "4235亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.7,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "衡阳": {
+      "basic_info": {
+        "province": "未知",
+        "city_level": "地级市",
+        "population": "553万",
+        "area": "6553km²",
+        "gdp": "10553亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 0,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.06,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "襄阳": {
+      "basic_info": {
+        "province": "湖北",
+        "city_level": "地级市",
+        "population": "693万",
+        "area": "16293km²",
+        "gdp": "8293亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 43,
+        "985_211_count": 0,
+        "education_level": "教育资源较丰富",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.86,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "西宁": {
+      "basic_info": {
+        "province": "青海",
+        "city_level": "省会城市",
+        "population": "401万",
+        "area": "10001km²",
+        "gdp": "11001亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 87,
+        "985_211_count": 1,
+        "education_level": "教育资源较丰富",
+        "key_universities": [
+          "青海大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.02,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "西安": {
+      "basic_info": {
+        "province": "陕西",
+        "city_level": "省会城市",
+        "population": "1469万",
+        "area": "7569km²",
+        "gdp": "11569亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "航空航天",
+          "电子",
+          "旅游",
+          "教育"
+        ],
+        "leading_companies": [
+          "西安银行",
+          "陕西煤业",
+          "中航西飞",
+          "隆基股份"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 12,
+        "985_211_count": 6,
+        "education_level": "教育资源丰富",
+        "key_universities": [
+          "西安交通大学",
+          "西北工业大学",
+          "西北大学",
+          "西安电子科技大学",
+          "陕西师范大学",
+          "长安大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "西安银行",
+          "陕西煤业",
+          "中航西飞",
+          "隆基股份"
+        ],
+        "hot_industries": [
+          "航空航天",
+          "电子",
+          "旅游",
+          "教育"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 79.38,
+        "livability_level": "较宜居",
+        "advantages": [
+          "历史悠久",
+          "教育资源丰富",
+          "美食文化",
+          "生活成本适中"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "贵阳": {
+      "basic_info": {
+        "province": "贵州",
+        "city_level": "省会城市",
+        "population": "709万",
+        "area": "19909km²",
+        "gdp": "5909亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 5,
+        "985_211_count": 1,
+        "education_level": "教育资源一般",
+        "key_universities": [
+          "贵州大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.18,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "赣州": {
+      "basic_info": {
+        "province": "江西",
+        "city_level": "地级市",
+        "population": "287万",
+        "area": "8087km²",
+        "gdp": "9087亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 85,
+        "985_211_count": 0,
+        "education_level": "教育资源较丰富",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.74,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "遵义": {
+      "basic_info": {
+        "province": "未知",
+        "city_level": "地级市",
+        "population": "293万",
+        "area": "6293km²",
+        "gdp": "4293亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 84,
+        "985_211_count": 0,
+        "education_level": "教育资源较丰富",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.86,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "郑州": {
+      "basic_info": {
+        "province": "河南",
+        "city_level": "省会城市",
+        "population": "1399万",
+        "area": "8399km²",
+        "gdp": "6399亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 3,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.98,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "重庆": {
+      "basic_info": {
+        "province": "重庆",
+        "city_level": "直辖市",
+        "population": "1133万",
+        "area": "17333km²",
+        "gdp": "17333亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "汽车",
+          "电子",
+          "装备制造",
+          "化工"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 92,
+        "985_211_count": 2,
+        "education_level": "教育资源较丰富",
+        "key_universities": [
+          "重庆大学",
+          "西南大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "汽车",
+          "电子",
+          "装备制造",
+          "化工"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.66,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "金华": {
+      "basic_info": {
+        "province": "浙江",
+        "city_level": "地级市",
+        "population": "502万",
+        "area": "18502km²",
+        "gdp": "4502亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.04,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "银川": {
+      "basic_info": {
+        "province": "宁夏",
+        "city_level": "省会城市",
+        "population": "667万",
+        "area": "9667km²",
+        "gdp": "7667亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 87,
+        "985_211_count": 1,
+        "education_level": "教育资源较丰富",
+        "key_universities": [
+          "宁夏大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.34,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "镇江": {
+      "basic_info": {
+        "province": "未知",
+        "city_level": "地级市",
+        "population": "460万",
+        "area": "10060km²",
+        "gdp": "5060亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 2,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.2,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "长春": {
+      "basic_info": {
+        "province": "吉林",
+        "city_level": "省会城市",
+        "population": "407万",
+        "area": "16007km²",
+        "gdp": "8007亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 90,
+        "985_211_count": 2,
+        "education_level": "教育资源较丰富",
+        "key_universities": [
+          "吉林大学",
+          "东北师范大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.14,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "长沙": {
+      "basic_info": {
+        "province": "湖南",
+        "city_level": "省会城市",
+        "population": "1486万",
+        "area": "13486km²",
+        "gdp": "11486亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 6,
+        "985_211_count": 6,
+        "education_level": "教育资源一般",
+        "key_universities": [
+          "中南大学",
+          "湖南大学",
+          "国防科技大学",
+          "湖南师范大学",
+          "湖南大学",
+          "中南大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.72,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "阜新": {
+      "basic_info": {
+        "province": "未知",
+        "city_level": "地级市",
+        "population": "495万",
+        "area": "14895km²",
+        "gdp": "3895亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.9,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "雅安": {
+      "basic_info": {
+        "province": "未知",
+        "city_level": "地级市",
+        "population": "552万",
+        "area": "11952km²",
+        "gdp": "3952亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 1,
+        "education_level": "教育资源较少",
+        "key_universities": [
+          "四川农业大学"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 71.04,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "青岛": {
+      "basic_info": {
+        "province": "未知",
+        "city_level": "计划单列市",
+        "population": "425万",
+        "area": "6425km²",
+        "gdp": "13425亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "家电",
+          "化工",
+          "港口",
+          "旅游"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 47,
+        "985_211_count": 2,
+        "education_level": "教育资源较丰富",
+        "key_universities": [
+          "中国海洋大学",
+          "中国石油大学(华东)"
+        ]
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "家电",
+          "化工",
+          "港口",
+          "旅游"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 78.5,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "马鞍山": {
+      "basic_info": {
+        "province": "未知",
+        "city_level": "地级市",
+        "population": "748万",
+        "area": "11548km²",
+        "gdp": "6548亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.96,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    },
+    "齐齐哈尔": {
+      "basic_info": {
+        "province": "黑龙江",
+        "city_level": "地级市",
+        "population": "413万",
+        "area": "13013km²",
+        "gdp": "5013亿元"
+      },
+      "economic_indicators": {
+        "gdp_per_capita": "8-15万元",
+        "gdp_growth": "5.5%-7.0%",
+        "disposable_income": "3-6万元/年",
+        "economic_level": "发展中"
+      },
+      "industry_structure": {
+        "primary_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ],
+        "leading_companies": [
+          "本地龙头企业"
+        ],
+        "industrial_parks": [
+          "经济开发区",
+          "高新技术产业园"
+        ]
+      },
+      "living_cost": {
+        "housing_cost": "中",
+        "rent": "1500-4000元/月（单间）",
+        "food_cost": "1500-2500元/月",
+        "transportation": "300-800元/月",
+        "overall_level": "中"
+      },
+      "climate": {
+        "climate_type": "亚热带/温带季风气候",
+        "annual_temperature": "12-22°C",
+        "summer_temperature": "25-35°C",
+        "winter_temperature": "-5至15°C",
+        "annual_rainfall": "600-2000mm",
+        "air_quality": "中等"
+      },
+      "education": {
+        "university_count": 1,
+        "985_211_count": 0,
+        "education_level": "教育资源较少",
+        "key_universities": []
+      },
+      "employment": {
+        "employment_rate": "93%-96%",
+        "average_salary": "5000-10000元/月",
+        "job_opportunities": "较多",
+        "major_employers": [
+          "本地龙头企业"
+        ],
+        "hot_industries": [
+          "制造业",
+          "服务业",
+          "建筑业"
+        ]
+      },
+      "quality_of_life": {
+        "livability_score": 70.26,
+        "livability_level": "较宜居",
+        "advantages": [
+          "发展机会",
+          "基础设施完善",
+          "公共服务"
+        ],
+        "challenges": [
+          "生活成本",
+          "竞争压力",
+          "气候变化"
+        ]
+      }
+    }
+  }
+}
