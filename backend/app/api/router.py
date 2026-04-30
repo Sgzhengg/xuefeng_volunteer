@@ -365,9 +365,14 @@ async def generate_volunteer_scheme(request: VolunteerSchemeRequest):
 
 @router.post("/recommendation/generate")
 async def generate_recommendation(request: RecommendationRequest):
-    """生成智能推荐方案（基于完整数据库）"""
+    """生成智能推荐方案（参考夸克算法：分数+位次+概率三维匹配）"""
     try:
-        result = await recommendation_service.generate_recommendation(
+        print(f"Enhanced API called with: province={request.province}, score={request.score}, majors={request.target_majors}")
+
+        # 使用增强的推荐服务
+        from app.services.enhanced_recommendation_service import enhanced_recommendation_service
+
+        result = await enhanced_recommendation_service.generate_recommendation(
             province=request.province,
             score=request.score,
             subject_type=request.subject_type,
@@ -375,6 +380,7 @@ async def generate_recommendation(request: RecommendationRequest):
             rank=request.rank,
             preferences=request.preferences,
         )
+        print(f"Enhanced API result: {result.get('data', {}).get('analysis', {}).get('total_count', 0)} schools")
         return result
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

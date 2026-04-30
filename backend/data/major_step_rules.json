@@ -1,0 +1,270 @@
+{
+  "major_step_rules": {
+    "TsinghuaUniversity": {
+      "university_name": "清华大学",
+      "has_step": true,
+      "step_scores": [3, 2, 1, 0, 0],
+      "note": "第一二专业级差3分，二三专业2分，三四专业1分，后续无级差",
+      "updated_at": "2024-12-01"
+    },
+    "PekingUniversity": {
+      "university_name": "北京大学",
+      "has_step": true,
+      "step_scores": [1, 1, 0, 0, 0],
+      "note": "前三个专业志愿间级差为1分，后续无级差",
+      "updated_at": "2024-12-01"
+    },
+    "FudanUniversity": {
+      "university_name": "复旦大学",
+      "has_step": true,
+      "step_scores": [2, 1, 1, 0, 0],
+      "note": "第一二专业级差2分，后续1分",
+      "updated_at": "2024-12-01"
+    },
+    "ShanghaiJiaoTong": {
+      "university_name": "上海交通大学",
+      "has_step": false,
+      "step_scores": [],
+      "note": "不设专业级差，按分数优先原则录取",
+      "updated_at": "2024-12-01"
+    },
+    "ZhejiangUniversity": {
+      "university_name": "浙江大学",
+      "has_step": false,
+      "step_scores": [],
+      "note": "不设专业级差",
+      "updated_at": "2024-12-01"
+    },
+    "NanjingUniversity": {
+      "university_name": "南京大学",
+      "has_step": false,
+      "step_scores": [],
+      "note": "不设专业级差",
+      "updated_at": "2024-12-01"
+    },
+    "USTC": {
+      "university_name": "中国科学技术大学",
+      "has_step": false,
+      "step_scores": [],
+      "note": "不设专业级差",
+      "updated_at": "2024-12-01"
+    },
+    "XianJiaotongUniversity": {
+      "university_name": "西安交通大学",
+      "has_step": true,
+      "step_scores": [2, 1, 0, 0, 0],
+      "note": "第一二专业级差2分，二三1分，后续无级差",
+      "updated_at": "2024-12-01"
+    },
+    "HarbinInstituteTech": {
+      "university_name": "哈尔滨工业大学",
+      "has_step": true,
+      "step_scores": [2, 1, 0, 0, 0],
+      "note": "第一二专业级差2分，后续1分",
+      "updated_at": "2024-12-01"
+    },
+    "BeihangUniversity": {
+      "university_name": "北京航空航天大学",
+      "has_step": true,
+      "step_scores": [1, 1, 0, 0, 0],
+      "note": "第一二专业级差1分，二三1分，后续无级差",
+      "updated_at": "2024-12-01"
+    },
+    "BeijingInstituteTech": {
+      "university_name": "北京理工大学",
+      "has_step": true,
+      "step_scores": [3, 0, 0, 0, 0],
+      "note": "仅第一二专业间级差3分",
+      "updated_at": "2024-12-01"
+    },
+    "RenminUniversity": {
+      "university_name": "中国人民大学",
+      "has_step": true,
+      "step_scores": [1, 1, 0, 0, 0],
+      "note": "第一二专业级差1分，二三1分，后续无级差",
+      "updated_at": "2024-12-01"
+    },
+    "NankaiUniversity": {
+      "university_name": "南开大学",
+      "has_step": false,
+      "step_scores": [],
+      "note": "不设专业级差",
+      "updated_at": "2024-12-01"
+    },
+    "TianjinUniversity": {
+      "university_name": "天津大学",
+      "has_step": true,
+      "step_scores": [2, 1, 0, 0, 0],
+      "note": "第一二专业级差2分，后续1分",
+      "updated_at": "2024-12-01"
+    },
+    "TongjiUniversity": {
+      "university_name": "同济大学",
+      "has_step": false,
+      "step_scores": [],
+      "note": "不设专业级差",
+      "updated_at": "2024-12-01"
+    },
+    "EastChinaNormal": {
+      "university_name": "华东师范大学",
+      "has_step": false,
+      "step_scores": [],
+      "note": "不设专业级差",
+      "updated_at": "2024-12-01"
+    },
+    "WuhanUniversity": {
+      "university_name": "武汉大学",
+      "has_step": true,
+      "step_scores": [1, 0, 0, 0, 0],
+      "note": "仅第一二专业间级差1分",
+      "updated_at": "2024-12-01"
+    },
+    "HUST": {
+      "university_name": "华中科技大学",
+      "has_step": true,
+      "step_scores": [1, 1, 0, 0, 0],
+      "note": "第一二专业级差1分，二三1分，后续无级差",
+      "updated_at": "2024-12-01"
+    },
+    "ZhongshanUniversity": {
+      "university_name": "中山大学",
+      "has_step": false,
+      "step_scores": [],
+      "note": "不设专业级差",
+      "updated_at": "2024-12-01"
+    },
+    "SouthChinaTech": {
+      "university_name": "华南理工大学",
+      "has_step": false,
+      "step_scores": [],
+      "note": "不设专业级差",
+      "updated_at": "2024-12-01"
+    },
+    "XiamenUniversity": {
+      "university_name": "厦门大学",
+      "has_step": false,
+      "step_scores": [],
+      "note": "不设专业级差",
+      "updated_at": "2024-12-01"
+    },
+    "ShandongUniversity": {
+      "university_name": "山东大学",
+      "has_step": false,
+      "step_scores": [],
+      "note": "不设专业级差",
+      "updated_at": "2024-12-01"
+    },
+    "SichuanUniversity": {
+      "university_name": "四川大学",
+      "has_step": false,
+      "step_scores": [],
+      "note": "不设专业级差",
+      "updated_at": "2024-12-01"
+    },
+    "ChongqingUniversity": {
+      "university_name": "重庆大学",
+      "has_step": false,
+      "step_scores": [],
+      "note": "不设专业级差",
+      "updated_at": "2024-12-01"
+    },
+    "ElectronicsSciTech": {
+      "university_name": "电子科技大学",
+      "has_step": true,
+      "step_scores": [2, 1, 0, 0, 0],
+      "note": "第一二专业级差2分，后续1分",
+      "updated_at": "2024-12-01"
+    },
+    "XidianUniversity": {
+      "university_name": "西安电子科技大学",
+      "has_step": true,
+      "step_scores": [2, 1, 0, 0, 0],
+      "note": "第一二专业级差2分，后续1分",
+      "updated_at": "2024-12-01"
+    },
+    "BeijingJiaotong": {
+      "university_name": "北京交通大学",
+      "has_step": true,
+      "step_scores": [1, 0, 0, 0, 0],
+      "note": "仅第一二专业间级差1分",
+      "updated_at": "2024-12-01"
+    },
+    "BeijingPostsTelecom": {
+      "university_name": "北京邮电大学",
+      "has_step": false,
+      "step_scores": [],
+      "note": "不设专业级差",
+      "updated_at": "2024-12-01"
+    },
+    "CentralSouthUni": {
+      "university_name": "中南大学",
+      "has_step": true,
+      "step_scores": [1, 1, 0, 0, 0],
+      "note": "第一二专业级差1分，二三1分，后续无级差",
+      "updated_at": "2024-12-01"
+    },
+    "HunanUniversity": {
+      "university_name": "湖南大学",
+      "has_step": false,
+      "step_scores": [],
+      "note": "不设专业级差",
+      "updated_at": "2024-12-01"
+    },
+    "NortheasternUni": {
+      "university_name": "东北大学",
+      "has_step": false,
+      "step_scores": [],
+      "note": "不设专业级差",
+      "updated_at": "2024-12-01"
+    },
+    "DalianUniTech": {
+      "university_name": "大连理工大学",
+      "has_step": false,
+      "step_scores": [],
+      "note": "不设专业级差",
+      "updated_at": "2024-12-01"
+    },
+    "JilinUniversity": {
+      "university_name": "吉林大学",
+      "has_step": false,
+      "step_scores": [],
+      "note": "不设专业级差",
+      "updated_at": "2024-12-01"
+    },
+    "LanzhouUniversity": {
+      "university_name": "兰州大学",
+      "has_step": false,
+      "step_scores": [],
+      "note": "不设专业级差",
+      "updated_at": "2024-12-01"
+    },
+    "NWAgriForestUni": {
+      "university_name": "西北农林科技大学",
+      "has_step": false,
+      "step_scores": [],
+      "note": "不设专业级差",
+      "updated_at": "2024-12-01"
+    },
+    "OceanUniChina": {
+      "university_name": "中国海洋大学",
+      "has_step": false,
+      "step_scores": [],
+      "note": "不设专业级差",
+      "updated_at": "2024-12-01"
+    },
+    "CentralChinaNormal": {
+      "university_name": "华中师范大学",
+      "has_step": false,
+      "step_scores": [],
+      "note": "不设专业级差",
+      "updated_at": "2024-12-01"
+    },
+    "BeijingNormalUni": {
+      "university_name": "北京师范大学",
+      "has_step": false,
+      "step_scores": [],
+      "note": "不设专业级差",
+      "updated_at": "2024-12-01"
+    }
+  }
+}

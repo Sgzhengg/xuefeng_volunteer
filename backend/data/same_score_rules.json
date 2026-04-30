@@ -1,0 +1,517 @@
+{
+  "same_score_rules": {
+    "江苏": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "历史类": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "物理类": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "江苏省新高考3+1+2模式，首选物理或历史"
+    },
+    "浙江": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "综合": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "浙江省新高考3+3模式，不分文理"
+    },
+    "北京": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "综合": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "北京市新高考3+3模式"
+    },
+    "上海": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "综合": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "上海市新高考3+3模式"
+    },
+    "广东": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "历史类": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "物理类": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "广东省新高考3+1+2模式"
+    },
+    "山东": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "综合": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "山东省新高考3+3模式"
+    },
+    "湖北": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "历史类": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "物理类": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "湖北省新高考3+1+2模式"
+    },
+    "湖南": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "历史类": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "物理类": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "湖南省新高考3+1+2模式"
+    },
+    "河北": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "math", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "历史类": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "物理类": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "河北省新高考3+1+2模式"
+    },
+    "辽宁": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "历史类": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "物理类": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "辽宁省新高考3+1+2模式"
+    },
+    "重庆": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "历史类": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "物理类": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "重庆市新高考3+1+2模式"
+    },
+    "四川": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "四川省传统文理分科模式"
+    },
+    "河南": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "河南省传统文理分科模式"
+    },
+    "安徽": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "安徽省传统文理分科模式"
+    },
+    "江西": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "江西省传统文理分科模式"
+    },
+    "广西": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "广西壮族自治区传统文理分科模式"
+    },
+    "云南": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "云南省传统文理分科模式"
+    },
+    "贵州": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "贵州省传统文理分科模式"
+    },
+    "陕西": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "陕西省传统文理分科模式"
+    },
+    "甘肃": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "甘肃省传统文理分科模式"
+    },
+    "青海": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "青海省传统文理分科模式"
+    },
+    "宁夏": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "宁夏回族自治区传统文理分科模式"
+    },
+    "新疆": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "新疆维吾尔自治区传统文理分科模式"
+    },
+    "内蒙古": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "内蒙古自治区传统文理分科模式"
+    },
+    "黑龙江": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "黑龙江省传统文理分科模式"
+    },
+    "吉林": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "吉林省传统文理分科模式"
+    },
+    "山西": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "山西省传统文理分科模式"
+    },
+    "福建": {
+      "理科": [
+        {"priority": 1, "field": "math", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "历史类": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "physical": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "福建省新高考3+1+2模式"
+    },
+    "天津": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "综合": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "天津市新高考3+3模式"
+    },
+    "海南": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "综合": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "海南省新高考3+3模式"
+    },
+    "西藏": {
+      "理科": [
+        {"priority": 1, "field": "数学", "direction": "desc"},
+        {"priority": 2, "field": "语文", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "文科": [
+        {"priority": 1, "field": "语文", "direction": "desc"},
+        {"priority": 2, "field": "数学", "direction": "desc"},
+        {"priority": 3, "field": "外语", "direction": "desc"}
+      ],
+      "note": "西藏自治区传统文理分科模式"
+    }
+  }
+}
