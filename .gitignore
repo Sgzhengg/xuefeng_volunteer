@@ -79,3 +79,4 @@ Thumbs.db
 flutter_debug.log
 backend/data/*.json
 backend/data/backup/*.json
+backend/data/major_rank_data.json

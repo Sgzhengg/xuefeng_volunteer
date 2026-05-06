@@ -153,8 +153,16 @@ class ChatGPTInputArea extends StatelessWidget {
                     margin: const EdgeInsets.all(
                         ChatGPTTheme.paddingXSmall),
                     child: IconButton(
-                      onPressed:
-                          controller.text.trim().isEmpty ? null : onSend,
+                      onPressed: () {
+                        print('🔘🔘🔘 Send button CLICKED! Text: "${controller.text}"');
+                        if (controller.text.trim().isEmpty) {
+                          print('⚠️⚠️⚠️ Text is EMPTY!');
+                          return;
+                        }
+                        print('✅✅✅ Calling onSend NOW!');
+                        onSend();
+                        print('✅✅✅ onSend called!');
+                      },
                       icon: isLoading
                           ? const SizedBox(
                               width: 20,

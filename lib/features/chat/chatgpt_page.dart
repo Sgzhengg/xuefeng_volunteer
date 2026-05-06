@@ -24,8 +24,12 @@ class _ChatGPTPageState extends ConsumerState<ChatGPTPage> {
   @override
   void initState() {
     super.initState();
-    _initSpeechRecognition();
-    // 初始化聊天（显示欢迎消息）
+    // 延迟初始化语音识别（不阻塞页面加载）
+    Future.delayed(const Duration(milliseconds: 500), () {
+      _initSpeechRecognition();
+    });
+
+    // 快速初始化聊天（显示欢迎消息）
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final controller = ref.read(chatControllerProvider.notifier);
       if (controller.state.messages.isEmpty) {
@@ -44,21 +48,43 @@ class _ChatGPTPageState extends ConsumerState<ChatGPTPage> {
   }
 
   void _handleSubmit(String text) {
-    if (text.trim().isEmpty) return;
+    print('🚀🚀🚀 _handleSubmit CALLED with text: "$text"');
 
-    ref.read(chatControllerProvider.notifier).sendMessage(text);
-    _textController.clear();
+    if (text.trim().isEmpty) {
+      print('⚠️⚠️⚠️ Text is EMPTY, returning!');
+      return;
+    }
 
-    // 滚动到底部
-    Future.delayed(const Duration(milliseconds: 100), () {
-      if (_scrollController.hasClients) {
-        _scrollController.animateTo(
-          _scrollController.position.maxScrollExtent,
-          duration: const Duration(milliseconds: 300),
-          curve: Curves.easeOut,
+    try {
+      print('✅✅✅ Calling sendMessage...');
+      ref.read(chatControllerProvider.notifier).sendMessage(text);
+      _textController.clear();
+      print('✅✅✅ Message sent and input cleared');
+
+      // 滚动到底部
+      Future.delayed(const Duration(milliseconds: 100), () {
+        if (_scrollController.hasClients) {
+          _scrollController.animateTo(
+            _scrollController.position.maxScrollExtent,
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeOut,
+          );
+        }
+      });
+    } catch (e, stackTrace) {
+      print('❌❌❌ ERROR: $e');
+      print('❌❌❌ Stack: $stackTrace');
+
+      // 显示错误给用户
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('发送失败: $e'),
+            backgroundColor: Colors.red,
+          ),
         );
       }
-    });
+    }
   }
 
   void _toggleVoiceInput() async {

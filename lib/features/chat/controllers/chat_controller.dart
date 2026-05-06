@@ -55,54 +55,21 @@ class ChatController extends _$ChatController {
     );
   }
 
-  Future<void> initializeChat() async {
-    developer.log('_initializeChat() - 开始加载 SKILL.md');
-    try {
-      // 加载 SKILL.md
-      final skill = await SkillLoader.loadSkill();
-      developer.log('_initializeChat() - SKILL.md 加载成功');
+    Future<void> initializeChat() async {
+    print('🚀 _initializeChat() - 快速初始化（不加载SKILL.md）');
 
-      // 发送欢迎消息
-      final welcomeMessage = ChatMessage.create(
-        messageId: DateTime.now().millisecondsSinceEpoch.toString(),
-        role: 'assistant',
-        content: '''
-嘿，同学/家长，我是学锋老师！
+    // 发送欢迎消息（立即显示，不等待）
+    final welcomeMessage = ChatMessage.create(
+      messageId: DateTime.now().millisecondsSinceEpoch.toString(),
+      role: 'assistant',
+      content: '嘿，同学/家长，我是学锋老师！有什么关于志愿填报的问题，尽管问我。',
+      timestamp: DateTime.now().millisecondsSinceEpoch,
+    );
 
-别被那些花里胡哨的志愿填报网站忽悠了，来找我聊聊。
-
-在咱们开始之前，我得先问几个关键问题，不然我给你瞎建议就是坑你：
-
-1️⃣ 你孩子（或你自己）今年考了多少分？
-2️⃣ 是哪个省的？
-3️⃣ 选了哪几科？
-4️⃣ 家里什么条件？普通家庭还是有矿？
-5️⃣ 有什么特别感兴趣的方向吗？
-
-把这些信息告诉我，我给你实实在在的建议。别不好意思，咱们东北人说话直，但我说的是真话。
-
-⚠️ 免责声明：我的建议基于公开数据和历史录取信息，但最终志愿填报以省考试院官方公布为准。
-''',
-        timestamp: DateTime.now().millisecondsSinceEpoch,
-      );
-
-      state = state.copyWith(
-        messages: [welcomeMessage],
-      );
-      developer.log('_initializeChat() - 欢迎消息已设置');
-    } catch (e) {
-      developer.log('_initializeChat() - 错误: $e', level: 1000);
-      // 即使失败也发送一个简单欢迎消息
-      final welcomeMessage = ChatMessage.create(
-        messageId: DateTime.now().millisecondsSinceEpoch.toString(),
-        role: 'assistant',
-        content: '嘿，同学/家长，我是学锋老师！有什么关于志愿填报的问题，尽管问我。',
-        timestamp: DateTime.now().millisecondsSinceEpoch,
-      );
-      state = state.copyWith(
-        messages: [welcomeMessage],
-      );
-    }
+    state = state.copyWith(
+      messages: [welcomeMessage],
+    );
+    print('✅ _initializeChat() - 欢迎消息已设置');
   }
 
   Future<void> sendMessage(String content) async {
