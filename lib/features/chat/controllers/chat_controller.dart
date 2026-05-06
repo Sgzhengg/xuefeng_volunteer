@@ -81,7 +81,7 @@ class ChatController extends _$ChatController {
 
 把这些信息告诉我，我给你实实在在的建议。别不好意思，咱们东北人说话直，但我说的是真话。
 
-⚠️ 免责声明：我的建议基于咕咕数据2026最新预测，但最终志愿填报以省考试院官方公布为准。
+⚠️ 免责声明：我的建议基于公开数据和历史录取信息，但最终志愿填报以省考试院官方公布为准。
 ''',
         timestamp: DateTime.now().millisecondsSinceEpoch,
       );
@@ -304,7 +304,7 @@ class ChatController extends _$ChatController {
         if (fullResponse.isNotEmpty) {
           // 如果有数据上下文，添加数据来源说明
           if (dataContext.hasData) {
-            fullResponse += '\n\n---\n\n📊 **数据来源**：咕咕数据 2026 最新预测\n\n⚠️ **重要提醒**：以上建议仅供参考，最终志愿填报以各省教育考试院官方公布为准。';
+            fullResponse += '\n\n---\n\n📊 **数据来源**：公开数据和历史录取信息\n\n⚠️ **重要提醒**：以上建议仅供参考，最终志愿填报以各省教育考试院官方公布为准。';
           }
 
           final assistantMessage = ChatMessage.create(

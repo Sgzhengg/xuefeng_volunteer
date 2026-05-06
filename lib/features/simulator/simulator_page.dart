@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import '../../../core/models/volunteer_scheme.dart';
+import '../../../core/constants/provinces.dart';
 import '../../shared/theme/app_theme.dart';
 import '../../shared/widgets/data_source_indicator.dart';
 
@@ -48,13 +51,66 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
         targetMajors = majorsText.split(RegExp(r'[，,]')).map((s) => s.trim()).where((s) => s.isNotEmpty).toList();
       }
 
-      // 创建示例志愿方案（实际应该调用后端API）
+      // 解析位次
+      final rank = _rankController.text.trim().isEmpty
+          ? null
+          : int.tryParse(_rankController.text.trim());
+
+      // 调用后端API生成推荐方案
+      final response = await http.post(
+        Uri.parse('http://localhost:8000/api/v1/recommendation/generate'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({
+          'province': _provinceController.text.trim(),
+          'score': int.parse(_scoreController.text.trim()),
+          'subject_type': _subjectType,
+          'target_majors': targetMajors.isEmpty ? null : targetMajors,
+          'rank': rank,
+          'preferences': null,
+        }),
+      ).timeout(const Duration(seconds: 30));
+
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+
+        // 解析推荐结果
+        final choices = _parseRecommendationData(data);
+
+        final scheme = VolunteerScheme.create(
+          schemeId: DateTime.now().millisecondsSinceEpoch.toString(),
+          userId: 'current_user',
+          name: '${_provinceController.text}-${_scoreController.text}分-${_subjectType}',
+          choices: choices,
+          analysis: data['analysis'] ?? '基于真实数据的智能推荐方案',
+          createdAt: DateTime.now().millisecondsSinceEpoch,
+        );
+
+        setState(() {
+          _scheme = scheme;
+          _isLoading = false;
+        });
+
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('[OK] 推荐方案生成成功！基于真实数据计算'),
+              backgroundColor: Colors.green,
+            ),
+          );
+        }
+      } else {
+        throw Exception('API错误: ${response.statusCode}');
+      }
+    } catch (e) {
+      // 如果API调用失败，使用模拟数据作为后备
+      print('API调用失败，使用模拟数据: $e');
+
       final scheme = VolunteerScheme.create(
         schemeId: DateTime.now().millisecondsSinceEpoch.toString(),
         userId: 'current_user',
         name: '${_provinceController.text}-${_scoreController.text}分-${_subjectType}',
         choices: _generateMockChoices(),
-        analysis: '这是一个基于您分数的模拟推荐方案。',
+        analysis: '网络连接失败，显示模拟数据。请检查后端服务是否启动。',
         createdAt: DateTime.now().millisecondsSinceEpoch,
       );
 
@@ -63,38 +119,139 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
         _isLoading = false;
       });
 
-      // 显示成功提示
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('[OK] 推荐方案生成成功！'),
-            backgroundColor: Colors.green,
-          ),
-        );
-      }
-    } catch (e) {
-      setState(() {
-        _isLoading = false;
-      });
-
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('[ERROR] 生成失败：$e'),
-            backgroundColor: Colors.red,
+            content: Text('[提示] 后端连接失败，显示模拟数据：$e'),
+            backgroundColor: Colors.orange,
           ),
         );
       }
     }
   }
 
+  // 解析后端API返回的推荐数据
+  List<SchoolChoice> _parseRecommendationData(Map<String, dynamic> data) {
+    final List<SchoolChoice> choices = [];
+
+    try {
+      // 后端返回格式: {"success": true, "data": {"冲刺": [...], "稳妥": [...], "保底": [...], "垫底": [...]}}
+      if (data.containsKey('data')) {
+        final recommendationData = data['data'] as Map<String, dynamic>;
+
+        // 解析冲刺院校
+        if (recommendationData.containsKey('冲刺')) {
+          final chongList = recommendationData['冲刺'] as List;
+          for (var item in chongList) {
+            // 计算概率（后端返回的是1-100的整数，需要转换为0-1的小数）
+            final probability = item.containsKey('probability')
+                ? (item['probability'] as int) / 100.0
+                : 0.3;
+
+            choices.add(SchoolChoice.create(
+              universityName: item['university_name'] ?? '未知院校',
+              majorName: item['major'] ?? '未知专业',
+              type: '冲',
+              probability: probability,
+              score: item.containsKey('score_gap')
+                  ? (int.parse(_scoreController.text) + (item['score_gap'] as int))
+                  : int.parse(_scoreController.text),
+              ranking: item.containsKey('rank_gap')
+                  ? ((int.tryParse(_rankController.text) ?? 0) + (item['rank_gap'] as int))
+                  : (int.tryParse(_rankController.text) ?? 0),
+            ));
+          }
+        }
+
+        // 解析稳妥院校
+        if (recommendationData.containsKey('稳妥')) {
+          final wenList = recommendationData['稳妥'] as List;
+          for (var item in wenList) {
+            final probability = item.containsKey('probability')
+                ? (item['probability'] as int) / 100.0
+                : 0.6;
+
+            choices.add(SchoolChoice.create(
+              universityName: item['university_name'] ?? '未知院校',
+              majorName: item['major'] ?? '未知专业',
+              type: '稳',
+              probability: probability,
+              score: item.containsKey('score_gap')
+                  ? (int.parse(_scoreController.text) + (item['score_gap'] as int))
+                  : int.parse(_scoreController.text),
+              ranking: item.containsKey('rank_gap')
+                  ? ((int.tryParse(_rankController.text) ?? 0) + (item['rank_gap'] as int))
+                  : (int.tryParse(_rankController.text) ?? 0),
+            ));
+          }
+        }
+
+        // 解析保底院校
+        if (recommendationData.containsKey('保底')) {
+          final baoList = recommendationData['保底'] as List;
+          for (var item in baoList) {
+            final probability = item.containsKey('probability')
+                ? (item['probability'] as int) / 100.0
+                : 0.8;
+
+            choices.add(SchoolChoice.create(
+              universityName: item['university_name'] ?? '未知院校',
+              majorName: item['major'] ?? '未知专业',
+              type: '保',
+              probability: probability,
+              score: item.containsKey('score_gap')
+                  ? (int.parse(_scoreController.text) + (item['score_gap'] as int))
+                  : int.parse(_scoreController.text),
+              ranking: item.containsKey('rank_gap')
+                  ? ((int.tryParse(_rankController.text) ?? 0) + (item['rank_gap'] as int))
+                  : (int.tryParse(_rankController.text) ?? 0),
+            ));
+          }
+        }
+
+        // 解析垫底院校（不显示，按照用户要求只保留冲刺、稳妥、保底）
+        // 注：用户要求只显示三类：冲刺(20%)、稳妥(40%)、保底(30%)
+        // 所以"垫底"类别不添加到显示列表中
+      }
+    } catch (e) {
+      print('解析推荐数据失败: $e');
+    }
+
+    // 按照类别分组并按比例筛选
+    final chong = choices.where((c) => c.type == '冲').toList();
+    final wen = choices.where((c) => c.type == '稳').toList();
+    final bao = choices.where((c) => c.type == '保').toList();
+
+    // 计算目标数量（假设总共10所学校）
+    final totalCount = 10;
+    final targetChong = (totalCount * 0.2).round(); // 2所冲刺
+    final targetWen = (totalCount * 0.4).round();   // 4所稳妥
+    final targetBao = (totalCount * 0.3).round();   // 3所保底
+
+    // 按照数量筛选
+    final result = [
+      ...chong.take(targetChong),
+      ...wen.take(targetWen),
+      ...bao.take(targetBao),
+    ];
+
+    // 如果API没有返回数据，返回模拟数据
+    if (result.isEmpty) {
+      print('使用模拟数据');
+      return _generateMockChoices();
+    }
+
+    print('解析到 ${result.length} 个推荐学校（冲刺${result.where((c) => c.type == '冲').length}所，稳妥${result.where((c) => c.type == '稳').length}所，保底${result.where((c) => c.type == '保').length}所）');
+    return result;
+  }
+
   // 生成模拟推荐数据
   List<SchoolChoice> _generateMockChoices() {
     final score = int.tryParse(_scoreController.text) ?? 0;
-    final subject = _subjectType;
 
     // 模拟数据：根据分数生成冲刺、稳妥、保底学校
-    return [
+    try {
+      return [
       SchoolChoice.create(
         universityName: '清华大学',
         majorName: '计算机科学与技术',
@@ -144,13 +301,16 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
         ranking: 5500,
       ),
     ];
+    } catch (e) {
+      print('生成模拟数据出错: $e');
+      return [];
+    }
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('志愿模拟器'),
+        title: const Text('推荐志愿'),
         actions: const [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: AppTheme.spacingMd),
@@ -245,10 +405,9 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
                           ? null
                           : _provinceController.text,
                       decoration: const InputDecoration(
-                        hintText: '请选择',
+                        hintText: '请选择省份',
                       ),
-                      items: ['江苏省', '浙江省', '北京市', '上海市']
-                          .map((province) {
+                      items: ChineseProvinces.sorted.map((province) {
                         return DropdownMenuItem(
                           value: province,
                           child: Text(province),
@@ -371,7 +530,7 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
                   Icon(Icons.auto_awesome_rounded, size: 20),
                   SizedBox(width: AppTheme.spacingXs),
                   Text(
-                    '生成志愿方案',
+                    '智能推荐',
                     style: AppTheme.titleSmall,
                   ),
                 ],

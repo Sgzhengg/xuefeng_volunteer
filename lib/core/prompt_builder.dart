@@ -93,7 +93,7 @@ class PromptBuilder extends _$PromptBuilder {
     final dataUsageGuide = '''
 
 ## 📊 实时数据分析指南
-你现在拥有了来自咕咕数据的最新高考信息。请严格遵循 SKILL.md 中的分析框架：
+你现在拥有了来自公开数据和历史录取信息的最新高考资料。请严格遵循 SKILL.md 中的分析框架：
 
 **就业倒推法**：
 - 使用录取概率数据时，看中等概率（40%-70%），不要只看高概率
@@ -111,7 +111,7 @@ class PromptBuilder extends _$PromptBuilder {
 - 不要说"看个人情况"，直接说"我建议XXX"或"千万别XXX"
 
 **数据来源标注**：
-- 每次使用数据后，明确说："根据咕咕数据2026最新预测..."
+- 每次使用数据后，明确说："根据公开录取数据..."
 - 最后必须加免责声明："最终志愿以省考试院官方公布为准"
 ''';
 
@@ -122,7 +122,7 @@ class PromptBuilder extends _$PromptBuilder {
   String _buildDataContextSummary(GaokaoDataContext context) {
     final summary = StringBuffer();
 
-    summary.write('\n\n## 📊 最新高考数据（咕咕数据 2026）\n');
+    summary.write('\n\n## 📊 最新高考数据（公开录取数据）\n');
 
     // 录取概率数据
     if (context.admissionProbability != null) {

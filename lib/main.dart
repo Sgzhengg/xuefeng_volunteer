@@ -8,13 +8,10 @@ import 'core/models/chat_message.dart';
 import 'core/models/user_profile.dart';
 import 'core/models/volunteer_scheme.dart';
 import 'core/skill_loader.dart';
-import 'features/chat/chat_page.dart';
-import 'features/chat/chat_page_minimal.dart';
+import 'features/chat/chatgpt_page.dart';
 import 'features/simulator/simulator_page.dart';
-import 'config/ui_config.dart';
 import 'features/profile/profile_page.dart';
-import 'features/history/history_page.dart';
-import 'shared/theme/app_theme.dart';
+import 'shared/theme/chatgpt_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -55,7 +52,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: '学锋志愿教练',
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.lightTheme,
+      theme: ChatGPTTheme.lightTheme,
+      darkTheme: ChatGPTTheme.darkTheme,
+      themeMode: ThemeMode.system,
       home: const MainNavigationPage(),
     );
   }
@@ -73,22 +72,27 @@ class _MainNavigationPageState extends ConsumerState<MainNavigationPage> {
   int _currentIndex = 0;
 
   late final List<Widget> _pages = [
-    UIConfig.useMinimalStyle ? const ChatPageMinimal() : const ChatPage(),
+    const ChatGPTPage(),
     const SimulatorPage(),
-    const HistoryPage(),
     const ProfilePage(),
   ];
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Scaffold(
       body: _pages[_currentIndex],
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          boxShadow: AppTheme.shadowLight,
-          border: const Border(
+          color: isDark
+              ? ChatGPTTheme.darkBackground
+              : ChatGPTTheme.lightBackground,
+          border: Border(
             top: BorderSide(
-              color: AppTheme.surfaceContainerHighest,
+              color: isDark
+                  ? ChatGPTTheme.darkDivider
+                  : ChatGPTTheme.lightDivider,
               width: 1,
             ),
           ),
@@ -101,12 +105,16 @@ class _MainNavigationPageState extends ConsumerState<MainNavigationPage> {
             });
           },
           type: BottomNavigationBarType.fixed,
-          backgroundColor: AppTheme.white,
-          selectedItemColor: AppTheme.primaryBlue,
-          unselectedItemColor: AppTheme.mediumGray,
+          backgroundColor: isDark
+              ? ChatGPTTheme.darkBackground
+              : ChatGPTTheme.lightBackground,
+          selectedItemColor: ChatGPTTheme.chatGPTGreen,
+          unselectedItemColor: isDark
+              ? ChatGPTTheme.darkTextSecondary
+              : ChatGPTTheme.lightTextSecondary,
           selectedLabelStyle: const TextStyle(
             fontSize: 12,
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w600,
           ),
           unselectedLabelStyle: const TextStyle(
             fontSize: 12,
@@ -119,19 +127,14 @@ class _MainNavigationPageState extends ConsumerState<MainNavigationPage> {
               label: '聊天',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.architecture_outlined),
-              activeIcon: Icon(Icons.architecture),
-              label: '模拟器',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.history_outlined),
-              activeIcon: Icon(Icons.history),
-              label: '历史',
+              icon: Icon(Icons.auto_awesome_outlined),
+              activeIcon: Icon(Icons.auto_awesome),
+              label: '推荐志愿',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person_outline),
               activeIcon: Icon(Icons.person),
-              label: '档案',
+              label: '我的',
             ),
           ],
         ),

@@ -108,8 +108,7 @@ class RecommendationService:
             },
             "冲刺": [],
             "稳妥": [],
-            "保底": [],
-            "垫底": []
+            "保底": []
         }
 
         # 为每个目标专业生成推荐
@@ -121,7 +120,8 @@ class RecommendationService:
             recommendation["冲刺"].extend(major_rec["冲刺"])
             recommendation["稳妥"].extend(major_rec["稳妥"])
             recommendation["保底"].extend(major_rec["保底"])
-            recommendation["垫底"].extend(major_rec["垫底"])
+            # 不再添加"垫底"类别
+            # recommendation["垫底"].extend(major_rec["垫底"])
 
         # 去重和排序
         recommendation = self._deduplicate_and_sort(recommendation)
@@ -233,9 +233,8 @@ class RecommendationService:
         result = {
             "冲刺": [],
             "稳妥": [],
-            "保底": [],
-            "垫底": []
-        }
+            "保底": []
+        }  # 删除"垫底"类别
 
         # 获取该专业在目标省份的录取数据
         major_data = self._get_major_admission_data(province, major)
@@ -247,6 +246,8 @@ class RecommendationService:
             )
 
             category = uni_rec["category"]
+
+            # 添加到对应类别（所有学校都已分类为冲刺、稳妥或保底）
             result[category].append(uni_rec)
 
         return result
@@ -289,8 +290,9 @@ class RecommendationService:
                                                 "avg_score": score_entry.get("avg_score", 0)
                                             }
 
-        # 如果数据不足，使用院校分数线补充
+        # 如果专业数据不足（少于10所），使用院校整体分数线数据补充
         if len(admission_data) < 10:
+            print(f"专业数据只有{len(admission_data)}所，使用院校整体分数线补充")
             admission_data.update(self._get_university_admission_fallback(province, major))
 
         return admission_data
@@ -318,18 +320,28 @@ class RecommendationService:
                 latest_year = max(years)
                 year_data = province_data[latest_year]
 
-                if "universities" in year_data:
-                    for uni_entry in year_data["universities"]:
-                        uni_name = uni_entry.get("name", "")
-                        uni_id = self._find_university_id_by_name(uni_name)
+                if "scores" in year_data and isinstance(year_data["scores"], list):
+                    # 遍历所有分数线数据，查找相关专业
+                    for score_entry in year_data["scores"]:
+                        if isinstance(score_entry, dict):
+                            uni_name = score_entry.get("university", "")
+                            entry_major = score_entry.get("major", "")
 
-                        if uni_id and uni_id not in admission_data:
-                            admission_data[uni_id] = {
-                                "university": uni_name,
-                                "min_score": uni_entry.get("min_score", 0),
-                                "avg_score": uni_entry.get("avg_score", 0)
-                            }
+                            # 模糊匹配专业名称
+                            if (major.lower() in entry_major.lower() or
+                                entry_major.lower() in major.lower() or
+                                '计算机' in entry_major):
 
+                                uni_id = self._find_university_id_by_name(uni_name)
+
+                                if uni_id and uni_id not in admission_data:
+                                    admission_data[uni_id] = {
+                                        "university": uni_name,
+                                        "min_score": score_entry.get("min_score", 0),
+                                        "avg_score": score_entry.get("avg_score", 0)
+                                    }
+
+        print(f"Fallback found {len(admission_data)} schools from admission scores")
         return admission_data
 
     def _create_university_recommendation(
@@ -347,35 +359,66 @@ class RecommendationService:
         min_score = admission_info.get("min_score", 0)
         avg_score = admission_info.get("avg_score", 0)
 
+        print(f"DEBUG: 处理院校 {uni_name} - 用户分数:{user_score}, 最低分:{min_score}, 平均分:{avg_score}")
+
         # 计算录取概率
         probability = self._calculate_admission_probability(
             user_score, min_score, avg_score
         )
 
+        print(f"DEBUG: 计算概率:{probability}%, 分数差:{user_score - min_score}")
+
         # 确定类别（基于分数差和概率）
         score_gap = user_score - min_score
 
-        # 改进的分类逻辑
-        if score_gap >= 10:
-            # 高于最低分10分以上，很稳
-            category = "保底"
-            category_cn = "保底"
-        elif score_gap >= 0:
-            # 高于最低分，比较稳
-            category = "稳妥"
-            category_cn = "稳妥"
-        elif score_gap >= -15:
-            # 略低于最低分，冲刺
-            category = "冲刺"
-            category_cn = "冲刺"
-        elif score_gap >= -40:
-            # 低于最低分较多，保底
-            category = "保底"
-            category_cn = "保底"
+        # 重新设计的分类逻辑 - 只使用冲刺、稳妥、保底三个类别
+        if user_score < 500:
+            # 低分学生（<500分）：非常宽松的标准
+            if score_gap >= -100:
+                category = "保底"
+                category_cn = "保底"
+            elif score_gap >= -200:
+                category = "稳妥"
+                category_cn = "稳妥"
+            else:
+                category = "冲刺"
+                category_cn = "冲刺"
+        elif user_score < 600:
+            # 中低分学生（500-600分）：宽松标准
+            if score_gap >= -50:
+                category = "保底"
+                category_cn = "保底"
+            elif score_gap >= -100:
+                category = "稳妥"
+                category_cn = "稳妥"
+            else:
+                category = "冲刺"
+                category_cn = "冲刺"
+        elif user_score < 650:
+            # 中高分学生（600-650分）：中等标准
+            if score_gap >= -10:
+                category = "保底"
+                category_cn = "保底"
+            elif score_gap >= -50:
+                category = "稳妥"
+                category_cn = "稳妥"
+            else:
+                category = "冲刺"
+                category_cn = "冲刺"
         else:
-            # 远低于最低分，垫底
-            category = "垫底"
-            category_cn = "垫底"
+            # 高分学生（>=650分）：严格标准 - 不再使用"垫底"分类
+            if score_gap >= 10:
+                category = "保底"
+                category_cn = "保底"
+            elif score_gap >= 0:
+                category = "稳妥"
+                category_cn = "稳妥"
+            else:
+                # 所有低于最低分的情况都归类为"冲刺"
+                category = "冲刺"
+                category_cn = "冲刺"
+
+        print(f"DEBUG: {uni_name} - 分数差:{score_gap}, 用户分数:{user_score}, 分类:{category_cn}")
 
         # 获取院校详细信息
         uni_details = self.universities.get(uni_id, {})
@@ -484,9 +527,6 @@ class RecommendationService:
         elif category == "保底":
             suggestions.append("基本没问题")
             suggestions.append("建议放在志愿后面")
-        else:  # 垫底
-            suggestions.append("稳保录取")
-            suggestions.append("确保有学可上")
 
         return suggestions
 
@@ -538,11 +578,44 @@ class RecommendationService:
         return highlights[:3]
 
     def _deduplicate_and_sort(self, recommendation: Dict[str, Any]) -> Dict[str, Any]:
-        """去重和排序"""
+        """去重和排序，按照20%冲刺、40%稳妥、30%保底的比例分配"""
 
-        # 去重
+        # 1. 大幅放宽过滤条件以适应数据库局限性
+        max_score_gap = -400 # 增加到-400，允许更大的分数差距
+        min_probability = 1     # 最低录取概率：1%以上
+
+        print(f"DEBUG: 使用过滤条件 max_score_gap={max_score_gap}, min_probability={min_probability}")
+
+        # 只处理存在的类别（冲刺、稳妥、保底）
+        for category in ["冲刺", "稳妥", "保底"]:
+            if category not in recommendation:
+                continue
+
+            filtered_items = []
+            for item in recommendation[category]:
+                score_gap = item.get("score_gap", 0)
+                probability = item.get("probability", 0)
+
+                # 放宽条件：允许更大的分数差距
+                if score_gap >= max_score_gap and probability >= min_probability:
+                    filtered_items.append(item)
+
+            # 如果某类别没有学校了，至少保留2个概率最高的
+            if len(filtered_items) == 0 and len(recommendation[category]) > 0:
+                # 按概率排序，保留前2个
+                sorted_items = sorted(recommendation[category], key=lambda x: x.get("probability", 0), reverse=True)
+                filtered_items = sorted_items[:2]
+                print(f"DEBUG: {category}类别过滤后为空，保留前2个概率最高的")
+
+            print(f"DEBUG: {category}类别过滤后保留{len(filtered_items)}所学校")
+            recommendation[category] = filtered_items
+
+        # 2. 去重
         seen = set()
-        for category in ["冲刺", "稳妥", "保底", "垫底"]:
+        for category in ["冲刺", "稳妥", "保底"]:
+            if category not in recommendation:
+                continue
+
             unique_items = []
             for item in recommendation[category]:
                 key = f"{item.get('university_name', '')}-{item.get('major', '')}"
@@ -551,18 +624,24 @@ class RecommendationService:
                     unique_items.append(item)
             recommendation[category] = unique_items
 
-        # 排序（按概率降序）
-        for category in ["冲刺", "稳妥", "保底", "垫底"]:
-            recommendation[category].sort(
-                key=lambda x: x.get("probability", 0),
-                reverse=True
-            )
+        # 3. 排序（按概率降序）
+        for category in ["冲刺", "稳妥", "保底"]:
+            if category in recommendation:
+                recommendation[category].sort(
+                    key=lambda x: x.get("probability", 0),
+                    reverse=True
+                )
 
-        # 限制每类数量
-        recommendation["冲刺"] = recommendation["冲刺"][:5]
-        recommendation["稳妥"] = recommendation["稳妥"][:8]
-        recommendation["保底"] = recommendation["保底"][:6]
-        recommendation["垫底"] = recommendation["垫底"][:3]
+        # 4. 按照20%冲刺、40%稳妥、30%保底的比例分配
+        # 目标总数量：10所学校（2冲刺、4稳妥、3保底、1剩余）
+        target_chong = 2
+        target_wen = 4
+        target_bao = 3
+
+        # 5. 限制每类数量，按照目标比例
+        recommendation["冲刺"] = recommendation.get("冲刺", [])[:target_chong]
+        recommendation["稳妥"] = recommendation.get("稳妥", [])[:target_wen]
+        recommendation["保底"] = recommendation.get("保底", [])[:target_bao]
 
         return recommendation
 
@@ -578,7 +657,7 @@ class RecommendationService:
         }
 
         total = 0
-        for category in ["冲刺", "稳妥", "保底", "垫底"]:
+        for category in ["冲刺", "稳妥", "保底"]:  # 删除"垫底"
             count = len(recommendation[category])
             analysis["category_counts"][category] = count
             total += count
@@ -632,15 +711,8 @@ class RecommendationService:
         else:
             advice.append("保底院校不足，建议补充")
 
-        # 垫底建议
-        dian_count = counts.get("垫底", 0)
-        if dian_count > 0:
-            advice.append(f"有{dian_count}个垫底院校，确保有学可上")
-        else:
-            advice.append("建议至少有1个垫底院校")
-
         # 总体建议
-        advice.append("建议比例：冲刺20%，稳妥40%，保底30%，垫底10%")
+        advice.append("建议比例：冲刺20%，稳妥40%，保底30%")
 
         return advice
 
