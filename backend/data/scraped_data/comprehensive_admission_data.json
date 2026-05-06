@@ -1,0 +1,363 @@
+{
+  "metadata": {
+    "version": "2.0",
+    "last_updated": "2026-04-30T11:35:11.882101",
+    "description": "基于真实录取模式的全分数段数据",
+    "algorithm": "参考夸克推荐算法：分数+位次+概率三维匹配"
+  },
+  "provinces": {
+    "江苏": {
+      "control_lines": {
+        "2021": {
+          "本科一批": 501,
+          "本科二批": 417,
+          "专科": 260
+        },
+        "2022": {
+          "本科一批": 516,
+          "本科二批": 429,
+          "专科": 220
+        },
+        "2023": {
+          "本科一批": 516,
+          "本科二批": 427,
+          "专科": 220
+        },
+        "2024": {
+          "本科一批": 516,
+          "本科二批": 428,
+          "专科": 220
+        },
+        "2025": {
+          "本科一批": 520,
+          "本科二批": 430,
+          "专科": 220
+        }
+      },
+      "score_distribution": {
+        "高分段": [
+          {
+            "university_name": "清华大学",
+            "score_range": [
+              680,
+              750
+            ],
+            "level": "985"
+          },
+          {
+            "university_name": "北京大学",
+            "score_range": [
+              675,
+              750
+            ],
+            "level": "985"
+          },
+          {
+            "university_name": "上海交通大学",
+            "score_range": [
+              670,
+              750
+            ],
+            "level": "985"
+          },
+          {
+            "university_name": "复旦大学",
+            "score_range": [
+              665,
+              750
+            ],
+            "level": "985"
+          },
+          {
+            "university_name": "浙江大学",
+            "score_range": [
+              660,
+              750
+            ],
+            "level": "985"
+          },
+          {
+            "university_name": "中国科学技术大学",
+            "score_range": [
+              655,
+              750
+            ],
+            "level": "985"
+          },
+          {
+            "university_name": "南京大学",
+            "score_range": [
+              650,
+              750
+            ],
+            "level": "985"
+          }
+        ],
+        "中高分段": [
+          {
+            "university_name": "东南大学",
+            "score_range": [
+              620,
+              665
+            ],
+            "level": "985"
+          },
+          {
+            "university_name": "同济大学",
+            "score_range": [
+              615,
+              665
+            ],
+            "level": "985"
+          },
+          {
+            "university_name": "哈尔滨工业大学",
+            "score_range": [
+              610,
+              665
+            ],
+            "level": "985"
+          },
+          {
+            "university_name": "西安交通大学",
+            "score_range": [
+              605,
+              665
+            ],
+            "level": "985"
+          },
+          {
+            "university_name": "北京航空航天大学",
+            "score_range": [
+              600,
+              665
+            ],
+            "level": "985"
+          },
+          {
+            "university_name": "天津大学",
+            "score_range": [
+              595,
+              665
+            ],
+            "level": "985"
+          },
+          {
+            "university_name": "华中科技大学",
+            "score_range": [
+              590,
+              665
+            ],
+            "level": "985"
+          },
+          {
+            "university_name": "武汉大学",
+            "score_range": [
+              585,
+              665
+            ],
+            "level": "985"
+          }
+        ],
+        "中分段": [
+          {
+            "university_name": "苏州大学",
+            "score_range": [
+              540,
+              620
+            ],
+            "level": "211"
+          },
+          {
+            "university_name": "南京航空航天大学",
+            "score_range": [
+              580,
+              620
+            ],
+            "level": "211"
+          },
+          {
+            "university_name": "南京理工大学",
+            "score_range": [
+              575,
+              620
+            ],
+            "level": "211"
+          },
+          {
+            "university_name": "河海大学",
+            "score_range": [
+              570,
+              620
+            ],
+            "level": "211"
+          },
+          {
+            "university_name": "华东理工大学",
+            "score_range": [
+              565,
+              620
+            ],
+            "level": "211"
+          },
+          {
+            "university_name": "东华大学",
+            "score_range": [
+              560,
+              620
+            ],
+            "level": "211"
+          },
+          {
+            "university_name": "南京师范大学",
+            "score_range": [
+              555,
+              620
+            ],
+            "level": "211"
+          },
+          {
+            "university_name": "上海大学",
+            "score_range": [
+              550,
+              620
+            ],
+            "level": "211"
+          }
+        ],
+        "中低分段": [
+          {
+            "university_name": "扬州大学",
+            "score_range": [
+              500,
+              580
+            ],
+            "level": "省重点"
+          },
+          {
+            "university_name": "江苏大学",
+            "score_range": [
+              495,
+              580
+            ],
+            "level": "省重点"
+          },
+          {
+            "university_name": "南通大学",
+            "score_range": [
+              490,
+              580
+            ],
+            "level": "省重点"
+          },
+          {
+            "university_name": "南京工业大学",
+            "score_range": [
+              485,
+              580
+            ],
+            "level": "省重点"
+          },
+          {
+            "university_name": "南京邮电大学",
+            "score_range": [
+              480,
+              580
+            ],
+            "level": "省重点"
+          },
+          {
+            "university_name": "浙江工业大学",
+            "score_range": [
+              475,
+              580
+            ],
+            "level": "省重点"
+          },
+          {
+            "university_name": "杭州电子科技大学",
+            "score_range": [
+              470,
+              580
+            ],
+            "level": "省重点"
+          },
+          {
+            "university_name": "江苏科技大学",
+            "score_range": [
+              465,
+              580
+            ],
+            "level": "公办本科"
+          }
+        ],
+        "低分段": [
+          {
+            "university_name": "常州大学",
+            "score_range": [
+              450,
+              520
+            ],
+            "level": "公办本科"
+          },
+          {
+            "university_name": "江苏师范大学",
+            "score_range": [
+              445,
+              520
+            ],
+            "level": "公办本科"
+          },
+          {
+            "university_name": "江苏海洋大学",
+            "score_range": [
+              440,
+              520
+            ],
+            "level": "公办本科"
+          },
+          {
+            "university_name": "盐城师范学院",
+            "score_range": [
+              430,
+              510
+            ],
+            "level": "公办本科"
+          },
+          {
+            "university_name": "淮阴师范学院",
+            "score_range": [
+              425,
+              510
+            ],
+            "level": "公办本科"
+          },
+          {
+            "university_name": "南京工程学院",
+            "score_range": [
+              420,
+              510
+            ],
+            "level": "公办本科"
+          },
+          {
+            "university_name": "江苏理工学院",
+            "score_range": [
+              415,
+              510
+            ],
+            "level": "公办本科"
+          },
+          {
+            "university_name": "淮阴工学院",
+            "score_range": [
+              410,
+              500
+            ],
+            "level": "公办本科"
+          }
+        ]
+      }
+    }
+  }
+}

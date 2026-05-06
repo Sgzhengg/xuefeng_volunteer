@@ -1,0 +1,173 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "total_rules": 11,
+    "description": "专业报考限制规则库"
+  },
+  "rules": [
+    {
+      "rule_id": "SUBJ_001",
+      "rule_type": "subject_requirement",
+      "major_keywords": [
+        "计算机科学与技术",
+        "软件工程",
+        "人工智能",
+        "电子信息工程"
+      ],
+      "subject_requirements": {
+        "physics": "required",
+        "chemistry": "optional"
+      },
+      "description": "理工科专业通常要求必选物理"
+    },
+    {
+      "rule_id": "SUBJ_002",
+      "rule_type": "subject_requirement",
+      "major_keywords": [
+        "临床医学",
+        "口腔医学",
+        "中医学"
+      ],
+      "subject_requirements": {
+        "physics": "required",
+        "chemistry": "required",
+        "biology": "required"
+      },
+      "description": "医学专业通常要求物理、化学、生物"
+    },
+    {
+      "rule_id": "SUBJ_003",
+      "rule_type": "subject_requirement",
+      "major_keywords": [
+        "数学与应用数学",
+        "统计学",
+        "物理学"
+      ],
+      "subject_requirements": {
+        "physics": "required",
+        "math": "strongly_recommended"
+      },
+      "description": "数学、物理类专业要求必选物理"
+    },
+    {
+      "rule_id": "SUBJ_004",
+      "rule_type": "subject_requirement",
+      "major_keywords": [
+        "化学",
+        "生物科学",
+        "材料科学"
+      ],
+      "subject_requirements": {
+        "chemistry": "required",
+        "physics": "optional"
+      },
+      "description": "化学、生物类专业通常要求必选化学"
+    },
+    {
+      "rule_id": "SUBJ_005",
+      "rule_type": "subject_requirement",
+      "major_keywords": [
+        "汉语言文学",
+        "历史学",
+        "哲学"
+      ],
+      "subject_requirements": {
+        "history": "preferred",
+        "politics": "preferred"
+      },
+      "description": "文史类专业偏好历史、政治"
+    },
+    {
+      "rule_id": "SCORE_001",
+      "rule_type": "score_requirement",
+      "major_keywords": [
+        "英语",
+        "翻译",
+        "商务英语"
+      ],
+      "score_requirements": {
+        "english": {
+          "min_score": 100,
+          "min_percentile": 80
+        }
+      },
+      "description": "英语专业要求英语成绩较好"
+    },
+    {
+      "rule_id": "SCORE_002",
+      "rule_type": "score_requirement",
+      "major_keywords": [
+        "数学与应用数学",
+        "统计学"
+      ],
+      "score_requirements": {
+        "math": {
+          "min_score": 110,
+          "min_percentile": 85
+        }
+      },
+      "description": "数学专业要求数学成绩优秀"
+    },
+    {
+      "rule_id": "SCORE_003",
+      "rule_type": "score_requirement",
+      "major_keywords": [
+        "建筑学",
+        "城市规划",
+        "工业设计"
+      ],
+      "score_requirements": {
+        "art_foundation": "required",
+        "drawing_test": "required"
+      },
+      "description": "建筑学、城市规划专业通常需要美术基础"
+    },
+    {
+      "rule_id": "PHYS_001",
+      "rule_type": "physical_requirement",
+      "major_keywords": [
+        "临床医学",
+        "护理学",
+        "医学影像学"
+      ],
+      "physical_requirements": {
+        "vision": {
+          "corrected": ">4.8",
+          "color_blindness": "not_allowed"
+        },
+        "other": "无传染性疾病"
+      },
+      "description": "医学专业对身体条件有严格要求"
+    },
+    {
+      "rule_id": "PHYS_002",
+      "rule_type": "physical_requirement",
+      "major_keywords": [
+        "航海技术",
+        "轮机工程"
+      ],
+      "physical_requirements": {
+        "vision": {
+          "uncorrected": ">5.0",
+          "color_blindness": "not_allowed"
+        },
+        "height": {
+          "min": 165
+        }
+      },
+      "description": "航海类专业对身体条件有特殊要求"
+    },
+    {
+      "rule_id": "OTHER_001",
+      "rule_type": "other_requirement",
+      "major_keywords": [
+        "法学",
+        "哲学"
+      ],
+      "other_requirements": {
+        "oral_communication": "strongly_recommended"
+      },
+      "description": "法学、哲学专业对语言表达能力要求较高"
+    }
+  ]
+}
