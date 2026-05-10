@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 推荐结果校验模块
 实现夸克算法的校验与反思层，提供风险预警和矛盾检测
@@ -243,18 +244,18 @@ class RecommendationValidator:
     ) -> str:
         """生成校验报告"""
         if not validation_result.get("warnings") and not validation_result.get("errors"):
-            return "✅ 推荐结果校验通过，无警告无错误"
+            return "[OK] 推荐结果校验通过，无警告无错误"
 
         report = ["📋 推荐结果校验报告", ""]
 
         if validation_result.get("errors"):
-            report.append("❌ 错误（必须修复）:")
+            report.append("[ERROR] 错误（必须修复）:")
             for error in validation_result["errors"]:
                 report.append(f"  - {error}")
             report.append("")
 
         if validation_result.get("warnings"):
-            report.append("⚠️  警告（建议关注）:")
+            report.append("[WARN]  警告（建议关注）:")
             for warning in validation_result["warnings"]:
                 report.append(f"  - {warning}")
 

@@ -1,5 +1,6 @@
+# -*- coding: utf-8 -*-
 from pydantic import BaseModel
-from typing import Optional, List
+from typing import Optional, List, Dict, Any
 from datetime import datetime
 
 
@@ -90,3 +91,38 @@ class EnhancedPDFReportRequest(BaseModel):
     """Enhanced PDF report generation request"""
     recommendation_result: dict  # Complete recommendation result data
     export_format: str = "pdf"  # 'pdf' or 'html'
+
+
+# [NEW] 留粤VS出省对比请求模型
+class CompareRequest(BaseModel):
+    province: str  # 考生省份
+    score: int  # 高考分数
+    rank: int  # 全省位次
+    subject_type: str = "理科"  # 科目类型
+    target_majors: Optional[List[str]] = None  # 目标专业列表
+    prefer_city: Optional[str] = None  # 偏好城市
+
+
+# [NEW] 热词更新请求模型
+class HeatWord(BaseModel):
+    rank: int  # 排名
+    word: str  # 热词
+    heat: int  # 热度值
+    trend: str  # 趋势：up/down/stable
+    change: str  # 变化幅度，如"+15%"
+
+class HeatWordsUpdateRequest(BaseModel):
+    heat_words: List[HeatWord]  # 热词列表
+    admin_key: str  # 管理员密钥（简单验证）
+
+
+# [NEW] 志愿表评估相关模型
+class VolunteerEvaluationRequest(BaseModel):
+    """志愿表评估请求"""
+    user_info: Dict[str, Any]  # 用户信息，包含rank、province等
+    volunteers: List[Dict[str, Any]]  # 志愿列表
+
+
+class PlanSummaryRequest(BaseModel):
+    """志愿方案摘要请求"""
+    plan_data: Dict[str, Any]  # 志愿方案数据

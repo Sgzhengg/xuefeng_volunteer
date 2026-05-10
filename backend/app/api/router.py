@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import FileResponse, Response
 from app.models.schemas import *
@@ -6,6 +7,13 @@ from app.services.enhanced_pdf_service import enhanced_pdf_service
 from app.services.volunteer_simulator_service import volunteer_simulator_service
 from app.services.recommendation_service import recommendation_service
 from app.services.ai_chat_service import ai_chat_service
+# [NEW] 新增服务导入
+from app.services.compare_service import compare_service
+from app.services.roi_service import roi_service
+from app.services.guangdong_recommendation_service import guangdong_recommendation_service  # [NEW] 完整重构版推荐服务
+from app.services.plan_evaluator_service import plan_evaluator_service  # [NEW] 志愿表评估服务
+from app.services.poster_generator_service import poster_generator_service  # [NEW] 海报生成服务
+from app.services.data_update_notify import data_update_notify_service  # [NEW] 数据更新通知服务
 import json
 from pathlib import Path
 from functools import lru_cache
@@ -365,25 +373,79 @@ async def generate_volunteer_scheme(request: VolunteerSchemeRequest):
 
 @router.post("/recommendation/generate")
 async def generate_recommendation(request: RecommendationRequest):
-    """生成智能推荐方案（参考夸克算法：分数+位次+概率三维匹配）"""
+    """生成智能推荐方案（完整重构版 - 降级机制+分层权重+数量保证）"""
     try:
-        print(f"Enhanced API called with: province={request.province}, score={request.score}, majors={request.target_majors}")
+        print(f"[NEW_API] 重构版API调用: province={request.province}, rank={request.rank}, score={request.score}, majors={request.target_majors}")
 
-        # 使用增强的推荐服务
-        from app.services.enhanced_recommendation_service import enhanced_recommendation_service
-
-        result = await enhanced_recommendation_service.generate_recommendation(
+        # 使用完整重构版推荐服务
+        service_result = guangdong_recommendation_service.recommend_with_fallback(
+            user_rank=request.rank if request.rank else 10000,  # 确保rank不为None
             province=request.province,
-            score=request.score,
             subject_type=request.subject_type,
-            target_majors=request.target_majors,
-            rank=request.rank,
-            preferences=request.preferences,
+            target_majors=request.target_majors if request.target_majors else ["计算机科学与技术"],
         )
-        print(f"Enhanced API result: {result.get('data', {}).get('analysis', {}).get('total_count', 0)} schools")
-        return result
+
+        # 转换为统一API格式
+        if service_result.get("success"):
+            service_data = service_result.get("data", {})
+
+            # 合并所有分类的推荐结果
+            recommendations = []
+            for category in ["冲刺", "稳妥", "保底"]:
+                category_recs = service_data.get(category, [])
+                for rec in category_recs:
+                    # 添加分类标签
+                    rec["tag"] = "chong" if category == "冲刺" else "wen" if category == "稳妥" else "bao"
+                    recommendations.append(rec)
+
+            # 统计信息
+            chong_count = len(service_data.get("冲刺", []))
+            wen_count = len(service_data.get("稳妥", []))
+            bao_count = len(service_data.get("保底", []))
+
+            api_result = {
+                "code": 0,
+                "message": "success",
+                "data": {
+                    "recommendations": recommendations,
+                    "summary": {
+                        "total": len(recommendations),
+                        "chong": chong_count,
+                        "wen": wen_count,
+                        "bao": bao_count
+                    }
+                }
+            }
+
+            print(f"[API] 推荐成功: 总计{len(recommendations)}条 (冲刺{chong_count}, 稳妥{wen_count}, 保底{bao_count})")
+            return api_result
+        else:
+            # 推荐服务失败
+            api_result = {
+                "code": -1,
+                "message": service_result.get("error", "推荐失败"),
+                "data": {
+                    "recommendations": [],
+                    "summary": {"total": 0, "chong": 0, "wen": 0, "bao": 0}
+                }
+            }
+            print(f"[API] 推荐失败: {service_result.get('error')}")
+            return api_result
+
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        import traceback
+        print(f"[EXCEPTION] API异常: {e}")
+        traceback.print_exc()
+
+        # 返回错误格式
+        return {
+            "code": -1,
+            "message": str(e),
+            "data": {
+                "recommendations": [],
+                "summary": {"total": 0, "chong": 0, "wen": 0, "bao": 0}
+            }
+        }
 
 
 @router.get("/recommendation/majors/suggest")
@@ -739,6 +801,483 @@ async def chat(request: ChatRequest):
         return {
             "success": True,
             "response": response
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# ==================== [NEW] 留粤VS出省对比API ====================
+
+@router.post("/recommend/compare")
+async def compare_guangdong_vs_outprovince(request: CompareRequest):
+    """
+    留粤VS出省对比API
+
+    为广东考生对比留粤和出省的最优选择
+
+    Args:
+        request: CompareRequest包含province, score, rank, subject_type, target_majors, prefer_city
+
+    Returns:
+        对比结果，包含留粤最优和出省最优推荐
+    """
+    try:
+        result = compare_service.compare_guangdong_vs_outprovince(
+            province=request.province,
+            score=request.score,
+            rank=request.rank,
+            subject_type=request.subject_type,
+            target_majors=request.target_majors,
+            prefer_city=request.prefer_city
+        )
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# ==================== [NEW] 热词管理API ====================
+
+# 内存存储热词数据（生产环境应使用数据库）
+_heat_words_data = {
+    "heat_words": [
+        {"rank": 1, "word": "高考志愿填报", "heat": 125000, "trend": "up", "change": "+15%"},
+        {"rank": 2, "word": "专业选择", "heat": 98000, "trend": "up", "change": "+8%"},
+        {"rank": 3, "word": "就业前景", "heat": 87000, "trend": "stable", "change": "0%"},
+        {"rank": 4, "word": "广东录取分数线", "heat": 76000, "trend": "up", "change": "+5%"},
+        {"rank": 5, "word": "985211院校", "heat": 65000, "trend": "down", "change": "-3%"},
+        {"rank": 6, "word": "计算机专业", "heat": 54000, "trend": "up", "change": "+12%"},
+        {"rank": 7, "word": "法学专业就业", "heat": 43000, "trend": "down", "change": "-7%"},
+        {"rank": 8, "word": "医学专业", "heat": 38000, "trend": "stable", "change": "0%"},
+        {"rank": 9, "word": "师范类", "heat": 32000, "trend": "up", "change": "+4%"},
+        {"rank": 10, "word": "专升本", "heat": 28000, "trend": "up", "change": "+6%"},
+    ],
+    "last_updated": "2026-05-07 10:00:00",
+    "source": "微博热搜 | 快手热榜"
+}
+
+
+@router.get("/heat/list")
+async def get_heat_words():
+    """
+    获取热词榜单
+
+    Returns:
+        热词列表
+    """
+    return {
+        "success": True,
+        "data": _heat_words_data
+    }
+
+
+@router.post("/heat/update")
+async def update_heat_words(request: HeatWordsUpdateRequest):
+    """
+    更新热词榜单（管理接口）
+
+    Args:
+        request: HeatWordsUpdateRequest包含热词列表和管理员密钥
+
+    Returns:
+        更新结果
+    """
+    # 简单的密钥验证（生产环境应使用更安全的认证方式）
+    if request.admin_key != "xuefeng2024":
+        raise HTTPException(status_code=403, detail="管理员密钥错误")
+
+    try:
+        _heat_words_data["heat_words"] = request.heat_words
+        _heat_words_data["last_updated"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        return {
+            "success": True,
+            "message": f"成功更新{len(request.heat_words)}条热词",
+            "data": _heat_words_data
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# ==================== [NEW] ROI标签API ====================
+
+@router.get("/roi/info/{major_name}")
+async def get_major_roi_info(major_name: str):
+    """
+    获取专业的ROI信息
+
+    Args:
+        major_name: 专业名称
+
+    Returns:
+        ROI标签和提示信息
+    """
+    try:
+        roi_info = roi_service.get_major_roi_info(major_name)
+        return {
+            "success": True,
+            "data": roi_info
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.get("/roi/redlist")
+async def get_red_list():
+    """
+    获取红牌专业列表
+
+    Returns:
+        红牌专业列表及避坑建议
+    """
+    try:
+        red_list = roi_service.get_red_list_majors()
+        return {
+            "success": True,
+            "data": {
+                "red_list": red_list,
+                "total": len(red_list)
+            }
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.get("/roi/guangdong/hot")
+async def get_guangdong_hot_majors():
+    """
+    获取广东热门专业列表
+
+    Returns:
+        广东热门专业列表
+    """
+    try:
+        hot_majors = roi_service.get_guangdong_hot_majors()
+        return {
+            "success": True,
+            "data": {
+                "hot_majors": hot_majors,
+                "total": len(hot_majors)
+            }
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# [NEW] 志愿表评估相关API
+
+@router.post("/volunteer/evaluate")
+async def evaluate_volunteer_plan(request: VolunteerEvaluationRequest):
+    """
+    评估志愿填报方案
+
+    Args:
+        request: 志愿方案
+            {
+                "user_info": {"rank": 10000, "province": "广东"},
+                "volunteers": [
+                    {"university_name": "中山大学", "major": "计算机", "category": "冲刺"},
+                    ...
+                ]
+            }
+
+    Returns:
+        评估结果，包含风险预警和改进建议
+    """
+    try:
+        # 转换为字典格式传递给服务
+        request_dict = request.model_dump()
+        evaluation = plan_evaluator_service.evaluate_volunteer_plan(request_dict)
+        return {
+            "success": True,
+            "data": evaluation
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.post("/volunteer/summary")
+async def generate_plan_summary(request: PlanSummaryRequest):
+    """
+    生成志愿方案摘要（用于分享）
+
+    Args:
+        request: 志愿方案
+
+    Returns:
+        格式化的志愿方案摘要文本
+    """
+    try:
+        # 转换为字典格式传递给服务
+        request_dict = request.model_dump()
+        summary = plan_evaluator_service.generate_plan_summary(request_dict)
+        return {
+            "success": True,
+            "data": {
+                "summary": summary
+            }
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# [NEW] 海报生成相关API
+
+@router.post("/poster/generate")
+async def generate_recommendation_poster(request: Dict[str, Any]):
+    """
+    生成推荐结果海报
+
+    Args:
+        request: 包含推荐结果和用户信息的请求
+            {
+                "recommendation_data": {...},
+                "user_info": {...}
+            }
+
+    Returns:
+        海报信息，包含文件路径和分享文本
+    """
+    try:
+        poster_info = poster_generator_service.generate_recommendation_poster(
+            request.get("recommendation_data", {}),
+            request.get("user_info", {})
+        )
+        return {
+            "success": True,
+            "data": poster_info
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.post("/poster/text")
+async def generate_text_poster(request: Dict[str, Any]):
+    """
+    生成文本版海报（用于文本分享）
+
+    Args:
+        request: 包含推荐结果和用户信息的请求
+
+    Returns:
+        文本版海报内容
+    """
+    try:
+        poster_info = poster_generator_service.generate_recommendation_poster(
+            request.get("recommendation_data", {}),
+            request.get("user_info", {})
+        )
+
+        text_poster = poster_generator_service.generate_text_poster(
+            poster_info["poster_content"]
+        )
+
+        return {
+            "success": True,
+            "data": {
+                "text_poster": text_poster,
+                "share_text": poster_info["share_text"]
+            }
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# [NEW] 2026年数据采集系统相关API
+
+@router.get("/data/version")
+async def get_data_version():
+    """
+    获取当前数据版本信息
+
+    Returns:
+        当前数据版本、更新状态、数据组件状态
+    """
+    try:
+        version_info = data_update_notify_service.get_current_version_info()
+        return {
+            "success": True,
+            "data": version_info
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.get("/data/timeline")
+async def get_data_timeline():
+    """
+    获取数据更新时间线
+
+    Returns:
+        2026年各数据采集时间节点和状态
+    """
+    try:
+        timeline = data_update_notify_service.get_update_timeline()
+        return {
+            "success": True,
+            "data": {
+                "timeline": timeline
+            }
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.post("/data/update/notify")
+async def notify_data_update(request: Dict[str, Any]):
+    """
+    数据更新通知（管理员使用）
+
+    Args:
+        request: 更新通知
+            {
+                "update_type": "new_data|data_fix|policy_change",
+                "urgency": "low|normal|high|emergency",
+                "details": {...}
+            }
+
+    Returns:
+        通知处理结果
+    """
+    try:
+        result = data_update_notify_service.notify_data_update(
+            update_type=request.get("update_type", "new_data"),
+            update_details=request.get("details", {}),
+            urgency=request.get("urgency", "normal")
+        )
+        return {
+            "success": True,
+            "data": result
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.get("/data/collection/status")
+async def get_collection_status():
+    """
+    获取数据采集系统状态
+
+    Returns:
+        紧急采集状态、监控状态、最近采集记录
+    """
+    try:
+        # 这里需要调用各个采集脚本的状态接口
+        status = {
+            "emergency_mode": "active",  # 从emergency_collect_2026.py获取
+            "policy_monitoring": "active",  # 从monitor_2026_policies.py获取
+            "last_collections": [],  # 从各个采集日志获取
+            "next_scheduled_checks": []
+        }
+        return {
+            "success": True,
+            "data": status
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.post("/data/validate/2025")
+async def validate_2025_data():
+    """
+    执行2025年数据验证
+
+    Returns:
+        验证结果和问题列表
+    """
+    try:
+        import subprocess
+        import sys
+
+        # 执行验证脚本
+        script_path = Path("backend/scripts/validate_2025_data.py")
+        result = subprocess.run(
+            [sys.executable, str(script_path)],
+            capture_output=True,
+            text=True,
+            timeout=300  # 5分钟超时
+        )
+
+        # 解析输出
+        validation_success = result.returncode == 0
+
+        return {
+            "success": True,
+            "data": {
+                "validation_success": validation_success,
+                "stdout": result.stdout,
+                "stderr": result.stderr
+            }
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.post("/data/integrate/2026")
+async def integrate_2026_data():
+    """
+    执行2026年数据整合
+
+    Returns:
+        整合结果和验证状态
+    """
+    try:
+        import subprocess
+        import sys
+
+        # 执行整合脚本
+        script_path = Path("backend/scripts/integrate_2026_data.py")
+        result = subprocess.run(
+            [sys.executable, str(script_path)],
+            capture_output=True,
+            text=True,
+            timeout=600  # 10分钟超时
+        )
+
+        # 解析输出
+        integration_success = result.returncode == 0
+
+        return {
+            "success": True,
+            "data": {
+                "integration_success": integration_success,
+                "stdout": result.stdout,
+                "stderr": result.stderr
+            }
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.post("/data/emergency/activate")
+async def activate_emergency_mode():
+    """
+    激活紧急采集模式（出分后使用）
+
+    Returns:
+        激活状态和监控配置
+    """
+    try:
+        import subprocess
+        import sys
+
+        # 激活紧急模式
+        script_path = Path("backend/scripts/emergency_collect_2026.py")
+        result = subprocess.run(
+            [sys.executable, str(script_path), "activate"],
+            capture_output=True,
+            text=True,
+            timeout=60
+        )
+
+        activation_success = result.returncode == 0
+
+        return {
+            "success": activation_success,
+            "data": {
+                "message": "紧急采集模式已激活" if activation_success else "激活失败",
+                "stdout": result.stdout,
+                "stderr": result.stderr
+            }
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

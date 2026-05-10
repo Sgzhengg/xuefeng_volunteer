@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 增强的智能志愿推荐服务
 参考夸克推荐算法：分数+位次+概率三维匹配
@@ -18,19 +19,27 @@ class EnhancedRecommendationService:
         self.data_dir = Path("data")
         self._load_enhanced_data()
 
-        # 🆕 初始化缓存管理器
+        # [NEW] 初始化缓存管理器
         try:
             from app.services.cache_manager import cache_manager
             self.cache_manager = cache_manager
         except:
             self.cache_manager = None
 
-        # 🆕 初始化边界场景服务
+        # [NEW] 初始化边界场景服务
         try:
             from app.services.boundary_scenario_service import boundary_scenario_service
             self.boundary_service = boundary_scenario_service
         except:
             self.boundary_service = None
+
+        # [NEW] 初始化ROI服务
+        try:
+            from app.services.roi_service import roi_service
+            self.roi_service = roi_service
+        except:
+            self.roi_service = None
+            print("[WARN] ROI服务初始化失败")
 
     def _load_enhanced_data(self):
         """加载增强的数据"""
@@ -84,7 +93,7 @@ class EnhancedRecommendationService:
         if not target_majors:
             target_majors = ["计算机科学与技术"]
 
-        # 🆕 尝试从缓存获取
+        # [NEW] 尝试从缓存获取
         if self.cache_manager:
             cached_result = self.cache_manager.get_from_cache(
                 province, rank, [subject_type], preferences, score, target_majors
@@ -93,7 +102,7 @@ class EnhancedRecommendationService:
                 print("DEBUG: 使用缓存的推荐结果")
                 return cached_result
 
-        # 🆕 边界场景检测和处理
+        # [NEW] 边界场景检测和处理
         boundary_result = self._handle_boundary_scenarios(
             province, score, rank, subject_type, target_majors, preferences
         )
@@ -137,7 +146,7 @@ class EnhancedRecommendationService:
         # 生成建议
         recommendation["advice"] = self._generate_advice_enhanced(recommendation)
 
-        # 🆕 校验层：调用validator进行风险预警和矛盾检测
+        # [NEW] 校验层：调用validator进行风险预警和矛盾检测
         from app.services.validator import recommendation_validator
 
         user_input = {
@@ -156,7 +165,7 @@ class EnhancedRecommendationService:
         # 将校验结果添加到推荐中
         recommendation["validation"] = validation_result
 
-        # 🆕 保存到缓存
+        # [NEW] 保存到缓存
         if self.cache_manager:
             recommendation["cache_status"] = "miss"  # 标识缓存未命中
             self.cache_manager.save_to_cache(
@@ -293,7 +302,8 @@ class EnhancedRecommendationService:
         # 获取院校详细信息
         uni_details = self.universities.get(uni_id, {})
 
-        return {
+        # 构建基础推荐结果
+        result = {
             "university_id": uni_id,
             "university_name": uni_name,
             "university_level": level,
@@ -315,6 +325,12 @@ class EnhancedRecommendationService:
                 "top_employers": []
             }
         }
+
+        # [NEW] 添加ROI标签
+        if self.roi_service:
+            result = self.roi_service.enrich_recommendation(result)
+
+        return result
 
     def _calculate_enhanced_probability(
         self,
