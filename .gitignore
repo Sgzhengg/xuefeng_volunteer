@@ -77,6 +77,13 @@ Thumbs.db
 # Logs
 *.log
 flutter_debug.log
+
+# 大数据文件忽略（超过GitHub 100MB限制）
 backend/data/*.json
-backend/data/backup/*.json
-backend/data/major_rank_data.json
+backend/data/backups/*.json
+backend/data/province_data_2025/*.json
+backend/data_cleaning_report_*.json
+
+# 但保留数据文件结构
+!backend/data/.gitkeep
+!backend/data/backups/.gitkeep
