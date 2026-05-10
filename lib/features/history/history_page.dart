@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:isar/isar.dart';
-import '../../core/models/chat_message.dart';
 import '../../shared/theme/app_theme.dart';
+import '../../providers/auth_provider.dart';
+import '../../providers/history_provider.dart';
 
 class HistoryPage extends ConsumerStatefulWidget {
   const HistoryPage({super.key});
@@ -12,277 +12,474 @@ class HistoryPage extends ConsumerStatefulWidget {
 }
 
 class _HistoryPageState extends ConsumerState<HistoryPage> {
-  bool _isLoading = true;
-  List<Map<String, dynamic>> _sessions = [];
+  final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
-    _loadHistory();
+    // 页面加载时检查登录状态并加载数据
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _loadData();
+      _setupScrollListener();
+    });
   }
 
-  Future<void> _loadHistory() async {
-    setState(() => _isLoading = true);
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
-    try {
-      // TODO: 从Isar数据库加载历史记录
-      // final isar = ref.read(isarProvider);
-      // final messages = await isar.chatMessages.where().sortByTimestamp().findAll();
-      //
-      // 按会话分组
-      // final Map<String, List<ChatMessage>> grouped = {};
-      // for (final message in messages) {
-      //   final sessionId = message.sessionId ?? 'default';
-      //   grouped.putIfAbsent(sessionId, () => []).add(message);
-      // }
-      //
-      // 转换为会话列表
-      // final sessions = grouped.entries.map((entry) {
-      //   final messages = entry.value;
-      //   return {
-      //     'id': entry.key,
-      //     'title': messages.first.content.substring(0, 30),
-      //     'timestamp': messages.first.timestamp,
-      //     'messageCount': messages.length,
-      //     'lastMessage': messages.last.content,
-      //   };
-      // }).toList();
+  void _setupScrollListener() {
+    _scrollController.addListener(() {
+      if (_scrollController.position.pixels >=
+          _scrollController.position.maxScrollExtent - 200) {
+        _loadMore();
+      }
+    });
+  }
 
-      // Mock数据用于演示
-      _sessions = [
-        {
-          'id': '1',
-          'title': '关于计算机专业的咨询',
-          'timestamp': DateTime.now().millisecondsSinceEpoch - 86400000,
-          'messageCount': 15,
-          'lastMessage': '总的来说，计算机专业是个不错的选择...',
-        },
-        {
-          'id': '2',
-          'title': '高考志愿填报建议',
-          'timestamp': DateTime.now().millisecondsSinceEpoch - 172800000,
-          'messageCount': 23,
-          'lastMessage': '建议按照冲刺、稳妥、保底的比例...',
-        },
-      ];
-
-      // 按时间倒序排序
-      _sessions.sort((a, b) => (b['timestamp'] as int).compareTo(a['timestamp'] as int));
-
-    } catch (e) {
-      _showError('加载失败：$e');
-    } finally {
-      setState(() => _isLoading = false);
+  Future<void> _loadData() async {
+    final authState = ref.read(authProvider);
+    if (authState.isLoggedIn && authState.token != null) {
+      await ref.read(historyProvider.notifier).loadHistories(authState.token!, 1);
     }
   }
 
-  void _deleteSession(String sessionId) async {
-    // TODO: 从数据库删除会话
-    // final isar = ref.read(isarProvider);
-    // await isar.writeTxn(() async {
-    //   await isar.chatMessages.filter().sessionIdEqualTo(sessionId).deleteAll();
-    // });
-
-    setState(() {
-      _sessions.removeWhere((session) => session['id'] == sessionId);
-    });
-
-    _showSuccess('会话已删除');
+  Future<void> _loadMore() async {
+    final authState = ref.read(authProvider);
+    if (authState.isLoggedIn && authState.token != null) {
+      await ref.read(historyProvider.notifier).loadMore(authState.token!);
+    }
   }
 
-  void _continueChat(String sessionId) {
-    // TODO: 导航到聊天页面并加载历史消息
-    // Navigator.push(
-    //   context,
-    //   MaterialPageRoute(
-    //     builder: (context) => ChatPage(sessionId: sessionId),
-    //   ),
-    // );
-
-    _showInfo('继续聊天功能开发中...');
-  }
-
-  void _showError(String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message), backgroundColor: Colors.red),
-    );
-  }
-
-  void _showSuccess(String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message), backgroundColor: Colors.green),
-    );
-  }
-
-  void _showInfo(String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message), backgroundColor: Colors.blue),
-    );
+  Future<void> _refresh() async {
+    final authState = ref.read(authProvider);
+    if (authState.isLoggedIn && authState.token != null) {
+      await ref.read(historyProvider.notifier).refresh(authState.token!);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    final authState = ref.watch(authProvider);
+    final historyState = ref.watch(historyProvider);
+
     return Scaffold(
+      backgroundColor: AppTheme.surfaceColor,
       appBar: AppBar(
-        title: const Text('历史记录'),
+        title: const Text('历史推荐'),
+        backgroundColor: AppTheme.primaryBlue,
+        foregroundColor: Colors.white,
         actions: [
-          IconButton(
-            icon: const Icon(Icons.refresh),
-            onPressed: _loadHistory,
-          ),
+          if (authState.isLoggedIn && historyState.histories.isNotEmpty)
+            IconButton(
+              icon: const Icon(Icons.search),
+              onPressed: () => _showSearchDialog(),
+              tooltip: '搜索',
+            ),
         ],
       ),
-      body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : _sessions.isEmpty
-              ? _buildEmptyState()
-              : ListView.builder(
-                  padding: const EdgeInsets.all(AppTheme.spacingMd),
-                  itemCount: _sessions.length,
-                  itemBuilder: (context, index) {
-                    final session = _sessions[index];
-                    return _buildSessionCard(session);
-                  },
-                ),
+      body: _buildBody(authState, historyState),
     );
   }
 
-  Widget _buildEmptyState() {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(Icons.chat_bubble_outline, size: 64, color: AppTheme.mediumGray),
-          const SizedBox(height: AppTheme.spacingMd),
-          Text(
-            '还没有历史记录',
-            style: AppTheme.titleSmall.copyWith(color: AppTheme.mediumGray),
-          ),
-          const SizedBox(height: AppTheme.spacingSm),
-          Text(
-            '开始和学锋老师聊天吧！',
-            style: AppTheme.bodyMedium.copyWith(color: AppTheme.mediumGray),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildSessionCard(Map<String, dynamic> session) {
-    final timestamp = DateTime.fromMillisecondsSinceEpoch(session['timestamp'] as int);
-    final timeStr = _formatTimestamp(timestamp);
-
-    return Container(
-      margin: const EdgeInsets.only(bottom: AppTheme.spacingMd),
-      padding: const EdgeInsets.all(AppTheme.spacingMd),
-      decoration: BoxDecoration(
-        color: AppTheme.surfaceContainerLowest,
-        borderRadius: BorderRadius.circular(AppTheme.radiusLg),
-        border: Border.all(color: AppTheme.surfaceContainerHighest),
-      ),
-      child: InkWell(
-        onTap: () => _continueChat(session['id'] as String),
+  Widget _buildBody(AuthState authState, HistoryState historyState) {
+    // 未登录状态
+    if (!authState.isLoggedIn) {
+      return Center(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  child: Text(
-                    session['title'] as String,
-                    style: AppTheme.titleSmall,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-                Text(
-                  timeStr,
-                  style: AppTheme.bodySmall.copyWith(color: AppTheme.mediumGray),
-                ),
-              ],
+            const Icon(
+              Icons.login_outlined,
+              size: 80,
+              color: AppTheme.mediumGray,
             ),
-            const SizedBox(height: AppTheme.spacingXs),
+            const SizedBox(height: AppTheme.spacingLg),
             Text(
-              session['lastMessage'] as String,
-              style: AppTheme.bodySmall.copyWith(color: AppTheme.mediumGray),
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
+              '请先登录查看历史推荐',
+              style: AppTheme.titleMedium.copyWith(
+                color: AppTheme.mediumGray,
+              ),
             ),
-            const SizedBox(height: AppTheme.spacingSm),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  '${session['messageCount']} 条消息',
-                  style: AppTheme.labelSmall.copyWith(color: AppTheme.mediumGray),
+            const SizedBox(height: AppTheme.spacingLg),
+            ElevatedButton(
+              onPressed: () => _navigateToLogin(),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppTheme.primaryBlue,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: AppTheme.spacingXl,
+                  vertical: AppTheme.spacingMd,
                 ),
-                PopupMenuButton<String>(
-                  icon: const Icon(Icons.more_vert, size: 20),
-                  onSelected: (value) {
-                    if (value == 'delete') {
-                      _showDeleteConfirmDialog(session['id'] as String);
-                    }
-                  },
-                  itemBuilder: (context) => [
-                    const PopupMenuItem(
-                      value: 'delete',
-                      child: Row(
-                        children: [
-                          Icon(Icons.delete, size: 20, color: Colors.red),
-                          SizedBox(width: AppTheme.spacingXs),
-                          Text('删除'),
-                        ],
-                      ),
-                    ),
-                  ],
+              ),
+              child: const Text(
+                '去登录',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
-              ],
+              ),
             ),
           ],
+        ),
+      );
+    }
+
+    // 加载中状态
+    if (historyState.isLoading && historyState.histories.isEmpty) {
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    }
+
+    // 空状态
+    if (historyState.histories.isEmpty) {
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(
+              Icons.history_outlined,
+              size: 80,
+              color: AppTheme.mediumGray,
+            ),
+            const SizedBox(height: AppTheme.spacingLg),
+            Text(
+              '还没有历史推荐记录',
+              style: AppTheme.titleMedium.copyWith(
+                color: AppTheme.mediumGray,
+              ),
+            ),
+            const SizedBox(height: AppTheme.spacingSm),
+            Text(
+              '去推荐页面生成志愿方案吧',
+              style: AppTheme.bodyMedium.copyWith(
+                color: AppTheme.mediumGray,
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    // 显示历史列表
+    return RefreshIndicator(
+      onRefresh: _refresh,
+      child: ListView.separated(
+        controller: _scrollController,
+        padding: const EdgeInsets.all(AppTheme.spacingMd),
+        itemCount: historyState.histories.length + (historyState.currentPage < historyState.totalPages ? 1 : 0),
+        separatorBuilder: (context, index) => const SizedBox(height: AppTheme.spacingMd),
+        itemBuilder: (context, index) {
+          // 加载更多指示器
+          if (index >= historyState.histories.length) {
+            return const Center(
+              child: Padding(
+                padding: EdgeInsets.all(AppTheme.spacingLg),
+                child: CircularProgressIndicator(),
+              ),
+            );
+          }
+
+          final history = historyState.histories[index];
+          return _buildHistoryCard(history);
+        },
+      ),
+    );
+  }
+
+  /// 构建历史记录卡片
+  Widget _buildHistoryCard(HistoryItem history) {
+    return Card(
+      elevation: 2,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(AppTheme.radiusSm),
+      ),
+      child: InkWell(
+        onTap: () => _navigateToDetail(history),
+        borderRadius: BorderRadius.circular(AppTheme.radiusSm),
+        child: Padding(
+          padding: const EdgeInsets.all(AppTheme.spacingMd),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // 时间和删除按钮
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // 时间
+                  Text(
+                    _formatDate(history.createdAt),
+                    style: AppTheme.bodySmall.copyWith(
+                      color: AppTheme.mediumGray,
+                    ),
+                  ),
+
+                  // 删除按钮
+                  IconButton(
+                    icon: const Icon(Icons.delete_outline, color: AppTheme.red),
+                    onPressed: () => _deleteHistory(history),
+                    tooltip: '删除记录',
+                    constraints: const BoxConstraints(),
+                    padding: EdgeInsets.zero,
+                  ),
+                ],
+              ),
+
+              const SizedBox(height: AppTheme.spacingSm),
+
+              // 推荐条件
+              Row(
+                children: [
+                  _buildInfoChip('位次', '${history.rank}'),
+                  const SizedBox(width: AppTheme.spacingXs),
+                  _buildInfoChip('省份', history.province),
+                  const SizedBox(width: AppTheme.spacingXs),
+                  _buildInfoChip('偏好', _getPreferenceLabel(history.preference)),
+                ],
+              ),
+
+              if (history.subjects.isNotEmpty) ...[
+                const SizedBox(height: AppTheme.spacingSm),
+                Wrap(
+                  spacing: AppTheme.spacingXs,
+                  runSpacing: AppTheme.spacingXs,
+                  children: history.subjects.take(3).map((subject) {
+                    return _buildInfoChip('科目', subject);
+                  }).toList(),
+                ),
+              ],
+
+              const SizedBox(height: AppTheme.spacingMd),
+
+              // 推荐结果预览
+              Row(
+                children: [
+                  const Icon(
+                    Icons.recommend,
+                    color: AppTheme.primaryBlue,
+                    size: 16,
+                  ),
+                  const SizedBox(width: AppTheme.spacingXs),
+                  Text(
+                    '推荐了 ${history.resultsCount} 个志愿方案',
+                    style: AppTheme.bodyMedium.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+
+              // 预览前3个推荐
+              if (history.resultsSummary.isNotEmpty) ...[
+                const SizedBox(height: AppTheme.spacingSm),
+                ...history.resultsSummary.take(3).map((result) {
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 4),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 4,
+                          height: 4,
+                          decoration: BoxDecoration(
+                            color: AppTheme.primaryBlue,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                        const SizedBox(width: AppTheme.spacingXs),
+                        Expanded(
+                          child: Text(
+                            '${result['university_name']} - ${result['major_name']}',
+                            style: AppTheme.bodySmall.copyWith(
+                              color: AppTheme.mediumGray,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                        if (result['type'] != null)
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 6,
+                              vertical: 2,
+                            ),
+                            decoration: BoxDecoration(
+                              color: _getTypeColor(result['type']).withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: Text(
+                              result['type'],
+                              style: AppTheme.bodySmall.copyWith(
+                                color: _getTypeColor(result['type']),
+                                fontSize: 10,
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
+                  );
+                }).toList(),
+              ],
+            ],
+          ),
         ),
       ),
     );
   }
 
-  String _formatTimestamp(DateTime timestamp) {
-    final now = DateTime.now();
-    final difference = now.difference(timestamp);
+  Widget _buildInfoChip(String label, String value) {
+    return Container(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 8,
+        vertical: 4,
+      ),
+      decoration: BoxDecoration(
+        color: AppTheme.primaryBlue.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(
+          color: AppTheme.primaryBlue.withOpacity(0.3),
+          width: 1,
+        ),
+      ),
+      child: Text(
+        '$label: $value',
+        style: AppTheme.bodySmall.copyWith(
+          color: AppTheme.primaryBlue,
+          fontSize: 11,
+        ),
+      ),
+    );
+  }
 
-    if (difference.inMinutes < 1) {
-      return '刚刚';
-    } else if (difference.inHours < 1) {
-      return '${difference.inMinutes}分钟前';
-    } else if (difference.inDays < 1) {
-      return '${difference.inHours}小时前';
-    } else if (difference.inDays < 7) {
-      return '${difference.inDays}天前';
-    } else {
-      return '${timestamp.month}月${timestamp.day}日';
+  Color _getTypeColor(String type) {
+    switch (type) {
+      case '冲':
+        return AppTheme.red;
+      case '稳':
+        return AppTheme.green;
+      case '保':
+        return AppTheme.primaryBlue;
+      case '垫':
+        return AppTheme.mediumGray;
+      default:
+        return AppTheme.mediumGray;
     }
   }
 
-  void _showDeleteConfirmDialog(String sessionId) {
+  String _formatDate(String dateTimeStr) {
+    try {
+      final dateTime = DateTime.parse(dateTimeStr.replaceAll(' ', 'T'));
+      final now = DateTime.now();
+      final difference = now.difference(dateTime);
+
+      if (difference.inDays == 0) {
+        if (difference.inHours == 0) {
+          return '刚刚';
+        }
+        return '${difference.inHours}小时前';
+      } else if (difference.inDays == 1) {
+        return '昨天';
+      } else if (difference.inDays < 7) {
+        return '${difference.inDays}天前';
+      } else {
+        return '${dateTime.month}月${dateTime.day}日';
+      }
+    } catch (e) {
+      return dateTimeStr;
+    }
+  }
+
+  String _getPreferenceLabel(String preference) {
+    switch (preference) {
+      case 'balanced':
+        return '均衡型';
+      case 'aggressive':
+        return '冲刺型';
+      case 'conservative':
+        return '保守型';
+      default:
+        return preference;
+    }
+  }
+
+  Future<void> _deleteHistory(HistoryItem history) async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('删除记录'),
+        content: Text('确定要删除${_formatDate(history.createdAt)}的推荐记录吗？'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('取消'),
+          ),
+          ElevatedButton(
+            onPressed: () => Navigator.pop(context, true),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppTheme.red,
+            ),
+            child: const Text('确定'),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed == true) {
+      final authState = ref.read(authProvider);
+      if (authState.token != null) {
+        final success = await ref.read(historyProvider.notifier).deleteHistory(
+              authState.token!,
+              history.id,
+            );
+
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(success ? '已删除记录' : '操作失败'),
+              backgroundColor: success ? AppTheme.green : AppTheme.red,
+            ),
+          );
+        }
+      }
+    }
+  }
+
+  void _showSearchDialog() {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('确认删除'),
-        content: const Text('确定要删除这个会话吗？此操作无法撤销。'),
+        title: const Text('搜索历史'),
+        content: TextField(
+          decoration: const InputDecoration(
+            hintText: '输入省份、科目或偏好类型',
+            prefixIcon: Icon(Icons.search),
+          ),
+          onChanged: (value) {
+            // 搜索功能
+            ref.read(historyProvider.notifier).searchHistories(value);
+          },
+        ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
             child: const Text('取消'),
           ),
-          TextButton(
-            onPressed: () {
-              Navigator.pop(context);
-              _deleteSession(sessionId);
-            },
-            style: TextButton.styleFrom(foregroundColor: Colors.red),
-            child: const Text('删除'),
-          ),
         ],
       ),
     );
+  }
+
+  void _navigateToDetail(HistoryItem history) {
+    Navigator.pushNamed(
+      context,
+      '/history_detail',
+      arguments: history.id,
+    );
+  }
+
+  void _navigateToLogin() {
+    Navigator.pushNamed(context, '/login');
   }
 }

@@ -10,7 +10,21 @@ import 'core/models/volunteer_scheme.dart';
 import 'core/skill_loader.dart';
 import 'features/chat/chatgpt_page.dart';
 import 'features/simulator/simulator_page.dart';
-import 'features/profile/profile_page.dart';
+import 'features/discover/discover_page.dart';  // 🆕 改为发现页面
+import 'features/profile/profile_page.dart';  // 🆕 添加个人中心页面
+import 'features/auth/login_page.dart';  // 🆕 添加登录页面
+import 'features/plan/plan_page.dart';  // 🆕 添加志愿表页面
+import 'features/favorite/favorite_page.dart';  // 🆕 添加收藏页面
+import 'features/history/history_page.dart';  // 🆕 添加历史记录页面
+import 'features/history/history_detail_page.dart';  // 🆕 添加历史详情页面
+import 'features/settings/settings_page.dart';  // 🆕 添加设置页面
+import 'features/settings/data_source_page.dart';  // 🆕 添加数据来源说明页面
+import 'features/settings/privacy_policy_page.dart';  // 🆕 添加隐私政策页面
+import 'features/settings/user_agreement_page.dart';  // 🆕 添加用户协议页面
+import 'providers/auth_provider.dart';  // 🆕 添加认证provider
+import 'providers/plan_provider.dart';  // 🆕 添加志愿表provider
+import 'providers/favorite_provider.dart';  // 🆕 添加收藏provider
+import 'providers/history_provider.dart';  // 🆕 添加历史记录provider
 import 'shared/theme/chatgpt_theme.dart';
 
 void main() async {
@@ -56,6 +70,18 @@ class MyApp extends StatelessWidget {
       darkTheme: ChatGPTTheme.darkTheme,
       themeMode: ThemeMode.system,
       home: const MainNavigationPage(),
+      routes: {
+        '/login': (context) => const LoginPage(),
+        '/plans': (context) => const PlanPage(),
+        '/favorites': (context) => const FavoritePage(),
+        '/history': (context) => const HistoryPage(),
+        '/history_detail': (context) => const HistoryDetailPage(),
+        // 设置相关页面
+        '/settings': (context) => const SettingsPage(),
+        '/data_source': (context) => const DataSourcePage(),
+        '/privacy_policy': (context) => const PrivacyPolicyPage(),
+        '/user_agreement': (context) => const UserAgreementPage(),
+      },
     );
   }
 }
@@ -74,7 +100,8 @@ class _MainNavigationPageState extends ConsumerState<MainNavigationPage> {
   late final List<Widget> _pages = [
     const ChatGPTPage(),
     const SimulatorPage(),
-    const ProfilePage(),
+    const DiscoverPage(),  // 🆕 改为发现页面
+    const ProfilePage(),  // 🆕 添加个人中心页面
   ];
 
   @override
@@ -131,6 +158,13 @@ class _MainNavigationPageState extends ConsumerState<MainNavigationPage> {
               activeIcon: Icon(Icons.auto_awesome),
               label: '推荐志愿',
             ),
+            // 🆕 改为发现
+            BottomNavigationBarItem(
+              icon: Icon(Icons.whatshot_outlined),
+              activeIcon: Icon(Icons.whatshot),
+              label: '发现',
+            ),
+            // 🆕 添加个人中心
             BottomNavigationBarItem(
               icon: Icon(Icons.person_outline),
               activeIcon: Icon(Icons.person),

@@ -437,24 +437,89 @@ class RecommendationResultPage extends StatelessWidget {
                   ),
                 ),
 
-                // 录取概率
+                // 录取概率 + 值得指数（双指标展示）
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text(
-                      '${rec.probability}%',
-                      style: AppTheme.headlineMedium.copyWith(
-                        color: color,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    // 录取概率
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          '${rec.probability}%',
+                          style: AppTheme.headlineMedium.copyWith(
+                            color: color,
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(width: AppTheme.spacingSm),
+                        // 值得指数
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: AppTheme.spacingSm,
+                            vertical: AppTheme.spacingXs,
+                          ),
+                          decoration: BoxDecoration(
+                            color: _getRoiColor(rec.roiColor).withOpacity(0.1),
+                            borderRadius: BorderRadius.circular(AppTheme.radiusSm),
+                            border: Border.all(
+                              color: _getRoiColor(rec.roiColor),
+                              width: 1,
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                '${rec.roiScore}分',
+                                style: AppTheme.titleSmall.copyWith(
+                                  color: _getRoiColor(rec.roiColor),
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(width: AppTheme.spacingXs),
+                              Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: AppTheme.spacingXs,
+                                  vertical: 2,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: _getRoiColor(rec.roiColor),
+                                  borderRadius: BorderRadius.circular(AppTheme.radiusSm),
+                                ),
+                                child: Text(
+                                  rec.getRoiLevelText(),
+                                  style: AppTheme.labelSmall.copyWith(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                     const SizedBox(height: AppTheme.spacingXs),
-                    Text(
-                      '录取概率',
-                      style: AppTheme.labelSmall.copyWith(
-                        color: AppTheme.mediumGray,
-                      ),
+                    // 双指标标签
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          '录取概率',
+                          style: AppTheme.labelSmall.copyWith(
+                            color: AppTheme.mediumGray,
+                          ),
+                        ),
+                        const Text(' | ', style: TextStyle(color: AppTheme.mediumGray)),
+                        Text(
+                          '值得指数',
+                          style: AppTheme.labelSmall.copyWith(
+                            color: _getRoiColor(rec.roiColor),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -487,6 +552,59 @@ class RecommendationResultPage extends StatelessWidget {
                           ? AppTheme.red
                           : AppTheme.orange,
                   fontWeight: FontWeight.w500,
+                ),
+              ),
+            ],
+
+            // ROI值得指数理由和建议
+            if (rec.roiReason.isNotEmpty) ...[
+              const SizedBox(height: AppTheme.spacingSm),
+              Container(
+                padding: const EdgeInsets.all(AppTheme.spacingSm),
+                decoration: BoxDecoration(
+                  color: _getRoiColor(rec.roiColor).withOpacity(0.05),
+                  borderRadius: BorderRadius.circular(AppTheme.radiusSm),
+                  border: Border.all(
+                    color: _getRoiColor(rec.roiColor).withOpacity(0.2),
+                    width: 1,
+                  ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(
+                          rec.isRedMajor ? Icons.warning : Icons.lightbulb,
+                          size: 16,
+                          color: _getRoiColor(rec.roiColor),
+                        ),
+                        const SizedBox(width: AppTheme.spacingXs),
+                        Text(
+                          rec.isRedMajor ? '就业提醒' : '值得指数分析',
+                          style: AppTheme.labelSmall.copyWith(
+                            color: _getRoiColor(rec.roiColor),
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: AppTheme.spacingXs),
+                    Text(
+                      rec.roiReason,
+                      style: AppTheme.bodySmall.copyWith(
+                        color: AppTheme.darkGray,
+                      ),
+                    ),
+                    const SizedBox(height: AppTheme.spacingXs),
+                    Text(
+                      rec.getRoiAdvice(),
+                      style: AppTheme.bodySmall.copyWith(
+                        color: _getRoiColor(rec.roiColor),
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
@@ -583,5 +701,21 @@ class RecommendationResultPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  /// 根据ROI颜色字符串返回Color对象
+  Color _getRoiColor(String roiColor) {
+    switch (roiColor.toLowerCase()) {
+      case 'green':
+        return AppTheme.green;
+      case 'blue':
+        return AppTheme.primaryBlue;
+      case 'orange':
+        return AppTheme.orange;
+      case 'red':
+        return AppTheme.red;
+      default:
+        return AppTheme.mediumGray;
+    }
   }
 }

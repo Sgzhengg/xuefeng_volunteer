@@ -23,12 +23,12 @@ dependencies:
   envied: ^0.5.4+1
 
   # 本地存储
+  shared_preferences: ^2.2.2
   isar: ^3.1.0+1
   isar_flutter_libs: ^3.1.0+1
   path_provider: ^2.1.1
 
   # 语音输入
-  speech_to_text: ^6.6.0
   permission_handler: ^11.1.0
 
   # 工具

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:speech_to_text/speech_to_text.dart';
 import 'controllers/chat_controller.dart';
 import '../../shared/theme/chatgpt_theme.dart';
 import 'widgets/chatgpt_message_bubble.dart';
@@ -18,8 +17,8 @@ class ChatGPTPage extends ConsumerStatefulWidget {
 class _ChatGPTPageState extends ConsumerState<ChatGPTPage> {
   final TextEditingController _textController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
-  final SpeechToText _speechToText = SpeechToText();
-  bool _isListening = false;
+  
+  ;
 
   @override
   void initState() {
@@ -38,12 +37,7 @@ class _ChatGPTPageState extends ConsumerState<ChatGPTPage> {
     });
   }
 
-  void _initSpeechRecognition() {
-    _speechToText.initialize(
-      onError: (error) => setState(() => _isListening = false),
-      onStatus: (status) => setState(() {
-        _isListening = status == 'listening';
-      }),
+  ),
     );
   }
 
@@ -87,13 +81,8 @@ class _ChatGPTPageState extends ConsumerState<ChatGPTPage> {
     }
   }
 
-  void _toggleVoiceInput() async {
-    if (_isListening) {
-      await _speechToText.stop();
-      setState(() => _isListening = false);
-    } else {
-      await _speechToText.listen(
-        onResult: (result) {
+   else {
+      await  {
           _textController.text = result.recognizedWords;
         },
         localeId: 'zh_CN',

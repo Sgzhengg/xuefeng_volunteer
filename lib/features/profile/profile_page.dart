@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:isar/isar.dart';
-import '../../core/models/user_profile.dart';
+import '../../providers/auth_provider.dart';
 import '../../shared/theme/app_theme.dart';
+import '../settings/settings_page.dart';
 
 class ProfilePage extends ConsumerStatefulWidget {
   const ProfilePage({super.key});
@@ -37,11 +37,9 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
     setState(() => _isLoading = true);
 
     try {
-      // TODO: 从Isar数据库加载用户档案
-      // final isar = ref.read(isarProvider);
-      // final profiles = await isar.userProfiles.where().findAll();
-      // if (profiles.isNotEmpty) {
-      //   final profile = profiles.first;
+      // TODO: 从数据库加载用户档案
+      // final profile = await ref.read(profileProvider.notifier).getProfile();
+      // if (profile != null) {
       //   _nameController.text = profile.name;
       //   _scoreController.text = profile.score.toString();
       //   // ... 加载其他字段
@@ -61,20 +59,15 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
     setState(() => _isLoading = true);
 
     try {
-      // TODO: 保存到Isar数据库
-      // final isar = ref.read(isarProvider);
-      // final profile = UserProfile()
-      //   ..name = _nameController.text
-      //   ..score = int.parse(_scoreController.text)
-      //   ..province = _provinceController.text
-      //   ..subjectType = _subjectType
-      //   ..familyBackground = _familyBackground
-      //   ..interests = _interestsController.text.split(',')
-      //   ..createdAt = DateTime.now();
-      //
-      // await isar.writeTxn(() async {
-      //   await isar.userProfiles.put(profile);
-      // });
+      // TODO: 保存到数据库
+      // await ref.read(profileProvider.notifier).saveProfile(
+      //   name: _nameController.text,
+      //   score: int.parse(_scoreController.text),
+      //   province: _provinceController.text,
+      //   subjectType: _subjectType,
+      //   familyBackground: _familyBackground,
+      //   interests: _interestsController.text.split(','),
+      // );
 
       _showSuccess('档案保存成功');
     } catch (e) {
@@ -84,29 +77,63 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
     }
   }
 
+  Future<void> _logout() async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('退出登录'),
+        content: const Text('确定要退出登录吗？'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('取消'),
+          ),
+          ElevatedButton(
+            onPressed: () => Navigator.pop(context, true),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppTheme.red,
+            ),
+            child: const Text('确定'),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed == true) {
+      await ref.read(authProvider.notifier).logout();
+      if (mounted) {
+        _showSuccess('已退出登录');
+      }
+    }
+  }
+
   void _showError(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message), backgroundColor: Colors.red),
+      SnackBar(content: Text(message), backgroundColor: AppTheme.red),
     );
   }
 
   void _showSuccess(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message), backgroundColor: Colors.green),
+      SnackBar(content: Text(message), backgroundColor: AppTheme.green),
     );
   }
 
   void _showInfo(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message), backgroundColor: Colors.blue),
+      SnackBar(content: Text(message), backgroundColor: AppTheme.primaryBlue),
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    final authState = ref.watch(authProvider);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('我的'),
+        backgroundColor: AppTheme.primaryBlue,
+        foregroundColor: Colors.white,
       ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
@@ -116,19 +143,20 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // 用户信息卡片
-                  _buildUserInfoCard(),
+                  _buildUserInfoCard(authState),
 
                   const SizedBox(height: AppTheme.spacingMd),
 
                   // 功能菜单
-                  _buildMenuSection(),
+                  _buildMenuSection(authState),
 
                   const SizedBox(height: AppTheme.spacingMd),
 
-                  // 个人档案表单
-                  _buildProfileForm(),
-
-                  const SizedBox(height: AppTheme.spacingLg),
+                  // 个人档案表单（仅登录用户显示）
+                  if (authState.isLoggedIn) ...[
+                    _buildProfileForm(),
+                    const SizedBox(height: AppTheme.spacingLg),
+                  ],
                 ],
               ),
             ),
@@ -136,7 +164,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
   }
 
   /// 构建用户信息卡片
-  Widget _buildUserInfoCard() {
+  Widget _buildUserInfoCard(AuthState authState) {
     return Container(
       padding: const EdgeInsets.all(AppTheme.spacingLg),
       decoration: BoxDecoration(
@@ -159,8 +187,8 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
               color: AppTheme.white,
               border: Border.all(color: AppTheme.white, width: 2),
             ),
-            child: const Icon(
-              Icons.person,
+            child: Icon(
+              authState.isLoggedIn ? Icons.person : Icons.login_outlined,
               size: 40,
               color: AppTheme.primaryBlue,
             ),
@@ -173,34 +201,39 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  _nameController.text.isEmpty ? '未设置姓名' : _nameController.text,
+                  authState.isLoggedIn
+                      ? (authState.phoneNumber ?? '用户')
+                      : '未登录',
                   style: AppTheme.titleMedium.copyWith(color: AppTheme.white),
                 ),
                 const SizedBox(height: AppTheme.spacingXs),
                 Text(
-                  _scoreController.text.isEmpty
-                      ? '请完善个人信息'
-                      : '${_provinceController.text} · ${_scoreController.text}分',
+                  authState.isLoggedIn ? '已登录' : '点击登录查看完整功能',
                   style: AppTheme.bodyMedium.copyWith(color: AppTheme.white.withOpacity(0.9)),
                 ),
               ],
             ),
           ),
 
-          // 编辑按钮
-          IconButton(
-            onPressed: () {
-              // 滚动到表单区域
-            },
-            icon: const Icon(Icons.edit, color: AppTheme.white),
-          ),
+          // 登录/退出按钮
+          if (!authState.isLoggedIn)
+            IconButton(
+              onPressed: () => _navigateToLogin(),
+              icon: const Icon(Icons.arrow_forward, color: AppTheme.white),
+            )
+          else
+            IconButton(
+              onPressed: _logout,
+              icon: const Icon(Icons.logout, color: AppTheme.white),
+              tooltip: '退出登录',
+            ),
         ],
       ),
     );
   }
 
   /// 构建功能菜单
-  Widget _buildMenuSection() {
+  Widget _buildMenuSection(AuthState authState) {
     return Container(
       decoration: BoxDecoration(
         color: AppTheme.surfaceContainerLowest,
@@ -209,21 +242,32 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
       ),
       child: Column(
         children: [
+          if (authState.isLoggedIn) ...[
+            _buildMenuItem(
+              icon: Icons.school,
+              title: '我的志愿表',
+              subtitle: '查看已添加的志愿方案',
+              onTap: () {
+                Navigator.pushNamed(context, '/plans');
+              },
+            ),
+            const Divider(height: 1),
+          ],
           _buildMenuItem(
-            icon: Icons.school,
-            title: '我的志愿方案',
-            subtitle: '查看已保存的志愿填报方案',
+            icon: Icons.favorite,
+            title: '我的收藏',
+            subtitle: '查看收藏的院校和专业',
             onTap: () {
-              _showInfo('志愿方案功能开发中...');
+              Navigator.pushNamed(context, '/favorites');
             },
           ),
           const Divider(height: 1),
           _buildMenuItem(
-            icon: Icons.favorite,
-            title: '收藏的院校',
-            subtitle: '查看收藏的院校和专业',
+            icon: Icons.history,
+            title: '历史推荐',
+            subtitle: '查看历史推荐记录',
             onTap: () {
-              _showInfo('收藏功能开发中...');
+              Navigator.pushNamed(context, '/history');
             },
           ),
           const Divider(height: 1),
@@ -232,7 +276,10 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
             title: '设置',
             subtitle: '应用设置和偏好',
             onTap: () {
-              _showInfo('设置功能开发中...');
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const SettingsPage()),
+              );
             },
           ),
         ],
@@ -293,7 +340,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                   onPressed: _isLoading ? null : _saveProfile,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppTheme.primaryBlue,
-                    foregroundColor: AppTheme.white,
+                    foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(vertical: 16),
                   ),
                   child: const Text('保存档案'),
@@ -382,5 +429,9 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
         },
       ),
     );
+  }
+
+  void _navigateToLogin() {
+    Navigator.pushNamed(context, '/login');
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:speech_to_text/speech_to_text.dart';
 import 'controllers/chat_controller.dart';
 import '../../shared/widgets/disclaimer_banner.dart';
 import '../../shared/widgets/typing_indicator.dart';
@@ -20,8 +19,8 @@ class ChatPage extends ConsumerStatefulWidget {
 class _ChatPageState extends ConsumerState<ChatPage> {
   final TextEditingController _textController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
-  final SpeechToText _speechToText = SpeechToText();
-  bool _isListening = false;
+  
+  ;
 
   @override
   void initState() {
@@ -36,12 +35,7 @@ class _ChatPageState extends ConsumerState<ChatPage> {
     });
   }
 
-  void _initSpeechRecognition() {
-    _speechToText.initialize(
-      onError: (error) => setState(() => _isListening = false),
-      onStatus: (status) => setState(() {
-        _isListening = status == 'listening';
-      }),
+  ),
     );
   }
 
@@ -53,13 +47,8 @@ class _ChatPageState extends ConsumerState<ChatPage> {
     _textController.clear();
   }
 
-  void _toggleVoiceInput() async {
-    if (_isListening) {
-      await _speechToText.stop();
-      setState(() => _isListening = false);
-    } else {
-      await _speechToText.listen(
-        onResult: (result) {
+   else {
+      await  {
           _textController.text = result.recognizedWords;
         },
         localeId: 'zh_CN',
@@ -175,10 +164,7 @@ class _ChatPageState extends ConsumerState<ChatPage> {
         child: Row(
           children: [
             // 语音输入按钮
-            VoiceInputButton(
-              isListening: _isListening,
-              onPressed: _toggleVoiceInput,
-            ),
+            ,
 
             const SizedBox(width: 12),
 

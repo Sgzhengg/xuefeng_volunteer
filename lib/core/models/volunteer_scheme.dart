@@ -42,6 +42,10 @@ class SchoolChoice {
   late int score;
   late int ranking;
 
+  // 🆕 ROI标签相关字段
+  List<String>? roiTags;  // ROI标签列表，如 ["💰高回报", "🔥广东热门"]
+  String? roiHint;        // ROI提示文案
+
   SchoolChoice();
 
   SchoolChoice.create({
@@ -51,5 +55,7 @@ class SchoolChoice {
     required this.probability,
     required this.score,
     required this.ranking,
+    this.roiTags,
+    this.roiHint,
   });
 }

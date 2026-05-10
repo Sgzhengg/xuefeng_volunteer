@@ -126,6 +126,13 @@ class UniversityRecommendation {
   final EmploymentInfo employmentInfo;
   final UniversityEmployment universityEmployment;
 
+  // ROI相关字段
+  final int roiScore; // 值得指数分数 (0-100)
+  final String roiLevel; // A级/B级/C级
+  final String roiColor; // green/blue/orange/red
+  final String roiReason; // ROI评价理由
+  final bool isRedMajor; // 是否红牌专业
+
   UniversityRecommendation({
     required this.universityId,
     required this.universityName,
@@ -144,9 +151,21 @@ class UniversityRecommendation {
     required this.majorHighlights,
     required this.employmentInfo,
     required this.universityEmployment,
+    this.roiScore = 0,
+    this.roiLevel = 'B级',
+    this.roiColor = 'blue',
+    this.roiReason = '',
+    this.isRedMajor = false,
   });
 
   factory UniversityRecommendation.fromJson(Map<String, dynamic> json) {
+    // 解析ROI相关字段
+    final roiScore = json['roi_score'] ?? 0;
+    final roiLevel = json['roi_level'] ?? 'B级';
+    final roiColor = json['roi_color'] ?? 'blue';
+    final roiReason = json['roi_reason'] ?? '';
+    final isRedMajor = json['is_red_major'] ?? false;
+
     return UniversityRecommendation(
       universityId: json['university_id'] ?? '',
       universityName: json['university_name'] ?? '',
@@ -171,6 +190,11 @@ class UniversityRecommendation {
                      .toList() ?? [],
       employmentInfo: EmploymentInfo.fromJson(json['employment_info'] ?? {}),
       universityEmployment: UniversityEmployment.fromJson(json['university_employment'] ?? {}),
+      roiScore: roiScore,
+      roiLevel: roiLevel,
+      roiColor: roiColor,
+      roiReason: roiReason,
+      isRedMajor: isRedMajor,
     );
   }
 
@@ -180,6 +204,30 @@ class UniversityRecommendation {
     if (probability >= 50) return 'blue';
     if (probability >= 30) return 'orange';
     return 'red';
+  }
+
+  /// 获取ROI颜色
+  String getRoiColor() {
+    if (isRedMajor) return 'red';
+    if (roiScore >= 80) return 'green';
+    if (roiScore >= 60) return 'blue';
+    return 'orange';
+  }
+
+  /// 获取ROI等级文字
+  String getRoiLevelText() {
+    if (isRedMajor) return '⚠️ 红牌专业';
+    if (roiScore >= 80) return 'A级';
+    if (roiScore >= 60) return 'B级';
+    return 'C级';
+  }
+
+  /// 获取ROI建议
+  String getRoiAdvice() {
+    if (isRedMajor) return '⚠️ 教育部红牌专业，就业率偏低，建议慎重';
+    if (roiScore >= 80) return '💰 回报率高，推荐';
+    if (roiScore >= 60) return '📊 回报率中等，可考虑';
+    return '⚠️ 回报率偏低，建议了解';
   }
 
   Map<String, dynamic> toJson() {
@@ -201,6 +249,11 @@ class UniversityRecommendation {
       'major_highlights': majorHighlights,
       'employment_info': employmentInfo.toJson(),
       'university_employment': universityEmployment.toJson(),
+      'roi_score': roiScore,
+      'roi_level': roiLevel,
+      'roi_color': roiColor,
+      'roi_reason': roiReason,
+      'is_red_major': isRedMajor,
     };
   }
 }
