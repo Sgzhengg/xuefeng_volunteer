@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 增强PDF报告生成服务
 生成完整的志愿填报建议PDF报告
@@ -157,8 +158,8 @@ class EnhancedPDFReportService:
     def _generate_detailed_recommendations(self, data: Dict[str, Any]) -> Dict[str, Any]:
         """生成详细推荐"""
         categories = {
-            'chong': {'name': '冲刺', 'color': '#f44336', 'icon': '🚀'},
-            'wen': {'name': '稳妥', 'color': '#4caf50', 'icon': '✅'},
+            'chong': {'name': '冲刺', 'color': '#f44336', 'icon': '[DEPLOY]'},
+            'wen': {'name': '稳妥', 'color': '#4caf50', 'icon': '[OK]'},
             'bao': {'name': '保底', 'color': '#2196f3', 'icon': '⚓'},
             'dian': {'name': '垫底', 'color': '#ff9800', 'icon': '🛡️'}
         }

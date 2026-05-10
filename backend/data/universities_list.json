@@ -40281,6 +40281,28 @@
       "city": "吉林",
       "type": "综合",
       "level": "高职"
+    },
+    {
+      "id": "11550",
+      "name": "测试大学",
+      "province": "广东",
+      "city": "深圳",
+      "type": "综合",
+      "level": "本科",
+      "website": "https://www.test.edu.cn",
+      "founded": "2024",
+      "description": "这是一所测试院校"
+    },
+    {
+      "id": "11551",
+      "name": "测试大学",
+      "province": "广东",
+      "city": "深圳",
+      "type": "综合",
+      "level": "本科",
+      "website": "https://www.test.edu.cn",
+      "founded": "2024",
+      "description": "这是一所测试院校"
     }
   ]
 }
