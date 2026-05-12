@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 AI聊天服务 (AI Chat Service)
 处理张学锋AI的聊天请求
@@ -6,10 +5,8 @@ AI聊天服务 (AI Chat Service)
 
 import os
 import httpx
-import json
-from typing import Dict, Any, List, Optional
+from typing import Dict, Any, List
 from pathlib import Path
-from collections import defaultdict
 from app.core.config import settings
 
 
@@ -22,13 +19,7 @@ class AIChatService:
         self.api_url = "https://openrouter.ai/api/v1/chat/completions"
         # 修复路径：从backend目录向上一层到项目根目录
         self.skill_path = Path(__file__).parent.parent.parent.parent / "assets" / "skill" / "SKILL.md"
-        self.data_dir = Path(__file__).parent.parent.parent / "data"
         self.system_prompt = self._load_system_prompt()
-
-        # [NEW] 加载2025官方招生计划知识库
-        self.major_knowledge = {}  # (uni, group_code) -> detail
-        self.major_index = defaultdict(list)  # major_name -> [(uni, group_code)]
-        self._load_major_knowledge_base()
 
     def _load_system_prompt(self) -> str:
         """加载SKILL.md作为系统提示词"""
@@ -40,11 +31,11 @@ class AIChatService:
             print(f"Warning: Failed to load SKILL.md: {e}")
             base_prompt = "你是张学锋，高考志愿填报专家。"
 
-        # [NEW] 学锋老师人设增强
+        # 🆕 学锋老师人设增强
         xuefeng_persona = """
 
 ═══════════════════════════════════════════════════════
-         👨‍[SCHOOL] 学锋老师人设定义（严格遵守）
+         👨‍🏫 学锋老师人设定义（严格遵守）
 ═══════════════════════════════════════════════════════
 
 【身份定位】
@@ -73,16 +64,16 @@ class AIChatService:
 
 【典型话术示例】
 
-[ERROR] 不要这样说：
+❌ 不要这样说：
 "这个专业的就业前景还需要进一步考察..."
 
-[OK] 要这样说：
+✅ 要这样说：
 "材料化学？说实话，这是红牌专业，就业率不到40%。我劝你别报，除非家里有矿或者真的特别感兴趣。"
 
-[ERROR] 不要这样说：
+❌ 不要这样说：
 "根据数据分析，该院校的录取概率为..."
 
-[OK] 要这样说：
+✅ 要这样说：
 "你这个分想上深大计算机？有点悬。去年深大计算机最低位次25000，你这个36000位次差了11000名。听劝，要么换专业，要么冲广工的计算机，稳得很。"
 
 【处理特殊情况】
@@ -92,28 +83,28 @@ class AIChatService:
 4. 用户家长在场时：既要尊重家长，更要为学生前途着想
 
 【禁忌】
-- [ERROR] 不说模棱两可的话
-- [ERROR] 不回避敏感话题
-- [ERROR] 不为了讨好家长而误导学生
-- [ERROR] 不推荐没有就业前景的专业
+- ❌ 不说模棱两可的话
+- ❌ 不回避敏感话题
+- ❌ 不为了讨好家长而误导学生
+- ❌ 不推荐没有就业前景的专业
 
 ═══════════════════════════════════════════════════════
 """
 
-        # [NEW] ROI标签相关提示
+        # 🆕 ROI标签相关提示
         roi_prompt = """
 
 【ROI（投资回报率）标签说明】
 当用户询问某个专业怎么样时，如果该专业属于以下类别，请主动附带说明：
 
-[PROFIT]高回报专业：
+💰高回报专业：
 包括：计算机科学与技术、软件工程、电子信息工程、临床医学、口腔医学、人工智能、数据科学与大数据技术、电气工程及其自动化、自动化、微电子科学与工程
-说明格式："[PROFIT]高回报专业：就业前景好，毕业起薪约12-20k"
+说明格式："💰高回报专业：就业前景好，毕业起薪约12-20k"
 特点：就业率高（93%+）、薪资水平高、市场需求大
 
-[WARN]低回报专业：
+⚠️低回报专业：
 包括：法学、心理学、绘画、音乐表演、历史学、哲学、公共事业管理、行政管理
-说明格式："[WARN]低回报专业：就业率偏低（约35-50%），建议慎重"
+说明格式："⚠️低回报专业：就业率偏低（约35-50%），建议慎重"
 特点：就业困难，需继续深造或考公
 
 🏛️考公优势专业：
@@ -121,9 +112,9 @@ class AIChatService:
 说明格式："🏛️考公优势：公务员岗位多，上岸机会大"
 特点：党政机关对口专业，考公竞争相对较小
 
-[HOT]广东热门专业：
+🔥广东热门专业：
 包括：计算机科学与技术、软件工程、电子信息工程、电气工程及其自动化、自动化、电子商务、国际经济与贸易、金融学、工商管理、英语
-说明格式："[HOT]广东热门：深圳、广州IT/金融企业需求大"
+说明格式："🔥广东热门：深圳、广州IT/金融企业需求大"
 特点：珠三角企业需求量大，就业机会多
 
 🚫红牌专业（避坑）：
@@ -136,84 +127,6 @@ class AIChatService:
 """
 
         return base_prompt + xuefeng_persona + roi_prompt
-
-    # ============================================================
-    # [NEW] 2025官方招生计划知识库
-    # ============================================================
-    def _load_major_knowledge_base(self):
-        """加载2025官方招生计划专业组映射作为AI知识库"""
-        kb_file = self.data_dir / 'group_code_to_majors.json'
-        if not kb_file.exists():
-            print("[AI-KB] group_code_to_majors.json not found, skipping")
-            return
-
-        try:
-            with open(kb_file, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-
-            loaded = 0
-            for key, info in data.items():
-                if isinstance(key, str) and '_' in key:
-                    parts = key.rsplit('_', 1)
-                    if len(parts) == 2:
-                        uni, code = parts[0], parts[1]
-                        clean_code = code.replace('\n', '').strip()
-                        detail = {
-                            'university': uni,
-                            'group_code': clean_code,
-                            'majors': [m.get('major_name', m) if isinstance(m, dict) else m
-                                       for m in info.get('majors', [])],
-                            'tuition': info.get('tuition'),
-                            'duration': info.get('duration'),
-                            'subjects': info.get('subjects', ''),
-                            'plan_count': info.get('plan_count', 0),
-                            'category': info.get('category', ''),
-                            'university_code': info.get('university_code', ''),
-                        }
-                        self.major_knowledge[(uni, clean_code)] = detail
-                        for m_name in detail['majors']:
-                            self.major_index[m_name].append((uni, clean_code))
-                        loaded += 1
-            print(f"[AI-KB] Loaded {loaded} detailed major entries for AI knowledge base")
-        except Exception as e:
-            print(f"[AI-KB] Failed to load knowledge base: {e}")
-
-    def _search_major_info(self, query: str, limit: int = 5) -> str:
-        """搜索专业信息，返回格式化的知识文本"""
-        if not self.major_index:
-            return ""
-
-        results = []
-        query_lower = query.lower()
-        for major_name in self.major_index:
-            if major_name in query or query in major_name:
-                for uni, code in self.major_index[major_name][:limit]:
-                    detail = self.major_knowledge.get((uni, code))
-                    if detail:
-                        results.append(detail)
-                if len(results) >= limit:
-                    break
-
-        if not results:
-            return ""
-
-        # 格式化输出
-        lines = [f"\n\n=== [2025官方招生数据] 以下是{min(len(results), limit)}条相关专业信息 ==="]
-        for d in results[:limit]:
-            tuition_str = f"¥{d['tuition']:,.0f}/年" if d.get('tuition') else "N/A"
-            duration_str = f"{d['duration']}年" if d.get('duration') else "N/A"
-            majors_str = ", ".join(d.get('majors', [])[:5])
-            lines.append(
-                f"- {d['university']} | 专业组{d['group_code']} | "
-                f"专业: {majors_str} | "
-                f"学费: {tuition_str} | "
-                f"学制: {duration_str} | "
-                f"选科: {d.get('subjects', '不限')} | "
-                f"计划: {d.get('plan_count', 0)}人 | "
-                f"科类: {d.get('category', '')}"
-            )
-        lines.append("=== [数据来源: 广东省教育考试院2025年招生计划] ===\n")
-        return "\n".join(lines)
 
     async def chat(self, user_message: str, conversation_history: List[Dict[str, str]] = None) -> str:
         """
@@ -241,12 +154,10 @@ class AIChatService:
                 "content": msg["content"]
             })
 
-        # 添加当前用户消息（附加知识库数据）
-        knowledge_context = self._search_major_info(user_message)
-        enriched_message = user_message + knowledge_context if knowledge_context else user_message
+        # 添加当前用户消息
         messages.append({
             "role": "user",
-            "content": enriched_message
+            "content": user_message
         })
 
         # 调用OpenRouter API

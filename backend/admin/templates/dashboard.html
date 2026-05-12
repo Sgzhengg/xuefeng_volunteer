@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仪表盘 - 学锋志愿教练管理后台</title>
+    <link rel="stylesheet" href="/admin/static/css/style.css">
+</head>
+<body>
+    <!-- 侧边栏 -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>学锋志愿教练</h2>
+            <p>管理后台</p>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="/admin/dashboard" class="nav-item active">
+                <span class="nav-icon">📊</span>
+                <span class="nav-text">仪表盘</span>
+            </a>
+            <a href="/admin/universities" class="nav-item">
+                <span class="nav-icon">🏫</span>
+                <span class="nav-text">院校管理</span>
+            </a>
+            <a href="/admin/admission-data" class="nav-item">
+                <span class="nav-icon">📥</span>
+                <span class="nav-text">数据导入</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <button id="logoutBtn" class="btn btn-logout">退出登录</button>
+        </div>
+    </aside>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <!-- 顶部栏 -->
+        <header class="top-header">
+            <div class="header-title">
+                <h1>仪表盘</h1>
+            </div>
+            <div class="header-user">
+                <span id="adminUsername">管理员</span>
+            </div>
+        </header>
+
+        <!-- 内容区域 -->
+        <div class="content-area">
+            <!-- 统计卡片 -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #3b82f6;">👥</div>
+                    <div class="stat-content">
+                        <div class="stat-label">用户数量</div>
+                        <div class="stat-value" id="userCount">-</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #10b981;">🏫</div>
+                    <div class="stat-content">
+                        <div class="stat-label">院校数量</div>
+                        <div class="stat-value" id="universityCount">-</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #f59e0b;">📚</div>
+                    <div class="stat-content">
+                        <div class="stat-label">专业数量</div>
+                        <div class="stat-value" id="majorCount">-</div>
+                        <div class="stat-hint" style="font-size: 11px; color: #9ca3af; margin-top: 4px;">院校+专业组合数</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #8b5cf6;">📅</div>
+                    <div class="stat-content">
+                        <div class="stat-label">当前数据年份</div>
+                        <div class="stat-value" id="currentYear" style="color: #10b981; font-size: 28px;">-</div>
+                        <div class="stat-hint" style="font-size: 11px; color: #9ca3af; margin-top: 4px;">活跃版本</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #6366f1;">🕒</div>
+                    <div class="stat-content">
+                        <div class="stat-label">数据更新</div>
+                        <div class="stat-value" id="updatedAt" style="font-size: 14px;">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 快捷操作 -->
+            <div class="quick-actions">
+                <h2>快捷操作</h2>
+                <div class="action-grid">
+                    <a href="/admin/universities" class="action-card">
+                        <div class="action-icon">🏫</div>
+                        <div class="action-title">院校管理</div>
+                        <div class="action-desc">管理院校信息</div>
+                    </a>
+
+                    <a href="/admin/admission-data" class="action-card">
+                        <div class="action-icon">📥</div>
+                        <div class="action-title">数据导入</div>
+                        <div class="action-desc">导入录取数据</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/admin/static/js/admin.js"></script>
+    <script>
+        // 检查登录状态
+        if (!localStorage.getItem('admin_token')) {
+            window.location.href = '/admin';
+        }
+
+        // 页面加载完成后获取统计数据
+        document.addEventListener('DOMContentLoaded', async function() {
+            await loadStats();
+        });
+
+        // 加载统计数据
+        async function loadStats() {
+            try {
+                const token = localStorage.getItem('admin_token');
+                const response = await fetch('/api/v1/admin/stats', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                const result = await response.json();
+
+                if (result.code === 0) {
+                    document.getElementById('userCount').textContent = result.data.user_count;
+                    document.getElementById('universityCount').textContent = result.data.university_count;
+                    document.getElementById('majorCount').textContent = result.data.major_count;
+                    document.getElementById('currentYear').textContent = result.data.current_year + '年';
+                    document.getElementById('updatedAt').textContent = result.data.updated_at;
+                    document.getElementById('adminUsername').textContent = localStorage.getItem('admin_username');
+                } else {
+                    console.error('获取统计数据失败:', result.message);
+                }
+
+            } catch (error) {
+                console.error('加载统计数据失败:', error);
+            }
+        }
+
+        // 退出登录
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            if (confirm('确定要退出登录吗？')) {
+                localStorage.removeItem('admin_token');
+                localStorage.removeItem('admin_username');
+                window.location.href = '/admin';
+            }
+        });
+    </script>
+</body>
+</html>

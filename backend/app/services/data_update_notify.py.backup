@@ -1,0 +1,366 @@
+"""
+数据更新通知服务
+当新数据导入系统后，通知相关方并更新缓存
+
+功能：
+- 通知前端刷新缓存
+- 通过校讯通短信通知用户
+- 记录更新日志
+- 管理数据版本号
+"""
+
+import json
+from pathlib import Path
+from datetime import datetime
+from typing import Dict, List, Any
+from collections import defaultdict
+
+
+class DataUpdateNotificationService:
+    """数据更新通知服务"""
+
+    def __init__(self):
+        self.base_dir = Path(__file__).parent.parent.parent
+        self.data_dir = self.base_dir / "data"
+        self.logs_dir = self.base_dir / "reports" / "update_logs"
+
+        # 确保目录存在
+        self.logs_dir.mkdir(parents=True, exist_ok=True)
+
+        # 通知配置
+        self.notification_config = {
+            "frontend_cache_refresh": True,
+            "user_sms_notification": True,
+            "admin_notification": True,
+            "log_updates": True
+        }
+
+        # 数据版本管理
+        self.data_version = self._load_current_version()
+
+    def notify_data_update(
+        self,
+        update_type: str,
+        update_details: Dict[str, Any],
+        urgency: str = "normal"
+    ):
+        """
+        数据更新通知主方法
+
+        Args:
+            update_type: 更新类型 (new_data, data_fix, policy_change)
+            update_details: 更新详情
+            urgency: 紧急程度 (low, normal, high, emergency)
+        """
+
+        notification = {
+            "timestamp": datetime.now().isoformat(),
+            "type": update_type,
+            "urgency": urgency,
+            "details": update_details,
+            "version_before": self.data_version.copy(),
+            "actions_taken": []
+        }
+
+        print(f"\n[数据更新通知] 类型: {update_type}, 紧急程度: {urgency}")
+
+        # 1. 更新数据版本号
+        new_version = self._update_version_number(update_type)
+        notification["version_after"] = new_version
+        notification["actions_taken"].append("更新数据版本号")
+
+        # 2. 刷新前端缓存
+        if self.notification_config["frontend_cache_refresh"]:
+            self._refresh_frontend_cache(update_details)
+            notification["actions_taken"].append("刷新前端缓存")
+
+        # 3. 用户通知（根据紧急程度）
+        if self.notification_config["user_sms_notification"]:
+            if urgency in ["high", "emergency"]:
+                self._notify_users_by_sms(update_type, new_version, update_details)
+                notification["actions_taken"].append("发送用户短信通知")
+
+        # 4. 管理员通知
+        if self.notification_config["admin_notification"]:
+            self._notify_admins(update_type, new_version, update_details)
+            notification["actions_taken"].append("通知管理员")
+
+        # 5. 记录更新日志
+        if self.notification_config["log_updates"]:
+            self._log_update_notification(notification)
+
+        # 更新当前版本
+        self.data_version = new_version
+
+        print(f"[数据更新通知] 完成，新版本: {new_version['version_string']}")
+
+        return notification
+
+    def _load_current_version(self) -> Dict:
+        """加载当前数据版本"""
+        version_file = self.data_dir / "data_version.json"
+
+        if version_file.exists():
+            with open(version_file, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        else:
+            # 默认版本
+            return {
+                "version_string": "2026.1.0",
+                "major": 2026,
+                "minor": 1,
+                "patch": 0,
+                "updated_at": datetime.now().isoformat(),
+                "description": "初始版本",
+                "data_sources": []
+            }
+
+    def _update_version_number(self, update_type: str) -> Dict:
+        """更新数据版本号"""
+        # 版本号规则：major.minor.patch
+        # major: 年份 (2026)
+        # minor: 重要更新 (投档线、招生计划等)
+        # patch: 小更新 (数据修正、补充等)
+
+        current_major = self.data_version.get("major", 2026)
+        current_minor = self.data_version.get("minor", 0)
+        current_patch = self.data_version.get("patch", 0)
+
+        if update_type == "new_data":
+            # 新数据：增加minor版本
+            new_minor = current_minor + 1
+            new_patch = 0
+        elif update_type == "data_fix":
+            # 数据修正：增加patch版本
+            new_minor = current_minor
+            new_patch = current_patch + 1
+        else:
+            # 政策变化：增加minor版本
+            new_minor = current_minor + 1
+            new_patch = 0
+
+        new_version = {
+            "version_string": f"{current_major}.{new_minor}.{new_patch}",
+            "major": current_major,
+            "minor": new_minor,
+            "patch": new_patch,
+            "updated_at": datetime.now().isoformat(),
+            "description": f"{update_type}更新",
+            "data_sources": self.data_version.get("data_sources", [])
+        }
+
+        # 保存新版本
+        version_file = self.data_dir / "data_version.json"
+        with open(version_file, 'w', encoding='utf-8') as f:
+            json.dump(new_version, f, ensure_ascii=False, indent=2)
+
+        return new_version
+
+    def _refresh_frontend_cache(self, update_details: Dict):
+        """刷新前端缓存"""
+        # TODO: 实现具体的前端缓存刷新逻辑
+        # 这里可以通过WebSocket、Redis pub/sub等方式通知前端
+        print("  [缓存刷新] 前端缓存刷新指令已发送")
+
+        # 记录缓存刷新日志
+        cache_log = {
+            "timestamp": datetime.now().isoformat(),
+            "action": "cache_refresh",
+            "details": update_details
+        }
+
+        log_file = self.logs_dir / "cache_refresh.log"
+        with open(log_file, 'a', encoding='utf-8') as f:
+            f.write(json.dumps(cache_log, ensure_ascii=False) + "\n")
+
+    def _notify_users_by_sms(self, update_type: str, new_version: Dict, update_details: Dict):
+        """通过校讯通短信通知用户"""
+        # TODO: 实现具体的短信通知逻辑
+        # 这里需要对接校讯通的短信API
+
+        message_templates = {
+            "new_data": "【雪峰志愿】2026年招生计划已更新，系统推荐更加精准！查看: {url}",
+            "data_fix": "【雪峰志愿】录取数据已优化修正，推荐质量提升！查看: {url}",
+            "policy_change": "【雪峰志愿】高考政策有重要更新，请及时查看！查看: {url}",
+            "emergency": "【雪峰志愿】重要数据已发布！请刷新页面获取最新推荐。查看: {url}"
+        }
+
+        template = message_templates.get(update_type, message_templates["new_data"])
+
+        # 模拟发送短信（实际需要调用校讯通API）
+        print(f"  [短信通知] 模板: {template[:50]}...")
+        print(f"  [短信通知] 接收用户: 所有活跃用户")
+
+        # 记录短信发送日志
+        sms_log = {
+            "timestamp": datetime.now().isoformat(),
+            "type": update_type,
+            "template": template,
+            "version": new_version["version_string"],
+            "estimated_recipients": "all_active_users"
+        }
+
+        log_file = self.logs_dir / "sms_notifications.log"
+        with open(log_file, 'a', encoding='utf-8') as f:
+            f.write(json.dumps(sms_log, ensure_ascii=False) + "\n")
+
+    def _notify_admins(self, update_type: str, new_version: Dict, update_details: Dict):
+        """通知管理员"""
+        admin_message = f"""
+数据更新通知
+{'='*50}
+更新类型: {update_type}
+新版本: {new_version['version_string']}
+更新时间: {new_version['updated_at']}
+更新详情: {json.dumps(update_details, ensure_ascii=False, indent=2)}
+"""
+
+        print(f"  [管理员通知] 已发送管理员通知")
+        print(f"  {admin_message}")
+
+        # 记录管理员通知日志
+        admin_log_file = self.logs_dir / "admin_notifications.log"
+        with open(admin_log_file, 'a', encoding='utf-8') as f:
+            f.write(admin_message + "\n")
+
+    def _log_update_notification(self, notification: Dict):
+        """记录更新通知日志"""
+        log_file = self.logs_dir / f"update_log_{datetime.now().strftime('%Y%m%d')}.json"
+
+        # 读取现有日志
+        existing_logs = []
+        if log_file.exists():
+            with open(log_file, 'r', encoding='utf-8') as f:
+                existing_logs = json.load(f)
+
+        # 添加新日志
+        existing_logs.append(notification)
+
+        # 保存日志
+        with open(log_file, 'w', encoding='utf-8') as f:
+            json.dump(existing_logs, f, ensure_ascii=False, indent=2)
+
+        print(f"  [日志记录] 更新通知已记录到: {log_file}")
+
+    def get_current_version_info(self) -> Dict:
+        """获取当前数据版本信息（用于前端展示）"""
+        version_info = {
+            "current_version": self.data_version["version_string"],
+            "description": self.data_version["description"],
+            "last_updated": self.data_version["updated_at"],
+            "data_components": self._get_data_components_status(),
+            "update_summary": self._generate_update_summary()
+        }
+
+        return version_info
+
+    def _get_data_components_status(self) -> Dict:
+        """获取各数据组件状态"""
+        components = {
+            "admission_plans_2026": {
+                "name": "2026年招生计划",
+                "status": "included" if self.data_version["minor"] >= 1 else "pending",
+                "description": "2026年各高校招生计划数据"
+            },
+            "admission_scores_2025": {
+                "name": "2025年完整录取数据",
+                "status": "included",
+                "description": "2025年各批次投档线数据"
+            },
+            "score_rank_tables_2026": {
+                "name": "2026年一分一段表",
+                "status": "pending" if self.data_version["minor"] < 2 else "included",
+                "description": "预计2026年6月23-25日发布",
+                "expected_date": "2026-06-23"
+            },
+            "admission_scores_2026": {
+                "name": "2026年投档线",
+                "status": "pending",
+                "description": "预计2026年7月发布",
+                "expected_date": "2026-07-01"
+            }
+        }
+
+        return components
+
+    def _generate_update_summary(self) -> str:
+        """生成更新摘要（用于用户展示）"""
+        summary_parts = []
+
+        # 数据版本
+        summary_parts.append(f"📅 当前数据版本：{self.data_version['version_string']}")
+
+        # 已包含的数据
+        included_data = []
+        pending_data = []
+
+        for component, status in self._get_data_components_status().items():
+            if status["status"] == "included":
+                included_data.append(f"✅ {status['name']}")
+            else:
+                if "expected_date" in status:
+                    pending_data.append(f"⏳ {status['name']}（预计{status['expected_date']}发布）")
+                else:
+                    pending_data.append(f"⏳ {status['name']}")
+
+        if included_data:
+            summary_parts.append("✅ 已包含：" + "、".join([name.replace("✅ ", "") for name in included_data]))
+
+        if pending_data:
+            summary_parts.append("🔄 待更新：" + "，".join([name.replace("⏳ ", "") for name in pending_data]))
+
+        # 最后更新时间
+        update_time = datetime.fromisoformat(self.data_version["updated_at"])
+        time_ago = datetime.now() - update_time
+        if time_ago.days > 0:
+            time_str = f"{time_ago.days}天前"
+        elif time_ago.seconds > 3600:
+            hours = time_ago.seconds // 3600
+            time_str = f"{hours}小时前"
+        else:
+            time_str = "刚刚"
+
+        summary_parts.append(f"🕒 最后更新：{time_str}")
+
+        return "\n".join(summary_parts)
+
+    def get_update_timeline(self) -> List[Dict]:
+        """获取数据更新时间线"""
+        timeline = [
+            {
+                "date": "2026-04",
+                "event": "高职单招",
+                "status": "completed",
+                "description": "高职单招数据陆续发布"
+            },
+            {
+                "date": "2026-04",
+                "event": "强基计划",
+                "status": "completed",
+                "description": "强基计划报名启动"
+            },
+            {
+                "date": "2026-05",
+                "event": "招生计划",
+                "status": "in_progress",
+                "description": "各高校招生计划集中发布"
+            },
+            {
+                "date": "2026-06",
+                "event": "一分一段表",
+                "status": "pending",
+                "description": "预计6月23-25日各省发布"
+            },
+            {
+                "date": "2026-07",
+                "event": "投档线",
+                "status": "pending",
+                "description": "预计7月上旬开始发布"
+            }
+        ]
+
+        return timeline
+
+
+# 全局实例
+data_update_notify_service = DataUpdateNotificationService()

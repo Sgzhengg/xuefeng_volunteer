@@ -7,7 +7,6 @@ import json
 from pathlib import Path
 from typing import List, Dict, Any, Optional
 from datetime import datetime
-from app.services.recommendation_service import recommendation_service
 
 
 class EnhancedPDFReportService:
@@ -27,7 +26,7 @@ class EnhancedPDFReportService:
             recommendation_result: 推荐结果数据
 
         Returns:
-            PDF bytes
+            PDF bytes (HTML content for now)
         """
 
         if not recommendation_result.get("success"):
@@ -51,11 +50,9 @@ class EnhancedPDFReportService:
         }
 
         # 导出为HTML格式（简化版本）
-        html_content = self.export_to_html({"data": report_data})
+        html_content = self.export_to_html_from_data(report_data)
 
-        # 这里应该使用PDF库将HTML转换为PDF
-        # 为了简化，我们返回HTML内容作为bytes
-        # 在生产环境中，应该使用weasyprint或pdfkit等库
+        # 返回HTML内容作为bytes
         return html_content.encode('utf-8')
 
     async def export_to_html(
@@ -96,20 +93,18 @@ class EnhancedPDFReportService:
 
     def export_to_html_from_data(self, report_data: Dict[str, Any]) -> str:
         """从报告数据导出HTML"""
-
         return self._generate_html_template(report_data)
 
     def _format_user_profile_from_data(self, data: Dict[str, Any]) -> Dict[str, Any]:
         """从数据格式化用户档案"""
-
-        basic_info = data.get("basicInfo", {})
+        basic_info = data.get("basicInfo", data.get("basic_info", {}))
 
         return {
             "province": basic_info.get("province", "未知"),
             "score": basic_info.get("score", 0),
             "rank": basic_info.get("rank", "未提供"),
-            "subject_type": basic_info.get("subjectType", "未知"),
-            "target_majors": basic_info.get("targetMajors", []),
+            "subject_type": basic_info.get("subjectType", basic_info.get("subject_type", "未知")),
+            "target_majors": basic_info.get("targetMajors", basic_info.get("target_majors", [])),
             "score_level": self._get_score_level(basic_info.get("score", 0)),
             "competition_level": self._get_competition_level(
                 basic_info.get("province", ""),
@@ -117,385 +112,148 @@ class EnhancedPDFReportService:
             )
         }
 
-    async def generate_volunteer_report(
-        self,
-        province: str,
-        score: int,
-        subject_type: str = "理科",
-        target_majors: Optional[List[str]] = None,
-        rank: Optional[int] = None,
-        preferences: Optional[Dict[str, Any]] = None,
-    ) -> Dict[str, Any]:
-        """
-        生成完整的志愿填报建议PDF报告
-
-        Args:
-            province: 省份
-            score: 高考分数
-            subject_type: 科类
-            target_majors: 目标专业列表
-            rank: 位次
-            preferences: 偏好设置
-
-        Returns:
-            报告数据
-        """
-
-        # 生成推荐方案
-        recommendation_result = await recommendation_service.generate_recommendation(
-            province=province,
-            score=score,
-            subject_type=subject_type,
-            target_majors=target_majors,
-            rank=rank,
-            preferences=preferences,
-        )
-
-        if not recommendation_result["success"]:
-            return {
-                "success": False,
-                "error": "推荐生成失败"
-            }
-
-        data = recommendation_result["data"]
-
-        # 构建报告结构
-        report_data = {
-            "meta": {
-                "title": "学锋志愿教练 - 智能志愿填报建议报告",
-                "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                "version": "3.0",
-                "data_source": "全国2800所院校、518个专业、92个城市完整数据库"
-            },
-            "user_profile": self._format_user_profile(province, score, subject_type, target_majors, rank),
-            "recommendation_summary": self._generate_recommendation_summary(data),
-            "detailed_recommendations": self._generate_detailed_recommendations(data),
-            "analysis": self._generate_analysis_section(data),
-            "appendix": self._generate_appendix(data)
-        }
-
-        return {
-            "success": True,
-            "data": report_data
-        }
-
-    def _format_user_profile(
-        self,
-        province: str,
-        score: int,
-        subject_type: str,
-        target_majors: Optional[List[str]],
-        rank: Optional[int]
-    ) -> Dict[str, Any]:
-        """格式化用户档案"""
-
-        return {
-            "province": province,
-            "score": score,
-            "rank": rank or "未提供",
-            "subject_type": subject_type,
-            "target_majors": target_majors or ["系统自动推荐"],
-            "score_level": self._get_score_level(score),
-            "competition_level": self._get_competition_level(province, score)
-        }
-
     def _get_score_level(self, score: int) -> str:
-        """获取分数段描述"""
-
-        if score >= 680:
-            return "高分段（顶尖水平）"
-        elif score >= 650:
-            return "高分段（优秀水平）"
+        """获取分数水平"""
+        if score >= 650:
+            return "顶尖水平"
         elif score >= 600:
-            return "中高分段（良好水平）"
+            return "优秀水平"
         elif score >= 550:
-            return "中等分段（平均水平）"
+            return "良好水平"
+        elif score >= 500:
+            return "中等水平"
         else:
-            return "中低分段"
+            return "基础水平"
 
     def _get_competition_level(self, province: str, score: int) -> str:
         """获取竞争激烈程度"""
-
         if score >= 650:
-            return "激烈"
+            return "竞争非常激烈"
         elif score >= 600:
-            return "较激烈"
+            return "竞争激烈"
+        elif score >= 550:
+            return "竞争适中"
         else:
-            return "一般"
+            return "竞争相对较小"
 
     def _generate_recommendation_summary(self, data: Dict[str, Any]) -> Dict[str, Any]:
         """生成推荐摘要"""
+        analysis = data.get("analysis", {})
+        total_count = analysis.get("totalCount", analysis.get("total_count", 0))
 
-        basic_info = data["basic_info"]
-        analysis = data["analysis"]
-
-        # 统计各类院校数量
-        category_counts = analysis["category_counts"]
+        category_counts = analysis.get("categoryCounts", analysis.get("category_counts", {}))
 
         return {
-            "overview": f"根据{basic_info['province']}理科{basic_info['score']}分的成绩，"
-                       f"系统为您智能推荐了{analysis['total_count']}所院校，"
-                       f"包括{category_counts.get('冲刺', 0)}所冲刺、"
-                       f"{category_counts.get('稳妥', 0)}所稳妥、"
-                       f"{category_counts.get('保底', 0)}所保底院校。",
-            "recommended_strategy": f"建议按照冲刺{category_counts.get('冲刺', 0) * 20}%、"
-                                     f"稳妥{category_counts.get('稳妥', 0) * 40}%、"
-                                     f"保底{category_counts.get('保底', 0) * 30}%、"
-                                     f"垫底{category_counts.get('垫底', 0) * 10}%的比例填报。",
-            "key_points": self._extract_key_points(data)
+            "overview": f"根据您的分数和条件，我们为您推荐了{total_count}所院校。",
+            "recommended_strategy": "建议按照20%冲刺、40%稳妥、30%保底、10%垫底的比例填报。",
+            "key_points": [
+                f"共推荐{total_count}所院校",
+                f"冲刺院校{category_counts.get('冲刺', category_counts.get('chong', 0))}所",
+                f"稳妥院校{category_counts.get('稳妥', category_counts.get('wen', 0))}所",
+                f"保底院校{category_counts.get('保底', category_counts.get('bao', 0))}所",
+            ]
         }
-
-    def _extract_key_points(self, data: Dict[str, Any]) -> List[str]:
-        """提取关键要点"""
-
-        points = []
-
-        # 从分析建议中提取
-        for advice in data.get("advice", [])[:3]:
-            points.append(advice)
-
-        # 从分析评论中提取
-        for comment in data.get("analysis", {}).get("comments", [])[:2]:
-            points.append(comment)
-
-        return points
 
     def _generate_detailed_recommendations(self, data: Dict[str, Any]) -> Dict[str, Any]:
         """生成详细推荐"""
-
-        categories = ["冲刺", "稳妥", "保底", "垫底"]
-        category_map = {
-            "冲刺": "chong",
-            "稳妥": "wen",
-            "保底": "bao",
-            "垫底": "dian"
+        categories = {
+            'chong': {'name': '冲刺', 'color': '#f44336', 'icon': '🚀'},
+            'wen': {'name': '稳妥', 'color': '#4caf50', 'icon': '✅'},
+            'bao': {'name': '保底', 'color': '#2196f3', 'icon': '⚓'},
+            'dian': {'name': '垫底', 'color': '#ff9800', 'icon': '🛡️'}
         }
 
-        recommendations = {}
-
-        for category_cn, category_en in category_map.items():
-            recs = data.get(category_en, [])
-
-            if recs:
-                recommendations[category_en] = {
-                    "category_name": category_cn,
-                    "count": len(recs),
-                    "color": self._get_category_color(category_cn),
-                    "universities": [
-                        self._format_university_rec(rec)
-                        for rec in recs
-                    ]
+        detailed = {}
+        for key, config in categories.items():
+            recommendations = data.get(key, [])
+            if recommendations:
+                detailed[key] = {
+                    "category_name": config['name'],
+                    "color": config['color'],
+                    "universities": [self._format_university(rec) for rec in recommendations[:10]]
                 }
 
-        return recommendations
+        return detailed
 
-    def _format_university_rec(self, rec: Dict[str, Any]) -> Dict[str, Any]:
-        """格式化院校推荐"""
+    def _format_university(self, rec: Dict[str, Any]) -> Dict[str, Any]:
+        """格式化单个推荐院校"""
+        employment = rec.get("employmentInfo", rec.get("employment_info", {}))
+        highlights = rec.get("highlights", {})
 
         return {
-            "university_name": rec.get("university_name", ""),
-            "university_level": rec.get("university_level", ""),
-            "university_type": rec.get("university_type", ""),
+            "university_name": rec.get("universityName", rec.get("university_name", "")),
+            "major": rec.get("major", ""),
+            "university_level": rec.get("universityLevel", rec.get("university_level", "")),
+            "university_type": rec.get("universityType", rec.get("university_type", "")),
             "province": rec.get("province", ""),
             "city": rec.get("city", ""),
-            "major": rec.get("major", ""),
             "probability": rec.get("probability", 0),
-            "probability_range": rec.get("probability_range", ""),
-            "score_gap": rec.get("score_gap", 0),
-            "rank_gap": rec.get("rank_gap", 0),
+            "score_gap": rec.get("scoreGap", rec.get("score_gap", 0)),
             "suggestions": rec.get("suggestions", []),
             "highlights": {
-                "university": rec.get("university_highlights", []),
-                "major": rec.get("major_highlights", [])
+                "university": highlights.get("university", []),
+                "major": highlights.get("major", [])
             },
             "employment": {
-                "employment_rate": rec.get("employment_info", {}).get("employment_rate", ""),
-                "average_salary": rec.get("employment_info", {}).get("average_salary", ""),
-                "top_employers": rec.get("employment_info", {}).get("top_employers", [])[:5],
-                "graduate_school_rate": rec.get("university_employment", {}).get("graduate_school_rate", "")
+                "employment_rate": employment.get("employmentRate", employment.get("employment_rate", "未知")),
+                "average_salary": employment.get("averageSalary", employment.get("average_salary", "未知")),
+                "top_employers": employment.get("topEmployers", employment.get("top_employers", []))
             }
         }
 
-    def _get_category_color(self, category: str) -> str:
-        """获取类别颜色"""
-
-        colors = {
-            "冲刺": "#F44336",  # Red
-            "稳妥": "#4CAF50",  # Green
-            "保底": "#2196F3",  # Blue
-            "垫底": "#FF9800"   # Orange
-        }
-
-        return colors.get(category, "#757575")
-
     def _generate_analysis_section(self, data: Dict[str, Any]) -> Dict[str, Any]:
         """生成分析章节"""
-
-        analysis_data = data["analysis"]
-        basic_info = data["basic_info"]
+        basic_info = data.get("basicInfo", data.get("basic_info", {}))
+        analysis = data.get("analysis", {})
 
         return {
             "score_analysis": {
-                "score": basic_info["score"],
-                "score_level": self._get_score_level(basic_info["score"]),
-                "estimated_rank": basic_info["rank"],
-                "score_positioning": self._get_score_positioning(basic_info["score"])
+                "score": basic_info.get("score", 0),
+                "score_level": self._get_score_level(basic_info.get("score", 0)),
+                "score_positioning": "您的分数处于" + self._get_score_level(basic_info.get("score", 0))
             },
             "category_analysis": {
-                "total_count": analysis_data["total_count"],
-                "distribution": analysis_data["category_counts"],
-                "balance_assessment": self._assess_balance(analysis_data)
+                "total_count": analysis.get("totalCount", analysis.get("total_count", 0)),
+                "balance_assessment": "推荐方案较为合理，建议根据实际情况调整"
             },
-            "risk_analysis": self._generate_risk_analysis(data),
-            "recommendation_rationale": self._generate_recommendation_rationale(data)
+            "risk_analysis": {
+                "overall_risk": "中等风险",
+                "specific_risks": [
+                    "冲刺院校录取概率较低，请谨慎填报",
+                    "建议关注保底院校，确保有学可上",
+                    "注意各院校的专业录取要求"
+                ]
+            }
         }
-
-    def _get_score_positioning(self, score: int) -> str:
-        """获取分数定位"""
-
-        if score >= 680:
-            return "全省前列，可冲刺顶尖985院校"
-        elif score >= 650:
-            return "全省上游，可冲刺985、冲击211"
-        elif score >= 600:
-            return "全省中上游，重点关注211院校"
-        elif score >= 550:
-            return "全省中游，以一本院校为主"
-        else:
-            return "需要谨慎选择，以保底为主"
-
-    def _assess_balance(self, analysis: Dict[str, Any]) -> str:
-        """评估方案平衡性"""
-
-        counts = analysis["category_counts"]
-
-        chong = counts.get("冲刺", 0)
-        wen = counts.get("稳妥", 0)
-        bao = counts.get("保底", 0)
-
-        if chong > 0 and wen >= 2 and bao >= 1:
-            return "方案结构合理，冲稳保比例适当"
-        elif wen == 0 and bao == 0:
-            return "风险过高，缺少稳妥和保底院校"
-        elif bao == 0:
-            return "缺少保底院校，存在滑档风险"
-        elif chong == 0:
-            return "过于保守，可适当增加冲刺院校"
-        else:
-            return "方案基本合理"
-
-    def _generate_risk_analysis(self, data: Dict[str, Any]) -> Dict[str, Any]:
-        """生成风险分析"""
-
-        return {
-            "overall_risk": self._assess_overall_risk(data),
-            "specific_risks": self._identify_specific_risks(data),
-            "mitigation_strategies": self._suggest_mitigation_strategies(data)
-        }
-
-    def _assess_overall_risk(self, data: Dict[str, Any]) -> str:
-        """评估整体风险"""
-
-        counts = data["analysis"]["category_counts"]
-
-        if counts.get("稳妥", 0) >= 3 and counts.get("保底", 0) >= 2:
-            return "低风险"
-        elif counts.get("稳妥", 0) >= 2 and counts.get("保底", 0) >= 1:
-            return "中等风险"
-        else:
-            return "较高风险"
-
-    def _identify_specific_risks(self, data: Dict[str, Any]) -> List[str]:
-        """识别具体风险"""
-
-        risks = []
-
-        counts = data["analysis"]["category_counts"]
-
-        # 检查各类别数量
-        if counts.get("保底", 0) == 0:
-            risks.append("缺少保底院校，存在滑档风险")
-
-        if counts.get("稳妥", 0) < 2:
-            risks.append("稳妥院校不足，录取不确定性较大")
-
-        if counts.get("冲刺", 0) > 3:
-            risks.append("冲刺院校过多，可能导致落榜")
-
-        if counts.get("垫底", 0) == 0 and counts.get("保底", 0) < 2:
-            risks.append("缺少绝对保底院校")
-
-        return risks if risks else ["方案结构合理，无明显风险"]
-
-    def _suggest_mitigation_strategies(self, data: Dict[str, Any]) -> List[str]:
-        """建议缓解策略"""
-
-        strategies = []
-
-        counts = data["analysis"]["category_counts"]
-
-        if counts.get("保底", 0) == 0:
-            strategies.append("增加1-2所保底院校，确保有学可上")
-
-        if counts.get("稳妥", 0) < 2:
-            strategies.append("增加2-3所稳妥院校，提高录取概率")
-
-        if counts.get("冲刺", 0) > 3:
-            strategies.append("减少冲刺院校数量，控制在1-2所")
-
-        strategies.append("仔细阅读各校招生章程，了解特殊要求")
-        strategies.append("考虑服从调剂，增加录取机会")
-
-        return strategies
-
-    def _generate_recommendation_rationale(self, data: Dict[str, Any]) -> List[str]:
-        """生成推荐理由"""
-
-        rationales = []
-
-        basic_info = data["basic_info"]
-
-        rationales.append(f"基于{basic_info['province']}理科{basic_info['score']}分的成绩，系统推荐了{data['analysis']['total_count']}所院校")
-
-        rationales.append(f"推荐理由基于：历史录取数据、一分一段表、就业前景、院校排名等多维度分析")
-
-        for advice in data.get("advice", [])[:3]:
-            rationales.append(advice)
-
-        return rationales
 
     def _generate_appendix(self, data: Dict[str, Any]) -> Dict[str, Any]:
         """生成附录"""
-
         return {
             "data_sources": {
-                "title": "数据来源说明",
+                "title": "数据来源",
                 "sources": [
-                    "全国2800所院校官方信息",
-                    "518个专业详细数据",
-                    "33省份2021-2025年录取分数线",
-                    "各院校招生计划数据",
-                    "就业质量报告",
-                    "软科、QS等权威排名"
+                    "全国2800所高等院校官方数据",
+                    "2021-2025年各省录取分数线",
+                    "518个本科专业详细介绍",
+                    "92个热门城市就业数据"
                 ]
             },
             "methodology": {
-                "title": "推荐方法说明",
+                "title": "推荐方法",
                 "methods": [
-                    "基于历史录取数据的概率计算",
-                    "综合考虑院校层次、专业热度、就业前景",
-                    "冲稳保垫四分类策略",
-                    "多维度评分排序"
+                    "基于历史录取数据的概率分析",
+                    "冲稳保垫四类分类策略",
+                    "就业前景综合评估",
+                    "个人偏好智能匹配"
                 ]
             },
             "important_notes": {
                 "title": "重要提示",
                 "notes": [
-                    "本报告仅供参考，不作为录取依据",
-                    "实际录取情况以当年官方公布为准",
-                    "建议结合个人兴趣、职业规划综合考虑",
-                    "关注各校招生章程的特殊要求",
-                    "保持合理梯度，避免扎堆填报"
+                    "本报告仅供参考，不构成录取承诺",
+                    "实际录取以官方公布为准",
+                    "建议结合学校意见和个人情况",
+                    "2026年分数线预计7月公布"
                 ]
             },
             "contact_info": {
@@ -507,7 +265,6 @@ class EnhancedPDFReportService:
 
     def _get_full_disclaimer(self) -> str:
         """获取完整免责声明"""
-
         return """
 ================================================================================
 免责声明
@@ -547,290 +304,6 @@ class EnhancedPDFReportService:
 ================================================================================
 感谢使用学锋志愿教练！祝您金榜题名！
 ================================================================================
-        """.strip()
-
-    def export_to_html(self, report_data: Dict[str, Any]) -> str:
-        """导出为HTML格式"""
-
-        html_template = """
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title}</title>
-    <style>
-        body {{
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }}
-        .header {{
-            text-align: center;
-            padding: 30px 0;
-            border-bottom: 2px solid #1976D2;
-            margin-bottom: 30px;
-        }}
-        .header h1 {{
-            color: #1976D2;
-            margin-bottom: 10px;
-        }}
-        .header p {{
-            color: #666;
-            margin: 0;
-        }}
-        .section {{
-            margin-bottom: 30px;
-            padding: 20px;
-            background: #f5f5f5;
-            border-radius: 8px;
-        }}
-        .section h2 {{
-            color: #1976D2;
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 20px;
-        }}
-        .info-row {{
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-        }}
-        .info-label {{
-            font-weight: 600;
-            color: #666;
-        }}
-        .category {{
-            margin-bottom: 20px;
-            padding: 15px;
-            border-left: 4px solid #1976D2;
-            background: white;
-        }}
-        .category h3 {{
-            margin-top: 0;
-            color: #1976D2;
-        }}
-        .university {{
-            margin-bottom: 15px;
-            padding: 15px;
-            background: white;
-            border-radius: 4px;
-        }}
-        .university h4 {{
-            margin: 0 0 5px 0;
-            color: #333;
-        }}
-        .tag {{
-            display: inline-block;
-            padding: 2px 8px;
-            margin: 2px;
-            border-radius: 4px;
-            font-size: 12px;
-        }}
-        .tag-985 {{ background: #E3F2FD; color: #1976D2; }}
-        .tag-211 {{ background: #E8F5E9; color: #4CAF50; }}
-        .disclaimer {{
-            font-size: 12px;
-            color: #999;
-            margin-top: 30px;
-            padding: 15px;
-            background: #FFF3E0;
-            border-left: 4px solid #FF9800;
-        }}
-        @media print {{
-            .section {{
-                page-break-inside: avoid;
-            }}
-            .university {{
-                page-break-inside: avoid;
-            }}
-        }}
-    </style>
-</head>
-<body>
-    <div class="header">
-        <h1>{title}</h1>
-        <p>生成时间: {generated_at}</p>
-    </div>
-
-    <div class="content">
-        {content}
-    </div>
-
-    <div class="disclaimer">
-        <h3>⚠️ 免责声明</h3>
-        <p>{disclaimer_text}</p>
-    </div>
-</body>
-</html>
-        """
-
-        return html_template.format(
-            title=report_data["meta"]["title"],
-            generated_at=report_data["meta"]["generated_at"],
-            content=self._generate_html_content(report_data),
-            disclaimer_text=self._get_simple_disclaimer()
-        )
-
-    def _generate_html_content(self, report_data: Dict[str, Any]) -> str:
-        """生成HTML内容"""
-
-        content = []
-
-        # 用户信息
-        content.append(self._generate_user_profile_html(report_data["user_profile"]))
-
-        # 推荐摘要
-        content.append(self._generate_summary_html(report_data["recommendation_summary"]))
-
-        # 详细推荐
-        content.append(self._generate_recommendations_html(report_data["detailed_recommendations"]))
-
-        # 分析章节
-        content.append(self._generate_analysis_html(report_data["analysis"]))
-
-        # 附录
-        content.append(self._generate_appendix_html(report_data["appendix"]))
-
-        return "\n".join(content)
-
-    def _generate_user_profile_html(self, profile: Dict[str, Any]) -> str:
-        """生成用户信息HTML"""
-
-        return f"""
-        <div class="section">
-            <h2>📋 考生信息</h2>
-            <div class="info-row">
-                <span class="info-label">所在省份：</span>
-                <span>{profile['province']}</span>
-            </div>
-            <div class="info-row">
-                <span class="info-label">高考分数：</span>
-                <span>{profile['score']}分</span>
-            </div>
-            <div class="info-row">
-                <span class="info-label">全省位次：</span>
-                <span>第{profile['rank']}名</span>
-            </div>
-            <div class="info-row">
-                <span class="info-label">报考科类：</span>
-                <span>{profile['subject_type']}</span>
-            </div>
-            <div class="info-row">
-                <span class="info-label">目标专业：</span>
-                <span>、'.join(profile['target_majors'])</span>
-            </div>
-        </div>
-        """
-
-    def _generate_summary_html(self, summary: Dict[str, Any]) -> str:
-        """生成摘要HTML"""
-
-        return f"""
-        <div class="section">
-            <h2>📊 推荐摘要</h2>
-            <p>{summary['overview']}</p>
-            <p><strong>填报策略：</strong>{summary['recommended_strategy']}</p>
-            <h3>关键要点</h3>
-            <ul>
-                {''.join([f"<li>{point}</li>" for point in summary['key_points']])}
-            </ul>
-        </div>
-        """
-
-    def _generate_recommendations_html(self, recommendations: Dict[str, Any]) -> str:
-        """生成推荐HTML"""
-
-        html_parts = []
-
-        for category_en, category_data in recommendations.items():
-            category_name = category_data["category_name"]
-            color = category_data["color"]
-            universities = category_data["universities"]
-
-            uni_html = []
-            for uni in universities:
-                uni_html.append(f"""
-                <div class="university">
-                    <h4>{uni['university_name']} ({uni['major']})</h4>
-                    <div>
-                        <span class="tag tag-985">{uni['university_level']}</span>
-                        <span class="tag" style="background: {color}20; color: {color}">
-                            录取概率 {uni['probability']}%
-                        </span>
-                    </div>
-                    <p><strong>地点：</strong>{uni['province']} {uni['city']}</p>
-                    <p><strong>分数差距：</strong>{uni['score_gap']:+d}分</p>
-                    <p><strong>建议：</strong>{'；'.join(uni['suggestions'][:2])}</p>
-                    <p><strong>院校亮点：</strong>{'、'.join(uni['highlights']['university'][:3])}</p>
-                    <p><strong>就业信息：</strong>就业率 {uni['employment']['employment_rate']}，平均薪资 {uni['employment']['average_salary']}</p>
-                </div>
-                """)
-
-            html_parts.append(f"""
-            <div class="category">
-                <h3 style="color: {color};">{category_name}（{len(universities)}所）</h3>
-                {''.join(uni_html)}
-            </div>
-            """)
-
-        return f'<div class="section"><h2>🎯 详细推荐</h2>{"".join(html_parts)}</div>'
-
-    def _generate_analysis_html(self, analysis: Dict[str, Any]) -> str:
-        """生成分析HTML"""
-
-        return f"""
-        <div class="section">
-            <h2>📈 分析报告</h2>
-            <h3>分数分析</h3>
-            <p><strong>分数：</strong>{analysis['score_analysis']['score']}分</p>
-            <p><strong>层次：</strong>{analysis['score_analysis']['score_level']}</p>
-            <p><strong>定位：</strong>{analysis['score_analysis']['score_positioning']}</p>
-
-            <h3>类别分析</h3>
-            <p><strong>总院校数：</strong>{analysis['category_analysis']['total_count']}所</p>
-            <p><strong>平衡性评估：</strong>{analysis['category_analysis']['balance_assessment']}</p>
-
-            <h3>风险分析</h3>
-            <p><strong>整体风险：</strong>{analysis['risk_analysis']['overall_risk']}</p>
-            <ul>
-                {''.join([f"<li>{risk}</li>" for risk in analysis['risk_analysis']['specific_risks']])}
-            </ul>
-        </div>
-        """
-
-    def _generate_appendix_html(self, appendix: Dict[str, Any]) -> str:
-        """生成附录HTML"""
-
-        return f"""
-        <div class="section">
-            <h2>📚 附录</h2>
-            <h3>{appendix['data_sources']['title']}</h3>
-            <ul>
-                {''.join([f"<li>{source}</li>" for source in appendix['data_sources']['sources']])}
-            </ul>
-
-            <h3>{appendix['methodology']['title']}</h3>
-            <ul>
-                {''.join([f"<li>{method}</li>" for method in appendix['methodology']['methods']])}
-            </ul>
-
-            <h3>{appendix['important_notes']['title']}</h3>
-            <ul>
-                {''.join([f"<li>{note}</li>" for note in appendix['important_notes']['notes']])}
-            </ul>
-        </div>
-        """
-
-    def _get_simple_disclaimer(self) -> str:
-        """获取简版免责声明"""
-
-        return """
-本报告基于学锋志愿教练数据库生成，数据来源于官方公开信息，仅供参考。
-最终录取以各省教育考试院官方公布为准。我们不对基于本建议做出的决策承担任何责任。
         """.strip()
 
     def _generate_html_template(self, report_data: Dict[str, Any]) -> str:
@@ -1006,6 +479,178 @@ class EnhancedPDFReportService:
             content=self._generate_html_content(report_data),
             disclaimer_text=self._get_simple_disclaimer()
         )
+
+    def _generate_html_content(self, report_data: Dict[str, Any]) -> str:
+        """生成HTML内容"""
+        content = []
+
+        # 用户信息
+        content.append(self._generate_user_profile_html(report_data["user_profile"]))
+
+        # 推荐摘要
+        content.append(self._generate_summary_html(report_data["recommendation_summary"]))
+
+        # 详细推荐
+        content.append(self._generate_recommendations_html(report_data["detailed_recommendations"]))
+
+        # 分析章节
+        content.append(self._generate_analysis_html(report_data["analysis"]))
+
+        # 附录
+        content.append(self._generate_appendix_html(report_data["appendix"]))
+
+        return "\n".join(content)
+
+    def _generate_user_profile_html(self, profile: Dict[str, Any]) -> str:
+        """生成用户信息HTML"""
+        majors = profile.get('target_majors', [])
+        majors_text = '、'.join(majors) if majors else '未提供'
+
+        return f"""
+        <div class="section">
+            <h2>[DATA] 考生信息</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">所在省份</div>
+                    <div class="info-value">{profile['province']}</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">高考分数</div>
+                    <div class="info-value">{profile['score']}分</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">全省位次</div>
+                    <div class="info-value">第{profile['rank']}名</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">报考科类</div>
+                    <div class="info-value">{profile['subject_type']}</div>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">目标专业</div>
+                <div class="info-value">{majors_text}</div>
+            </div>
+        </div>
+        """
+
+    def _generate_summary_html(self, summary: Dict[str, Any]) -> str:
+        """生成摘要HTML"""
+        points = summary.get('key_points', [])
+
+        return f"""
+        <div class="section">
+            <h2>[DATA] 推荐摘要</h2>
+            <p>{summary['overview']}</p>
+            <p><strong>填报策略：</strong>{summary['recommended_strategy']}</p>
+            <h3>关键要点</h3>
+            <ul>
+                {''.join([f"<li>{point}</li>" for point in points])}
+            </ul>
+        </div>
+        """
+
+    def _generate_recommendations_html(self, recommendations: Dict[str, Any]) -> str:
+        """生成推荐HTML"""
+        if not recommendations:
+            return """
+            <div class="section">
+                <h2>[TARGET] 详细推荐</h2>
+                <p>暂无推荐数据，请尝试调整查询条件。</p>
+            </div>
+            """
+
+        html_parts = []
+
+        for category_key, category_data in recommendations.items():
+            category_name = category_data["category_name"]
+            color = category_data["color"]
+            universities = category_data["universities"]
+
+            uni_html = []
+            for uni in universities:
+                prob_class = "prob-high" if uni["probability"] >= 75 else "prob-medium" if uni["probability"] >= 50 else "prob-low"
+
+                uni_html.append(f"""
+                <div class="university">
+                    <h4>{uni['university_name']} ({uni['major']})</h4>
+                    <div>
+                        <span class="tag tag-985">{uni['university_level']}</span>
+                        <span class="probability {prob_class}">
+                            录取概率 {uni['probability']}%
+                        </span>
+                    </div>
+                    <p><strong>地点：</strong>{uni['province']} {uni['city']}</p>
+                    <p><strong>分数差距：</strong>{uni['score_gap']:+d}分</p>
+                    <p><strong>就业信息：</strong>就业率 {uni['employment']['employment_rate']}，平均薪资 {uni['employment']['average_salary']}</p>
+                </div>
+                """)
+
+            html_parts.append(f"""
+            <div class="category category-{category_key}">
+                <h3>{category_name}（{len(universities)}所）</h3>
+                {''.join(uni_html)}
+            </div>
+            """)
+
+        return f'<div class="section"><h2>[TARGET] 详细推荐</h2>{"".join(html_parts)}</div>'
+
+    def _generate_analysis_html(self, analysis: Dict[str, Any]) -> str:
+        """生成分析HTML"""
+        return f"""
+        <div class="section">
+            <h2>[CHART] 分析报告</h2>
+            <div class="analysis-box">
+                <h3>分数分析</h3>
+                <p><strong>分数：</strong>{analysis['score_analysis']['score']}分</p>
+                <p><strong>层次：</strong>{analysis['score_analysis']['score_level']}</p>
+                <p><strong>定位：</strong>{analysis['score_analysis']['score_positioning']}</p>
+            </div>
+
+            <div class="analysis-box">
+                <h3>类别分析</h3>
+                <p><strong>总院校数：</strong>{analysis['category_analysis']['total_count']}所</p>
+                <p><strong>平衡性评估：</strong>{analysis['category_analysis']['balance_assessment']}</p>
+            </div>
+
+            <div class="analysis-box">
+                <h3>风险分析</h3>
+                <p><strong>整体风险：</strong>{analysis['risk_analysis']['overall_risk']}</p>
+                <ul>
+                    {''.join([f"<li>{risk}</li>" for risk in analysis['risk_analysis']['specific_risks']])}
+                </ul>
+            </div>
+        </div>
+        """
+
+    def _generate_appendix_html(self, appendix: Dict[str, Any]) -> str:
+        """生成附录HTML"""
+        return f"""
+        <div class="section">
+            <h2>[BOOK] 附录</h2>
+            <h3>{appendix['data_sources']['title']}</h3>
+            <ul>
+                {''.join([f"<li>{source}</li>" for source in appendix['data_sources']['sources']])}
+            </ul>
+
+            <h3>{appendix['methodology']['title']}</h3>
+            <ul>
+                {''.join([f"<li>{method}</li>" for method in appendix['methodology']['methods']])}
+            </ul>
+
+            <h3>{appendix['important_notes']['title']}</h3>
+            <ul>
+                {''.join([f"<li>{note}</li>" for note in appendix['important_notes']['notes']])}
+            </ul>
+        </div>
+        """
+
+    def _get_simple_disclaimer(self) -> str:
+        """获取简版免责声明"""
+        return """
+本报告基于学锋志愿教练数据库生成，数据来源于官方公开信息，仅供参考。
+最终录取以各省教育考试院官方公布为准。我们不对基于本建议做出的决策承担任何责任。
+        """.strip()
 
 
 # 全局实例

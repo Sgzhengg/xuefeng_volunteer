@@ -1,0 +1,395 @@
+# -*- coding: utf-8 -*-
+"""
+基于位次的智能志愿推荐服务（修复版）
+解决原算法的致命缺陷：基于位次而非分数进行推荐
+"""
+
+import json
+from pathlib import Path
+from typing import List, Dict, Any, Optional
+from datetime import datetime
+
+
+class RankBasedRecommendationService:
+    """基于位次的推荐服务（修复算法）"""
+
+    # [NEW] 顶尖院校门槛（位次）- 防止低分学生推荐清北
+    TOP_UNIVERSITY_THRESHOLDS = {
+        # 顶尖院校（清北复交）
+        "北京大学": 50,
+        "清华大学": 50,
+        "复旦大学": 150,
+        "上海交通大学": 150,
+        "浙江大学": 300,
+        "中国科学技术大学": 300,
+        "南京大学": 400,
+
+        # 顶尖985
+        "中国人民大学": 500,
+        "华中科技大学": 3000,
+        "武汉大学": 3500,
+        "中山大学": 4000,  # 广东本地
+        "华南理工大学": 8000,  # 广东本地
+
+        # 优秀985
+        "哈尔滨工业大学": 5000,
+        "西安交通大学": 4000,
+        "北京航空航天大学": 4000,
+        "同济大学": 4000,
+        "南开大学": 5000,
+        "天津大学": 6000,
+
+        # 优秀211
+        "暨南大学": 15000,  # 广东本地
+        "华南师范大学": 18000,  # 广东本地
+        "深圳大学": 25000,  # 广东本地一本
+        "华南农业大学": 30000,  # 广东本地
+    }
+
+    def __init__(self):
+        self.data_dir = Path("data")
+        self._load_data()
+
+    def _load_data(self):
+        """加载数据"""
+        print("🔄 Loading data for rank-based recommendation...")
+
+        # 加载院校列表
+        with open(self.data_dir / "universities_list.json", 'r', encoding='utf-8') as f:
+            uni_data = json.load(f)
+        self.universities = {u["id"]: u for u in uni_data["universities"]}
+
+        # 加载位次数据（82.9万条）
+        with open(self.data_dir / "major_rank_data.json", 'r', encoding='utf-8') as f:
+            rank_data = json.load(f)
+        self.major_rank_data = rank_data.get("major_rank_data", [])
+
+        # 加载专业关联数据
+        with open(self.data_dir / "university_majors.json", 'r', encoding='utf-8') as f:
+            majors_data = json.load(f)
+        self.university_majors = majors_data.get("university_majors", [])
+
+        print(f"[OK] Loaded {len(self.universities)} universities, {len(self.major_rank_data)} rank records")
+
+    def recommend_by_rank(
+        self,
+        user_rank: int,
+        province: str,
+        subject_type: str = "理科",
+        target_majors: Optional[List[str]] = None,
+    ) -> Dict[str, Any]:
+        """
+        基于位次的智能推荐（核心算法）
+
+        Args:
+            user_rank: 用户全省位次
+            province: 省份
+            subject_type: 科目类型
+            target_majors: 目标专业列表
+
+        Returns:
+            推荐结果
+        """
+
+        print(f"[TARGET] 基于位次推荐: user_rank={user_rank}, province={province}")
+
+        if not target_majors:
+            target_majors = ["计算机科学与技术"]
+
+        # 从major_rank_data中筛选符合条件的记录
+        candidates = self._filter_by_rank(user_rank, province)
+
+        # 按院校分组，计算每个院校的推荐概率
+        recommendations = self._calculate_recommendations(
+            user_rank, candidates, target_majors
+        )
+
+        # 分配冲稳保标签
+        categorized = self._categorize_recommendations(recommendations)
+
+        # 构建返回结果
+        result = {
+            "basic_info": {
+                "province": province,
+                "rank": user_rank,
+                "subject_type": subject_type,
+                "target_majors": target_majors,
+                "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "algorithm": "rank_based_v2"  # 标识为修复版算法
+            },
+            "冲刺": categorized.get("冲刺", []),
+            "稳妥": categorized.get("稳妥", []),
+            "保底": categorized.get("保底", []),
+        }
+
+        # 生成分析
+        result["analysis"] = self._generate_analysis(result)
+
+        return {"success": True, "data": result}
+
+    def _filter_by_rank(
+        self,
+        user_rank: int,
+        province: str
+    ) -> List[Dict[str, Any]]:
+        """
+        从major_rank_data中筛选符合条件的记录
+
+        筛选条件：
+        - province 匹配
+        - min_rank 在 [user_rank - 30000, user_rank + 5000] 范围内
+        """
+        candidates = []
+
+        # 计算位次范围
+        rank_min = max(1, user_rank - 30000)  # 向下保底30000名
+        rank_max = user_rank + 5000  # 向上冲5000名
+
+        print(f"[SEARCH] 筛选位次范围: [{rank_min}, {rank_max}]")
+
+        for record in self.major_rank_data:
+            # 省份匹配
+            if record.get("province") != province:
+                continue
+
+            # 位次范围匹配
+            min_rank = record.get("min_rank")
+            if min_rank is None:
+                continue
+
+            # 检查是否在合理范围内
+            if min_rank < rank_min - 10000:  # 超出保底范围太多
+                continue
+            if min_rank > rank_max + 20000:  # 超出冲刺范围太多
+                continue
+
+            candidates.append(record)
+
+        print(f"[OK] 筛选到 {len(candidates)} 条候选记录")
+        return candidates
+
+    def _calculate_recommendations(
+        self,
+        user_rank: int,
+        candidates: List[Dict[str, Any]],
+        target_majors: List[str]
+    ) -> List[Dict[str, Any]]:
+        """计算每个院校专业的推荐信息"""
+
+        recommendations = []
+
+        for record in candidates:
+            university_name = record.get("university_name", "")
+            major_name = record.get("major_name", "")
+            min_rank = record.get("min_rank", 0)
+            avg_rank = record.get("avg_rank", min_rank)
+            year = record.get("year", 2024)
+
+            # [NEW] 院校门槛检查
+            if university_name in self.TOP_UNIVERSITY_THRESHOLDS:
+                threshold = self.TOP_UNIVERSITY_THRESHOLDS[university_name]
+                if user_rank > threshold:
+                    continue  # 位次不足，跳过
+
+            # 专业匹配
+            if not self._is_major_match(major_name, target_majors):
+                continue
+
+            # 计算概率
+            probability = self._calc_probability_by_rank(user_rank, min_rank, avg_rank)
+
+            # 构建推荐项
+            rec = {
+                "university_id": record.get("university_id", ""),
+                "university_name": university_name,
+                "university_level": record.get("university_level", ""),
+                "university_type": record.get("university_type", ""),
+                "province": record.get("province", ""),
+                "city": record.get("city", ""),
+                "major": major_name,
+                "major_code": record.get("major_code", ""),
+                "probability": probability,
+                "probability_range": f"{max(1, int(probability*100-5))}-{min(95, int(probability*100+5))}%",
+                "min_rank": min_rank,
+                "avg_rank": avg_rank,
+                "year": year,
+                "score_gap": None,  # 不再使用分数差
+                "rank_gap": user_rank - min_rank,  # 位次差
+                "suggestions": self._generate_suggestions(user_rank, min_rank, probability),
+            }
+
+            recommendations.append(rec)
+
+        # 按min_rank排序
+        recommendations.sort(key=lambda x: x["min_rank"])
+
+        return recommendations
+
+    def _calc_probability_by_rank(
+        self,
+        user_rank: int,
+        major_min_rank: int,
+        major_avg_rank: Optional[int] = None
+    ) -> float:
+        """
+        基于位次计算录取概率（核心算法）
+
+        Args:
+            user_rank: 用户位次（数字越小成绩越好）
+            major_min_rank: 专业最低录取位次
+            major_avg_rank: 专业平均录取位次
+
+        Returns:
+            录取概率（0-1）
+        """
+
+        if user_rank <= major_min_rank:
+            # 用户位次高于（优于）最低录取位次
+            diff = major_min_rank - user_rank
+            diff_percent = diff / major_min_rank if major_min_rank > 0 else 0
+
+            # 越优概率越高，最高95%
+            if diff_percent <= 0.01:
+                # 位次非常接近，几乎稳上
+                return 0.95
+            elif diff_percent <= 0.05:
+                # 优于5%
+                return 0.90
+            elif diff_percent <= 0.10:
+                # 优于10%
+                return 0.80
+            else:
+                # 大幅优于最低位次
+                return min(0.95, 0.60 + diff_percent * 0.5)
+
+        else:
+            # 用户位次低于（劣于）最低录取位次
+            diff = user_rank - major_min_rank
+            diff_percent = diff / major_min_rank if major_min_rank > 0 else 0
+
+            if diff_percent <= 0.05:
+                # 差距在5%以内，值得冲刺
+                return 0.35 - diff_percent * 2
+            elif diff_percent <= 0.15:
+                # 差距5-15%，冲刺机会较小
+                return 0.15
+            elif diff_percent <= 0.30:
+                # 差距15-30%，机会很小
+                return 0.08
+            else:
+                # 差距超过30%，基本无机会
+                return max(0.03, 0.10 - diff_percent)
+
+    def _categorize_recommendations(
+        self,
+        recommendations: List[Dict[str, Any]]
+    ) -> Dict[str, List[Dict[str, Any]]]:
+        """
+        分配冲稳保标签
+
+        规则：
+        - 冲刺：概率 20%-45%
+        - 稳妥：概率 45%-75%
+        - 保底：概率 75%-95%
+        """
+
+        categories = {
+            "冲刺": [],
+            "稳妥": [],
+            "保底": []
+        }
+
+        for rec in recommendations:
+            prob = rec["probability"]
+
+            if prob >= 0.75:
+                categories["保底"].append(rec)
+            elif prob >= 0.45:
+                categories["稳妥"].append(rec)
+            elif prob >= 0.20:
+                categories["冲刺"].append(rec)
+            # 低于20%的过滤掉
+
+        # 限制数量
+        categories["冲刺"] = categories["冲刺"][:3]
+        categories["稳妥"] = categories["稳妥"][:5]
+        categories["保底"] = categories["保底"][:3]
+
+        return categories
+
+    def _is_major_match(self, major_name: str, target_majors: List[str]) -> bool:
+        """检查专业是否匹配"""
+        major_lower = major_name.lower()
+
+        for target in target_majors:
+            target_lower = target.lower()
+            # 精确匹配或包含匹配
+            if target_lower in major_lower or major_lower in target_lower:
+                return True
+            # 相关专业匹配
+            if self._is_related_major(major_name, target):
+                return True
+
+        return False
+
+    def _is_related_major(self, major_name: str, target: str) -> bool:
+        """检查是否是相关专业"""
+        # 计算机相关
+        cs_keywords = ["计算机", "软件", "人工智能", "数据", "电子", "网络"]
+        if "计算机" in target or "软件" in target:
+            return any(kw in major_name for kw in cs_keywords)
+
+        # 电气相关
+        ee_keywords = ["电气", "自动化", "电子", "信息"]
+        if "电气" in target or "自动化" in target:
+            return any(kw in major_name for kw in ee_keywords)
+
+        return False
+
+    def _generate_suggestions(
+        self,
+        user_rank: int,
+        major_min_rank: int,
+        probability: float
+    ) -> List[str]:
+        """生成建议文案"""
+
+        suggestions = []
+
+        if probability >= 0.75:
+            suggestions.append("基本没问题")
+            suggestions.append("建议放在志愿后面")
+        elif probability >= 0.45:
+            suggestions.append("录取概率较大")
+            suggestions.append("建议作为主要志愿")
+        else:
+            suggestions.append("可以尝试")
+            suggestions.append("建议放在志愿前面")
+
+        return suggestions
+
+    def _generate_analysis(self, result: Dict[str, Any]) -> Dict[str, Any]:
+        """生成分析报告"""
+
+        chong_count = len(result.get("冲刺", []))
+        wen_count = len(result.get("稳妥", []))
+        bao_count = len(result.get("保底", []))
+        total_count = chong_count + wen_count + bao_count
+
+        return {
+            "total_count": total_count,
+            "category_counts": {
+                "冲刺": chong_count,
+                "稳妥": wen_count,
+                "保底": bao_count
+            },
+            "comments": [
+                f"基于位次的智能推荐",
+                f"共推荐{total_count}所院校",
+                f"冲刺{chong_count}所，稳妥{wen_count}所，保底{bao_count}所"
+            ]
+        }
+
+
+# 全局实例
+rank_based_recommendation_service = RankBasedRecommendationService()

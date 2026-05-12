@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据采集中心 - 学锋志愿教练管理后台</title>
+    <link rel="stylesheet" href="/admin/static/css/style.css">
+    <style>
+        .task-status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .task-status.pending { background: #e5e7eb; color: #6b7280; }
+        .task-status.running { background: #dbeafe; color: #2563eb; }
+        .task-status.success { background: #d1fae5; color: #059669; }
+        .task-status.failed { background: #fee2e2; color: #dc2626; }
+        .task-status.cancelled { background: #fef3c7; color: #d97706; }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            transition: width 0.3s ease;
+        }
+
+        .log-entry {
+            padding: 8px 12px;
+            border-left: 3px solid #e5e7eb;
+            margin-bottom: 8px;
+            font-family: 'Consolas', monospace;
+            font-size: 12px;
+        }
+        .log-entry.INFO { border-left-color: #3b82f6; background: #f0f9ff; }
+        .log-entry.WARNING { border-left-color: #f59e0b; background: #fffbeb; }
+        .log-entry.ERROR { border-left-color: #ef4444; background: #fef2f2; }
+        .log-entry.DEBUG { border-left-color: #9ca3af; background: #f9fafb; }
+
+        .version-card {
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.2s;
+        }
+        .version-card.active {
+            border-color: #10b981;
+            background: #f0fdf4;
+        }
+        .version-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .stat-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            background: #f3f4f6;
+            border-radius: 6px;
+            font-size: 12px;
+        }
+
+        .create-task-form {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-primary { background: #3b82f6; color: white; }
+        .btn-primary:hover { background: #2563eb; }
+        .btn-success { background: #10b981; color: white; }
+        .btn-success:hover { background: #059669; }
+        .btn-danger { background: #ef4444; color: white; }
+        .btn-danger:hover { background: #dc2626; }
+        .btn-secondary { background: #6b7280; color: white; }
+        .btn-secondary:hover { background: #4b5563; }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .refresh-indicator {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #e5e7eb;
+            border-top-color: #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.active { display: flex; }
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .modal-title { font-size: 18px; font-weight: 600; }
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <!-- 侧边栏 -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>学锋志愿教练</h2>
+            <p>管理后台</p>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="/admin/dashboard" class="nav-item">
+                <span class="nav-icon">📊</span>
+                <span class="nav-text">仪表盘</span>
+            </a>
+            <a href="/admin/universities" class="nav-item">
+                <span class="nav-icon">🏫</span>
+                <span class="nav-text">院校管理</span>
+            </a>
+            <a href="/admin/admission-data" class="nav-item">
+                <span class="nav-icon">📥</span>
+                <span class="nav-text">数据导入</span>
+            </a>
+            <a href="/admin/collection-center" class="nav-item active">
+                <span class="nav-icon">🔄</span>
+                <span class="nav-text">数据采集</span>
+            </a>
+            <a href="/admin/version-control" class="nav-item">
+                <span class="nav-icon">🔀</span>
+                <span class="nav-text">版本控制</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <button id="logoutBtn" class="btn btn-logout">退出登录</button>
+        </div>
+    </aside>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <!-- 顶部栏 -->
+        <header class="top-header">
+            <div class="header-title">
+                <h1>数据采集中心</h1>
+            </div>
+            <div class="header-user">
+                <span id="adminUsername">管理员</span>
+                <button id="refreshBtn" class="btn btn-secondary" style="margin-left: 12px;">
+                    <span id="refreshIcon">🔄</span> 刷新
+                </button>
+            </div>
+        </header>
+
+        <!-- 内容区域 -->
+        <div class="content-area">
+            <!-- 统计卡片 -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #3b82f6;">📋</div>
+                    <div class="stat-content">
+                        <div class="stat-label">总任务数</div>
+                        <div class="stat-value" id="totalTasks">-</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #10b981;">✅</div>
+                    <div class="stat-content">
+                        <div class="stat-label">成功</div>
+                        <div class="stat-value" id="successTasks">-</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #f59e0b;">⏳</div>
+                    <div class="stat-content">
+                        <div class="stat-label">运行中</div>
+                        <div class="stat-value" id="runningTasks">-</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #ef4444;">❌</div>
+                    <div class="stat-content">
+                        <div class="stat-label">失败</div>
+                        <div class="stat-value" id="failedTasks">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 创建任务表单 -->
+            <div class="create-task-form">
+                <h3 style="margin-bottom: 16px;">创建采集任务</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>任务名称</label>
+                        <input type="text" id="taskName" placeholder="例如：2026年广东录取数据">
+                    </div>
+                    <div class="form-group">
+                        <label>任务类型</label>
+                        <select id="taskType">
+                            <option value="admission_data">录取数据</option>
+                            <option value="universities">院校数据</option>
+                            <option value="majors">专业数据</option>
+                            <option value="validation">数据验证</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>年份</label>
+                        <select id="taskYear">
+                            <option value="2026">2026</option>
+                            <option value="2025">2025</option>
+                            <option value="2024">2024</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>省份（可选）</label>
+                        <select id="taskProvince">
+                            <option value="">全国</option>
+                            <option value="广东">广东</option>
+                            <option value="北京">北京</option>
+                            <option value="上海">上海</option>
+                            <option value="江苏">江苏</option>
+                            <option value="浙江">浙江</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="createTaskBtn" class="btn btn-primary">创建任务</button>
+            </div>
+
+            <!-- 任务列表 -->
+            <div style="margin-top: 24px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                    <h3>采集任务列表</h3>
+                    <div>
+                        <select id="filterStatus" class="btn btn-secondary" style="padding: 8px 12px;">
+                            <option value="">全部状态</option>
+                            <option value="pending">待执行</option>
+                            <option value="running">运行中</option>
+                            <option value="success">成功</option>
+                            <option value="failed">失败</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="taskList">
+                    <!-- 任务列表将通过JS动态加载 -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 日志模态框 -->
+    <div id="logModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">任务日志</h3>
+                <button class="modal-close" onclick="closeLogModal()">&times;</button>
+            </div>
+            <div id="logContent" style="max-height: 400px; overflow-y: auto;">
+                <!-- 日志内容将通过JS动态加载 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="/admin/static/js/admin.js"></script>
+    <script src="/admin/static/js/collection_center.js"></script>
+</body>
+</html>

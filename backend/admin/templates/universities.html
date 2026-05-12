@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>院校管理 - 学锋志愿教练管理后台</title>
+    <link rel="stylesheet" href="/admin/static/css/style.css">
+</head>
+<body>
+    <!-- 侧边栏 -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>学锋志愿教练</h2>
+            <p>管理后台</p>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="/admin/dashboard" class="nav-item">
+                <span class="nav-icon">📊</span>
+                <span class="nav-text">仪表盘</span>
+            </a>
+            <a href="/admin/universities" class="nav-item active">
+                <span class="nav-icon">🏫</span>
+                <span class="nav-text">院校管理</span>
+            </a>
+            <a href="/admin/admission-data" class="nav-item">
+                <span class="nav-icon">📥</span>
+                <span class="nav-text">数据导入</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <button id="logoutBtn" class="btn btn-logout">退出登录</button>
+        </div>
+    </aside>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <!-- 顶部栏 -->
+        <header class="top-header">
+            <div class="header-title">
+                <h1>院校管理</h1>
+            </div>
+            <div class="header-user">
+                <span id="adminUsername">管理员</span>
+            </div>
+        </header>
+
+        <!-- 内容区域 -->
+        <div class="content-area">
+            <!-- 操作栏 -->
+            <div class="action-bar">
+                <div class="search-box">
+                    <input
+                        type="text"
+                        id="searchInput"
+                        class="form-control"
+                        placeholder="搜索院校名称..."
+                    >
+                    <button id="searchBtn" class="btn btn-secondary">搜索</button>
+                </div>
+                <button id="addUniversityBtn" class="btn btn-primary">添加院校</button>
+            </div>
+
+            <!-- 院校表格 -->
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>院校名称</th>
+                            <th>省份</th>
+                            <th>城市</th>
+                            <th>类型</th>
+                            <th>层次</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="universityTableBody">
+                        <tr>
+                            <td colspan="7" class="text-center">加载中...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 分页 -->
+            <div class="pagination">
+                <button id="prevPageBtn" class="btn btn-sm" disabled>上一页</button>
+                <span id="pageInfo">第 1 页</span>
+                <button id="nextPageBtn" class="btn btn-sm" disabled>下一页</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- 添加/编辑院校弹窗 -->
+    <div id="universityModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">添加院校</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <form id="universityForm" class="modal-body">
+                <input type="hidden" id="universityId">
+
+                <div class="form-group">
+                    <label for="universityName">院校名称 <span class="required">*</span></label>
+                    <input type="text" id="universityName" class="form-control" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="universityProvince">省份 <span class="required">*</span></label>
+                        <input type="text" id="universityProvince" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="universityCity">城市 <span class="required">*</span></label>
+                        <input type="text" id="universityCity" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="universityType">类型 <span class="required">*</span></label>
+                        <select id="universityType" class="form-control" required>
+                            <option value="">请选择</option>
+                            <option value="综合">综合</option>
+                            <option value="理工">理工</option>
+                            <option value="师范">师范</option>
+                            <option value="农业">农业</option>
+                            <option value="医药">医药</option>
+                            <option value="财经">财经</option>
+                            <option value="政法">政法</option>
+                            <option value="艺术">艺术</option>
+                            <option value="体育">体育</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="universityLevel">层次</label>
+                        <select id="universityLevel" class="form-control">
+                            <option value="本科">本科</option>
+                            <option value="专科">专科</option>
+                            <option value="985">985</option>
+                            <option value="211">211</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="universityWebsite">官网</label>
+                    <input type="url" id="universityWebsite" class="form-control" placeholder="https://">
+                </div>
+
+                <div class="form-group">
+                    <label for="universityDescription">描述</label>
+                    <textarea id="universityDescription" class="form-control" rows="3"></textarea>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">取消</button>
+                    <button type="submit" class="btn btn-primary">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/admin/static/js/admin.js"></script>
+    <script>
+        // 全局变量
+        let currentPage = 1;
+        let totalPages = 1;
+        let currentKeyword = '';
+        let isEditing = false;
+
+        // 检查登录状态
+        if (!localStorage.getItem('admin_token')) {
+            window.location.href = '/admin';
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUniversities();
+            document.getElementById('adminUsername').textContent = localStorage.getItem('admin_username');
+        });
+
+        // 加载院校列表
+        async function loadUniversities() {
+            try {
+                const token = localStorage.getItem('admin_token');
+                const url = `/api/v1/admin/universities?page=${currentPage}&limit=20&keyword=${encodeURIComponent(currentKeyword)}`;
+
+                const response = await fetch(url, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                const result = await response.json();
+
+                if (result.code === 0) {
+                    renderUniversities(result.data.list);
+                    updatePagination(result.data);
+                } else {
+                    console.error('加载院校列表失败:', result.message);
+                }
+
+            } catch (error) {
+                console.error('加载院校列表失败:', error);
+            }
+        }
+
+        // 渲染院校列表
+        function renderUniversities(universities) {
+            const tbody = document.getElementById('universityTableBody');
+
+            if (universities.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="text-center">暂无数据</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = universities.map(uni => `
+                <tr>
+                    <td>${uni.id || '-'}</td>
+                    <td><strong>${uni.name || '-'}</strong></td>
+                    <td>${uni.province || '-'}</td>
+                    <td>${uni.city || '-'}</td>
+                    <td>${uni.type || '-'}</td>
+                    <td>${uni.level || '-'}</td>
+                    <td>
+                        <button class="btn btn-sm btn-secondary" onclick="editUniversity('${uni.id}')">编辑</button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteUniversity('${uni.id}')">删除</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // 更新分页信息
+        function updatePagination(data) {
+            totalPages = data.total_pages;
+            document.getElementById('pageInfo').textContent = `第 ${data.page} / ${totalPages} 页`;
+
+            document.getElementById('prevPageBtn').disabled = data.page <= 1;
+            document.getElementById('nextPageBtn').disabled = data.page >= totalPages;
+        }
+
+        // 搜索
+        document.getElementById('searchBtn').addEventListener('click', function() {
+            currentKeyword = document.getElementById('searchInput').value.trim();
+            currentPage = 1;
+            loadUniversities();
+        });
+
+        // 回车搜索
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                currentKeyword = this.value.trim();
+                currentPage = 1;
+                loadUniversities();
+            }
+        });
+
+        // 分页
+        document.getElementById('prevPageBtn').addEventListener('click', function() {
+            if (currentPage > 1) {
+                currentPage--;
+                loadUniversities();
+            }
+        });
+
+        document.getElementById('nextPageBtn').addEventListener('click', function() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                loadUniversities();
+            }
+        });
+
+        // 添加院校
+        document.getElementById('addUniversityBtn').addEventListener('click', function() {
+            isEditing = false;
+            document.getElementById('modalTitle').textContent = '添加院校';
+            document.getElementById('universityForm').reset();
+            document.getElementById('universityId').value = '';
+            openModal();
+        });
+
+        // 编辑院校
+        async function editUniversity(id) {
+            try {
+                const token = localStorage.getItem('admin_token');
+                const response = await fetch(`/api/v1/admin/universities?page=1&limit=1000`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                const result = await response.json();
+                if (result.code === 0) {
+                    const university = result.data.list.find(u => u.id === id);
+                    if (university) {
+                        isEditing = true;
+                        document.getElementById('modalTitle').textContent = '编辑院校';
+                        document.getElementById('universityId').value = university.id;
+                        document.getElementById('universityName').value = university.name || '';
+                        document.getElementById('universityProvince').value = university.province || '';
+                        document.getElementById('universityCity').value = university.city || '';
+                        document.getElementById('universityType').value = university.type || '';
+                        document.getElementById('universityLevel').value = university.level || '';
+                        document.getElementById('universityWebsite').value = university.website || '';
+                        document.getElementById('universityDescription').value = university.description || '';
+                        openModal();
+                    }
+                }
+            } catch (error) {
+                console.error('获取院校信息失败:', error);
+            }
+        }
+
+        // 删除院校
+        async function deleteUniversity(id) {
+            if (!confirm('确定要删除这个院校吗？')) {
+                return;
+            }
+
+            try {
+                const token = localStorage.getItem('admin_token');
+                const response = await fetch(`/api/v1/admin/universities/${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                const result = await response.json();
+
+                if (result.code === 0) {
+                    alert('删除成功');
+                    loadUniversities();
+                } else {
+                    alert('删除失败: ' + result.message);
+                }
+
+            } catch (error) {
+                console.error('删除失败:', error);
+                alert('删除失败');
+            }
+        }
+
+        // 表单提交
+        document.getElementById('universityForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const id = document.getElementById('universityId').value;
+            const data = {
+                name: document.getElementById('universityName').value,
+                province: document.getElementById('universityProvince').value,
+                city: document.getElementById('universityCity').value,
+                type: document.getElementById('universityType').value,
+                level: document.getElementById('universityLevel').value,
+                website: document.getElementById('universityWebsite').value,
+                description: document.getElementById('universityDescription').value
+            };
+
+            try {
+                const token = localStorage.getItem('admin_token');
+                const url = isEditing ? `/api/v1/admin/universities/${id}` : '/api/v1/admin/universities';
+                const method = isEditing ? 'PUT' : 'POST';
+
+                const response = await fetch(url, {
+                    method: method,
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (result.code === 0) {
+                    alert(isEditing ? '更新成功' : '添加成功');
+                    closeModal();
+                    loadUniversities();
+                } else {
+                    alert('操作失败: ' + result.message);
+                }
+
+            } catch (error) {
+                console.error('操作失败:', error);
+                alert('操作失败');
+            }
+        });
+
+        // 弹窗控制
+        function openModal() {
+            document.getElementById('universityModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('universityModal').style.display = 'none';
+        }
+
+        // 退出登录
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            if (confirm('确定要退出登录吗？')) {
+                localStorage.removeItem('admin_token');
+                localStorage.removeItem('admin_username');
+                window.location.href = '/admin';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理员登录 - 学锋志愿教练</title>
+    <link rel="stylesheet" href="/admin/static/css/style.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <h1>学锋志愿教练</h1>
+                <p>管理后台</p>
+            </div>
+
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">用户名</label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        class="form-control"
+                        placeholder="请输入用户名"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        class="form-control"
+                        placeholder="请输入密码"
+                        required
+                    >
+                </div>
+
+                <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    登录
+                </button>
+            </form>
+
+            <div class="login-footer">
+                <p>© 2024 学锋志愿教练. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/admin/static/js/admin.js"></script>
+    <script>
+        // 登录表单处理
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('errorMessage');
+
+            try {
+                const response = await fetch('/api/v1/admin/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const result = await response.json();
+
+                if (result.code === 0) {
+                    // 保存token到localStorage
+                    localStorage.setItem('admin_token', result.data.token);
+                    localStorage.setItem('admin_username', result.data.username);
+
+                    // 跳转到仪表盘
+                    window.location.href = '/admin/dashboard';
+                } else {
+                    errorDiv.textContent = result.message;
+                    errorDiv.style.display = 'block';
+                }
+
+            } catch (error) {
+                errorDiv.textContent = '登录失败，请检查网络连接';
+                errorDiv.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

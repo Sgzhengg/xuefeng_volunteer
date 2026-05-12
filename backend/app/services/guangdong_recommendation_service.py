@@ -272,8 +272,10 @@ class GuangdongRecommendationService:
                 # 保守型：增加低位次推荐权重
                 candidates = self._adjust_weights_for_conservative(candidates, user_rank)
 
-            # 分类推荐结果
-            recommendations = self._categorize_recommendations(candidates, user_rank)
+            # 分类推荐结果（传入目标专业以增强针对性）
+            recommendations = self._categorize_recommendations(
+                candidates, user_rank, target_majors
+            )
 
             # [NEW] 如果数量不够，使用智能扩圈兜底
             total_count = (
@@ -320,20 +322,12 @@ class GuangdongRecommendationService:
 
     def _filter_candidates_by_rank_and_province(self, user_rank: int, province: str,
                                                 min_rank: int, max_rank: int) -> List[Dict]:
-        """根据位次和省份筛选候选 - 包含紧急fallback机制"""
+        """根据位次和省份筛选候选"""
         candidates = []
 
         print(f"[筛选] 开始筛选: user_rank={user_rank}, province={province}, range={min_rank}-{max_rank}")
 
-        # [EMERGENCY FIX] 针对广东中分段(30001-70000)的紧急fallback
-        if province == "广东" and 30001 <= user_rank <= 70000:
-            print(f"[紧急Fallback] 使用广东中分段手动数据")
-            candidates = self._get_guangdong_emergency_fallback(user_rank)
-            if candidates:
-                print(f"[紧急Fallback] 生成了{len(candidates)}条手动推荐")
-                return candidates
-
-        # 正常筛选流程
+        # 正常筛选流程（基于真实数据，不再使用硬编码fallback）
         for record in self.major_rank_data:
             # [DEBUG] 检查record类型
             if not isinstance(record, dict):
@@ -366,64 +360,6 @@ class GuangdongRecommendationService:
             print(f"[筛选] 位次范围内的示例（不限省份）: {sample_in_range}")
 
         return candidates
-
-    def _get_guangdong_emergency_fallback(self, user_rank: int) -> List[Dict]:
-        """紧急fallback: 为广东中分段考生生成手动推荐数据"""
-        # 真实的广东院校列表（基于2024年录取数据）
-        guangdong_universities = [
-            # 中分段重点大学 (30000-50000位次)
-            {"name": "广东工业大学", "level": "省重点", "base_rank": 35000},
-            {"name": "广州大学", "level": "省重点", "base_rank": 38000},
-            {"name": "华南农业大学", "level": "211", "base_rank": 42000},
-            {"name": "汕头大学", "level": "省重点", "base_rank": 45000},
-            {"name": "深圳大学", "level": "省重点", "base_rank": 48000},
-
-            # 中分段二本 (50000-70000位次)
-            {"name": "广东财经大学", "level": "二本", "base_rank": 52000},
-            {"name": "广州中医药大学", "level": "二本", "base_rank": 55000},
-            {"name": "广东药科大学", "level": "二本", "base_rank": 58000},
-            {"name": "广东技术师范大学", "level": "二本", "base_rank": 60000},
-            {"name": "广东海洋大学", "level": "二本", "base_rank": 62000},
-            {"name": "广东医科大学", "level": "二本", "base_rank": 65000},
-
-            # 冲刺/保底平衡
-            {"name": "华南师范大学", "level": "211", "base_rank": 25000},
-            {"name": "暨南大学", "level": "211", "base_rank": 28000},
-            {"name": "广州医科大学", "level": "二本", "base_rank": 70000},
-        ]
-
-        candidates = []
-
-        # 为每所大学生成推荐记录
-        for uni in guangdong_universities:
-            for major in ["计算机科学与技术", "软件工程", "电子信息工程", "自动化", "数据科学与大数据技术"]:
-                # 根据用户位次调整推荐位次
-                rank_adjustment = (user_rank - uni["base_rank"]) * 0.1
-                recommended_rank = int(uni["base_rank"] + rank_adjustment)
-
-                candidate = {
-                    "university_major_id": f"EMERGENCY_{len(candidates)}",
-                    "university_id": f"EMERGENCY_{uni['name']}",
-                    "university_name": uni["name"],
-                    "university_level": uni["level"],
-                    "major_code": "080901",
-                    "major_name": major,
-                    "major_category": "计算机类",
-                    "year": 2024,
-                    "province": "广东",
-                    "min_score": 550,
-                    "avg_score": 560,
-                    "min_rank": recommended_rank,
-                    "avg_rank": int(recommended_rank * 0.95),
-                    "data_source": "emergency_fallback"
-                }
-                candidates.append(candidate)
-
-        # 根据用户位次筛选和排序
-        candidates = [c for c in candidates if abs(c["min_rank"] - user_rank) <= user_rank * 0.3]
-        candidates.sort(key=lambda x: abs(x["min_rank"] - user_rank))
-
-        return candidates[:30]  # 返回前30条最匹配的推荐
 
     def _parse_user_preferences(self, target_majors: Optional[List[str]]) -> Dict:
         """解析用户偏好"""
@@ -471,15 +407,25 @@ class GuangdongRecommendationService:
 
         return weighted_candidates
 
-    def _categorize_recommendations(self, candidates: List[Dict], user_rank: int) -> Dict:
-        """分类推荐结果"""
+    def _categorize_recommendations(self, candidates: List[Dict], user_rank: int,
+                                     target_majors: Optional[List[str]] = None) -> Dict:
+        """分类推荐结果 - 支持专业相关性和去重"""
         chongci = []  # 冲刺
         wenzuo = []  # 稳妥
         baodi = []   # 保底
 
+        # 专业关键词提取
+        major_keywords = self._extract_major_keywords(target_majors or [])
+
         for candidate in candidates:
             candidate_rank = candidate.get("min_rank", 0)
             weight = candidate.get("_weight", 1.0)
+
+            # 计算专业相关性分数（0.0-1.0）
+            candidate["_major_relevance"] = self._calculate_major_relevance(
+                candidate.get("major_name", ""),
+                major_keywords
+            )
 
             # 计算位次差异
             rank_diff = (candidate_rank - user_rank) / user_rank
@@ -492,11 +438,75 @@ class GuangdongRecommendationService:
             else:  # 比用户位次低10%以上
                 baodi.append(candidate)
 
+        # 去重 + 按专业相关性排序
+        def deduplicate_and_sort(items: List[Dict]) -> List[Dict]:
+            """去重并按专业相关性降序排序"""
+            seen = set()
+            unique = []
+            for item in sorted(items,
+                              key=lambda x: (x.get("_major_relevance", 0), -(x.get("min_rank", 0) - user_rank) / max(1, user_rank)),
+                              reverse=True):
+                key = (item.get("university_name", ""), item.get("major_name", ""))
+                if key not in seen:
+                    seen.add(key)
+                    unique.append(item)
+            return unique
+
         return {
-            "冲刺": chongci[:10],
-            "稳妥": wenzuo[:10],
-            "保底": baodi[:10]
+            "冲刺": deduplicate_and_sort(chongci)[:10],
+            "稳妥": deduplicate_and_sort(wenzuo)[:10],
+            "保底": deduplicate_and_sort(baodi)[:10]
         }
+
+    def _extract_major_keywords(self, target_majors: List[str]) -> List[str]:
+        """从目标专业列表中提取关键词，用于模糊匹配"""
+        keywords = set()
+        for major in target_majors:
+            major = str(major)
+            # 添加完整专业名
+            keywords.add(major)
+            # 提取核心关键词（去掉"类"字等修饰）
+            core = major.replace("类", "").replace("专业", "")
+            keywords.add(core)
+            # 常见同义词映射
+            synonym_map = {
+                "计算机": ["计算机科学与技术", "软件工程", "网络工程", "信息安全"],
+                "临床医学": ["医学", "临床", "口腔医学", "麻醉学"],
+                "电气": ["电气工程", "自动化", "电子信息"],
+                "金融": ["金融学", "经济学", "国际经济与贸易", "会计学"],
+                "土木": ["土木工程", "建筑学", "工程管理"],
+                "机械": ["机械工程", "机械设计", "车辆工程"],
+            }
+            for key_term, synonyms in synonym_map.items():
+                if key_term in major:
+                    keywords.update(synonyms)
+        return list(keywords)
+
+    def _calculate_major_relevance(self, candidate_major: str,
+                                    major_keywords: List[str]) -> float:
+        """
+        计算候选专业与目标专业的匹配度
+        返回 0.0（不相关）到 1.0（完全匹配）的分数
+        """
+        if not major_keywords or not candidate_major:
+            return 0.0
+
+        candidate_major = str(candidate_major)
+        max_score = 0.0
+
+        for keyword in major_keywords:
+            keyword = str(keyword)
+            # 完全匹配
+            if keyword == candidate_major:
+                return 1.0
+            # 包含匹配
+            if keyword in candidate_major or candidate_major in keyword:
+                max_score = max(max_score, 0.8)
+            # 部分字符重叠
+            elif len(set(keyword) & set(candidate_major)) > 3:
+                max_score = max(max_score, 0.4)
+
+        return max_score
 
     def _expand_recommendations_with_fallback(self, recommendations: Dict,
                                                user_rank: int, province: str) -> Dict:

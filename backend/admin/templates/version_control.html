@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>版本控制中心 - 学锋志愿教练管理后台</title>
+    <link rel="stylesheet" href="/admin/static/css/style.css">
+    <style>
+        .version-card {
+            border: 2px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .version-card.active {
+            border-color: #10b981;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+        }
+        .version-card.active::before {
+            content: '当前活跃';
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #10b981;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .version-card.preparing {
+            border-color: #f59e0b;
+            background: #fffbeb;
+        }
+        .version-card.ready {
+            border-color: #3b82f6;
+            background: #eff6ff;
+        }
+        .version-card:hover:not(.active) {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+
+        .version-year {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+        .version-year.active { color: #10b981; }
+
+        .version-status {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+        .version-status.active { background: #10b981; color: white; }
+        .version-status.preparing { background: #f59e0b; color: white; }
+        .version-status.ready { background: #3b82f6; color: white; }
+        .version-status.archived { background: #6b7280; color: white; }
+
+        .completeness-bar {
+            width: 100%;
+            height: 12px;
+            background: #e5e7eb;
+            border-radius: 6px;
+            overflow: hidden;
+            margin: 16px 0;
+        }
+        .completeness-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .stat-grid-mini {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .stat-item-mini {
+            text-align: center;
+            padding: 12px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 8px;
+        }
+        .stat-value-mini {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1f2937;
+        }
+        .stat-label-mini {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .switch-panel {
+            background: #f9fafb;
+            border-radius: 16px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .auto-switch-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 56px;
+            height: 28px;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.3s;
+            border-radius: 28px;
+        }
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+        .toggle-switch input:checked + .toggle-slider {
+            background-color: #10b981;
+        }
+        .toggle-switch input:checked + .toggle-slider:before {
+            transform: translateX(28px);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+        }
+        .comparison-table th,
+        .comparison-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .comparison-table th {
+            background: #f9fafb;
+            font-weight: 600;
+            color: #374151;
+        }
+        .comparison-table .diff-positive {
+            color: #10b981;
+            font-weight: 600;
+        }
+        .comparison-table .diff-negative {
+            color: #ef4444;
+            font-weight: 600;
+        }
+
+        .history-item {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            border-left: 4px solid #e5e7eb;
+        }
+        .history-item.success { border-left-color: #10b981; }
+        .history-item.failed { border-left-color: #ef4444; }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-primary { background: #3b82f6; color: white; }
+        .btn-primary:hover { background: #2563eb; }
+        .btn-success { background: #10b981; color: white; }
+        .btn-success:hover { background: #059669; }
+        .btn-danger { background: #ef4444; color: white; }
+        .btn-danger:hover { background: #dc2626; }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .alert {
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+        .alert-info {
+            background: #eff6ff;
+            border: 1px solid #dbeafe;
+            color: #1e40af;
+        }
+        .alert-warning {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            color: #92400e;
+        }
+        .alert-success {
+            background: #f0fdf4;
+            border: 1px solid #dcfce7;
+            color: #166534;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.active { display: flex; }
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+        .modal-icon {
+            font-size: 64px;
+            margin-bottom: 16px;
+        }
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .modal-text {
+            color: #6b7280;
+            margin-bottom: 24px;
+        }
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .province-coverage {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .province-tag {
+            padding: 4px 10px;
+            background: white;
+            border-radius: 6px;
+            font-size: 12px;
+            border: 1px solid #e5e7eb;
+        }
+        .province-tag.complete {
+            background: #d1fae5;
+            border-color: #10b981;
+            color: #065f46;
+        }
+    </style>
+</head>
+<body>
+    <!-- 侧边栏 -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>学锋志愿教练</h2>
+            <p>管理后台</p>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="/admin/dashboard" class="nav-item">
+                <span class="nav-icon">📊</span>
+                <span class="nav-text">仪表盘</span>
+            </a>
+            <a href="/admin/universities" class="nav-item">
+                <span class="nav-icon">🏫</span>
+                <span class="nav-text">院校管理</span>
+            </a>
+            <a href="/admin/admission-data" class="nav-item">
+                <span class="nav-icon">📥</span>
+                <span class="nav-text">数据导入</span>
+            </a>
+            <a href="/admin/collection-center" class="nav-item">
+                <span class="nav-icon">🔄</span>
+                <span class="nav-text">数据采集</span>
+            </a>
+            <a href="/admin/version-control" class="nav-item active">
+                <span class="nav-icon">🔀</span>
+                <span class="nav-text">版本控制</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <button id="logoutBtn" class="btn btn-logout">退出登录</button>
+        </div>
+    </aside>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <!-- 顶部栏 -->
+        <header class="top-header">
+            <div class="header-title">
+                <h1>版本控制中心</h1>
+            </div>
+            <div class="header-user">
+                <span id="adminUsername">管理员</span>
+                <button id="refreshBtn" class="btn btn-secondary" style="margin-left: 12px;">
+                    🔄 刷新
+                </button>
+            </div>
+        </header>
+
+        <!-- 内容区域 -->
+        <div class="content-area">
+            <!-- 提示信息 -->
+            <div class="alert alert-info" id="versionAlert">
+                <strong>ℹ️ 当前使用 2025 年数据</strong><br>
+                2026 年数据准备中，完整度 45%。建议数据完整度达到 100% 后再进行版本切换。
+            </div>
+
+            <!-- 版本卡片 -->
+            <div id="versionCards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 24px; margin-bottom: 32px;">
+                <!-- 版本卡片将通过JS动态加载 -->
+            </div>
+
+            <!-- 版本切换面板 -->
+            <div class="switch-panel">
+                <h3 style="margin-bottom: 20px;">版本切换控制</h3>
+
+                <div class="auto-switch-toggle">
+                    <div>
+                        <div style="font-weight: 600; margin-bottom: 4px;">自动切换</div>
+                        <div style="font-size: 13px; color: #6b7280;">当 2026 年数据完整度达到 100% 时自动切换</div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="autoSwitchToggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+
+                <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <button id="switchTo2026Btn" class="btn btn-primary" disabled>
+                        切换到 2026 年
+                    </button>
+                    <button id="switchTo2025Btn" class="btn btn-secondary" disabled>
+                        回退到 2025 年
+                    </button>
+                    <button id="checkVersionBtn" class="btn btn-success">
+                        📊 检查数据完整度
+                    </button>
+                </div>
+            </div>
+
+            <!-- 版本对比 -->
+            <div style="margin-bottom: 32px;">
+                <h3 style="margin-bottom: 16px;">版本对比</h3>
+                <div style="background: white; border-radius: 12px; padding: 20px; border: 1px solid #e5e7eb;">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>指标</th>
+                                <th>2025 年</th>
+                                <th>2026 年</th>
+                                <th>变化</th>
+                            </tr>
+                        </thead>
+                        <tbody id="comparisonBody">
+                            <!-- 对比数据将通过JS动态加载 -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 切换历史 -->
+            <div>
+                <h3 style="margin-bottom: 16px;">切换历史</h3>
+                <div id="switchHistory">
+                    <!-- 历史记录将通过JS动态加载 -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 确认模态框 -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-icon">⚠️</div>
+            <h3 class="modal-title">确认切换版本？</h3>
+            <p class="modal-text" id="confirmText">此操作将影响所有用户的数据查询结果，请谨慎操作。</p>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="closeConfirmModal()">取消</button>
+                <button class="btn btn-primary" id="confirmSwitchBtn">确认切换</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/admin/static/js/admin.js"></script>
+    <script src="/admin/static/js/version_control.js"></script>
+</body>
+</html>

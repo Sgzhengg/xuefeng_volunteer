@@ -17,16 +17,11 @@ class ChatGPTPage extends ConsumerStatefulWidget {
 class _ChatGPTPageState extends ConsumerState<ChatGPTPage> {
   final TextEditingController _textController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
-  
-  ;
+  bool _isListening = false;
 
   @override
   void initState() {
     super.initState();
-    // 延迟初始化语音识别（不阻塞页面加载）
-    Future.delayed(const Duration(milliseconds: 500), () {
-      _initSpeechRecognition();
-    });
 
     // 快速初始化聊天（显示欢迎消息）
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -37,8 +32,11 @@ class _ChatGPTPageState extends ConsumerState<ChatGPTPage> {
     });
   }
 
-  ),
-    );
+  @override
+  void dispose() {
+    _textController.dispose();
+    _scrollController.dispose();
+    super.dispose();
   }
 
   void _handleSubmit(String text) {
@@ -81,14 +79,11 @@ class _ChatGPTPageState extends ConsumerState<ChatGPTPage> {
     }
   }
 
-   else {
-      await  {
-          _textController.text = result.recognizedWords;
-        },
-        localeId: 'zh_CN',
-      );
-      setState(() => _isListening = true);
-    }
+  void _toggleVoiceInput() {
+    // 语音输入功能暂时禁用
+    setState(() {
+      _isListening = !_isListening;
+    });
   }
 
   @override
@@ -489,13 +484,6 @@ class _ChatGPTPageState extends ConsumerState<ChatGPTPage> {
         ],
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _textController.dispose();
-    _scrollController.dispose();
-    super.dispose();
   }
 
   void _showInfo(String message) {

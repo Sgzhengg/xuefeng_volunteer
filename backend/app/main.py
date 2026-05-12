@@ -17,6 +17,7 @@ from app.api.plan import router as plan_router
 from app.api.admin import router as admin_router
 from app.api.favorite import router as favorite_router
 from app.api.history import router as history_router
+from app.api.collection_admin import router as collection_router
 import os
 
 app = FastAPI(
@@ -27,11 +28,14 @@ app = FastAPI(
 
 # ==================== 模板引擎配置 ====================
 # 配置Jinja2模板引擎，用于管理后台页面
-templates = Jinja2Templates(directory="admin/templates")
+# 获取backend目录（app.main.py所在目录的父目录）
+import pathlib
+BACKEND_DIR = pathlib.Path(__file__).resolve().parent.parent
+templates = Jinja2Templates(directory=str(BACKEND_DIR / "admin" / "templates"))
 
 # ==================== 静态文件挂载 ====================
 # 挂载管理后台的静态文件（CSS、JS等）
-app.mount("/admin/static", StaticFiles(directory="admin/static"), name="admin_static")
+app.mount("/admin/static", StaticFiles(directory=str(BACKEND_DIR / "admin" / "static")), name="admin_static")
 
 # ==================== CORS 配置 ====================
 app.add_middleware(
@@ -64,6 +68,9 @@ app.include_router(favorite_router, prefix="/api/v1", tags=["favorite"])
 # 注册历史推荐路由
 app.include_router(history_router, prefix="/api/v1", tags=["history"])
 
+# 注册数据采集管理路由
+app.include_router(collection_router, prefix="/api/v1", tags=["collection"])
+
 # ==================== 管理后台页面路由 ====================
 @app.get("/admin", response_class=HTMLResponse)
 async def admin_root(request: Request):
@@ -84,7 +91,8 @@ async def admin_pages(request: Request, path: str):
         渲染后的HTML页面
     """
     # 支持的页面列表
-    allowed_pages = ["dashboard", "universities", "admission-data", "admission_data"]
+    allowed_pages = ["dashboard", "universities", "admission-data", "admission_data",
+                     "collection-center", "collection_center", "version-control"]
 
     # 移除.html后缀（如果存在）
     path = path.replace(".html", "")

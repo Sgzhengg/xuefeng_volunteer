@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据导入 - 学锋志愿教练管理后台</title>
+    <link rel="stylesheet" href="/admin/static/css/style.css">
+    <style>
+        /* 增强样式 */
+        .upload-progress {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 30px;
+            background-color: #e5e7eb;
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .column-mapping {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .column-mapping h3 {
+            margin-top: 0;
+            color: #1f2937;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .mapping-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 12px;
+            background: #f9fafb;
+            border-radius: 6px;
+        }
+
+        .mapping-row label {
+            flex: 1;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .mapping-row select {
+            flex: 2;
+            padding: 8px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            background: white;
+            font-size: 14px;
+        }
+
+        .mapping-status {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .mapping-status.matched {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .mapping-status.unmatched {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .mapping-status.warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .enhanced-preview {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .enhanced-preview .table-container {
+            max-height: 400px;
+            overflow: auto;
+        }
+
+        .enhanced-preview table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .enhanced-preview th {
+            background: #f9fafb;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #374151;
+            border-bottom: 2px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .enhanced-preview td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #f3f4f6;
+            color: #4b5563;
+        }
+
+        .enhanced-preview tr:hover {
+            background: #f9fafb;
+        }
+
+        .enhanced-preview .row-number {
+            background: #f3f4f6;
+            font-weight: bold;
+            color: #6b7280;
+            text-align: center;
+            width: 50px;
+        }
+
+        .result-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-card .icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .stat-card .number {
+            font-size: 28px;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 5px;
+        }
+
+        .stat-card .label {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .stat-card.success {
+            border-color: #10b981;
+            background: #ecfdf5;
+        }
+
+        .stat-card.warning {
+            border-color: #f59e0b;
+            background: #fffbeb;
+        }
+
+        .stat-card.error {
+            border-color: #ef4444;
+            background: #fef2f2;
+        }
+
+        .error-details {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .error-details h3 {
+            margin-top: 0;
+            color: #991b1b;
+        }
+
+        .error-item {
+            padding: 12px;
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        .error-item .row-number {
+            font-weight: bold;
+            color: #991b1b;
+        }
+
+        .error-item .error-message {
+            color: #7f1d1d;
+            margin-top: 5px;
+        }
+
+        .import-summary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .import-summary h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .import-summary .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .format-detection {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .format-detection h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #1e40af;
+        }
+
+        .format-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+        }
+
+        .format-item {
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #bfdbfe;
+        }
+
+        .format-item .label {
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 3px;
+        }
+
+        .format-item .value {
+            font-weight: bold;
+            color: #1e40af;
+        }
+    </style>
+</head>
+<body>
+    <!-- 侧边栏 -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>学锋志愿教练</h2>
+            <p>管理后台</p>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="/admin/dashboard" class="nav-item">
+                <span class="nav-icon">📊</span>
+                <span class="nav-text">仪表盘</span>
+            </a>
+            <a href="/admin/universities" class="nav-item">
+                <span class="nav-icon">🏫</span>
+                <span class="nav-text">院校管理</span>
+            </a>
+            <a href="/admin/admission-data" class="nav-item active">
+                <span class="nav-icon">📥</span>
+                <span class="nav-text">数据导入</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <button id="logoutBtn" class="btn btn-logout">退出登录</button>
+        </div>
+    </aside>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <!-- 顶部栏 -->
+        <header class="top-header">
+            <div class="header-title">
+                <h1>数据导入</h1>
+            </div>
+            <div class="header-user">
+                <span id="adminUsername">管理员</span>
+            </div>
+        </header>
+
+        <!-- 内容区域 -->
+        <div class="content-area">
+            <!-- 导入说明 -->
+            <div class="info-card">
+                <h2>📋 CSV 文件格式要求</h2>
+                <p>系统支持自动格式检测，请上传包含以下列的 CSV 文件：</p>
+                <ul>
+                    <li><code>院校名称</code> - 院校全称（支持多种别名：学校名称、大学名称、院校等）</li>
+                    <li><code>专业名称</code> - 专业全称（支持别名：专业）</li>
+                    <li><code>年份</code> - 录取年份（支持别名：年、year）</li>
+                    <li><code>省份</code> - 所属省份（支持别名：省）</li>
+                    <li><code>最低位次</code> - 最低录取位次（支持别名：位次、排位、rank）</li>
+                    <li><code>最低分</code> - 最低录取分数（可选，支持别名：最低分、score）</li>
+                </ul>
+                <p class="text-muted">
+                    🎯 <strong>自动检测：</strong>编码格式（UTF-8/GBK/GB2312）、分隔符（逗号/制表符/分号）<br>
+                    📁 <strong>文件大小：</strong>建议不超过50MB，大文件请分批导入
+                </p>
+            </div>
+
+            <!-- 文件上传区 -->
+            <div class="upload-section">
+                <div class="upload-container" id="uploadContainer">
+                    <div class="upload-icon">📁</div>
+                    <h3>拖拽 CSV 文件到这里</h3>
+                    <p>或者</p>
+                    <input
+                        type="file"
+                        id="fileInput"
+                        accept=".csv"
+                        style="display: none;"
+                    >
+                    <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
+                        选择文件
+                    </button>
+                    <p class="text-muted" id="fileName"></p>
+                    <p class="text-muted" id="fileSize"></p>
+                </div>
+
+                <!-- 格式检测结果 -->
+                <div id="formatDetection" class="format-detection" style="display: none;">
+                    <h4>🔍 格式检测结果</h4>
+                    <div class="format-details">
+                        <div class="format-item">
+                            <div class="label">文件编码</div>
+                            <div class="value" id="detectedEncoding">-</div>
+                        </div>
+                        <div class="format-item">
+                            <div class="label">分隔符</div>
+                            <div class="value" id="detectedDelimiter">-</div>
+                        </div>
+                        <div class="format-item">
+                            <div class="label">总行数</div>
+                            <div class="value" id="totalRows">-</div>
+                        </div>
+                        <div class="format-item">
+                            <div class="label">列数</div>
+                            <div class="value" id="columnCount">-</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 列名映射确认 -->
+                <div id="columnMapping" class="column-mapping" style="display: none;">
+                    <h3>📊 列名映射确认</h3>
+                    <p class="text-muted">系统已自动匹配列名，请确认映射关系是否正确：</p>
+                    <div id="mappingContainer"></div>
+                </div>
+
+                <!-- 增强预览区 -->
+                <div id="previewSection" style="display: none;">
+                    <h3>👁️ 数据预览（前10行）</h3>
+                    <div class="enhanced-preview">
+                        <div class="table-container">
+                            <table class="data-table" id="enhancedPreviewTable">
+                                <thead id="enhancedPreviewHead"></thead>
+                                <tbody id="enhancedPreviewBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="import-actions">
+                        <button id="importBtn" class="btn btn-success">✅ 确认导入</button>
+                        <button id="cancelBtn" class="btn btn-secondary">❌ 取消</button>
+                    </div>
+                </div>
+
+                <!-- 导入进度 -->
+                <div id="progressSection" class="upload-progress" style="display: none;">
+                    <h3>⏳ 正在导入数据...</h3>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progressBar">0%</div>
+                    </div>
+                    <p class="text-muted" id="progressStatus">准备中...</p>
+                </div>
+
+                <!-- 导入结果 -->
+                <div id="resultSection" style="display: none;">
+                    <div id="resultMessage" class="result-message"></div>
+                    <button id="resetBtn" class="btn btn-primary">📥 导入新文件</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/admin/static/js/admin.js"></script>
+    <script>
+        let selectedFile = null;
+        let filePreviewData = null;
+        let columnMappingData = null;
+
+        // 检查登录状态
+        if (!localStorage.getItem('admin_token')) {
+            window.location.href = '/admin';
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('adminUsername').textContent = localStorage.getItem('admin_username');
+            setupUploadHandlers();
+        });
+
+        // 设置上传处理
+        function setupUploadHandlers() {
+            const container = document.getElementById('uploadContainer');
+            const fileInput = document.getElementById('fileInput');
+
+            // 拖拽事件
+            container.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                container.style.borderColor = '#3b82f6';
+                container.style.background = '#f0f9ff';
+            });
+
+            container.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                container.style.borderColor = '#d1d5db';
+                container.style.background = '#f9fafb';
+            });
+
+            container.addEventListener('drop', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                container.style.borderColor = '#d1d5db';
+                container.style.background = '#f9fafb';
+
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    handleFileSelect(files[0]);
+                }
+            });
+
+            // 文件选择
+            fileInput.addEventListener('change', function(e) {
+                if (e.target.files.length > 0) {
+                    handleFileSelect(e.target.files[0]);
+                }
+            });
+
+            // 导入按钮
+            document.getElementById('importBtn').addEventListener('click', importData);
+            document.getElementById('cancelBtn').addEventListener('click', resetUpload);
+            document.getElementById('resetBtn').addEventListener('click', resetUpload);
+        }
+
+        // 处理文件选择
+        function handleFileSelect(file) {
+            // 验证文件类型
+            if (!file.name.endsWith('.csv')) {
+                AdminUtils.showError('请选择 CSV 文件');
+                return;
+            }
+
+            selectedFile = file;
+            document.getElementById('fileName').textContent = `📄 ${file.name}`;
+            document.getElementById('fileSize').textContent = `📏 ${AdminUtils.formatFileSize(file.size)}`;
+
+            // 预览数据
+            previewData(file);
+        }
+
+        // 预览数据（增强版）
+        async function previewData(file) {
+            try {
+                const formData = new FormData();
+                formData.append('file', file);
+
+                const token = localStorage.getItem('admin_token');
+                const response = await fetch('/api/v1/admin/import/admission/preview', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (result.code === 0) {
+                    filePreviewData = result.data.preview;
+
+                    // 显示格式检测结果（模拟）
+                    showFormatDetection(file, result.data.preview);
+
+                    // 显示列名映射（模拟）
+                    showColumnMapping(result.data.preview);
+
+                    // 渲染增强预览
+                    renderEnhancedPreview(result.data.preview);
+
+                    // 切换显示区域
+                    document.getElementById('uploadContainer').style.display = 'none';
+                    document.getElementById('previewSection').style.display = 'block';
+                } else {
+                    AdminUtils.showError('预览失败: ' + result.message);
+                }
+
+            } catch (error) {
+                console.error('预览失败:', error);
+                AdminUtils.showError('预览失败');
+            }
+        }
+
+        // 显示格式检测结果
+        function showFormatDetection(file, previewData) {
+            const formatSection = document.getElementById('formatDetection');
+            formatSection.style.display = 'block';
+
+            // 模拟格式检测结果
+            document.getElementById('detectedEncoding').textContent = 'UTF-8';
+            document.getElementById('detectedDelimiter').textContent = '逗号(,)';
+            document.getElementById('totalRows').textContent = previewData.length + '+';
+            document.getElementById('columnCount').textContent = previewData.length > 0 ? Object.keys(previewData[0]).length : 0;
+        }
+
+        // 显示列名映射
+        function showColumnMapping(previewData) {
+            if (previewData.length === 0) return;
+
+            const mappingSection = document.getElementById('columnMapping');
+            const container = document.getElementById('mappingContainer');
+            mappingSection.style.display = 'block';
+
+            // 获取CSV列名
+            const csvColumns = Object.keys(previewData[0]);
+
+            // 定义标准列和要求
+            const requiredColumns = [
+                { key: 'university_name', label: '院校名称', required: true },
+                { key: 'major_name', label: '专业名称', required: true },
+                { key: 'year', label: '年份', required: true },
+                { key: 'province', label: '省份', required: true },
+                { key: 'min_rank', label: '最低位次', required: true },
+                { key: 'min_score', label: '最低分', required: false }
+            ];
+
+            // 生成映射界面
+            container.innerHTML = requiredColumns.map(col => {
+                const matchedColumn = findBestMatch(col.key, csvColumns);
+                const status = matchedColumn ? 'matched' : (col.required ? 'unmatched' : 'warning');
+
+                return `
+                    <div class="mapping-row">
+                        <label>
+                            ${col.required ? '⚠️' : '💡'} ${col.label}
+                            ${col.required ? '<span style="color:red">*</span>' : ''}
+                        </label>
+                        <select data-standard="${col.key}" data-required="${col.required}">
+                            <option value="">-- 请选择对应列 --</option>
+                            ${csvColumns.map(csvCol => `
+                                <option value="${csvCol}" ${csvCol === matchedColumn ? 'selected' : ''}>
+                                    ${csvCol}
+                                </option>
+                            `).join('')}
+                        </select>
+                        <span class="mapping-status ${status}">
+                            ${matchedColumn ? '✓ 已匹配' : (col.required ? '✗ 未匹配' : '⚠️ 可选')}
+                        </span>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // 查找最佳匹配列
+        function findBestMatch(standardKey, csvColumns) {
+            // 定义列名别名映射
+            const aliasMap = {
+                'university_name': ['院校名称', '学校名称', '大学名称', '院校', 'university', 'school', 'college'],
+                'major_name': ['专业名称', '专业', 'major'],
+                'year': ['年份', '年', 'year'],
+                'province': ['省份', '省', 'province'],
+                'min_rank': ['最低位次', '位次', '最低排位', 'rank', '排位'],
+                'min_score': ['最低分', '分数', 'score', 'min_score']
+            };
+
+            const aliases = aliasMap[standardKey] || [];
+            return csvColumns.find(col => aliases.includes(col));
+        }
+
+        // 渲染增强预览表格
+        function renderEnhancedPreview(data) {
+            if (data.length === 0) return;
+
+            // 限制显示前10行
+            const displayData = data.slice(0, 10);
+            const headers = Object.keys(data[0]);
+
+            // 表头
+            document.getElementById('enhancedPreviewHead').innerHTML =
+                '<tr><th class="row-number">#</th>' +
+                headers.map(h => `<th>${h}</th>`).join('') +
+                '</tr>';
+
+            // 表体
+            document.getElementById('enhancedPreviewBody').innerHTML = displayData.map((row, index) =>
+                '<tr>' +
+                `<td class="row-number">${index + 1}</td>` +
+                headers.map(h => `<td>${row[h] || '-'}</td>`).join('') +
+                '</tr>'
+            ).join('');
+        }
+
+        // 导入数据（增强版）
+        async function importData() {
+            if (!selectedFile) {
+                AdminUtils.showError('请先选择文件');
+                return;
+            }
+
+            if (!AdminUtils.showConfirm('确定要导入这些数据吗？导入后数据将合并到系统中。')) {
+                return;
+            }
+
+            try {
+                // 显示进度区域
+                document.getElementById('previewSection').style.display = 'none';
+                document.getElementById('progressSection').style.display = 'block';
+
+                // 模拟进度（实际应该从API获取）
+                simulateProgress();
+
+                const formData = new FormData();
+                formData.append('file', selectedFile);
+
+                const token = localStorage.getItem('admin_token');
+                const response = await fetch('/api/v1/admin/import/admission', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                // 隐藏进度区域
+                document.getElementById('progressSection').style.display = 'none';
+
+                if (result.code === 0) {
+                    showImportResult(result);
+                } else {
+                    AdminUtils.showError('导入失败: ' + result.message);
+                    document.getElementById('previewSection').style.display = 'block';
+                }
+
+            } catch (error) {
+                console.error('导入失败:', error);
+                AdminUtils.showError('导入失败');
+                document.getElementById('progressSection').style.display = 'none';
+                document.getElementById('previewSection').style.display = 'block';
+            }
+        }
+
+        // 模拟进度（实际应该从API获取真实进度）
+        function simulateProgress() {
+            const progressBar = document.getElementById('progressBar');
+            const progressStatus = document.getElementById('progressStatus');
+            let progress = 0;
+
+            const interval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress > 90) progress = 90; // 等待实际完成
+
+                progressBar.style.width = progress + '%';
+                progressBar.textContent = Math.round(progress) + '%';
+
+                if (progress < 30) {
+                    progressStatus.textContent = '正在读取文件...';
+                } else if (progress < 60) {
+                    progressStatus.textContent = '正在验证数据...';
+                } else if (progress < 90) {
+                    progressStatus.textContent = '正在导入数据...';
+                }
+            }, 500);
+
+            // 存储interval ID以便清除
+            window.progressInterval = interval;
+        }
+
+        // 显示导入结果
+        function showImportResult(result) {
+            clearInterval(window.progressInterval);
+
+            const data = result.data;
+            const resultSection = document.getElementById('resultSection');
+            const resultMessage = document.getElementById('resultMessage');
+
+            resultSection.style.display = 'block';
+
+            // 构建结果HTML
+            let resultHTML = `
+                <div class="import-summary">
+                    <h2>🎉 导入完成！</h2>
+                    <div class="summary-item">
+                        <span>导入耗时：</span>
+                        <span>${data.duration_seconds.toFixed(2)}秒</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>文件编码：</span>
+                        <span>${data.encoding}</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>分隔符：</span>
+                        <span>${data.delimiter}</span>
+                    </div>
+                </div>
+
+                <div class="result-stats">
+                    <div class="stat-card success">
+                        <div class="icon">✅</div>
+                        <div class="number">${AdminUtils.formatNumber(data.imported_count)}</div>
+                        <div class="label">成功导入</div>
+                    </div>
+                    <div class="stat-card warning">
+                        <div class="icon">🔄</div>
+                        <div class="number">${AdminUtils.formatNumber(data.duplicate_count)}</div>
+                        <div class="label">重复跳过</div>
+                    </div>
+                    <div class="stat-card error">
+                        <div class="icon">❌</div>
+                        <div class="number">${AdminUtils.formatNumber(data.failed_count)}</div>
+                        <div class="label">导入失败</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon">📊</div>
+                        <div class="number">${AdminUtils.formatNumber(data.total_count)}</div>
+                        <div class="label">系统总记录</div>
+                    </div>
+                </div>
+            `;
+
+            // 添加错误详情
+            if (data.error_samples && data.error_samples.length > 0) {
+                resultHTML += `
+                    <div class="error-details">
+                        <h3>❌ 错误详情（前10条）</h3>
+                        ${data.error_samples.map(error => `
+                            <div class="error-item">
+                                <div class="row-number">第 ${error.row} 行</div>
+                                <div class="error-message">${error.error}</div>
+                                ${error.missing_fields ? `<div>缺少字段: ${error.missing_fields.join(', ')}</div>` : ''}
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+
+            // 添加数据预览
+            if (data.preview_new_data && data.preview_new_data.length > 0) {
+                resultHTML += `
+                    <div class="enhanced-preview">
+                        <h3>📋 导入数据预览（前3条）</h3>
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>院校名称</th>
+                                        <th>专业名称</th>
+                                        <th>年份</th>
+                                        <th>省份</th>
+                                        <th>最低位次</th>
+                                        <th>最低分</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${data.preview_new_data.map(row => `
+                                        <tr>
+                                            <td>${row.university_name || '-'}</td>
+                                            <td>${row.major_name || '-'}</td>
+                                            <td>${row.year || '-'}</td>
+                                            <td>${row.province || '-'}</td>
+                                            <td>${row.min_rank || '-'}</td>
+                                            <td>${row.min_score || '-'}</td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `;
+            }
+
+            resultMessage.innerHTML = resultHTML;
+            resultMessage.className = 'result-message success';
+
+            AdminUtils.showToast(`导入成功！${data.imported_count}条新数据`, 'success', 5000);
+        }
+
+        // 重置上传
+        function resetUpload() {
+            if (window.progressInterval) {
+                clearInterval(window.progressInterval);
+            }
+
+            selectedFile = null;
+            filePreviewData = null;
+            columnMappingData = null;
+
+            document.getElementById('fileInput').value = '';
+            document.getElementById('fileName').textContent = '';
+            document.getElementById('fileSize').textContent = '';
+
+            document.getElementById('uploadContainer').style.display = 'block';
+            document.getElementById('formatDetection').style.display = 'none';
+            document.getElementById('columnMapping').style.display = 'none';
+            document.getElementById('previewSection').style.display = 'none';
+            document.getElementById('progressSection').style.display = 'none';
+            document.getElementById('resultSection').style.display = 'none';
+        }
+
+        // 退出登录
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            if (AdminUtils.showConfirm('确定要退出登录吗？')) {
+                localStorage.removeItem('admin_token');
+                localStorage.removeItem('admin_username');
+                window.location.href = '/admin';
+            }
+        });
+
+        // 列名映射变化监听
+        document.addEventListener('change', function(e) {
+            if (e.target.matches('#mappingContainer select')) {
+                const select = e.target;
+                const statusSpan = select.nextElementSibling;
+                const value = select.value;
+                const required = select.dataset.required === 'true';
+
+                if (value) {
+                    statusSpan.className = 'mapping-status matched';
+                    statusSpan.textContent = '✓ 已匹配';
+                } else {
+                    statusSpan.className = required ? 'mapping-status unmatched' : 'mapping-status warning';
+                    statusSpan.textContent = required ? '✗ 未匹配' : '⚠️ 可选';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

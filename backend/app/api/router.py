@@ -14,6 +14,7 @@ from app.services.guangdong_recommendation_service import guangdong_recommendati
 from app.services.plan_evaluator_service import plan_evaluator_service  # [NEW] 志愿表评估服务
 from app.services.poster_generator_service import poster_generator_service  # [NEW] 海报生成服务
 from app.services.data_update_notify import data_update_notify_service  # [NEW] 数据更新通知服务
+from app.services.recommendation_service_v3 import RecommendationServiceV3  # [NEW] V3推荐服务
 import json
 from pathlib import Path
 from functools import lru_cache
@@ -59,6 +60,18 @@ def _get_cached_score_rank_tables():
             _data_cache[cache_key] = json.load(f)
         print(f"Loaded score_rank_tables.json in {time.time() - start_time:.2f}s")
     return _data_cache[cache_key]
+
+
+# V3 推荐服务实例 (懒加载)
+_v3_service = None  # type: Optional[RecommendationServiceV3]
+
+def _get_v3_service() -> RecommendationServiceV3:
+    global _v3_service
+    if _v3_service is None:
+        print("[V3] 初始化 V3 推荐服务...")
+        _v3_service = RecommendationServiceV3()
+        print("[V3] V3 推荐服务初始化完成")
+    return _v3_service
 
 
 # ========== 数据查询接口 ==========
@@ -371,19 +384,34 @@ async def generate_volunteer_scheme(request: VolunteerSchemeRequest):
 
 # ========== 智能推荐接口 ==========
 
-@router.post("/recommendation/generate")
-async def generate_recommendation(request: RecommendationRequest):
-    """生成智能推荐方案（完整重构版 - 降级机制+分层权重+数量保证）"""
-    try:
-        print(f"[NEW_API] 重构版API调用: province={request.province}, rank={request.rank}, score={request.score}, majors={request.target_majors}")
+from typing import Optional as _TypingOptional
 
-        # 使用完整重构版推荐服务
-        service_result = guangdong_recommendation_service.recommend_with_fallback(
-            user_rank=request.rank if request.rank else 10000,  # 确保rank不为None
-            province=request.province,
-            subject_type=request.subject_type,
-            target_majors=request.target_majors if request.target_majors else ["计算机科学与技术"],
-        )
+@router.post("/recommendation/generate")
+async def generate_recommendation(request: RecommendationRequest, algorithm: str = "v3"):
+    """生成智能推荐方案（V3默认 - 动态位次范围+多模型评分+专业名解析）"""
+    try:
+        print(f"[API] 推荐请求: province={request.province}, rank={request.rank}, score={request.score}, majors={request.target_majors}, algo={algorithm}")
+
+        user_rank = request.rank if request.rank else 10000
+        target_majors = request.target_majors if request.target_majors else ["计算机科学与技术"]
+
+        # V3 推荐服务 (默认)
+        if algorithm == "v3":
+            v3 = _get_v3_service()
+            service_result = v3.recommend_with_fallback(
+                user_rank=user_rank,
+                province=request.province,
+                subject_type=request.subject_type,
+                target_majors=target_majors,
+            )
+        else:
+            # 降级到原推荐服务
+            service_result = guangdong_recommendation_service.recommend_with_fallback(
+                user_rank=user_rank,
+                province=request.province,
+                subject_type=request.subject_type,
+                target_majors=target_majors,
+            )
 
         # 转换为统一API格式
         if service_result.get("success"):
@@ -394,14 +422,12 @@ async def generate_recommendation(request: RecommendationRequest):
             for category in ["冲刺", "稳妥", "保底"]:
                 category_recs = service_data.get(category, [])
                 for rec in category_recs:
-                    # 添加分类标签
                     rec["tag"] = "chong" if category == "冲刺" else "wen" if category == "稳妥" else "bao"
                     recommendations.append(rec)
 
-            # 统计信息
-            chong_count = len(service_data.get("冲刺", []))
-            wen_count = len(service_data.get("稳妥", []))
-            bao_count = len(service_data.get("保底", []))
+            chong_count = sum(1 for r in recommendations if r.get("tag") == "chong")
+            wen_count = sum(1 for r in recommendations if r.get("tag") == "wen")
+            bao_count = sum(1 for r in recommendations if r.get("tag") == "bao")
 
             api_result = {
                 "code": 0,
@@ -412,21 +438,21 @@ async def generate_recommendation(request: RecommendationRequest):
                         "total": len(recommendations),
                         "chong": chong_count,
                         "wen": wen_count,
-                        "bao": bao_count
+                        "bao": bao_count,
+                        "algorithm": algorithm,
                     }
                 }
             }
 
-            print(f"[API] 推荐成功: 总计{len(recommendations)}条 (冲刺{chong_count}, 稳妥{wen_count}, 保底{bao_count})")
+            print(f"[API] 推荐成功({algorithm}): 总计{len(recommendations)}条 (冲{chong_count}, 稳{wen_count}, 保{bao_count})")
             return api_result
         else:
-            # 推荐服务失败
             api_result = {
                 "code": -1,
                 "message": service_result.get("error", "推荐失败"),
                 "data": {
                     "recommendations": [],
-                    "summary": {"total": 0, "chong": 0, "wen": 0, "bao": 0}
+                    "summary": {"total": 0, "chong": 0, "wen": 0, "bao": 0, "algorithm": algorithm}
                 }
             }
             print(f"[API] 推荐失败: {service_result.get('error')}")
@@ -436,8 +462,6 @@ async def generate_recommendation(request: RecommendationRequest):
         import traceback
         print(f"[EXCEPTION] API异常: {e}")
         traceback.print_exc()
-
-        # 返回错误格式
         return {
             "code": -1,
             "message": str(e),

@@ -7,7 +7,6 @@ import '../../../core/constants/provinces.dart';
 import '../../../providers/auth_provider.dart';
 import '../../../providers/history_provider.dart';
 import '../../shared/theme/app_theme.dart';
-import '../../shared/widgets/data_source_indicator.dart';
 
 class SimulatorPage extends ConsumerStatefulWidget {
   const SimulatorPage({super.key});
@@ -368,28 +367,12 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('推荐志愿'),
-        actions: const [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: AppTheme.spacingMd),
-            child: DataSourceIndicator(
-              dataSourceType: DataSourceType.realData,
-            ),
-          ),
-        ],
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(AppTheme.spacingMd),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // 数据源状态卡片
-            const DataSourceStatusCard(
-              dataSourceType: DataSourceType.realData,
-              lastUpdateTime: '2026-04-22',
-              dataCoverage: '覆盖全国2800+所院校',
-            ),
-            const SizedBox(height: AppTheme.spacingMd),
-
             // 输入表单
             _buildInputForm(),
             const SizedBox(height: AppTheme.spacingMd),
