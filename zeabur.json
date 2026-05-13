@@ -44,13 +44,17 @@
     },
     {
       "name": "frontend-web",
-      "type": "static",
-      "static": {
-        "outputDir": "build/web"
+      "type": "docker",
+      "docker": {
+        "dockerfile": "frontend.Dockerfile",
+        "context": "."
       },
-      "env": {
-        "API_URL": "${backend-api.url}"
-      },
+      "ports": [
+        {
+          "port": 8080,
+          "protocol": "HTTP"
+        }
+      ],
       "resources": {
         "memory": "256MB",
         "cpu": "0.2"
