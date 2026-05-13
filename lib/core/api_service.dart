@@ -1,16 +1,11 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import '../config/app_config.dart';
 
 /// API服务类 - 封装所有后端接口调用
 class ApiService {
-  // API 地址通过编译参数 --dart-define 传入
-  // 开发环境：flutter run --dart-define=API_URL=http://localhost:8000/api/v1
-  // 生产环境：flutter build web --dart-define=API_URL=http://xuefeng-volunteer-ibize.zeabur.internal:8080/api/v1
-  static const String baseUrl = String.fromEnvironment(
-    'API_URL',
-    defaultValue: 'http://localhost:8000/api/v1',
-  );
+  static String get baseUrl => '${AppConfig.apiBaseUrl}/api/v1';
 
   /// 获取存储的token
   static Future<String?> _getToken() async {

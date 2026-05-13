@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-05-10T20:52:46.516219",
+  "total_records": 31401,
+  "year_distribution": {
+    "2025": 31401
+  },
+  "category_distribution": {},
+  "has_major_name_rate": 1.0,
+  "rank_range": {
+    "min": 117,
+    "max": 350000
+  },
+  "mock_records_count": 0,
+  "rank_segments": {
+    "1-10000": 7112,
+    "10001-30000": 11567,
+    "30001-70000": 6203,
+    "70001-120000": 3612,
+    "120001-200000": 1432,
+    "200001-350000": 1475
+  },
+  "data_quality": {
+    "year_2025_percentage": 100.0,
+    "complete_major_name_percentage": 100.0,
+    "no_mock_data": true,
+    "all_segments_covered": true
+  }
+}

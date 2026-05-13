@@ -1,0 +1,6 @@
+Import Summary
+============================================================
+2024 records: 4418
+2023 records: 3904
+Total records in major_rank_data.json: - see file for count
+Timestamp: 2026-05-11T16:38:52.314507

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>A/B 测试报告 - 推荐算法 V1 vs V2</title>
+<style>
+body { font-family: "Microsoft YaHei", sans-serif; margin: 40px; color: #333; background: #f5f5f5; }
+.container { max-width: 1100px; margin: 0 auto; }
+h1 { color: #1a237e; border-bottom: 3px solid #1a237e; padding-bottom: 10px; }
+h2 { color: #283593; margin-top: 30px; }
+table { width: 100%; border-collapse: collapse; margin: 15px 0; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+th { background: #1a237e; color: white; padding: 10px 12px; text-align: left; }
+td { padding: 8px 12px; border-bottom: 1px solid #e0e0e0; }
+tr:hover { background: #f5f5f5; }
+.positive { color: #2e7d32; font-weight: bold; }
+.negative { color: #c62828; font-weight: bold; }
+.neutral { color: #757575; }
+.badge { padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: bold; }
+.v2-badge { background: #c8e6c9; color: #2e7d32; }
+.v1-badge { background: #ffcdd2; color: #c62828; }
+.tie-badge { background: #e0e0e0; color: #616161; }
+.target-met { background: #e8f5e9; }
+.target-not-met { background: #fff3e0; }
+.pass { color: #2e7d32; font-weight: bold; }
+.fail { color: #c62828; font-weight: bold; }
+.summary-box { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin: 20px 0; }
+.summary-box h3 { margin-top: 0; }
+.meta { color: #757575; font-size: 14px; }
+.verdict { font-size: 24px; font-weight: bold; text-align: center; padding: 20px; }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>A/B 测试报告</h1>
+<p class="meta">V1 (规则驱动) vs V2 (数据驱动) | 测试样本: 500 | 生成时间: 2026-05-12 13:21:04</p>
+
+<div class="summary-box">
+<h3>综合判定</h3>
+<div class="verdict" style="color: #2e7d32">V2 胜出</div>
+<p style="text-align:center">V2 胜出 3 项 | V1 胜出 1 项 | 平局 1 项</p>
+</div>
+
+<h2>验收标准检查</h2>
+<table>
+<tr><th>标准</th><th>描述</th><th>当前值</th></tr>
+<tr><td class="fail">FAIL</td><td>专业大类命中率 >= 80%</td><td>0.0</td></tr><tr><td class="pass">PASS</td><td>同校最多专业数 <= 3 (超限率 = 0)</td><td>0.0</td></tr>
+</table>
+
+<h2>汇总指标对比</h2>
+<table>
+<tr><th>指标</th><th>V1</th><th>V2</th><th>Delta</th><th>胜出</th></tr>
+<tr>
+            <td>院校命中率 (%) (目标: ≥ 65)</td>
+            <td class="">6.6</td>
+            <td class="target-not-met">16.6</td>
+            <td><span class="positive">+10.0</span></td>
+            <td class=""><span class="badge v2-badge">V2</span></td>
+        </tr><tr>
+            <td>专业大类命中率 (%) (目标: ≥ 80)</td>
+            <td class="">0.0</td>
+            <td class="target-not-met">0.0</td>
+            <td><span class="neutral">0.0</span></td>
+            <td class=""><span class="badge tie-badge">TIE</span></td>
+        </tr><tr>
+            <td>推荐多样性 (目标: ≥ 0.6)</td>
+            <td class="">0.956</td>
+            <td class="target-met">0.663</td>
+            <td><span class="negative">-0.29</span></td>
+            <td class=""><span class="badge v1-badge">V1</span></td>
+        </tr><tr>
+            <td>同校平均最多专业数</td>
+            <td class="">1.5</td>
+            <td class="target-not-met">1.0</td>
+            <td><span class="negative">-0.5</span></td>
+            <td class=""><span class="badge v2-badge">V2</span></td>
+        </tr><tr>
+            <td>同校超限率 (%) (目标: = 0)</td>
+            <td class="">2.2</td>
+            <td class="target-met">0.0</td>
+            <td><span class="negative">-2.2</span></td>
+            <td class=""><span class="badge v2-badge">V2</span></td>
+        </tr>
+</table>
+
+<h2>分段明细</h2>
+<table>
+<tr><th>位次段</th><th>样本数</th><th>院校命中率 V1/V2</th><th>大类命中率 V1/V2</th><th>多样性 V1/V2</th></tr>
+<tr>
+            <td>精英 1-3000</td>
+            <td>40</td>
+            <td>27.5% / <b>35.0%</b></td>
+            <td>0.0% / <b>0.0%</b></td>
+            <td>0.888 / <b>0.727</b></td>
+        </tr><tr>
+            <td>高分 3001-10000</td>
+            <td>60</td>
+            <td>5.0% / <b>10.0%</b></td>
+            <td>0.0% / <b>0.0%</b></td>
+            <td>0.934 / <b>0.685</b></td>
+        </tr><tr>
+            <td>中上 10001-30000</td>
+            <td>90</td>
+            <td>7.8% / <b>11.1%</b></td>
+            <td>0.0% / <b>0.0%</b></td>
+            <td>0.957 / <b>0.589</b></td>
+        </tr><tr>
+            <td>中等 30001-80000</td>
+            <td>110</td>
+            <td>4.5% / <b>15.5%</b></td>
+            <td>0.0% / <b>0.0%</b></td>
+            <td>0.970 / <b>0.691</b></td>
+        </tr><tr>
+            <td>中下 80001-150000</td>
+            <td>110</td>
+            <td>5.5% / <b>14.5%</b></td>
+            <td>0.0% / <b>0.0%</b></td>
+            <td>0.976 / <b>0.629</b></td>
+        </tr><tr>
+            <td>低位 150001-350000</td>
+            <td>90</td>
+            <td>1.1% / <b>22.2%</b></td>
+            <td>0.0% / <b>0.0%</b></td>
+            <td>0.961 / <b>0.699</b></td>
+        </tr>
+</table>
+
+<h2>未命中 Top 分析 (V2)</h2>
+<table>
+<tr><th>排名</th><th>位次段</th><th>实际院校</th><th>实际专业</th><th>推荐数</th></tr>
+<tr>
+            <td>1</td>
+            <td>elite</td>
+            <td>广东技术师范大学</td>
+            <td>专业组109</td>
+            <td>30</td>
+        </tr><tr>
+            <td>2</td>
+            <td>elite</td>
+            <td>武汉警官职业学院</td>
+            <td>专业组504</td>
+            <td>30</td>
+        </tr><tr>
+            <td>3</td>
+            <td>elite</td>
+            <td>西安交通大学</td>
+            <td>专业组208</td>
+            <td>30</td>
+        </tr><tr>
+            <td>4</td>
+            <td>elite</td>
+            <td>南宁理工学院</td>
+            <td>专业组205</td>
+            <td>30</td>
+        </tr><tr>
+            <td>5</td>
+            <td>elite</td>
+            <td>上海体育大学</td>
+            <td>专业组212</td>
+            <td>30</td>
+        </tr><tr>
+            <td>6</td>
+            <td>elite</td>
+            <td>华南农业大学珠江学院</td>
+            <td>专业组225</td>
+            <td>30</td>
+        </tr><tr>
+            <td>7</td>
+            <td>elite</td>
+            <td>天津师范大学(中外合作办学)</td>
+            <td>专业组215</td>
+            <td>30</td>
+        </tr><tr>
+            <td>8</td>
+            <td>elite</td>
+            <td>牡丹江大学</td>
+            <td>专业组505</td>
+            <td>30</td>
+        </tr><tr>
+            <td>9</td>
+            <td>elite</td>
+            <td>昆明铁道职业技术学院</td>
+            <td>专业组502</td>
+            <td>30</td>
+        </tr><tr>
+            <td>10</td>
+            <td>elite</td>
+            <td>江西服装学院</td>
+            <td>专业组207</td>
+            <td>30</td>
+        </tr><tr>
+            <td>11</td>
+            <td>elite</td>
+            <td>成都锦城学院</td>
+            <td>专业组205</td>
+            <td>30</td>
+        </tr><tr>
+            <td>12</td>
+            <td>elite</td>
+            <td>黑龙江旅游职业技术学院</td>
+            <td>专业组504</td>
+            <td>30</td>
+        </tr><tr>
+            <td>13</td>
+            <td>elite</td>
+            <td>北海艺术设计学院</td>
+            <td>专业组206</td>
+            <td>30</td>
+        </tr><tr>
+            <td>14</td>
+            <td>elite</td>
+            <td>湖南理工学院</td>
+            <td>专业组209</td>
+            <td>30</td>
+        </tr><tr>
+            <td>15</td>
+            <td>elite</td>
+            <td>广州职业技术大学（原广州番禺职业技
+术学院）</td>
+            <td>专业组501</td>
+            <td>30</td>
+        </tr><tr>
+            <td>16</td>
+            <td>elite</td>
+            <td>广西师范大学(中外合作办学)</td>
+            <td>专业组212</td>
+            <td>30</td>
+        </tr><tr>
+            <td>17</td>
+            <td>elite</td>
+            <td>中北大学</td>
+            <td>专业组213</td>
+            <td>30</td>
+        </tr><tr>
+            <td>18</td>
+            <td>elite</td>
+            <td>广西艺术学院</td>
+            <td>专业组218</td>
+            <td>30</td>
+        </tr><tr>
+            <td>19</td>
+            <td>elite</td>
+            <td>广州体育学院</td>
+            <td>专业组205</td>
+            <td>30</td>
+        </tr><tr>
+            <td>20</td>
+            <td>elite</td>
+            <td>郑州科技学院</td>
+            <td>专业组204</td>
+            <td>30</td>
+        </tr>
+</table>
+
+</div>
+</body>
+</html>

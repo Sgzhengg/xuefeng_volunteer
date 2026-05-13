@@ -1,0 +1,94 @@
+{
+  "statistics": {
+    "test_config": {
+      "total_tests": 442,
+      "api_endpoint": "http://localhost:8001/api/v1/recommendation/generate",
+      "default_subjects": [
+        "物理",
+        "化学",
+        "生物"
+      ],
+      "default_preference": "balanced",
+      "test_time": "2026-05-11T11:50:49.826268"
+    },
+    "overall_metrics": {
+      "total_tests": 442,
+      "university_hits": 442,
+      "university_hit_rate": 100.0,
+      "exact_hits": 442,
+      "exact_hit_rate": 100.0
+    },
+    "rank_range_metrics": [
+      {
+        "rank_range": "1-10000",
+        "description": "985/211顶尖段",
+        "test_count": 13,
+        "university_hits": 13,
+        "university_hit_rate": 100.0,
+        "exact_hits": 13,
+        "exact_hit_rate": 100.0
+      },
+      {
+        "rank_range": "10001-30000",
+        "description": "211/重点段",
+        "test_count": 75,
+        "university_hits": 75,
+        "university_hit_rate": 100.0,
+        "exact_hits": 75,
+        "exact_hit_rate": 100.0
+      },
+      {
+        "rank_range": "30001-70000",
+        "description": "一本段",
+        "test_count": 104,
+        "university_hits": 104,
+        "university_hit_rate": 100.0,
+        "exact_hits": 104,
+        "exact_hit_rate": 100.0
+      },
+      {
+        "rank_range": "70001-120000",
+        "description": "二本段",
+        "test_count": 125,
+        "university_hits": 125,
+        "university_hit_rate": 100.0,
+        "exact_hits": 125,
+        "exact_hit_rate": 100.0
+      },
+      {
+        "rank_range": "120001-200000",
+        "description": "民办/专科段",
+        "test_count": 75,
+        "university_hits": 75,
+        "university_hit_rate": 100.0,
+        "exact_hits": 75,
+        "exact_hit_rate": 100.0
+      },
+      {
+        "rank_range": "200001-350000",
+        "description": "专科段",
+        "test_count": 50,
+        "university_hits": 50,
+        "university_hit_rate": 100.0,
+        "exact_hits": 50,
+        "exact_hit_rate": 100.0
+      }
+    ],
+    "probability_metrics": [],
+    "performance_metrics": {
+      "total_requests": 442,
+      "total_time": 912.241087436676,
+      "avg_response_time": 2063.893862978905,
+      "min_response_time": 2018.308162689209,
+      "max_response_time": 2108.023166656494,
+      "median_response_time": 2063.753128051758
+    }
+  },
+  "unhit_details": [],
+  "test_summary": {
+    "total_tests": 442,
+    "university_hit_rate": 100.0,
+    "exact_hit_rate": 100.0,
+    "test_duration": 912.7054679393768
+  }
+}

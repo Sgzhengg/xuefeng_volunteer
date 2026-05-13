@@ -28563,7 +28563,7 @@ return A.B(A.lr(!1),$async$Ky)
 case 7:n=c
 k=t.N
 s=8
-return A.B(A.JJ(A.co("http://service-6a042f655e7e3bf5e93f3747.zeabur.internal/api/v1/auth/send_code"),B.aj.or(A.ad(["phone_number",a],k,k),null),n),$async$Ky)
+return A.B(A.JJ(A.co("https://backend-api.zeabur.app/api/v1/auth/send_code"),B.aj.or(A.ad(["phone_number",a],k,k),null),n),$async$Ky)
 case 8:m=c
 k=A.tK(m)
 q=k
@@ -28593,7 +28593,7 @@ return A.B(A.lr(!1),$async$pz)
 case 7:n=d
 h=t.N
 s=8
-return A.B(A.JJ(A.co("http://service-6a042f655e7e3bf5e93f3747.zeabur.internal/api/v1/auth/login"),B.aj.or(A.ad(["phone_number",a,"verification_code",b],h,h),null),n),$async$pz)
+return A.B(A.JJ(A.co("https://backend-api.zeabur.app/api/v1/auth/login"),B.aj.or(A.ad(["phone_number",a,"verification_code",b],h,h),null),n),$async$pz)
 case 8:m=d
 l=A.tK(m)
 s=J.c(J.X(l,"code"),0)&&J.X(l,"data")!=null?9:10
@@ -28631,7 +28631,7 @@ s=7
 return A.B(A.lr(!0),$async$Kv)
 case 7:n=c
 s=8
-return A.B(A.tw(A.co("http://service-6a042f655e7e3bf5e93f3747.zeabur.internal/api/v1/auth/me"),n),$async$Kv)
+return A.B(A.tw(A.co("https://backend-api.zeabur.app/api/v1/auth/me"),n),$async$Kv)
 case 8:m=c
 k=A.tK(m)
 q=k
@@ -28679,7 +28679,7 @@ s=7
 return A.B(A.lr(!0),$async$Kw)
 case 7:n=c
 s=8
-return A.B(A.tw(A.co("http://service-6a042f655e7e3bf5e93f3747.zeabur.internal/api/v1/plan/list"),n),$async$Kw)
+return A.B(A.tw(A.co("https://backend-api.zeabur.app/api/v1/plan/list"),n),$async$Kw)
 case 8:m=c
 l=A.tK(m)
 if(J.c(J.X(l,"code"),0)&&J.X(l,"data")!=null){k=t.j.a(J.X(J.X(l,"data"),"plans"))
@@ -28710,7 +28710,7 @@ s=p}while(true)switch(s){case 0:p=4
 s=7
 return A.B(A.lr(!0),$async$yU)
 case 7:n=a3
-j=A.co("http://service-6a042f655e7e3bf5e93f3747.zeabur.internal/api/v1/plan/add")
+j=A.co("https://backend-api.zeabur.app/api/v1/plan/add")
 i=a1.h(0,"university_id")
 if(i==null)i=a1.h(0,"id")
 h=a1.h(0,"major_id")
@@ -28753,7 +28753,7 @@ s=7
 return A.B(A.lr(!0),$async$Kx)
 case 7:n=d
 s=8
-return A.B(A.aC1(A.co("http://service-6a042f655e7e3bf5e93f3747.zeabur.internal/api/v1/plan/remove?major_id="+b),n),$async$Kx)
+return A.B(A.aC1(A.co("https://backend-api.zeabur.app/api/v1/plan/remove?major_id="+b),n),$async$Kx)
 case 8:m=d
 l=A.tK(m)
 j=J.c(J.X(l,"code"),0)
@@ -28782,7 +28782,7 @@ s=7
 return A.B(A.lr(!0),$async$Ku)
 case 7:n=c
 s=8
-return A.B(A.tw(A.co("http://service-6a042f655e7e3bf5e93f3747.zeabur.internal/api/v1/plan/evaluate"),n),$async$Ku)
+return A.B(A.tw(A.co("https://backend-api.zeabur.app/api/v1/plan/evaluate"),n),$async$Ku)
 case 8:m=c
 l=A.tK(m)
 if(J.c(J.X(l,"code"),0)&&J.X(l,"data")!=null){j=J.X(l,"data")
@@ -95737,7 +95737,7 @@ s=q}while(true)switch(s){case 0:o.scq(0,o.f.ht(null,!0))
 q=3
 g=t.N
 s=6
-return A.B(A.tw(A.co("http://service-6a042f655e7e3bf5e93f3747.zeabur.internal/api/v1/favorite/list"),A.ad(["Content-Type","application/json","Authorization","Bearer "+a],g,g)),$async$BI)
+return A.B(A.tw(A.co("https://backend-api.zeabur.app/api/v1/favorite/list"),A.ad(["Content-Type","application/json","Authorization","Bearer "+a],g,g)),$async$BI)
 case 6:n=a0
 f=n
 m=B.aj.iK(0,A.ka(A.k9(f.e)).d6(0,f.w),null)
@@ -95771,7 +95771,7 @@ if(l==null){q=!1
 s=1
 break}f=t.N
 s=7
-return A.B(A.aC1(A.co("http://service-6a042f655e7e3bf5e93f3747.zeabur.internal/api/v1/favorite/remove?major_id="+A.k(l)),A.ad(["Content-Type","application/json","Authorization","Bearer "+a],f,f)),$async$Cz)
+return A.B(A.aC1(A.co("https://backend-api.zeabur.app/api/v1/favorite/remove?major_id="+A.k(l)),A.ad(["Content-Type","application/json","Authorization","Bearer "+a],f,f)),$async$Cz)
 case 7:k=a2
 e=k
 j=B.aj.iK(0,A.ka(A.k9(e.e)).d6(0,e.w),null)
@@ -95869,7 +95869,7 @@ tk(a,b,c,d,e,f){return this.a0l(a,b,c,d,e,f)},
 a0l(a,b,c,d,e,a0){var s=0,r=A.J(t.y),q,p=2,o,n=this,m,l,k,j,i,h,g,f
 var $async$tk=A.K(function(a1,a2){if(a1===1){o=a2
 s=p}while(true)switch(s){case 0:p=4
-j=A.co("http://service-6a042f655e7e3bf5e93f3747.zeabur.internal/api/v1/history/save")
+j=A.co("https://backend-api.zeabur.app/api/v1/history/save")
 i=t.N
 h=A.ad(["Content-Type","application/json","Authorization","Bearer "+a],i,i)
 s=7
@@ -95911,7 +95911,7 @@ s=q}while(true)switch(s){case 0:o.scq(0,o.f.ht(null,!0))
 q=3
 g=t.N
 s=6
-return A.B(A.tw(A.co("http://service-6a042f655e7e3bf5e93f3747.zeabur.internal/api/v1/history/list?page="+a0+"&limit=10"),A.ad(["Content-Type","application/json","Authorization","Bearer "+a],g,g)),$async$oX)
+return A.B(A.tw(A.co("https://backend-api.zeabur.app/api/v1/history/list?page="+a0+"&limit=10"),A.ad(["Content-Type","application/json","Authorization","Bearer "+a],g,g)),$async$oX)
 case 6:n=a2
 g=n
 m=B.aj.iK(0,A.ka(A.k9(g.e)).d6(0,g.w),null)
@@ -95950,7 +95950,7 @@ var $async$x8=A.K(function(c,d){if(c===1){o=d
 s=p}while(true)switch(s){case 0:p=4
 j=t.N
 s=7
-return A.B(A.tw(A.co("http://service-6a042f655e7e3bf5e93f3747.zeabur.internal/api/v1/history/detail/"+b),A.ad(["Content-Type","application/json","Authorization","Bearer "+a],j,j)),$async$x8)
+return A.B(A.tw(A.co("https://backend-api.zeabur.app/api/v1/history/detail/"+b),A.ad(["Content-Type","application/json","Authorization","Bearer "+a],j,j)),$async$x8)
 case 7:m=d
 j=m
 l=B.aj.iK(0,A.ka(A.k9(j.e)).d6(0,j.w),null)
@@ -95983,7 +95983,7 @@ var $async$AE=A.K(function(c,d){if(c===1){o=d
 s=p}while(true)switch(s){case 0:p=4
 i=t.N
 s=7
-return A.B(A.aC1(A.co("http://service-6a042f655e7e3bf5e93f3747.zeabur.internal/api/v1/history/delete/"+b),A.ad(["Content-Type","application/json","Authorization","Bearer "+a],i,i)),$async$AE)
+return A.B(A.aC1(A.co("https://backend-api.zeabur.app/api/v1/history/delete/"+b),A.ad(["Content-Type","application/json","Authorization","Bearer "+a],i,i)),$async$AE)
 case 7:m=d
 i=m
 l=B.aj.iK(0,A.ka(A.k9(i.e)).d6(0,i.w),null)

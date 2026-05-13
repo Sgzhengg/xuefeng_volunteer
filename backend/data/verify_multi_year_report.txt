@@ -1,0 +1,105 @@
+Multi-Year Data Verification Report
+============================================================
+Total records: 53,411
+
+
+============================================================
+Year 2023
+============================================================
+  Total records: 3,904
+  Unique universities: 1596
+  Subjects: {'理科': 2492, '文科': 1412}
+  Levels: {'985': 167, '211': 255, '普通本科': 3339, '高职': 143}
+  Guangdong local: 745, Out-of-province: 3020, Unknown: 139
+  Rank range: 14 - 258,543
+  Score range: 393 - 694
+  Physics: 2492, History: 1412
+  Top 5 Physics (by rank):
+    清华大学 | 专业组203 | Score=694 | Rank=79 | 985
+    北京大学 | 专业组203 | Score=694 | Rank=84 | 985
+    清华大学 | 专业组院
+202 | Score=693 | Rank=92 | 985
+    上海交通大学 | 专业组202 | Score=692 | Rank=110 | 985
+    复旦大学 | 专业组203 | Score=691 | Rank=114 | 985
+
+  Top 5 Guangdong Physics:
+    哈尔滨工业大学(深圳) | 专业组202 | Score=659 | Rank=2326 | 普通本科
+    南方医科大学 | 专业组206 | Score=653 | Rank=3258 | 普通本科
+    中山大学 | 专业组214 | Score=649 | Rank=4152 | 985
+    育
+中山大学 | 专业组205 | Score=646 | Rank=4935 | 普通本科
+    中山大学 | 专业组217 | Score=645 | Rank=5193 | 985
+
+============================================================
+Year 2024
+============================================================
+  Total records: 4,418
+  Unique universities: 1740
+  Subjects: {'理科': 2947, '文科': 1471}
+  Levels: {'985': 139, '211': 279, '普通本科': 3803, '高职': 197}
+  Guangdong local: 895, Out-of-province: 3365, Unknown: 158
+  Rank range: 19 - 288,551
+  Score range: 398 - 692
+  Physics: 2947, History: 1471
+  Top 5 Physics (by rank):
+    清华大学 | 专业组202 | Score=692 | Rank=53 | 985
+    北京大学 | 专业组203 | Score=689 | Rank=85 | 985
+    清华大学 | 专业组203 | Score=688 | Rank=97 | 985
+    上海交通大学 | 专业组202 | Score=687 | Rank=104 | 985
+    复旦大学 | 专业组204 | Score=687 | Rank=111 | 985
+
+  Top 5 Guangdong Physics:
+    哈尔滨工业大学(深圳) | 专业组202 | Score=657 | Rank=1860 | 普通本科
+    教
+南方医科大学 | 专业组206 | Score=649 | Rank=2977 | 普通本科
+    中山大学 | 专业组219 | Score=643 | Rank=4019 | 985
+    中山大学 | 专业组205 | Score=638 | Rank=5409 | 985
+    华南理工大学 | 专业组202 | Score=637 | Rank=5640 | 985
+
+============================================================
+Year 2025
+============================================================
+  Total records: 45,089
+  Unique universities: 1733
+  Subjects: {'?': 32467, '理科': 8541, '文科': 4081}
+  Levels: {'985': 28998, '211': 5308, '普通本科': 10332, '高职': 451}
+  Guangdong local: 7148, Out-of-province: 37531, Unknown: 410
+  Rank range: 13 - 350,000
+  Score range: 300 - 750
+  Physics: 8541, History: 4081
+  Top 5 Physics (by rank):
+    北京大学 | 计算机科学与技术 | Score=689 | Rank=99 | 985
+    北京大学 | 软件工程 | Score=689 | Rank=99 | 985
+    北京大学 | 电气工程及其自动化 | Score=689 | Rank=99 | 985
+    北京大学 | 机械工程 | Score=689 | Rank=99 | 985
+    北京大学 | 电子信息工程 | Score=689 | Rank=99 | 985
+
+  Top 5 Guangdong Physics:
+    哈尔滨工业大学(深圳) | 计算机科学与技术 | Score=662 | Rank=1730 | 普通本科
+    哈尔滨工业大学(深圳) | 软件工程 | Score=662 | Rank=1730 | 普通本科
+    哈尔滨工业大学(深圳) | 电气工程及其自动化 | Score=662 | Rank=1730 | 普通本科
+    哈尔滨工业大学(深圳) | 机械工程 | Score=662 | Rank=1730 | 普通本科
+    哈尔滨工业大学(深圳) | 电子信息工程 | Score=662 | Rank=1730 | 普通本科
+
+============================================================
+Cross-Year Comparison
+============================================================
+  Year 2023 Physics universities: 1357
+  Year 2024 Physics universities: 1513
+  Year 2025 Physics universities: 1531
+
+============================================================
+Summary
+============================================================
+  2023: 3,904 records
+  2024: 4,418 records
+  2025: 45,089 records
+  Total: 53,411 records across 3 years
+
+============================================================
+Data Quality Checks
+============================================================
+  Missing level: 0
+  Missing province: 775
+  Missing score (0): 358
+  No university_level field: 0

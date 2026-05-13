@@ -1,0 +1,116 @@
+{
+  "statistics": {
+    "test_config": {
+      "total_tests": 7,
+      "api_endpoint": "http://localhost:8000/api/v1/recommend",
+      "default_subjects": [
+        "物理",
+        "化学",
+        "生物"
+      ],
+      "default_preference": "balanced",
+      "test_time": "2026-05-09T15:08:14.357196"
+    },
+    "overall_metrics": {
+      "total_tests": 7,
+      "university_hits": 0,
+      "university_hit_rate": 0.0,
+      "exact_hits": 0,
+      "exact_hit_rate": 0.0
+    },
+    "rank_range_metrics": [
+      {
+        "rank_range": "10001-30000",
+        "description": "211/重点段",
+        "test_count": 7,
+        "university_hits": 0,
+        "university_hit_rate": 0.0,
+        "exact_hits": 0,
+        "exact_hit_rate": 0.0
+      }
+    ],
+    "probability_metrics": [],
+    "performance_metrics": {
+      "total_requests": 7,
+      "total_time": 14.28709077835083,
+      "avg_response_time": 2041.012968335833,
+      "min_response_time": 2026.4487266540527,
+      "max_response_time": 2060.570240020752,
+      "median_response_time": 2042.2954559326172
+    },
+    "error_metrics": {
+      "error_count": 7,
+      "error_rate": 100.0,
+      "common_errors": [
+        {
+          "error": "HTTP 404",
+          "count": 7
+        }
+      ]
+    }
+  },
+  "unhit_details": [
+    {
+      "rank": 18760,
+      "actual_university": "复旦大学",
+      "actual_major": "医学影像学",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "HTTP 404"
+    },
+    {
+      "rank": 18760,
+      "actual_university": "浙江大学",
+      "actual_major": "信息工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "HTTP 404"
+    },
+    {
+      "rank": 18760,
+      "actual_university": "北京大学",
+      "actual_major": "应用物理学",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "HTTP 404"
+    },
+    {
+      "rank": 19600,
+      "actual_university": "北京大学",
+      "actual_major": "侦查学",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "HTTP 404"
+    },
+    {
+      "rank": 19600,
+      "actual_university": "北京大学",
+      "actual_major": "日语",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "HTTP 404"
+    },
+    {
+      "rank": 20440,
+      "actual_university": "复旦大学",
+      "actual_major": "市场营销",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "HTTP 404"
+    },
+    {
+      "rank": 21000,
+      "actual_university": "复旦大学",
+      "actual_major": "监狱学",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "HTTP 404"
+    }
+  ],
+  "test_summary": {
+    "total_tests": 7,
+    "university_hit_rate": 0.0,
+    "exact_hit_rate": 0.0,
+    "test_duration": 17.657911777496338
+  }
+}

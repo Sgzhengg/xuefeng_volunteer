@@ -1,0 +1,25 @@
+# 2025广东高考投档线采集系统依赖
+
+# 网络请求
+aiohttp>=3.9.0
+requests>=2.31.0
+
+# 数据处理
+pandas>=2.0.0
+openpyxl>=3.1.0
+
+# HTML解析
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+
+# 浏览器自动化
+playwright>=1.40.0
+
+# 异步支持
+asyncio>=3.4.3
+
+# 数据验证
+python-dateutil>=2.8.0
+
+# 其他工具
+python-dotenv>=1.0.0

@@ -1,0 +1,52 @@
+{
+  "timestamp": "2026-05-10T21:41:31.361774",
+  "test_config": {
+    "sample_size": 500,
+    "total_records": 32561,
+    "test_cases_count": 497,
+    "algorithm": "improved_professional_category_matching",
+    "matching_rule": "推荐专业属于目标专业大类即算命中"
+  },
+  "hit_results": {
+    "exact_professional_hits": 117,
+    "exact_hit_rate": 23.541247484909455,
+    "category_hits": 372,
+    "category_hit_rate": 72.72727272727273,
+    "total_hits": 489,
+    "overall_hit_rate": 98.39034205231388,
+    "university_hits": 497,
+    "university_hit_rate": 100.0
+  },
+  "segment_results": {
+    "1-10000": {
+      "total": 109,
+      "hit": 102,
+      "category_hit": 80
+    },
+    "10001-30000": {
+      "total": 195,
+      "hit": 194,
+      "category_hit": 147
+    },
+    "30001-70000": {
+      "total": 95,
+      "hit": 95,
+      "category_hit": 74
+    },
+    "70001-120000": {
+      "total": 55,
+      "hit": 55,
+      "category_hit": 40
+    },
+    "120001-200000": {
+      "total": 21,
+      "hit": 21,
+      "category_hit": 15
+    },
+    "200001-350000": {
+      "total": 22,
+      "hit": 22,
+      "category_hit": 16
+    }
+  }
+}

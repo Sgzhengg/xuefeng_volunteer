@@ -1,0 +1,506 @@
+{
+  "title": "算法推荐分布 vs 实际录取分布 对比报告",
+  "generated_at": "2026-05-11T15:06:04.692349",
+  "sample_size": 200,
+  "actual_distribution": {
+    "data_source": "major_rank_data.json (广东2025)",
+    "total_eligible": 694,
+    "segments": {
+      "1-10000": {
+        "description": "985/211顶尖段",
+        "total_records": 13,
+        "unique_universities": 3,
+        "unique_majors": 8,
+        "ratios": {
+          "985_ratio": 30.77,
+          "211_ratio": 30.77,
+          "local_ratio": 100.0,
+          "outprovince_ratio": 0.0
+        },
+        "counts": {
+          "985_count": 4,
+          "211_count": 4,
+          "local_count": 13,
+          "outprovince_count": 0
+        }
+      },
+      "10001-30000": {
+        "description": "211/重点段",
+        "total_records": 128,
+        "unique_universities": 7,
+        "unique_majors": 70,
+        "ratios": {
+          "985_ratio": 0.0,
+          "211_ratio": 50.0,
+          "local_ratio": 100.0,
+          "outprovince_ratio": 0.0
+        },
+        "counts": {
+          "985_count": 0,
+          "211_count": 64,
+          "local_count": 128,
+          "outprovince_count": 0
+        }
+      },
+      "30001-70000": {
+        "description": "一本段",
+        "total_records": 104,
+        "unique_universities": 17,
+        "unique_majors": 59,
+        "ratios": {
+          "985_ratio": 0.0,
+          "211_ratio": 0.0,
+          "local_ratio": 100.0,
+          "outprovince_ratio": 0.0
+        },
+        "counts": {
+          "985_count": 0,
+          "211_count": 0,
+          "local_count": 104,
+          "outprovince_count": 0
+        }
+      },
+      "70001-120000": {
+        "description": "二本段",
+        "total_records": 204,
+        "unique_universities": 19,
+        "unique_majors": 100,
+        "ratios": {
+          "985_ratio": 0.0,
+          "211_ratio": 0.0,
+          "local_ratio": 100.0,
+          "outprovince_ratio": 0.0
+        },
+        "counts": {
+          "985_count": 0,
+          "211_count": 0,
+          "local_count": 204,
+          "outprovince_count": 0
+        }
+      },
+      "120001-200000": {
+        "description": "民办/专科段",
+        "total_records": 153,
+        "unique_universities": 16,
+        "unique_majors": 85,
+        "ratios": {
+          "985_ratio": 0.0,
+          "211_ratio": 0.0,
+          "local_ratio": 100.0,
+          "outprovince_ratio": 0.0
+        },
+        "counts": {
+          "985_count": 0,
+          "211_count": 0,
+          "local_count": 153,
+          "outprovince_count": 0
+        }
+      },
+      "200001-350000": {
+        "description": "专科段",
+        "total_records": 92,
+        "unique_universities": 8,
+        "unique_majors": 42,
+        "ratios": {
+          "985_ratio": 0.0,
+          "211_ratio": 0.0,
+          "local_ratio": 100.0,
+          "outprovince_ratio": 0.0
+        },
+        "counts": {
+          "985_count": 0,
+          "211_count": 0,
+          "local_count": 92,
+          "outprovince_count": 0
+        }
+      }
+    }
+  },
+  "recommendation_distribution": {
+    "data_source": "API推荐结果",
+    "total_samples": 193,
+    "segments": {
+      "1-10000": {
+        "description": "985/211顶尖段",
+        "sample_count": 13,
+        "total_recommendations": 390,
+        "unique_universities": 36,
+        "unique_majors": 133,
+        "ratios": {
+          "985_ratio": 35.9,
+          "211_ratio": 82.56,
+          "local_ratio": 72.56,
+          "outprovince_ratio": 27.44
+        },
+        "counts": {
+          "985_count": 140,
+          "211_count": 322,
+          "local_count": 283,
+          "outprovince_count": 107
+        },
+        "errors": 0
+      },
+      "10001-30000": {
+        "description": "211/重点段",
+        "sample_count": 30,
+        "total_recommendations": 846,
+        "unique_universities": 13,
+        "unique_majors": 84,
+        "ratios": {
+          "985_ratio": 4.96,
+          "211_ratio": 59.1,
+          "local_ratio": 100.0,
+          "outprovince_ratio": 0.0
+        },
+        "counts": {
+          "985_count": 42,
+          "211_count": 500,
+          "local_count": 846,
+          "outprovince_count": 0
+        },
+        "errors": 0
+      },
+      "30001-70000": {
+        "description": "一本段",
+        "sample_count": 50,
+        "total_recommendations": 1413,
+        "unique_universities": 24,
+        "unique_majors": 102,
+        "ratios": {
+          "985_ratio": 0.0,
+          "211_ratio": 1.7,
+          "local_ratio": 100.0,
+          "outprovince_ratio": 0.0
+        },
+        "counts": {
+          "985_count": 0,
+          "211_count": 24,
+          "local_count": 1413,
+          "outprovince_count": 0
+        },
+        "errors": 0
+      },
+      "70001-120000": {
+        "description": "二本段",
+        "sample_count": 50,
+        "total_recommendations": 1500,
+        "unique_universities": 32,
+        "unique_majors": 159,
+        "ratios": {
+          "985_ratio": 0.0,
+          "211_ratio": 0.0,
+          "local_ratio": 100.0,
+          "outprovince_ratio": 0.0
+        },
+        "counts": {
+          "985_count": 0,
+          "211_count": 0,
+          "local_count": 1500,
+          "outprovince_count": 0
+        },
+        "errors": 0
+      },
+      "120001-200000": {
+        "description": "民办/专科段",
+        "sample_count": 30,
+        "total_recommendations": 900,
+        "unique_universities": 43,
+        "unique_majors": 211,
+        "ratios": {
+          "985_ratio": 0.0,
+          "211_ratio": 0.0,
+          "local_ratio": 100.0,
+          "outprovince_ratio": 0.0
+        },
+        "counts": {
+          "985_count": 0,
+          "211_count": 0,
+          "local_count": 900,
+          "outprovince_count": 0
+        },
+        "errors": 0
+      },
+      "200001-350000": {
+        "description": "专科段",
+        "sample_count": 20,
+        "total_recommendations": 592,
+        "unique_universities": 32,
+        "unique_majors": 152,
+        "ratios": {
+          "985_ratio": 0.0,
+          "211_ratio": 0.0,
+          "local_ratio": 100.0,
+          "outprovince_ratio": 0.0
+        },
+        "counts": {
+          "985_count": 0,
+          "211_count": 0,
+          "local_count": 592,
+          "outprovince_count": 0
+        },
+        "errors": 0
+      }
+    }
+  },
+  "deviation_analysis": {
+    "comparison_table": [
+      {
+        "rank_segment": "1-10000",
+        "description": "985/211顶尖段",
+        "actual_records": 13,
+        "recommendation_records": 390,
+        "metrics": {
+          "985_ratio": {
+            "label": "985占比",
+            "actual": 30.77,
+            "recommended": 35.9,
+            "deviation": 5.13,
+            "grade": "轻微偏差",
+            "icon": "⚠️"
+          },
+          "211_ratio": {
+            "label": "211占比",
+            "actual": 30.77,
+            "recommended": 82.56,
+            "deviation": 51.79,
+            "grade": "严重偏差",
+            "icon": "❌"
+          },
+          "local_ratio": {
+            "label": "本地院校占比",
+            "actual": 100.0,
+            "recommended": 72.56,
+            "deviation": -27.44,
+            "grade": "严重偏差",
+            "icon": "❌"
+          },
+          "outprovince_ratio": {
+            "label": "省外院校占比",
+            "actual": 0.0,
+            "recommended": 27.44,
+            "deviation": 27.44,
+            "grade": "严重偏差",
+            "icon": "❌"
+          }
+        }
+      },
+      {
+        "rank_segment": "10001-30000",
+        "description": "211/重点段",
+        "actual_records": 128,
+        "recommendation_records": 846,
+        "metrics": {
+          "985_ratio": {
+            "label": "985占比",
+            "actual": 0.0,
+            "recommended": 4.96,
+            "deviation": 4.96,
+            "grade": "正常",
+            "icon": "✅"
+          },
+          "211_ratio": {
+            "label": "211占比",
+            "actual": 50.0,
+            "recommended": 59.1,
+            "deviation": 9.1,
+            "grade": "轻微偏差",
+            "icon": "⚠️"
+          },
+          "local_ratio": {
+            "label": "本地院校占比",
+            "actual": 100.0,
+            "recommended": 100.0,
+            "deviation": 0.0,
+            "grade": "正常",
+            "icon": "✅"
+          },
+          "outprovince_ratio": {
+            "label": "省外院校占比",
+            "actual": 0.0,
+            "recommended": 0.0,
+            "deviation": 0.0,
+            "grade": "正常",
+            "icon": "✅"
+          }
+        }
+      },
+      {
+        "rank_segment": "30001-70000",
+        "description": "一本段",
+        "actual_records": 104,
+        "recommendation_records": 1413,
+        "metrics": {
+          "985_ratio": {
+            "label": "985占比",
+            "actual": 0.0,
+            "recommended": 0.0,
+            "deviation": 0.0,
+            "grade": "正常",
+            "icon": "✅"
+          },
+          "211_ratio": {
+            "label": "211占比",
+            "actual": 0.0,
+            "recommended": 1.7,
+            "deviation": 1.7,
+            "grade": "正常",
+            "icon": "✅"
+          },
+          "local_ratio": {
+            "label": "本地院校占比",
+            "actual": 100.0,
+            "recommended": 100.0,
+            "deviation": 0.0,
+            "grade": "正常",
+            "icon": "✅"
+          },
+          "outprovince_ratio": {
+            "label": "省外院校占比",
+            "actual": 0.0,
+            "recommended": 0.0,
+            "deviation": 0.0,
+            "grade": "正常",
+            "icon": "✅"
+          }
+        }
+      },
+      {
+        "rank_segment": "70001-120000",
+        "description": "二本段",
+        "actual_records": 204,
+        "recommendation_records": 1500,
+        "metrics": {
+          "985_ratio": {
+            "label": "985占比",
+            "actual": 0.0,
+            "recommended": 0.0,
+            "deviation": 0.0,
+            "grade": "正常",
+            "icon": "✅"
+          },
+          "211_ratio": {
+            "label": "211占比",
+            "actual": 0.0,
+            "recommended": 0.0,
+            "deviation": 0.0,
+            "grade": "正常",
+            "icon": "✅"
+          },
+          "local_ratio": {
+            "label": "本地院校占比",
+            "actual": 100.0,
+            "recommended": 100.0,
+            "deviation": 0.0,
+            "grade": "正常",
+            "icon": "✅"
+          },
+          "outprovince_ratio": {
+            "label": "省外院校占比",
+            "actual": 0.0,
+            "recommended": 0.0,
+            "deviation": 0.0,
+            "grade": "正常",
+            "icon": "✅"
+          }
+        }
+      },
+      {
+        "rank_segment": "120001-200000",
+        "description": "民办/专科段",
+        "actual_records": 153,
+        "recommendation_records": 900,
+        "metrics": {
+          "985_ratio": {
+            "label": "985占比",
+            "actual": 0.0,
+            "recommended": 0.0,
+            "deviation": 0.0,
+            "grade": "正常",
+            "icon": "✅"
+          },
+          "211_ratio": {
+            "label": "211占比",
+            "actual": 0.0,
+            "recommended": 0.0,
+            "deviation": 0.0,
+            "grade": "正常",
+            "icon": "✅"
+          },
+          "local_ratio": {
+            "label": "本地院校占比",
+            "actual": 100.0,
+            "recommended": 100.0,
+            "deviation": 0.0,
+            "grade": "正常",
+            "icon": "✅"
+          },
+          "outprovince_ratio": {
+            "label": "省外院校占比",
+            "actual": 0.0,
+            "recommended": 0.0,
+            "deviation": 0.0,
+            "grade": "正常",
+            "icon": "✅"
+          }
+        }
+      },
+      {
+        "rank_segment": "200001-350000",
+        "description": "专科段",
+        "actual_records": 92,
+        "recommendation_records": 592,
+        "metrics": {
+          "985_ratio": {
+            "label": "985占比",
+            "actual": 0.0,
+            "recommended": 0.0,
+            "deviation": 0.0,
+            "grade": "正常",
+            "icon": "✅"
+          },
+          "211_ratio": {
+            "label": "211占比",
+            "actual": 0.0,
+            "recommended": 0.0,
+            "deviation": 0.0,
+            "grade": "正常",
+            "icon": "✅"
+          },
+          "local_ratio": {
+            "label": "本地院校占比",
+            "actual": 100.0,
+            "recommended": 100.0,
+            "deviation": 0.0,
+            "grade": "正常",
+            "icon": "✅"
+          },
+          "outprovince_ratio": {
+            "label": "省外院校占比",
+            "actual": 0.0,
+            "recommended": 0.0,
+            "deviation": 0.0,
+            "grade": "正常",
+            "icon": "✅"
+          }
+        }
+      }
+    ],
+    "average_deviation": {
+      "985": 1.68,
+      "211": 10.43,
+      "local": -4.57,
+      "outprovince": 4.57
+    },
+    "overall_assessment": "一般 - 推荐分布存在明显偏差，需要调整"
+  },
+  "summary": {
+    "overall_grade": "一般 - 推荐分布存在明显偏差，需要调整",
+    "average_deviation": {
+      "985": 1.68,
+      "211": 10.43,
+      "local": -4.57,
+      "outprovince": 4.57
+    },
+    "analysis_time_seconds": 398.6
+  }
+}

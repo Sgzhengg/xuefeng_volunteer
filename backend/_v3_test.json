@@ -1,0 +1,116 @@
+{
+  "冲刺": [
+    {
+      "uni": "华南师范大学",
+      "major": "思想政治教育",
+      "code": "229",
+      "rank": 32091,
+      "prob": 40,
+      "resolved": "['思想政治教育']",
+      "tuition": 6060.0,
+      "duration": 4,
+      "subjects": "政治",
+      "plan_count": 19
+    },
+    {
+      "uni": "广东工业大学",
+      "major": "人工智能",
+      "code": "216",
+      "rank": 32464,
+      "prob": 42,
+      "resolved": "['人工智能', '计算机类']",
+      "tuition": 6850.0,
+      "duration": 4,
+      "subjects": "化学",
+      "plan_count": 498
+    },
+    {
+      "uni": "岭南师范学院",
+      "major": "专业组广\n202",
+      "code": "广\n202",
+      "rank": 33750,
+      "prob": 45,
+      "resolved": "[]",
+      "tuition": "N/A",
+      "duration": "N/A",
+      "subjects": "N/A",
+      "plan_count": "N/A"
+    }
+  ],
+  "稳妥": [
+    {
+      "uni": "肇庆学院",
+      "major": "小学教育",
+      "code": "207",
+      "rank": 35022,
+      "prob": 47,
+      "resolved": "['小学教育', '历史学', '旅游管理']",
+      "tuition": 5050.0,
+      "duration": 4,
+      "subjects": "不限",
+      "plan_count": 134
+    },
+    {
+      "uni": "惠州学院",
+      "major": "地理科学",
+      "code": "202",
+      "rank": 34744,
+      "prob": 46,
+      "resolved": "['地理科学', '地理信息科学']",
+      "tuition": 5710.0,
+      "duration": 4,
+      "subjects": "地理",
+      "plan_count": 88
+    },
+    {
+      "uni": "广东工业大学",
+      "major": "材料成型及控制工程",
+      "code": "209",
+      "rank": 44239,
+      "prob": 70,
+      "resolved": "['材料成型及控制工程']",
+      "tuition": 6850.0,
+      "duration": 4,
+      "subjects": "化学",
+      "plan_count": 91
+    }
+  ],
+  "保底": [
+    {
+      "uni": "广东工业大学",
+      "major": "数学与应用数学",
+      "code": "225",
+      "rank": 47667,
+      "prob": 85,
+      "resolved": "['数学与应用数学', '信息与计算科学', '应用统计学']",
+      "tuition": 6850.0,
+      "duration": 4,
+      "subjects": "化学",
+      "plan_count": 203
+    },
+    {
+      "uni": "惠州学院",
+      "major": "财务管理",
+      "code": "213",
+      "rank": 46699,
+      "prob": 83,
+      "resolved": "['财务管理']",
+      "tuition": 5050.0,
+      "duration": 4,
+      "subjects": "不限",
+      "plan_count": 60
+    },
+    {
+      "uni": "华南农业大学",
+      "major": "数据科学与大数据技术",
+      "code": "217",
+      "rank": 46082,
+      "prob": 82,
+      "resolved": "['数据科学与大数据技术', '大数据管理与应用', '信息管理与信息系统', '信息与计算科学', '数学与应用数学', '统计学']",
+      "tuition": 6853.0,
+      "duration": 4,
+      "subjects": "化学",
+      "plan_count": 452
+    }
+  ]
+}

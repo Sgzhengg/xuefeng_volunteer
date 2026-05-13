@@ -1,0 +1,1045 @@
+{
+  "statistics": {
+    "test_config": {
+      "total_tests": 500,
+      "api_endpoint": "http://localhost:8001/api/v1/recommendation/generate",
+      "default_subjects": [
+        "物理",
+        "化学",
+        "生物"
+      ],
+      "default_preference": "balanced",
+      "test_time": "2026-05-10T13:20:39.930628"
+    },
+    "overall_metrics": {
+      "total_tests": 500,
+      "university_hits": 96,
+      "university_hit_rate": 19.2,
+      "exact_hits": 22,
+      "exact_hit_rate": 4.3999999999999995
+    },
+    "rank_range_metrics": [
+      {
+        "rank_range": "1-10000",
+        "description": "985/211顶尖段",
+        "test_count": 50,
+        "university_hits": 31,
+        "university_hit_rate": 62.0,
+        "exact_hits": 8,
+        "exact_hit_rate": 16.0
+      },
+      {
+        "rank_range": "10001-30000",
+        "description": "211/重点段",
+        "test_count": 75,
+        "university_hits": 13,
+        "university_hit_rate": 17.333333333333336,
+        "exact_hits": 4,
+        "exact_hit_rate": 5.333333333333334
+      },
+      {
+        "rank_range": "30001-70000",
+        "description": "一本段",
+        "test_count": 125,
+        "university_hits": 4,
+        "university_hit_rate": 3.2,
+        "exact_hits": 0,
+        "exact_hit_rate": 0.0
+      },
+      {
+        "rank_range": "70001-120000",
+        "description": "二本段",
+        "test_count": 125,
+        "university_hits": 25,
+        "university_hit_rate": 20.0,
+        "exact_hits": 5,
+        "exact_hit_rate": 4.0
+      },
+      {
+        "rank_range": "120001-200000",
+        "description": "民办/专科段",
+        "test_count": 75,
+        "university_hits": 15,
+        "university_hit_rate": 20.0,
+        "exact_hits": 2,
+        "exact_hit_rate": 2.666666666666667
+      },
+      {
+        "rank_range": "200001-350000",
+        "description": "专科段",
+        "test_count": 50,
+        "university_hits": 8,
+        "university_hit_rate": 16.0,
+        "exact_hits": 3,
+        "exact_hit_rate": 6.0
+      }
+    ],
+    "probability_metrics": [],
+    "performance_metrics": {
+      "total_requests": 500,
+      "total_time": 1104.241466999054,
+      "avg_response_time": 2208.482933998108,
+      "min_response_time": 2039.0021800994873,
+      "max_response_time": 2354.2227745056152,
+      "median_response_time": 2196.298122406006
+    }
+  },
+  "unhit_details": [
+    {
+      "rank": 2623,
+      "actual_university": "北京邮电大学",
+      "actual_major": "机械工程",
+      "top10_recommendations": [
+        "华中科技大学 - 通信工程",
+        "华中科技大学 - 经济学",
+        "华中科技大学 - 会计学",
+        "北京航空航天大学 - 生物科学",
+        "北京航空航天大学 - 人工智能",
+        "东南大学 - 工商管理",
+        "东南大学 - 软件工程",
+        "东南大学 - 人工智能",
+        "中国人民大学 - 电子信息工程",
+        "华东师范大学 - 金融学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 10000,
+      "actual_university": "北京大学",
+      "actual_major": "通信工程",
+      "top10_recommendations": [
+        "中国科学技术大学 - 计算机科学与技术",
+        "重庆大学 - 英语",
+        "中国海洋大学 - 计算机科学与技术",
+        "中国海洋大学 - 通信工程",
+        "中国海洋大学 - 电气工程及其自动化",
+        "中央民族大学 - 经济学",
+        "中央民族大学 - 金融学",
+        "吉林大学 - 汉语言文学",
+        "东北大学 - 生物科学",
+        "东北大学 - 软件工程"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 10000,
+      "actual_university": "复旦大学",
+      "actual_major": "通信工程",
+      "top10_recommendations": [
+        "中国科学技术大学 - 计算机科学与技术",
+        "重庆大学 - 英语",
+        "中国海洋大学 - 计算机科学与技术",
+        "中国海洋大学 - 通信工程",
+        "中国海洋大学 - 电气工程及其自动化",
+        "中央民族大学 - 经济学",
+        "中央民族大学 - 金融学",
+        "吉林大学 - 汉语言文学",
+        "东北大学 - 生物科学",
+        "东北大学 - 软件工程"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 10000,
+      "actual_university": "复旦大学",
+      "actual_major": "土木工程",
+      "top10_recommendations": [
+        "中国科学技术大学 - 计算机科学与技术",
+        "重庆大学 - 英语",
+        "中国海洋大学 - 计算机科学与技术",
+        "中国海洋大学 - 通信工程",
+        "中国海洋大学 - 电气工程及其自动化",
+        "中央民族大学 - 经济学",
+        "中央民族大学 - 金融学",
+        "吉林大学 - 汉语言文学",
+        "东北大学 - 生物科学",
+        "东北大学 - 软件工程"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 10000,
+      "actual_university": "北京大学",
+      "actual_major": "电气工程及其自动化",
+      "top10_recommendations": [
+        "中国科学技术大学 - 计算机科学与技术",
+        "重庆大学 - 英语",
+        "中国海洋大学 - 计算机科学与技术",
+        "中国海洋大学 - 通信工程",
+        "中国海洋大学 - 电气工程及其自动化",
+        "中央民族大学 - 经济学",
+        "中央民族大学 - 金融学",
+        "吉林大学 - 汉语言文学",
+        "东北大学 - 生物科学",
+        "东北大学 - 软件工程"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 10000,
+      "actual_university": "复旦大学",
+      "actual_major": "电气工程及其自动化",
+      "top10_recommendations": [
+        "中国科学技术大学 - 计算机科学与技术",
+        "重庆大学 - 英语",
+        "中国海洋大学 - 计算机科学与技术",
+        "中国海洋大学 - 通信工程",
+        "中国海洋大学 - 电气工程及其自动化",
+        "中央民族大学 - 经济学",
+        "中央民族大学 - 金融学",
+        "吉林大学 - 汉语言文学",
+        "东北大学 - 生物科学",
+        "东北大学 - 软件工程"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 10000,
+      "actual_university": "浙江大学",
+      "actual_major": "电子信息工程",
+      "top10_recommendations": [
+        "中国科学技术大学 - 计算机科学与技术",
+        "重庆大学 - 英语",
+        "中国海洋大学 - 计算机科学与技术",
+        "中国海洋大学 - 通信工程",
+        "中国海洋大学 - 电气工程及其自动化",
+        "中央民族大学 - 经济学",
+        "中央民族大学 - 金融学",
+        "吉林大学 - 汉语言文学",
+        "东北大学 - 生物科学",
+        "东北大学 - 软件工程"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 10000,
+      "actual_university": "厦门大学",
+      "actual_major": "数学与应用数学",
+      "top10_recommendations": [
+        "中国科学技术大学 - 计算机科学与技术",
+        "重庆大学 - 英语",
+        "中国海洋大学 - 计算机科学与技术",
+        "中国海洋大学 - 通信工程",
+        "中国海洋大学 - 电气工程及其自动化",
+        "中央民族大学 - 经济学",
+        "中央民族大学 - 金融学",
+        "吉林大学 - 汉语言文学",
+        "东北大学 - 生物科学",
+        "东北大学 - 软件工程"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 10000,
+      "actual_university": "复旦大学",
+      "actual_major": "土木工程",
+      "top10_recommendations": [
+        "中国科学技术大学 - 计算机科学与技术",
+        "重庆大学 - 英语",
+        "中国海洋大学 - 计算机科学与技术",
+        "中国海洋大学 - 通信工程",
+        "中国海洋大学 - 电气工程及其自动化",
+        "中央民族大学 - 经济学",
+        "中央民族大学 - 金融学",
+        "吉林大学 - 汉语言文学",
+        "东北大学 - 生物科学",
+        "东北大学 - 软件工程"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 10000,
+      "actual_university": "复旦大学",
+      "actual_major": "电气工程及其自动化",
+      "top10_recommendations": [
+        "中国科学技术大学 - 计算机科学与技术",
+        "重庆大学 - 英语",
+        "中国海洋大学 - 计算机科学与技术",
+        "中国海洋大学 - 通信工程",
+        "中国海洋大学 - 电气工程及其自动化",
+        "中央民族大学 - 经济学",
+        "中央民族大学 - 金融学",
+        "吉林大学 - 汉语言文学",
+        "东北大学 - 生物科学",
+        "东北大学 - 软件工程"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 10000,
+      "actual_university": "北京大学",
+      "actual_major": "法学",
+      "top10_recommendations": [
+        "中国科学技术大学 - 计算机科学与技术",
+        "重庆大学 - 英语",
+        "中国海洋大学 - 计算机科学与技术",
+        "中国海洋大学 - 通信工程",
+        "中国海洋大学 - 电气工程及其自动化",
+        "中央民族大学 - 经济学",
+        "中央民族大学 - 金融学",
+        "吉林大学 - 汉语言文学",
+        "东北大学 - 生物科学",
+        "东北大学 - 软件工程"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 10000,
+      "actual_university": "北京大学",
+      "actual_major": "软件工程",
+      "top10_recommendations": [
+        "中国科学技术大学 - 计算机科学与技术",
+        "重庆大学 - 英语",
+        "中国海洋大学 - 计算机科学与技术",
+        "中国海洋大学 - 通信工程",
+        "中国海洋大学 - 电气工程及其自动化",
+        "中央民族大学 - 经济学",
+        "中央民族大学 - 金融学",
+        "吉林大学 - 汉语言文学",
+        "东北大学 - 生物科学",
+        "东北大学 - 软件工程"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 10000,
+      "actual_university": "北京大学",
+      "actual_major": "电子信息工程",
+      "top10_recommendations": [
+        "中国科学技术大学 - 计算机科学与技术",
+        "重庆大学 - 英语",
+        "中国海洋大学 - 计算机科学与技术",
+        "中国海洋大学 - 通信工程",
+        "中国海洋大学 - 电气工程及其自动化",
+        "中央民族大学 - 经济学",
+        "中央民族大学 - 金融学",
+        "吉林大学 - 汉语言文学",
+        "东北大学 - 生物科学",
+        "东北大学 - 软件工程"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 10000,
+      "actual_university": "浙江大学",
+      "actual_major": "通信工程",
+      "top10_recommendations": [
+        "中国科学技术大学 - 计算机科学与技术",
+        "重庆大学 - 英语",
+        "中国海洋大学 - 计算机科学与技术",
+        "中国海洋大学 - 通信工程",
+        "中国海洋大学 - 电气工程及其自动化",
+        "中央民族大学 - 经济学",
+        "中央民族大学 - 金融学",
+        "吉林大学 - 汉语言文学",
+        "东北大学 - 生物科学",
+        "东北大学 - 软件工程"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 10000,
+      "actual_university": "北京大学",
+      "actual_major": "土木工程",
+      "top10_recommendations": [
+        "中国科学技术大学 - 计算机科学与技术",
+        "重庆大学 - 英语",
+        "中国海洋大学 - 计算机科学与技术",
+        "中国海洋大学 - 通信工程",
+        "中国海洋大学 - 电气工程及其自动化",
+        "中央民族大学 - 经济学",
+        "中央民族大学 - 金融学",
+        "吉林大学 - 汉语言文学",
+        "东北大学 - 生物科学",
+        "东北大学 - 软件工程"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 10000,
+      "actual_university": "北京师范大学",
+      "actual_major": "英语",
+      "top10_recommendations": [
+        "中国科学技术大学 - 计算机科学与技术",
+        "重庆大学 - 英语",
+        "中国海洋大学 - 计算机科学与技术",
+        "中国海洋大学 - 通信工程",
+        "中国海洋大学 - 电气工程及其自动化",
+        "中央民族大学 - 经济学",
+        "中央民族大学 - 金融学",
+        "吉林大学 - 汉语言文学",
+        "东北大学 - 生物科学",
+        "东北大学 - 软件工程"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 10000,
+      "actual_university": "复旦大学",
+      "actual_major": "土木工程",
+      "top10_recommendations": [
+        "中国科学技术大学 - 计算机科学与技术",
+        "重庆大学 - 英语",
+        "中国海洋大学 - 计算机科学与技术",
+        "中国海洋大学 - 通信工程",
+        "中国海洋大学 - 电气工程及其自动化",
+        "中央民族大学 - 经济学",
+        "中央民族大学 - 金融学",
+        "吉林大学 - 汉语言文学",
+        "东北大学 - 生物科学",
+        "东北大学 - 软件工程"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 10000,
+      "actual_university": "浙江大学",
+      "actual_major": "工商管理",
+      "top10_recommendations": [
+        "中国科学技术大学 - 计算机科学与技术",
+        "重庆大学 - 英语",
+        "中国海洋大学 - 计算机科学与技术",
+        "中国海洋大学 - 通信工程",
+        "中国海洋大学 - 电气工程及其自动化",
+        "中央民族大学 - 经济学",
+        "中央民族大学 - 金融学",
+        "吉林大学 - 汉语言文学",
+        "东北大学 - 生物科学",
+        "东北大学 - 软件工程"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 10000,
+      "actual_university": "浙江大学",
+      "actual_major": "土木工程",
+      "top10_recommendations": [
+        "中国科学技术大学 - 计算机科学与技术",
+        "重庆大学 - 英语",
+        "中国海洋大学 - 计算机科学与技术",
+        "中国海洋大学 - 通信工程",
+        "中国海洋大学 - 电气工程及其自动化",
+        "中央民族大学 - 经济学",
+        "中央民族大学 - 金融学",
+        "吉林大学 - 汉语言文学",
+        "东北大学 - 生物科学",
+        "东北大学 - 软件工程"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 10206,
+      "actual_university": "华中师范大学",
+      "actual_major": "人工智能",
+      "top10_recommendations": [
+        "中国科学技术大学 - 计算机科学与技术",
+        "上海交通大学 - 法学",
+        "湖南大学 - 机械工程",
+        "重庆大学 - 英语",
+        "中国海洋大学 - 计算机科学与技术",
+        "中国海洋大学 - 电气工程及其自动化",
+        "中央民族大学 - 经济学",
+        "中央民族大学 - 金融学",
+        "吉林大学 - 汉语言文学",
+        "东北大学 - 生物科学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 16969,
+      "actual_university": "西北农林科技大学",
+      "actual_major": "人工智能",
+      "top10_recommendations": [
+        "南京师范大学 - 电气工程及其自动化",
+        "南京师范大学 - 口腔医学",
+        "南京师范大学 - 经济学",
+        "南京理工大学 - 机械工程",
+        "西南交通大学 - 金融学",
+        "武汉理工大学 - 工商管理",
+        "武汉理工大学 - 会计学",
+        "武汉理工大学 - 自动化",
+        "武汉理工大学 - 会计学",
+        "华南师范大学 - 机械工程"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 19616,
+      "actual_university": "福州大学",
+      "actual_major": "经济学",
+      "top10_recommendations": [
+        "西北农林科技大学 - 工商管理",
+        "西北农林科技大学 - 人工智能",
+        "西北农林科技大学 - 数学与应用数学",
+        "暨南大学 - 自动化",
+        "暨南大学 - 经济学",
+        "暨南大学 - 金融学",
+        "南京理工大学 - 金融学",
+        "南京理工大学 - 自动化",
+        "西南交通大学 - 数学与应用数学",
+        "武汉理工大学 - 临床医学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 19651,
+      "actual_university": "西南大学",
+      "actual_major": "人工智能",
+      "top10_recommendations": [
+        "西北农林科技大学 - 工商管理",
+        "西北农林科技大学 - 人工智能",
+        "西北农林科技大学 - 数学与应用数学",
+        "暨南大学 - 自动化",
+        "暨南大学 - 经济学",
+        "暨南大学 - 金融学",
+        "南京理工大学 - 金融学",
+        "南京理工大学 - 自动化",
+        "西南交通大学 - 数学与应用数学",
+        "武汉理工大学 - 临床医学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 21119,
+      "actual_university": "中国传媒大学",
+      "actual_major": "自动化",
+      "top10_recommendations": [
+        "北京大学 - 数学与应用数学",
+        "北京大学 - 信息与计算科学",
+        "北京大学 - 生物信息学",
+        "北京大学 - 微电子科学与工程",
+        "北京大学 - 电子科学与技术",
+        "北京大学 - 计算机科学与技术",
+        "北京大学 - 智能科学与技术",
+        "北京大学 - 航空航天工程",
+        "北京大学 - 临床医学",
+        "北京大学 - 口腔医学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 21162,
+      "actual_university": "中国地质大学",
+      "actual_major": "软件工程",
+      "top10_recommendations": [
+        "北京大学 - 金融工程",
+        "北京大学 - 数学与应用数学",
+        "北京大学 - 信息与计算科学",
+        "北京大学 - 生物信息学",
+        "北京大学 - 统计学",
+        "北京大学 - 机器人工程",
+        "北京大学 - 微电子科学与工程",
+        "北京大学 - 电气工程及其自动化",
+        "北京大学 - 电子信息工程",
+        "北京大学 - 电子科学与技术"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 22202,
+      "actual_university": "长安大学",
+      "actual_major": "数学与应用数学",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 金融学",
+        "北京大学 - 金融工程",
+        "北京大学 - 投资学",
+        "北京大学 - 法学",
+        "北京大学 - 数学与应用数学",
+        "北京大学 - 信息与计算科学",
+        "北京大学 - 物理学",
+        "北京大学 - 生物信息学",
+        "北京大学 - 统计学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 22313,
+      "actual_university": "天津医科大学",
+      "actual_major": "软件工程",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 金融学",
+        "北京大学 - 金融工程",
+        "北京大学 - 投资学",
+        "北京大学 - 法学",
+        "北京大学 - 数学与应用数学",
+        "北京大学 - 信息与计算科学",
+        "北京大学 - 物理学",
+        "北京大学 - 生物信息学",
+        "北京大学 - 统计学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 24290,
+      "actual_university": "华中农业大学",
+      "actual_major": "临床医学",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 经济学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 财政学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 金融学",
+        "北京大学 - 金融学",
+        "北京大学 - 金融工程",
+        "北京大学 - 保险学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 26943,
+      "actual_university": "陕西师范大学",
+      "actual_major": "电气工程及其自动化",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 经济学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 财政学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 金融学",
+        "北京大学 - 金融学",
+        "北京大学 - 金融工程"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 27007,
+      "actual_university": "湖南师范大学",
+      "actual_major": "工商管理",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 经济学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 财政学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 金融学",
+        "北京大学 - 金融学",
+        "北京大学 - 金融工程"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 27868,
+      "actual_university": "东北师范大学",
+      "actual_major": "软件工程",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 财政学",
+        "北京大学 - 财政学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 金融学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 29577,
+      "actual_university": "哈尔滨工程大学",
+      "actual_major": "机械工程",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 财政学",
+        "北京大学 - 财政学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 金融学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 30000,
+      "actual_university": "中国科学技术大学",
+      "actual_major": "通信工程",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 财政学",
+        "北京大学 - 财政学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 金融学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 30000,
+      "actual_university": "浙江大学",
+      "actual_major": "土木工程",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 财政学",
+        "北京大学 - 财政学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 金融学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 30000,
+      "actual_university": "哈尔滨工业大学",
+      "actual_major": "电子信息工程",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 财政学",
+        "北京大学 - 财政学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 金融学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 30000,
+      "actual_university": "中国科学技术大学",
+      "actual_major": "工商管理",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 财政学",
+        "北京大学 - 财政学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 金融学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 30000,
+      "actual_university": "西北工业大学",
+      "actual_major": "计算机科学与技术",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 财政学",
+        "北京大学 - 财政学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 金融学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 30000,
+      "actual_university": "中山大学",
+      "actual_major": "土木工程",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 财政学",
+        "北京大学 - 财政学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 金融学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 30000,
+      "actual_university": "浙江大学",
+      "actual_major": "英语",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 财政学",
+        "北京大学 - 财政学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 金融学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 30000,
+      "actual_university": "哈尔滨工业大学",
+      "actual_major": "电子信息工程",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 财政学",
+        "北京大学 - 财政学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 金融学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 30000,
+      "actual_university": "北京师范大学",
+      "actual_major": "法学",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 财政学",
+        "北京大学 - 财政学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 金融学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 30000,
+      "actual_university": "中国科学技术大学",
+      "actual_major": "电子信息工程",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 财政学",
+        "北京大学 - 财政学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 金融学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 30000,
+      "actual_university": "北京师范大学",
+      "actual_major": "英语",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 财政学",
+        "北京大学 - 财政学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 金融学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 30000,
+      "actual_university": "复旦大学",
+      "actual_major": "电气工程及其自动化",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 财政学",
+        "北京大学 - 财政学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 金融学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 30000,
+      "actual_university": "哈尔滨工业大学",
+      "actual_major": "机械工程",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 财政学",
+        "北京大学 - 财政学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 金融学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 30000,
+      "actual_university": "上海交通大学",
+      "actual_major": "工商管理",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 财政学",
+        "北京大学 - 财政学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 金融学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 30000,
+      "actual_university": "中山大学",
+      "actual_major": "金融学",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 财政学",
+        "北京大学 - 财政学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 金融学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 30000,
+      "actual_university": "西北工业大学",
+      "actual_major": "机械工程",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 财政学",
+        "北京大学 - 财政学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 金融学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 30000,
+      "actual_university": "南京大学",
+      "actual_major": "软件工程",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 财政学",
+        "北京大学 - 财政学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 金融学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    },
+    {
+      "rank": 30000,
+      "actual_university": "上海交通大学",
+      "actual_major": "工商管理",
+      "top10_recommendations": [
+        "北京大学 - 经济学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 经济统计学",
+        "北京大学 - 财政学",
+        "北京大学 - 财政学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 税收学",
+        "北京大学 - 金融学"
+      ],
+      "probability_if_found": null,
+      "error": null
+    }
+  ],
+  "test_summary": {
+    "total_tests": 500,
+    "university_hit_rate": 19.2,
+    "exact_hit_rate": 4.3999999999999995,
+    "test_duration": 1107.994427204132
+  }
+}

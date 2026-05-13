@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir /B \"D:\\\\xuefeng_volunteer\\\\backend\\\\admin\\\\templates\")",
+      "Bash(dir:*)",
+      "Bash(curl:*)",
+      "Bash(python -c \"\nimport sys, re\nhtml = sys.stdin.read\\(\\)\n# Find all PDF links\npdfs = re.findall\\(r''href=\"\"\\([^\"\"]+\\\\.pdf\\)\"\"'', html, re.IGNORECASE\\)\nfor p in pdfs:\n    print\\(p\\)\n# Also find attachments\nattachments = re.findall\\(r''href=\"\"\\([^\"\"]+\\(?:投档|录取|普通类|征集|附件\\)[^\"\"]+\\)\"\"'', html\\)\nfor a in attachments:\n    print\\(a\\)\n\")"
+    ]
+  }
+}

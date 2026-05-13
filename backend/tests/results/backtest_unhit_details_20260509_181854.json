@@ -1,0 +1,386 @@
+[
+  {
+    "rank": 5505,
+    "actual_university": "中国政法大学",
+    "actual_major": "计算机科学与技术",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 10000,
+    "actual_university": "浙江大学",
+    "actual_major": "电气工程及其自动化",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 10000,
+    "actual_university": "北京大学",
+    "actual_major": "金融学",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 10000,
+    "actual_university": "同济大学",
+    "actual_major": "电气工程及其自动化",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 10000,
+    "actual_university": "中山大学",
+    "actual_major": "电子信息工程",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 20280,
+    "actual_university": "南昌大学",
+    "actual_major": "经济学",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 28875,
+    "actual_university": "安徽大学",
+    "actual_major": "工商管理",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 30000,
+    "actual_university": "哈尔滨工业大学",
+    "actual_major": "电子信息工程",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 30000,
+    "actual_university": "西安交通大学",
+    "actual_major": "土木工程",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 30000,
+    "actual_university": "北京大学",
+    "actual_major": "英语",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 30000,
+    "actual_university": "西安交通大学",
+    "actual_major": "金融学",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 30000,
+    "actual_university": "西北工业大学",
+    "actual_major": "电气工程及其自动化",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 59693,
+    "actual_university": "南方医科大学",
+    "actual_major": "护理学",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 70000,
+    "actual_university": "浙江大学",
+    "actual_major": "法学",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 70000,
+    "actual_university": "一本院校16",
+    "actual_major": "金融学",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 70000,
+    "actual_university": "北京师范大学",
+    "actual_major": "英语",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 70000,
+    "actual_university": "哈尔滨工业大学",
+    "actual_major": "通信工程",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 70000,
+    "actual_university": "西安交通大学",
+    "actual_major": "英语",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 70000,
+    "actual_university": "一本院校17",
+    "actual_major": "会计学",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 70000,
+    "actual_university": "一本院校8",
+    "actual_major": "土木工程",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 70000,
+    "actual_university": "一本院校15",
+    "actual_major": "会计学",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 70000,
+    "actual_university": "一本院校11",
+    "actual_major": "英语",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 70000,
+    "actual_university": "一本院校14",
+    "actual_major": "土木工程",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 70000,
+    "actual_university": "一本院校14",
+    "actual_major": "通信工程",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 95728,
+    "actual_university": "广西医科大学",
+    "actual_major": "预防医学",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 120000,
+    "actual_university": "南京大学",
+    "actual_major": "金融学",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 120000,
+    "actual_university": "二本院校11",
+    "actual_major": "土木工程",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 120000,
+    "actual_university": "北京大学",
+    "actual_major": "通信工程",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 120000,
+    "actual_university": "哈尔滨工业大学",
+    "actual_major": "电子信息工程",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 120000,
+    "actual_university": "同济大学",
+    "actual_major": "计算机科学与技术",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 120000,
+    "actual_university": "二本院校8",
+    "actual_major": "土木工程",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 120000,
+    "actual_university": "二本院校22",
+    "actual_major": "电子信息工程",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 120000,
+    "actual_university": "二本院校15",
+    "actual_major": "金融学",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 120000,
+    "actual_university": "西安交通大学",
+    "actual_major": "法学",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 120000,
+    "actual_university": "二本院校13",
+    "actual_major": "金融学",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 120000,
+    "actual_university": "二本院校2",
+    "actual_major": "机械工程",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 167555,
+    "actual_university": "广东理工学院",
+    "actual_major": "英语",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 200000,
+    "actual_university": "专科院校5",
+    "actual_major": "会计学",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 200000,
+    "actual_university": "专科院校42",
+    "actual_major": "电气工程及其自动化",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 200000,
+    "actual_university": "北京师范大学",
+    "actual_major": "英语",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 200000,
+    "actual_university": "专科院校11",
+    "actual_major": "电气工程及其自动化",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 200000,
+    "actual_university": "专科院校41",
+    "actual_major": "计算机科学与技术",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 200000,
+    "actual_university": "西安交通大学",
+    "actual_major": "土木工程",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 250443,
+    "actual_university": "广东机电职业技术学院",
+    "actual_major": "计算机应用技术",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 350000,
+    "actual_university": "专科院校5",
+    "actual_major": "金融学",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 350000,
+    "actual_university": "专科院校26",
+    "actual_major": "会计学",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 350000,
+    "actual_university": "专科院校7",
+    "actual_major": "会计学",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  },
+  {
+    "rank": 350000,
+    "actual_university": "专科院校45",
+    "actual_major": "电气工程及其自动化",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "未知错误"
+  }
+]

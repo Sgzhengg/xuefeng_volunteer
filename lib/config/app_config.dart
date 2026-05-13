@@ -1,7 +1,9 @@
 /// 应用配置
 class AppConfig {
   /// 后端API基础URL
-  static const String apiBaseUrl = 'http://localhost:8000';
+  // 开发环境: 'http://localhost:8000'
+  // 生产环境: 'https://backend-api.zeabur.app'
+  static const String apiBaseUrl = 'https://backend-api.zeabur.app';
 
   /// 应用名称
   static const String appName = '学锋志愿教练';

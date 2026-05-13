@@ -1,0 +1,61 @@
+{
+  "generation_time": "2026-05-09T17:47:21.583099",
+  "data_file": "..\\data\\major_rank_data.json",
+  "cleaned_data_file": "..\\data\\cleaned_major_rank_data.json",
+  "cleaning_statistics": {
+    "original_count": 838773,
+    "duplicate_count": 54363,
+    "cleaned_count": 784410,
+    "reduction_rate": 0.0648125297309284
+  },
+  "year_breakdown": {
+    "2021": 16665,
+    "2022": 16665,
+    "2023": 16665,
+    "2024": 734415
+  },
+  "unknown_year_count": 0,
+  "2025_statistics": {
+    "total_2025_records": 0,
+    "province_stats": {},
+    "rank_segment_stats": {},
+    "university_type_stats": {},
+    "major_coverage_stats": {
+      "total_universities": 0,
+      "universities_with_5plus_majors": 0,
+      "average_majors_per_university": 0
+    }
+  },
+  "verification": {
+    "has_duplicates": true,
+    "duplicate_keys_count": 52131,
+    "total_2025_records": 0,
+    "rank_coverage": {
+      "1-10000": {
+        "count": 0,
+        "sufficient": false
+      },
+      "10001-30000": {
+        "count": 0,
+        "sufficient": false
+      },
+      "30001-70000": {
+        "count": 0,
+        "sufficient": false
+      },
+      "70001-120000": {
+        "count": 0,
+        "sufficient": false
+      },
+      "120001-200000": {
+        "count": 0,
+        "sufficient": false
+      },
+      "200001-350000": {
+        "count": 0,
+        "sufficient": false
+      }
+    },
+    "sufficient_segments": 0
+  }
+}

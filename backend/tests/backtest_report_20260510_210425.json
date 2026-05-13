@@ -1,0 +1,351 @@
+{
+  "timestamp": "2026-05-10T21:04:25.230002",
+  "test_config": {
+    "sample_size": 500,
+    "total_records": 31401,
+    "test_cases_count": 497,
+    "algorithm": "simple_rank_matching"
+  },
+  "overall_results": {
+    "hit_count": 47,
+    "total_tests": 497,
+    "hit_rate": 9.456740442655935
+  },
+  "segment_results": {
+    "1-10000": 16.8141592920354,
+    "10001-30000": 12.5,
+    "30001-70000": 2.0408163265306123,
+    "70001-120000": 1.7543859649122806,
+    "120001-200000": 0.0,
+    "200001-350000": 8.695652173913043
+  },
+  "unhit_cases_count": 450,
+  "unhit_cases_sample": [
+    {
+      "hit": false,
+      "recommendations_count": 25,
+      "test_case": {
+        "year": 2025,
+        "province": "湖北",
+        "university_name": "上海交通大学",
+        "major_name": "通信工程",
+        "major_code": "080703",
+        "min_rank": 10000,
+        "min_score": 650,
+        "data_source": "湖北_mock_2025",
+        "mock_data": true,
+        "rank_range": 1
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 25,
+      "test_case": {
+        "year": 2025,
+        "province": "四川",
+        "university_name": "中山大学",
+        "major_name": "金融学",
+        "major_code": "020301",
+        "min_rank": 10000,
+        "min_score": 650,
+        "data_source": "四川_mock_2025",
+        "mock_data": true,
+        "rank_range": 1
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 25,
+      "test_case": {
+        "year": 2025,
+        "province": "四川",
+        "university_name": "同济大学",
+        "major_name": "软件工程",
+        "major_code": "080902",
+        "min_rank": 10000,
+        "min_score": 650,
+        "data_source": "四川_mock_2025",
+        "mock_data": true,
+        "rank_range": 1
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 25,
+      "test_case": {
+        "year": 2025,
+        "province": "湖南",
+        "university_name": "北京师范大学",
+        "major_name": "法学",
+        "major_code": "030101",
+        "min_rank": 10000,
+        "min_score": 650,
+        "data_source": "湖南_mock_2025",
+        "mock_data": true,
+        "rank_range": 1
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 25,
+      "test_case": {
+        "year": 2025,
+        "province": "江苏",
+        "university_name": "清华大学",
+        "major_name": "金融学",
+        "major_code": "020301",
+        "min_rank": 10000,
+        "min_score": 650,
+        "data_source": "江苏_mock_2025",
+        "mock_data": true,
+        "rank_range": 1
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 25,
+      "test_case": {
+        "year": 2025,
+        "province": "河南",
+        "university_name": "清华大学",
+        "major_name": "电气工程及其自动化",
+        "major_code": "080601",
+        "min_rank": 10000,
+        "min_score": 650,
+        "data_source": "河南_mock_2025",
+        "mock_data": true,
+        "rank_range": 1
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 25,
+      "test_case": {
+        "year": 2025,
+        "province": "四川",
+        "university_name": "上海交通大学",
+        "major_name": "金融学",
+        "major_code": "020301",
+        "min_rank": 10000,
+        "min_score": 650,
+        "data_source": "四川_mock_2025",
+        "mock_data": true,
+        "rank_range": 1
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 25,
+      "test_case": {
+        "year": 2025,
+        "province": "江西",
+        "university_name": "北京大学",
+        "major_name": "计算机科学与技术",
+        "major_code": "080901",
+        "min_rank": 10000,
+        "min_score": 650,
+        "data_source": "江西_mock_2025",
+        "mock_data": true,
+        "rank_range": 1
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 25,
+      "test_case": {
+        "year": 2025,
+        "province": "广西",
+        "university_name": "同济大学",
+        "major_name": "软件工程",
+        "major_code": "080902",
+        "min_rank": 10000,
+        "min_score": 650,
+        "data_source": "广西_mock_2025",
+        "mock_data": true,
+        "rank_range": 1
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 25,
+      "test_case": {
+        "year": 2025,
+        "province": "江西",
+        "university_name": "北京大学",
+        "major_name": "金融学",
+        "major_code": "020301",
+        "min_rank": 10000,
+        "min_score": 650,
+        "data_source": "江西_mock_2025",
+        "mock_data": true,
+        "rank_range": 1,
+        "expansion_note": "专业组映射缺失，保留原始数据"
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 25,
+      "test_case": {
+        "year": 2025,
+        "province": "福建",
+        "university_name": "哈尔滨工业大学",
+        "major_name": "电子信息工程",
+        "major_code": "080701",
+        "min_rank": 10000,
+        "min_score": 650,
+        "data_source": "福建_mock_2025",
+        "mock_data": true,
+        "rank_range": 1,
+        "expansion_note": "专业组映射缺失，保留原始数据"
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 25,
+      "test_case": {
+        "year": 2025,
+        "province": "四川",
+        "university_name": "华南理工大学",
+        "major_name": "通信工程",
+        "major_code": "080703",
+        "min_rank": 10000,
+        "min_score": 650,
+        "data_source": "四川_mock_2025",
+        "mock_data": true,
+        "rank_range": 1,
+        "expansion_note": "专业组映射缺失，保留原始数据"
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 25,
+      "test_case": {
+        "year": 2025,
+        "province": "湖北",
+        "university_name": "中山大学",
+        "major_name": "法学",
+        "major_code": "030101",
+        "min_rank": 10000,
+        "min_score": 650,
+        "data_source": "湖北_mock_2025",
+        "mock_data": true,
+        "rank_range": 1
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 25,
+      "test_case": {
+        "year": 2025,
+        "province": "湖南",
+        "university_name": "南京大学",
+        "major_name": "电子信息工程",
+        "major_code": "080701",
+        "min_rank": 10000,
+        "min_score": 650,
+        "data_source": "湖南_mock_2025",
+        "mock_data": true,
+        "rank_range": 1,
+        "expansion_note": "专业组映射缺失，保留原始数据"
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 25,
+      "test_case": {
+        "year": 2025,
+        "province": "湖北",
+        "university_name": "华南理工大学",
+        "major_name": "法学",
+        "major_code": "030101",
+        "min_rank": 10000,
+        "min_score": 650,
+        "data_source": "湖北_mock_2025",
+        "mock_data": true,
+        "rank_range": 1
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 25,
+      "test_case": {
+        "year": 2025,
+        "province": "四川",
+        "university_name": "西北工业大学",
+        "major_name": "机械工程",
+        "major_code": "080202",
+        "min_rank": 10000,
+        "min_score": 650,
+        "data_source": "四川_mock_2025",
+        "mock_data": true,
+        "rank_range": 1,
+        "expansion_note": "专业组映射缺失，保留原始数据"
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 25,
+      "test_case": {
+        "year": 2025,
+        "province": "湖南",
+        "university_name": "哈尔滨工业大学",
+        "major_name": "机械工程",
+        "major_code": "080202",
+        "min_rank": 10000,
+        "min_score": 650,
+        "data_source": "湖南_mock_2025",
+        "mock_data": true,
+        "rank_range": 1
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 25,
+      "test_case": {
+        "year": 2025,
+        "province": "北京",
+        "university_name": "吉林大学",
+        "major_name": "物理学",
+        "major_code": "070201",
+        "min_rank": 8083,
+        "min_score": 670,
+        "data_source": "吉林大学_official_2025",
+        "university_level": "985",
+        "generated": true,
+        "rank_range": "8000-10000"
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 25,
+      "test_case": {
+        "year": 2025,
+        "province": "安徽",
+        "university_name": "西安交通大学",
+        "major_name": "金融学",
+        "major_code": "020301",
+        "min_rank": 10000,
+        "min_score": 650,
+        "data_source": "安徽_mock_2025",
+        "mock_data": true,
+        "rank_range": 1
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 25,
+      "test_case": {
+        "year": 2025,
+        "province": "浙江",
+        "university_name": "北京师范大学",
+        "major_name": "法学",
+        "major_code": "030101",
+        "min_rank": 10000,
+        "min_score": 650,
+        "data_source": "浙江_mock_2025",
+        "mock_data": true,
+        "rank_range": 1
+      }
+    }
+  ]
+}

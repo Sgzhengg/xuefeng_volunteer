@@ -1,0 +1,58 @@
+[
+  {
+    "rank": 18760,
+    "actual_university": "复旦大学",
+    "actual_major": "医学影像学",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "HTTP 404"
+  },
+  {
+    "rank": 18760,
+    "actual_university": "浙江大学",
+    "actual_major": "信息工程",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "HTTP 404"
+  },
+  {
+    "rank": 18760,
+    "actual_university": "北京大学",
+    "actual_major": "应用物理学",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "HTTP 404"
+  },
+  {
+    "rank": 19600,
+    "actual_university": "北京大学",
+    "actual_major": "侦查学",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "HTTP 404"
+  },
+  {
+    "rank": 19600,
+    "actual_university": "北京大学",
+    "actual_major": "日语",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "HTTP 404"
+  },
+  {
+    "rank": 20440,
+    "actual_university": "复旦大学",
+    "actual_major": "市场营销",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "HTTP 404"
+  },
+  {
+    "rank": 21000,
+    "actual_university": "复旦大学",
+    "actual_major": "监狱学",
+    "top10_recommendations": [],
+    "probability_if_found": null,
+    "error": "HTTP 404"
+  }
+]

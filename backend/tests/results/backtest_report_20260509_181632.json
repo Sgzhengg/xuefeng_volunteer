@@ -1,0 +1,489 @@
+{
+  "statistics": {
+    "test_config": {
+      "total_tests": 48,
+      "api_endpoint": "http://localhost:8000/api/v1/recommendation/generate",
+      "default_subjects": [
+        "物理",
+        "化学",
+        "生物"
+      ],
+      "default_preference": "balanced",
+      "test_time": "2026-05-09T18:16:32.003229"
+    },
+    "overall_metrics": {
+      "total_tests": 48,
+      "university_hits": 0,
+      "university_hit_rate": 0.0,
+      "exact_hits": 0,
+      "exact_hit_rate": 0.0
+    },
+    "rank_range_metrics": [
+      {
+        "rank_range": "1-10000",
+        "description": "985/211顶尖段",
+        "test_count": 5,
+        "university_hits": 0,
+        "university_hit_rate": 0.0,
+        "exact_hits": 0,
+        "exact_hit_rate": 0.0
+      },
+      {
+        "rank_range": "10001-30000",
+        "description": "211/重点段",
+        "test_count": 7,
+        "university_hits": 0,
+        "university_hit_rate": 0.0,
+        "exact_hits": 0,
+        "exact_hit_rate": 0.0
+      },
+      {
+        "rank_range": "30001-70000",
+        "description": "一本段",
+        "test_count": 12,
+        "university_hits": 0,
+        "university_hit_rate": 0.0,
+        "exact_hits": 0,
+        "exact_hit_rate": 0.0
+      },
+      {
+        "rank_range": "70001-120000",
+        "description": "二本段",
+        "test_count": 12,
+        "university_hits": 0,
+        "university_hit_rate": 0.0,
+        "exact_hits": 0,
+        "exact_hit_rate": 0.0
+      },
+      {
+        "rank_range": "120001-200000",
+        "description": "民办/专科段",
+        "test_count": 7,
+        "university_hits": 0,
+        "university_hit_rate": 0.0,
+        "exact_hits": 0,
+        "exact_hit_rate": 0.0
+      },
+      {
+        "rank_range": "200001-350000",
+        "description": "专科段",
+        "test_count": 5,
+        "university_hits": 0,
+        "university_hit_rate": 0.0,
+        "exact_hits": 0,
+        "exact_hit_rate": 0.0
+      }
+    ],
+    "probability_metrics": [],
+    "performance_metrics": {
+      "total_requests": 48,
+      "total_time": 101.28004431724548,
+      "avg_response_time": 2110.0009232759476,
+      "min_response_time": 2072.1499919891357,
+      "max_response_time": 2192.755699157715,
+      "median_response_time": 2106.107711791992
+    },
+    "error_metrics": {
+      "error_count": 48,
+      "error_rate": 100.0,
+      "common_errors": [
+        {
+          "error": "未知错误",
+          "count": 48
+        }
+      ]
+    }
+  },
+  "unhit_details": [
+    {
+      "rank": 10000,
+      "actual_university": "上海交通大学",
+      "actual_major": "通信工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 10000,
+      "actual_university": "南京大学",
+      "actual_major": "法学",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 10000,
+      "actual_university": "哈尔滨工业大学",
+      "actual_major": "软件工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 10000,
+      "actual_university": "清华大学",
+      "actual_major": "电子信息工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 10000,
+      "actual_university": "西北工业大学",
+      "actual_major": "土木工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 10529,
+      "actual_university": "海南大学",
+      "actual_major": "中医学",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 30000,
+      "actual_university": "清华大学",
+      "actual_major": "土木工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 30000,
+      "actual_university": "清华大学",
+      "actual_major": "英语",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 30000,
+      "actual_university": "浙江大学",
+      "actual_major": "计算机科学与技术",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 30000,
+      "actual_university": "西安交通大学",
+      "actual_major": "电气工程及其自动化",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 30000,
+      "actual_university": "清华大学",
+      "actual_major": "计算机科学与技术",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 30000,
+      "actual_university": "清华大学",
+      "actual_major": "软件工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 48287,
+      "actual_university": "福州大学",
+      "actual_major": "电气工程及其自动化",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 54163,
+      "actual_university": "广州大学",
+      "actual_major": "汉语言文学",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 70000,
+      "actual_university": "北京大学",
+      "actual_major": "英语",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 70000,
+      "actual_university": "北京大学",
+      "actual_major": "金融学",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 70000,
+      "actual_university": "华南理工大学",
+      "actual_major": "金融学",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 70000,
+      "actual_university": "一本院校5",
+      "actual_major": "英语",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 70000,
+      "actual_university": "西安交通大学",
+      "actual_major": "机械工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 70000,
+      "actual_university": "一本院校6",
+      "actual_major": "通信工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 70000,
+      "actual_university": "一本院校14",
+      "actual_major": "电子信息工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 70000,
+      "actual_university": "一本院校3",
+      "actual_major": "机械工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 70000,
+      "actual_university": "一本院校4",
+      "actual_major": "机械工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 70000,
+      "actual_university": "一本院校18",
+      "actual_major": "软件工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 83141,
+      "actual_university": "佛山科学技术学院",
+      "actual_major": "汉语言文学",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 90409,
+      "actual_university": "东莞理工学院",
+      "actual_major": "电子信息工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 117866,
+      "actual_university": "二本院校23",
+      "actual_major": "软件工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 120000,
+      "actual_university": "二本院校6",
+      "actual_major": "英语",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 120000,
+      "actual_university": "二本院校17",
+      "actual_major": "计算机科学与技术",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 120000,
+      "actual_university": "二本院校2",
+      "actual_major": "机械工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 120000,
+      "actual_university": "二本院校1",
+      "actual_major": "计算机科学与技术",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 120000,
+      "actual_university": "中国科学技术大学",
+      "actual_major": "英语",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 120000,
+      "actual_university": "二本院校22",
+      "actual_major": "通信工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 120000,
+      "actual_university": "二本院校19",
+      "actual_major": "机械工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 120000,
+      "actual_university": "北京师范大学",
+      "actual_major": "英语",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 120000,
+      "actual_university": "西北工业大学",
+      "actual_major": "机械工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 140000,
+      "actual_university": "广东白云学院",
+      "actual_major": "计算机科学与技术",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 200000,
+      "actual_university": "专科院校3",
+      "actual_major": "法学",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 200000,
+      "actual_university": "专科院校10",
+      "actual_major": "英语",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 200000,
+      "actual_university": "南京大学",
+      "actual_major": "电子信息工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 200000,
+      "actual_university": "专科院校46",
+      "actual_major": "土木工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 200000,
+      "actual_university": "专科院校8",
+      "actual_major": "电子信息工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 200000,
+      "actual_university": "专科院校46",
+      "actual_major": "软件工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 350000,
+      "actual_university": "专科院校6",
+      "actual_major": "通信工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 350000,
+      "actual_university": "专科院校15",
+      "actual_major": "金融学",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 350000,
+      "actual_university": "专科院校30",
+      "actual_major": "机械工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 350000,
+      "actual_university": "专科院校46",
+      "actual_major": "电子信息工程",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    },
+    {
+      "rank": 350000,
+      "actual_university": "专科院校41",
+      "actual_major": "法学",
+      "top10_recommendations": [],
+      "probability_if_found": null,
+      "error": "未知错误"
+    }
+  ],
+  "test_summary": {
+    "total_tests": 48,
+    "university_hit_rate": 0.0,
+    "exact_hit_rate": 0.0,
+    "test_duration": 104.46531987190247
+  }
+}

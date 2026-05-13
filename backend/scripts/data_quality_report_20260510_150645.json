@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-05-10T15:06:45.431396",
+  "total_records": 34,
+  "issues": {
+    "mock_data": {
+      "count": 0,
+      "items": []
+    },
+    "incomplete_data": {
+      "count": 0,
+      "items": []
+    },
+    "unrealistic_data": {
+      "count": 0,
+      "items": []
+    },
+    "format_errors": {
+      "count": 0,
+      "items": []
+    },
+    "missing_2025_data": {
+      "count": 0,
+      "items": []
+    }
+  }
+}

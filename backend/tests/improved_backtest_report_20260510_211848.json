@@ -1,0 +1,465 @@
+{
+  "timestamp": "2026-05-10T21:18:48.555673",
+  "test_config": {
+    "sample_size": 500,
+    "total_records": 32561,
+    "test_cases_count": 497,
+    "algorithm": "improved_stratified_matching"
+  },
+  "overall_results": {
+    "hit_count": 379,
+    "total_tests": 497,
+    "hit_rate": 76.25754527162978,
+    "avg_recommendations_per_case": 29.919517102615693
+  },
+  "segment_results": {
+    "1-10000": 75.22935779816514,
+    "10001-30000": 58.46153846153847,
+    "30001-70000": 97.89473684210527,
+    "70001-120000": 92.72727272727272,
+    "120001-200000": 80.95238095238095,
+    "200001-350000": 100.0
+  },
+  "unhit_cases_count": 118,
+  "unhit_cases_sample": [
+    {
+      "hit": false,
+      "recommendations_count": 30,
+      "test_case": {
+        "year": 2025,
+        "province": "北京",
+        "university_name": "东华大学",
+        "major_name": "中医学",
+        "major_code": "100501K",
+        "min_rank": 7390,
+        "min_score": 680,
+        "data_source": "东华大学_official_2025",
+        "university_level": "211",
+        "generated": true,
+        "rank_range": "7000-12000"
+      },
+      "candidates_breakdown": {
+        "冲刺": 15,
+        "稳妥": 20,
+        "保底": 15
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 30,
+      "test_case": {
+        "year": 2025,
+        "province": "浙江",
+        "university_name": "西南财经大学",
+        "major_name": "通信工程",
+        "major_code": "080703",
+        "min_rank": 6385,
+        "min_score": 690,
+        "data_source": "西南财经大学_official_2025",
+        "university_level": "211",
+        "generated": true,
+        "rank_range": "5000-9000"
+      },
+      "candidates_breakdown": {
+        "冲刺": 15,
+        "稳妥": 20,
+        "保底": 15
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 30,
+      "test_case": {
+        "year": 2025,
+        "province": "北京",
+        "university_name": "南京航空航天大学",
+        "major_name": "金融学",
+        "major_code": "020301",
+        "min_rank": 7597,
+        "min_score": 680,
+        "data_source": "南京航空航天大学_official_2025",
+        "university_level": "211",
+        "generated": true,
+        "rank_range": "6000-10000"
+      },
+      "candidates_breakdown": {
+        "冲刺": 15,
+        "稳妥": 20,
+        "保底": 15
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 30,
+      "test_case": {
+        "year": 2025,
+        "province": "江苏",
+        "university_name": "电子科技大学",
+        "major_name": "自动化",
+        "major_code": "080801",
+        "min_rank": 5171,
+        "min_score": 700,
+        "data_source": "电子科技大学_official_2025",
+        "university_level": "985",
+        "generated": true,
+        "rank_range": "3500-5500"
+      },
+      "candidates_breakdown": {
+        "冲刺": 15,
+        "稳妥": 20,
+        "保底": 15
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 30,
+      "test_case": {
+        "year": 2025,
+        "province": "江苏",
+        "university_name": "国防科技大学",
+        "major_name": "软件工程",
+        "major_code": "080902",
+        "min_rank": 2418,
+        "min_score": 730,
+        "data_source": "国防科技大学_official_2025",
+        "university_level": "985",
+        "generated": true,
+        "rank_range": "2000-4000"
+      },
+      "candidates_breakdown": {
+        "冲刺": 15,
+        "稳妥": 20,
+        "保底": 15
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 30,
+      "test_case": {
+        "year": 2025,
+        "province": "湖南",
+        "university_name": "电子科技大学",
+        "major_name": "法学",
+        "major_code": "030101",
+        "min_rank": 3379,
+        "min_score": 720,
+        "data_source": "电子科技大学_official_2025",
+        "university_level": "985",
+        "generated": true,
+        "rank_range": "2000-3500"
+      },
+      "candidates_breakdown": {
+        "冲刺": 15,
+        "稳妥": 20,
+        "保底": 15
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 30,
+      "test_case": {
+        "year": 2025,
+        "province": "四川",
+        "university_name": "北京外国语大学",
+        "major_name": "金融学",
+        "major_code": "020301",
+        "min_rank": 9290,
+        "min_score": 660,
+        "data_source": "北京外国语大学_official_2025",
+        "university_level": "211",
+        "generated": true,
+        "rank_range": "6500-9500"
+      },
+      "candidates_breakdown": {
+        "冲刺": 15,
+        "稳妥": 20,
+        "保底": 15
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 30,
+      "test_case": {
+        "year": 2025,
+        "province": "上海",
+        "university_name": "南京理工大学",
+        "major_name": "人工智能",
+        "major_code": "080717T",
+        "min_rank": 6387,
+        "min_score": 690,
+        "data_source": "南京理工大学_official_2025",
+        "university_level": "211",
+        "generated": true,
+        "rank_range": "6000-10000"
+      },
+      "candidates_breakdown": {
+        "冲刺": 15,
+        "稳妥": 20,
+        "保底": 15
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 30,
+      "test_case": {
+        "year": 2025,
+        "province": "北京",
+        "university_name": "国防科技大学",
+        "major_name": "经济学",
+        "major_code": "020101",
+        "min_rank": 3367,
+        "min_score": 720,
+        "data_source": "国防科技大学_official_2025",
+        "university_level": "985",
+        "generated": true,
+        "rank_range": "2000-4000"
+      },
+      "candidates_breakdown": {
+        "冲刺": 15,
+        "稳妥": 20,
+        "保底": 15
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 30,
+      "test_case": {
+        "year": 2025,
+        "province": "北京",
+        "university_name": "湖南大学",
+        "major_name": "自动化",
+        "major_code": "080801",
+        "min_rank": 6944,
+        "min_score": 690,
+        "data_source": "湖南大学_official_2025",
+        "university_level": "985",
+        "generated": true,
+        "rank_range": "6000-8000"
+      },
+      "candidates_breakdown": {
+        "冲刺": 15,
+        "稳妥": 20,
+        "保底": 15
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 30,
+      "test_case": {
+        "year": 2025,
+        "province": "湖南",
+        "university_name": "厦门大学",
+        "major_name": "人工智能",
+        "major_code": "080717T",
+        "min_rank": 6382,
+        "min_score": 690,
+        "data_source": "厦门大学_official_2025",
+        "university_level": "985",
+        "generated": true,
+        "rank_range": "6000-7000"
+      },
+      "candidates_breakdown": {
+        "冲刺": 15,
+        "稳妥": 20,
+        "保底": 15
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 30,
+      "test_case": {
+        "year": 2025,
+        "province": "北京",
+        "university_name": "上海财经大学",
+        "major_name": "会计学",
+        "major_code": "120203",
+        "min_rank": 7592,
+        "min_score": 680,
+        "data_source": "上海财经大学_official_2025",
+        "university_level": "211",
+        "generated": true,
+        "rank_range": "7000-8000"
+      },
+      "candidates_breakdown": {
+        "冲刺": 15,
+        "稳妥": 20,
+        "保底": 15
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 30,
+      "test_case": {
+        "year": 2025,
+        "province": "四川",
+        "university_name": "上海财经大学",
+        "major_name": "自动化",
+        "major_code": "080801",
+        "min_rank": 5156,
+        "min_score": 700,
+        "data_source": "上海财经大学_official_2025",
+        "university_level": "211",
+        "generated": true,
+        "rank_range": "4000-7000"
+      },
+      "candidates_breakdown": {
+        "冲刺": 15,
+        "稳妥": 20,
+        "保底": 15
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 30,
+      "test_case": {
+        "year": 2025,
+        "province": "浙江",
+        "university_name": "中国地质大学",
+        "major_name": "自动化",
+        "major_code": "080801",
+        "min_rank": 7740,
+        "min_score": 680,
+        "data_source": "中国地质大学_official_2025",
+        "university_level": "211",
+        "generated": true,
+        "rank_range": "4000-18000"
+      },
+      "candidates_breakdown": {
+        "冲刺": 15,
+        "稳妥": 20,
+        "保底": 15
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 30,
+      "test_case": {
+        "year": 2025,
+        "province": "河南",
+        "university_name": "清华大学",
+        "major_name": "金融学",
+        "major_code": "020301",
+        "min_rank": 1236,
+        "min_score": 740,
+        "data_source": "河南_mock_2025",
+        "mock_data": true,
+        "rank_range": 1,
+        "expansion_note": "专业组映射缺失，保留原始数据"
+      },
+      "candidates_breakdown": {
+        "冲刺": 15,
+        "稳妥": 20,
+        "保底": 15
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 30,
+      "test_case": {
+        "year": 2025,
+        "province": "安徽",
+        "university_name": "同济大学",
+        "major_name": "机械工程",
+        "major_code": "080202",
+        "min_rank": 10000,
+        "min_score": 650,
+        "data_source": "安徽_mock_2025",
+        "mock_data": true,
+        "rank_range": 1
+      },
+      "candidates_breakdown": {
+        "冲刺": 15,
+        "稳妥": 20,
+        "保底": 15
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 30,
+      "test_case": {
+        "year": 2025,
+        "province": "江苏",
+        "university_name": "南开大学",
+        "major_name": "人工智能",
+        "major_code": "080717T",
+        "min_rank": 2831,
+        "min_score": 730,
+        "data_source": "南开大学_official_2025",
+        "university_level": "985",
+        "generated": true,
+        "rank_range": "2500-4500"
+      },
+      "candidates_breakdown": {
+        "冲刺": 15,
+        "稳妥": 20,
+        "保底": 15
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 30,
+      "test_case": {
+        "year": 2025,
+        "province": "江苏",
+        "university_name": "国防科技大学",
+        "major_name": "电气工程及其自动化",
+        "major_code": "080601",
+        "min_rank": 2344,
+        "min_score": 730,
+        "data_source": "国防科技大学_official_2025",
+        "university_level": "985",
+        "generated": true,
+        "rank_range": "2000-4000"
+      },
+      "candidates_breakdown": {
+        "冲刺": 15,
+        "稳妥": 20,
+        "保底": 15
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 30,
+      "test_case": {
+        "year": 2025,
+        "province": "江苏",
+        "university_name": "苏州大学",
+        "major_name": "人工智能",
+        "major_code": "080717T",
+        "min_rank": 9473,
+        "min_score": 660,
+        "data_source": "苏州大学_official_2025",
+        "university_level": "211",
+        "generated": true,
+        "rank_range": "7000-12000"
+      },
+      "candidates_breakdown": {
+        "冲刺": 15,
+        "稳妥": 20,
+        "保底": 15
+      }
+    },
+    {
+      "hit": false,
+      "recommendations_count": 30,
+      "test_case": {
+        "year": 2025,
+        "province": "上海",
+        "university_name": "兰州大学",
+        "major_name": "化学",
+        "major_code": "070301",
+        "min_rank": 7822,
+        "min_score": 680,
+        "data_source": "兰州大学_official_2025",
+        "university_level": "985",
+        "generated": true,
+        "rank_range": "6000-10000"
+      },
+      "candidates_breakdown": {
+        "冲刺": 15,
+        "稳妥": 20,
+        "保底": 15
+      }
+    }
+  ]
+}

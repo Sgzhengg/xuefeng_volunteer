@@ -1,0 +1,153 @@
+{
+  "test_time": "1778210959.2560756",
+  "total_tests": 7,
+  "passed_tests": 7,
+  "test_results": [
+    {
+      "passed": true,
+      "total_count": 28,
+      "categories": {
+        "冲刺": 8,
+        "稳妥": 10,
+        "保底": 10
+      },
+      "sample_unis": [
+        "西安交通大学",
+        "哈尔滨工业大学",
+        "北京交通大学"
+      ],
+      "violations": [],
+      "algorithm": "guangdong_rank_based_v2",
+      "test_name": "超高位次（清北段）",
+      "expected_types": [
+        "清北复交",
+        "C9院校"
+      ]
+    },
+    {
+      "passed": true,
+      "total_count": 28,
+      "categories": {
+        "冲刺": 8,
+        "稳妥": 10,
+        "保底": 10
+      },
+      "sample_unis": [
+        "厦门大学",
+        "同济大学",
+        "北京师范大学"
+      ],
+      "violations": [],
+      "algorithm": "guangdong_rank_based_v2",
+      "test_name": "高位次（985段）",
+      "expected_types": [
+        "中坚985",
+        "顶尖211"
+      ]
+    },
+    {
+      "passed": true,
+      "total_count": 28,
+      "categories": {
+        "冲刺": 8,
+        "稳妥": 10,
+        "保底": 10
+      },
+      "sample_unis": [
+        "南京航空航天大学",
+        "南京理工大学",
+        "中国药科大学"
+      ],
+      "violations": [],
+      "algorithm": "guangdong_rank_based_v2",
+      "test_name": "中高位次（211段）",
+      "expected_types": [
+        "暨南大学",
+        "华南师范"
+      ]
+    },
+    {
+      "passed": true,
+      "total_count": 28,
+      "categories": {
+        "冲刺": 8,
+        "稳妥": 10,
+        "保底": 10
+      },
+      "sample_unis": [
+        "南京航空航天大学",
+        "南京理工大学",
+        "中国药科大学"
+      ],
+      "violations": [],
+      "algorithm": "guangdong_rank_based_v2",
+      "test_name": "中等位次（一本段）",
+      "expected_types": [
+        "广东工业",
+        "广州大学"
+      ]
+    },
+    {
+      "passed": true,
+      "total_count": 28,
+      "categories": {
+        "冲刺": 8,
+        "稳妥": 10,
+        "保底": 10
+      },
+      "sample_unis": [
+        "北京交通大学",
+        "北京交通大学",
+        "北京交通大学"
+      ],
+      "violations": [],
+      "algorithm": "guangdong_rank_based_v2",
+      "test_name": "中低位次（二本段）",
+      "expected_types": [
+        "佛山科技",
+        "东莞理工"
+      ]
+    },
+    {
+      "passed": true,
+      "total_count": 28,
+      "categories": {
+        "冲刺": 8,
+        "稳妥": 10,
+        "保底": 10
+      },
+      "sample_unis": [
+        "北京交通大学",
+        "北京交通大学",
+        "北京交通大学"
+      ],
+      "violations": [],
+      "algorithm": "guangdong_rank_based_v2",
+      "test_name": "低位次（专科头部）",
+      "expected_types": [
+        "深圳职业技术"
+      ]
+    },
+    {
+      "passed": true,
+      "total_count": 28,
+      "categories": {
+        "冲刺": 8,
+        "稳妥": 10,
+        "保底": 10
+      },
+      "sample_unis": [
+        "北京交通大学",
+        "北京交通大学",
+        "北京交通大学"
+      ],
+      "violations": [],
+      "algorithm": "guangdong_rank_based_v2",
+      "test_name": "超低位次（专科中尾部）",
+      "expected_types": [
+        "省内高职"
+      ]
+    }
+  ],
+  "overall_passed": true
+}

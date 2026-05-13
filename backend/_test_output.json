@@ -1,0 +1,413 @@
+{
+  "冲刺": [
+    {
+      "university": "华南师范大学",
+      "major": "专业组229",
+      "code": "229",
+      "rank": 32091,
+      "prob": 40,
+      "resolved": "['计算机科学与技术', '软件工程', '自动化', '机械工程', '电子信息工程']",
+      "roi": "N/A"
+    },
+    {
+      "university": "广东工业大学",
+      "major": "专业组216",
+      "code": "216",
+      "rank": 32464,
+      "prob": 42,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "岭南师范学院",
+      "major": "专业组广\n202",
+      "code": "广\n202",
+      "rank": 33750,
+      "prob": 45,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "广东警官学院(公安专项)",
+      "major": "专业组161",
+      "code": "161",
+      "rank": 33481,
+      "prob": 45,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "广东医科大学",
+      "major": "专业组212",
+      "code": "212",
+      "rank": 32660,
+      "prob": 43,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "华南农业大学",
+      "major": "专业组218",
+      "code": "218",
+      "rank": 32294,
+      "prob": 41,
+      "resolved": "['法学', '知识产权', '国际经济与贸易']",
+      "roi": "N/A"
+    },
+    {
+      "university": "肇庆学院",
+      "major": "专业组206",
+      "code": "206",
+      "rank": 32381,
+      "prob": 41,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "重庆三峡学院",
+      "major": "专业组204",
+      "code": "204",
+      "rank": 33650,
+      "prob": 45,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "中国石油大学(华东)",
+      "major": "专业组207",
+      "code": "207",
+      "rank": 32588,
+      "prob": 42,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "中北大学",
+      "major": "专业组201",
+      "code": "201",
+      "rank": 33185,
+      "prob": 45,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "遵义医科大学",
+      "major": "专业组208",
+      "code": "208",
+      "rank": 32458,
+      "prob": 42,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "东莞理工学院",
+      "major": "专业组206",
+      "code": "206",
+      "rank": 33526,
+      "prob": 45,
+      "resolved": "['数学与应用数学', '物理学', '应用化学', '生物科学']",
+      "roi": "N/A"
+    },
+    {
+      "university": "韶关学院",
+      "major": "专业组211",
+      "code": "211",
+      "rank": 33555,
+      "prob": 45,
+      "resolved": "['电子信息科学与技术', '微电子科学与工程', '集成电路设计与集成系统']",
+      "roi": "N/A"
+    },
+    {
+      "university": "湖北理工学院",
+      "major": "专业组207",
+      "code": "207",
+      "rank": 32361,
+      "prob": 41,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "中国地质大学(北京)",
+      "major": "专业组203",
+      "code": "203",
+      "rank": 33781,
+      "prob": 45,
+      "resolved": "[]",
+      "roi": "N/A"
+    }
+  ],
+  "稳妥": [
+    {
+      "university": "广东工业大学",
+      "major": "专业组209",
+      "code": "209",
+      "rank": 44239,
+      "prob": 70,
+      "resolved": "['金融学', '会计学', '国际经济与贸易', '工商管理']",
+      "roi": "N/A"
+    },
+    {
+      "university": "肇庆学院",
+      "major": "专业组207",
+      "code": "207",
+      "rank": 35022,
+      "prob": 47,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "惠州学院",
+      "major": "专业组202",
+      "code": "202",
+      "rank": 34744,
+      "prob": 46,
+      "resolved": "['汉语言文学', '英语', '工商管理', '会计学', '法学']",
+      "roi": "N/A"
+    },
+    {
+      "university": "华南农业大学",
+      "major": "专业组230",
+      "code": "230",
+      "rank": 35374,
+      "prob": 48,
+      "resolved": "['计算机科学与技术', '软件工程', '自动化', '机械工程', '电子信息工程']",
+      "roi": "N/A"
+    },
+    {
+      "university": "韶关学院",
+      "major": "专业组201",
+      "code": "201",
+      "rank": 39556,
+      "prob": 58,
+      "resolved": "['机械设计制造及其自动化', '电气工程及其自动化', '计算机科学与技术', '土木工程', '电子信息工程']",
+      "roi": "N/A"
+    },
+    {
+      "university": "北京林业大学",
+      "major": "专业组207",
+      "code": "207",
+      "rank": 37424,
+      "prob": 53,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "华南师范大学",
+      "major": "专业组221",
+      "code": "221",
+      "rank": 36157,
+      "prob": 50,
+      "resolved": "['中医学', '针灸推拿学', '中药学', '康复治疗学']",
+      "roi": "N/A"
+    },
+    {
+      "university": "遵义医科大学",
+      "major": "专业组209",
+      "code": "209",
+      "rank": 38105,
+      "prob": 55,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "韩山师范学院",
+      "major": "专业组204",
+      "code": "204",
+      "rank": 41649,
+      "prob": 64,
+      "resolved": "['计算机科学与技术', '电子信息工程']",
+      "roi": "N/A"
+    },
+    {
+      "university": "岭南师范学院",
+      "major": "专业组205",
+      "code": "205",
+      "rank": 36142,
+      "prob": 50,
+      "resolved": "['化学', '生物科学', '地理科学']",
+      "roi": "N/A"
+    },
+    {
+      "university": "湖北理工学院",
+      "major": "专业组201",
+      "code": "201",
+      "rank": 38698,
+      "prob": 56,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "广东石油化工学院",
+      "major": "专业组育\n211",
+      "code": "育\n211",
+      "rank": 40832,
+      "prob": 62,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "嘉应学院",
+      "major": "专业组222",
+      "code": "222",
+      "rank": 40890,
+      "prob": 62,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "徐州工程学院",
+      "major": "专业组202",
+      "code": "202",
+      "rank": 39588,
+      "prob": 58,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "北京师范大学-香港浸会大学联合国际学院",
+      "major": "专业组202",
+      "code": "202",
+      "rank": 35270,
+      "prob": 48,
+      "resolved": "['工商管理', '会计学', '人力资源管理', '市场营销', '金融学']",
+      "roi": "N/A"
+    }
+  ],
+  "保底": [
+    {
+      "university": "广东工业大学",
+      "major": "专业组225",
+      "code": "225",
+      "rank": 47667,
+      "prob": 85,
+      "resolved": "['机械电子工程', '汽车服务工程', '车辆工程']",
+      "roi": "N/A"
+    },
+    {
+      "university": "华南农业大学",
+      "major": "专业组217",
+      "code": "217",
+      "rank": 46082,
+      "prob": 82,
+      "resolved": "['工商管理', '市场营销', '人力资源管理']",
+      "roi": "N/A"
+    },
+    {
+      "university": "广东警官学院(公安专项)",
+      "major": "专业组178",
+      "code": "178",
+      "rank": 47903,
+      "prob": 86,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "惠州学院",
+      "major": "专业组213",
+      "code": "213",
+      "rank": 46699,
+      "prob": 83,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "深圳技术大学",
+      "major": "专业组205",
+      "code": "205",
+      "rank": 47496,
+      "prob": 85,
+      "resolved": "['城市轨道交通运营管理', '交通设备与控制']",
+      "roi": "N/A"
+    },
+    {
+      "university": "宁波大学",
+      "major": "专业组206",
+      "code": "206",
+      "rank": 47545,
+      "prob": 85,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "湖北大学知行学院",
+      "major": "专业组201",
+      "code": "201",
+      "rank": 46698,
+      "prob": 83,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "电子科技大学成都学院",
+      "major": "专业组201",
+      "code": "201",
+      "rank": 47883,
+      "prob": 86,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "长江大学文理学院",
+      "major": "专业组201",
+      "code": "201",
+      "rank": 47733,
+      "prob": 85,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "辽宁中医药大学",
+      "major": "专业组202",
+      "code": "202",
+      "rank": 46758,
+      "prob": 83,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "中国矿业大学(中外合作办学)",
+      "major": "专业组205",
+      "code": "205",
+      "rank": 46885,
+      "prob": 83,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "内蒙古大学",
+      "major": "专业组210",
+      "code": "210",
+      "rank": 47788,
+      "prob": 86,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "北京工商大学",
+      "major": "专业组育\n201",
+      "code": "育\n201",
+      "rank": 46348,
+      "prob": 82,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "广州航海学院(联合培养)",
+      "major": "专业组212",
+      "code": "212",
+      "rank": 46008,
+      "prob": 82,
+      "resolved": "[]",
+      "roi": "N/A"
+    },
+    {
+      "university": "天津医科大学临床医学院",
+      "major": "专业组205",
+      "code": "205",
+      "rank": 46809,
+      "prob": 83,
+      "resolved": "[]",
+      "roi": "N/A"
+    }
+  ]
+}
