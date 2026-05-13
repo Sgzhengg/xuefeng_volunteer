@@ -23,18 +23,25 @@ COPY requirements.txt .
 # 安装Python依赖
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 复制应用代码
-COPY . .
+# 复制应用代码（按顺序复制以确保正确性）
+COPY app/ ./app/
+COPY admin/ ./admin/
+COPY data/ ./data/
 
 # 创建必要的目录
 RUN mkdir -p /app/data /app/database /app/logs /app/reports
+
+# 验证关键文件存在
+RUN ls -la /app/app/main.py && \
+    ls -la /app/admin/templates/login.html && \
+    echo "✓ 关键文件验证通过"
 
 # 暴露端口
 EXPOSE 8000
 
 # 健康检查（使用Python替代curl）
-HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')" || exit 1
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=5)" || exit 1
 
 # 启动命令
 CMD ["python", "-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

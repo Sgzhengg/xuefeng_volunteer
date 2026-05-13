@@ -47,10 +47,11 @@ desktop.ini
 .env.*.local
 
 # 数据文件（大文件不打包到镜像）
-backend/data/raw/
-backend/data/temp_*/
-backend/data/backups/
-backend/reports/
+# 注意：构建上下文是 /backend，所以路径是相对于 backend 目录的
+data/raw/
+data/temp_*/
+data/backups/
+reports/
 
 # 测试
 .pytest_cache/
