@@ -11,6 +11,7 @@ import '../../../core/models/chat_message.dart';
 import '../../../core/models/user_profile.dart';
 import '../../../core/models/gaokao_data_models.dart';
 import '../../../core/models/gaokao_data_context.dart';
+import '../../../config/app_config.dart';
 
 part 'chat_controller.g.dart';
 
@@ -643,7 +644,7 @@ class ChatController extends _$ChatController {
 
   /// 调用后端API的辅助方法
   Future<String> _callBackendApi(String message) async {
-    final url = Uri.parse('http://localhost:8000/api/v1/chat');
+    final url = Uri.parse('${AppConfig.apiBaseUrl}/api/v1/chat');
 
     final requestBody = {
       'message': message,

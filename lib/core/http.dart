@@ -2,9 +2,10 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
+import '../config/app_config.dart';
 
 class ApiClient {
-  static const String baseUrl = 'http://localhost:8000';
+  static String get baseUrl => AppConfig.apiBaseUrl;
 
   static Future<String> _getToken() async {
     try {

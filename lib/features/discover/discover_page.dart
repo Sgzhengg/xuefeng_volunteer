@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../../shared/theme/app_theme.dart';
+import '../../config/app_config.dart';
 
 /// 发现页面 - 热词榜和红牌专业避坑清单
 class DiscoverPage extends ConsumerStatefulWidget {
@@ -32,7 +33,7 @@ class _DiscoverPageState extends ConsumerState<DiscoverPage> {
   Future<void> _loadHeatWords() async {
     try {
       final response = await http.get(
-        Uri.parse('http://localhost:8000/api/v1/heat/list'),
+        Uri.parse('${AppConfig.apiBaseUrl}/api/v1/heat/list'),
       ).timeout(const Duration(seconds: 10));
 
       if (response.statusCode == 200) {
@@ -63,7 +64,7 @@ class _DiscoverPageState extends ConsumerState<DiscoverPage> {
   Future<void> _loadRedList() async {
     try {
       final response = await http.get(
-        Uri.parse('http://localhost:8000/api/v1/roi/redlist'),
+        Uri.parse('${AppConfig.apiBaseUrl}/api/v1/roi/redlist'),
       ).timeout(const Duration(seconds: 10));
 
       if (response.statusCode == 200) {

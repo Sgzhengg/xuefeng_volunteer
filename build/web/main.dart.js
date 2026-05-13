@@ -93607,7 +93607,7 @@ return A.I($async$tq,r)},
 tL(a){return this.a7E(a)},
 a7E(a){var s=0,r=A.J(t.N),q,p=2,o,n,m,l,k,j,i,h,g,f,e,d,c,b
 var $async$tL=A.K(function(a0,a1){if(a0===1){o=a1
-s=p}while(true)switch(s){case 0:f=A.co("http://localhost:8000/api/v1/chat")
+s=p}while(true)switch(s){case 0:f=A.co("https://backend-api.zeabur.app/api/v1/chat")
 e=t.z
 d=t.N
 c=A.ad(["message",a,"context",A.t(e,e),"conversation_history",null],d,t.X)
@@ -93739,7 +93739,7 @@ yG(){var s=0,r=A.J(t.H),q,p=2,o,n=this,m,l,k,j,i,h,g
 var $async$yG=A.K(function(a,b){if(a===1){o=b
 s=p}while(true)switch(s){case 0:p=4
 s=7
-return A.B(A.tw(A.co("http://localhost:8000/api/v1/heat/list"),null).t1(0,B.of),$async$yG)
+return A.B(A.tw(A.co("https://backend-api.zeabur.app/api/v1/heat/list"),null).t1(0,B.of),$async$yG)
 case 7:m=b
 if(m.b===200){i=m
 l=B.aj.iK(0,A.ka(A.k9(i.e)).d6(0,i.w),null)
@@ -93765,7 +93765,7 @@ yI(){var s=0,r=A.J(t.H),q,p=2,o,n=this,m,l,k,j,i,h,g
 var $async$yI=A.K(function(a,b){if(a===1){o=b
 s=p}while(true)switch(s){case 0:p=4
 s=7
-return A.B(A.tw(A.co("http://localhost:8000/api/v1/roi/redlist"),null).t1(0,B.of),$async$yI)
+return A.B(A.tw(A.co("https://backend-api.zeabur.app/api/v1/roi/redlist"),null).t1(0,B.of),$async$yI)
 case 7:m=b
 if(m.b===200){i=m
 l=B.aj.iK(0,A.ka(A.k9(i.e)).d6(0,i.w),null)
@@ -94972,7 +94972,7 @@ l=A.a([],t.s)
 if(J.bH(m)!==0){d=J.aCn(m,A.aw("[\uff0c,]",!0,!1,!1))
 d=new A.T(d,new A.axN(),A.R(d).i("T<1,j>")).xH(0,new A.axO())
 l=A.Y(d,!0,d.$ti.i("m.E"))}k=A.ci(B.c.cZ(n.z.a.a),null)
-d=A.co("http://localhost:8000/api/v1/recommendation/generate")
+d=A.co("https://backend-api.zeabur.app/api/v1/recommendation/generate")
 c=t.N
 b=A.ad(["Content-Type","application/json"],c,c)
 a=n.x
@@ -95166,7 +95166,7 @@ h=A.jD(B.c.cZ(n.z.a.a),null)
 l=h==null?1e5-m*100:h
 n.W(new A.axX(n))
 p=4
-c=A.co("http://localhost:8000/api/v1/recommend/compare")
+c=A.co("https://backend-api.zeabur.app/api/v1/recommend/compare")
 g=t.N
 f=A.ad(["Content-Type","application/json"],g,g)
 e=B.c.cZ(n.x.a.a)

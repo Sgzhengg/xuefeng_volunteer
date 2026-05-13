@@ -1,11 +1,12 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import '../../config/app_config.dart';
 
 /// 推荐API服务
 class RecommendationApiService {
   final Dio _dio;
-  static const String _baseUrl = 'http://localhost:8000';
+  static String get _baseUrl => AppConfig.apiBaseUrl;
 
   RecommendationApiService({Dio? dio})
       : _dio = dio ?? Dio(BaseOptions(

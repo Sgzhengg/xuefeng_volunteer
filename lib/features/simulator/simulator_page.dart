@@ -7,6 +7,7 @@ import '../../../core/constants/provinces.dart';
 import '../../../providers/auth_provider.dart';
 import '../../../providers/history_provider.dart';
 import '../../shared/theme/app_theme.dart';
+import '../../../config/app_config.dart';
 
 class SimulatorPage extends ConsumerStatefulWidget {
   const SimulatorPage({super.key});
@@ -67,7 +68,7 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
 
       // 调用后端API生成推荐方案
       final response = await http.post(
-        Uri.parse('http://localhost:8000/api/v1/recommendation/generate'),
+        Uri.parse('${AppConfig.apiBaseUrl}/api/v1/recommendation/generate'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'province': _provinceController.text.trim(),
@@ -654,7 +655,7 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
     try {
       // 调用对比API
       final response = await http.post(
-        Uri.parse('http://localhost:8000/api/v1/recommend/compare'),
+        Uri.parse('${AppConfig.apiBaseUrl}/api/v1/recommend/compare'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'province': _provinceController.text.trim().isEmpty ? '广东' : _provinceController.text.trim(),

@@ -1,12 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'models/gaokao_data_models.dart';
+import '../config/app_config.dart';
 
 part 'gaokao_data_service.g.dart';
 
 /// 本地后端 API 配置
 class LocalAPIConfig {
-  static const String baseUrl = 'http://localhost:8000/api/v1';
+  static String get baseUrl => '${AppConfig.apiBaseUrl}/api/v1';
 
   /// 超时配置
   static const Duration connectTimeout = Duration(seconds: 10);
