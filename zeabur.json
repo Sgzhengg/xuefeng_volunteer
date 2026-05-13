@@ -49,6 +49,9 @@
         "dockerfile": "frontend.Dockerfile",
         "context": "."
       },
+      "env": {
+        "BACKEND_API_URL": "${backend-api.url}"
+      },
       "ports": [
         {
           "port": 8080,
