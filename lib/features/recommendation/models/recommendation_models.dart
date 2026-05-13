@@ -133,6 +133,13 @@ class UniversityRecommendation {
   final String roiReason; // ROI评价理由
   final bool isRedMajor; // 是否红牌专业
 
+  // 2025官方招生计划字段
+  final double? tuition; // 学费 (元/年)
+  final int duration; // 学制 (年)
+  final String subjectsRequirement; // 选科要求 (如 "化学", "政治")
+  final List<String> resolvedMajors; // 解析后的专业组专业列表
+  final int planCount; // 招生计划人数
+
   UniversityRecommendation({
     required this.universityId,
     required this.universityName,
@@ -156,6 +163,11 @@ class UniversityRecommendation {
     this.roiColor = 'blue',
     this.roiReason = '',
     this.isRedMajor = false,
+    this.tuition,
+    this.duration = 0,
+    this.subjectsRequirement = '',
+    this.resolvedMajors = const [],
+    this.planCount = 0,
   });
 
   factory UniversityRecommendation.fromJson(Map<String, dynamic> json) {
@@ -195,7 +207,31 @@ class UniversityRecommendation {
       roiColor: roiColor,
       roiReason: roiReason,
       isRedMajor: isRedMajor,
+      // 2025官方招生计划字段
+      tuition: _parseNullableDouble(json['tuition']),
+      duration: _parseInt(json['duration']),
+      subjectsRequirement: json['subjects_requirement']?.toString() ?? '',
+      resolvedMajors: (json['resolved_majors'] as List<dynamic>?)
+                     ?.map((e) => e.toString())
+                     .toList() ?? [],
+      planCount: _parseInt(json['plan_count']),
     );
+  }
+
+  /// 安全解析可为null的double值
+  static double? _parseNullableDouble(dynamic value) {
+    if (value == null || value == 'N/A' || value == '') return null;
+    if (value is double) return value;
+    if (value is int) return value.toDouble();
+    return double.tryParse(value.toString());
+  }
+
+  /// 安全解析int值
+  static int _parseInt(dynamic value) {
+    if (value == null || value == 'N/A' || value == '') return 0;
+    if (value is int) return value;
+    if (value is double) return value.toInt();
+    return int.tryParse(value.toString()) ?? 0;
   }
 
   /// 获取概率颜色
@@ -254,6 +290,11 @@ class UniversityRecommendation {
       'roi_color': roiColor,
       'roi_reason': roiReason,
       'is_red_major': isRedMajor,
+      'tuition': tuition,
+      'duration': duration,
+      'subjects_requirement': subjectsRequirement,
+      'resolved_majors': resolvedMajors,
+      'plan_count': planCount,
     };
   }
 }

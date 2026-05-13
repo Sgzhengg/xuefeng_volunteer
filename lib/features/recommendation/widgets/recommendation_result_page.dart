@@ -540,6 +540,41 @@ class RecommendationResultPage extends StatelessWidget {
               ],
             ),
 
+            // 2025官方招生计划详细信息
+            if (rec.tuition != null || rec.duration > 0 || rec.subjectsRequirement.isNotEmpty || rec.planCount > 0) ...[
+              const SizedBox(height: AppTheme.spacingSm),
+              Wrap(
+                spacing: AppTheme.spacingXs,
+                runSpacing: AppTheme.spacingXs,
+                children: [
+                  // 学费
+                  if (rec.tuition != null)
+                    _buildInfoTag(
+                      '💰 学费 ¥${rec.tuition!.toInt()}/年',
+                      AppTheme.green,
+                    ),
+                  // 学制
+                  if (rec.duration > 0)
+                    _buildInfoTag(
+                      '📚 学制 ${rec.duration}年',
+                      AppTheme.primaryBlue,
+                    ),
+                  // 选科要求
+                  if (rec.subjectsRequirement.isNotEmpty)
+                    _buildInfoTag(
+                      '🎯 必选${rec.subjectsRequirement}',
+                      AppTheme.orange,
+                    ),
+                  // 计划人数
+                  if (rec.planCount > 0)
+                    _buildInfoTag(
+                      '📋 计划 ${rec.planCount}人',
+                      AppTheme.mediumGray,
+                    ),
+                ],
+              ),
+            ],
+
             // 分数差距
             if (rec.scoreGap != 0) ...[
               const SizedBox(height: AppTheme.spacingSm),
@@ -701,6 +736,57 @@ class RecommendationResultPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  /// 信息标签（更轻量的样式）
+  Widget _buildInfoTag(String label, Color color) {
+    return Container(
+      padding: const EdgeInsets.symmetric(
+        horizontal: AppTheme.spacingSm,
+        vertical: 4,
+      ),
+      decoration: BoxDecoration(
+        color: color.withOpacity(0.08),
+        borderRadius: BorderRadius.circular(AppTheme.radiusSm),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            _getInfoTagIcon(label),
+            size: 13,
+            color: color,
+          ),
+          const SizedBox(width: 3),
+          Text(
+            _getInfoTagText(label),
+            style: AppTheme.labelSmall.copyWith(
+              color: color,
+              fontWeight: FontWeight.w500,
+              fontSize: 11,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  /// 从带emoji标签中提取文本部分
+  String _getInfoTagText(String label) {
+    final spaceIdx = label.indexOf(' ');
+    if (spaceIdx > 0) {
+      return label.substring(spaceIdx + 1);
+    }
+    return label;
+  }
+
+  /// 从标签中提取合适的图标
+  IconData _getInfoTagIcon(String label) {
+    if (label.startsWith('💰')) return Icons.monetization_on_rounded;
+    if (label.startsWith('📚')) return Icons.school_rounded;
+    if (label.startsWith('🎯')) return Icons.my_location_rounded;
+    if (label.startsWith('📋')) return Icons.list_alt_rounded;
+    return Icons.info_rounded;
   }
 
   /// 根据ROI颜色字符串返回Color对象
