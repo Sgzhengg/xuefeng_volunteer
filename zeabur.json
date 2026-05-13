@@ -1,0 +1,59 @@
+{
+  "name": "xuefeng-volunteer",
+  "description": "高考志愿填报系统 - Zeabur部署配置",
+  "services": [
+    {
+      "name": "backend-api",
+      "type": "docker",
+      "docker": {
+        "dockerfile": "backend/Dockerfile",
+        "context": "/backend"
+      },
+      "env": {
+        "PORT": "8000",
+        "PYTHONUNBUFFERED": "1"
+      },
+      "ports": [
+        {
+          "port": 8000,
+          "protocol": "HTTP"
+        }
+      ],
+      "healthCheck": {
+        "httpPath": "/health",
+        "interval": "30s",
+        "timeout": "10s",
+        "retries": 3
+      },
+      "resources": {
+        "memory": "512MB",
+        "cpu": "0.5"
+      },
+      "volumes": [
+        {
+          "path": "/app/data"
+        },
+        {
+          "path": "/app/database"
+        },
+        {
+          "path": "/app/logs"
+        }
+      ]
+    },
+    {
+      "name": "frontend-web",
+      "type": "static",
+      "static": {
+        "outputDir": "build/web"
+      },
+      "env": {
+        "API_URL": "${backend-api.url}"
+      },
+      "resources": {
+        "memory": "256MB",
+        "cpu": "0.2"
+      }
+    }
+  ]
+}
