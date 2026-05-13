@@ -51,16 +51,62 @@ git push origin main
 准备好以下API密钥（可选）：
 - OpenRouter API密钥（用于AI聊天功能）
 
+## 🚀 部署架构
+
+```
+GitHub仓库
+    ↓
+Zeabur Cloud
+    ├─→ 后端API服务 (FastAPI + Docker)
+    │   ├─ API端点: /api/v1/*
+    │   ├─ 管理后台: /admin/*
+    │   │   ├─ /admin - 登录页
+    │   │   ├─ /admin/dashboard - 仪表盘
+    │   │   ├─ /admin/universities - 院校管理
+    │   │   ├─ /admin/collection-center - 数据采集中心 ⭐新增
+    │   │   └─ /admin/version-control - 版本控制中心 ⭐新增
+    │   └─ URL: https://your-backend.zeabur.app
+    └─→ 前端Web应用 (Flutter Static)
+        ├─ 主应用: / (推荐志愿、聊天、发现等)
+        └─ URL: https://your-frontend.zeabur.app
+```
+
+### 📊 服务说明
+
+**后端API服务包含**:
+1. RESTful API (/api/v1/*) - 供Flutter应用调用
+2. 管理后台 (/admin/*) - 管理员控制面板
+   - 数据采集中心
+   - 版本控制中心
+   - 院校管理
+   - 数据导入
+   - 系统监控
+
+**前端Web应用包含**:
+1. 用户界面 - 志愿填报、AI聊天、数据发现
+2. API集成 - 与后端API服务通信
+
 ## 🚀 部署流程
 
 ### 后端部署
 ```
-GitHub → Zeabur → Docker构建 → 部署 → URL: https://xuefeng-backend.zeabur.app
+GitHub → Zeabur → Docker构建 → 部署 → 后端API + 管理后台
+                                                          ↓
+                                          https://your-backend.zeabur.app
+                                                          ├─ /api/v1/* (API端点)
+                                                          ├─ /admin (管理后台入口)
+                                                          ├─ /admin/dashboard (仪表盘)
+                                                          ├─ /admin/collection-center (数据采集)
+                                                          └─ /admin/version-control (版本控制)
 ```
 
 ### 前端部署
 ```
-本地构建 → 推送build/web → Zeabur → 静态托管 → URL: https://xuefeng-frontend.zeabur.app
+本地构建 → 推送build/web → Zeabur → 静态托管 → Flutter Web应用
+                                                          ↓
+                                          https://your-frontend.zeabur.app
+                                                          ├─ 主页面 (推荐志愿等)
+                                                          └─ API调用 → 后端API服务
 ```
 
 ## ⚙️ 环境变量配置

@@ -59,8 +59,13 @@ git push origin main
 ### 完成！
 
 访问您的应用：
-- **后端API**: `https://xuefeng-backend.zeabur.app`
-- **前端应用**: `https://xuefeng-frontend.zeabur.app`
+- **后端服务**: `https://xuefeng-volunteer-api.zeabur.app`
+  - **API端点**: `https://xuefeng-volunteer-api.zeabur.app/api/v1/*`
+  - **管理后台**: `https://xuefeng-volunteer-api.zeabur.app/admin`
+    - 登录: admin / password（请及时修改默认密码）
+    - 📊 仪表盘、🏫 院校管理、📥 数据导入
+    - 🔄 数据采集中心、🔀 版本控制中心
+- **前端应用**: `https://xuefeng-volunteer-frontend.zeabur.app`
 
 ## 配置API密钥
 
@@ -80,11 +85,16 @@ static const String BASE_URL = 'https://xuefeng-backend.zeabur.app';
 ## 测试部署
 
 ```bash
-# 测试后端健康检查
-curl https://xuefeng-backend.zeabur.app/health
+# 1. 测试后端健康检查
+curl https://xuefeng-volunteer-api.zeabur.app/health
 
-# 测试前端
-# 在浏览器打开前端URL并测试功能
+# 2. 测试管理后台
+# 在浏览器访问: https://xuefeng-volunteer-api.zeabur.app/admin
+# 登录账号: admin / password
+
+# 3. 测试前端应用
+# 在浏览器打开: https://xuefeng-volunteer-frontend.zeabur.app
+# 测试API连接和主要功能
 ```
 
 ## 常见问题
