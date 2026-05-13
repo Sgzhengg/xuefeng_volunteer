@@ -77,6 +77,17 @@ class FavoriteState {
 class FavoriteNotifier extends StateNotifier<FavoriteState> {
   FavoriteNotifier() : super(FavoriteState(favorites: []));
 
+  /// 构建带认证的请求头
+  Map<String, String> _buildHeaders(String token) {
+    final headers = <String, String>{
+      'Content-Type': 'application/json',
+    };
+    if (token.isNotEmpty) {
+      headers['Authorization'] = 'Bearer $token';
+    }
+    return headers;
+  }
+
   /// 加载收藏列表
   Future<void> loadFavorites(String token) async {
     state = state.copyWith(isLoading: true, error: null);
@@ -84,10 +95,7 @@ class FavoriteNotifier extends StateNotifier<FavoriteState> {
     try {
       final response = await http.get(
         Uri.parse('${ApiService.baseUrl}/favorite/list'),
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer $token',
-        },
+        headers: _buildHeaders(token),
       );
 
       final result = jsonDecode(response.body);
@@ -132,10 +140,7 @@ class FavoriteNotifier extends StateNotifier<FavoriteState> {
       // 调用API添加收藏
       final response = await http.post(
         Uri.parse('${ApiService.baseUrl}/favorite/add'),
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer $token',
-        },
+        headers: _buildHeaders(token),
         body: jsonEncode(favoriteData),
       );
 
@@ -185,10 +190,7 @@ class FavoriteNotifier extends StateNotifier<FavoriteState> {
       // 调用API删除收藏
       final response = await http.delete(
         Uri.parse('${ApiService.baseUrl}/favorite/remove?major_id=$majorId'),
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer $token',
-        },
+        headers: _buildHeaders(token),
       );
 
       final result = jsonDecode(response.body);
@@ -233,10 +235,7 @@ class FavoriteNotifier extends StateNotifier<FavoriteState> {
       // 调用API检查收藏状态
       final response = await http.get(
         Uri.parse('${ApiService.baseUrl}/favorite/check?major_id=$majorId'),
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer $token',
-        },
+        headers: _buildHeaders(token),
       );
 
       final result = jsonDecode(response.body);

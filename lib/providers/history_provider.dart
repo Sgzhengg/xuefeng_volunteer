@@ -137,6 +137,17 @@ class HistoryState {
 class HistoryNotifier extends StateNotifier<HistoryState> {
   HistoryNotifier() : super(HistoryState(histories: []));
 
+  /// 构建带认证的请求头
+  Map<String, String> _buildHeaders(String token) {
+    final headers = <String, String>{
+      'Content-Type': 'application/json',
+    };
+    if (token.isNotEmpty) {
+      headers['Authorization'] = 'Bearer $token';
+    }
+    return headers;
+  }
+
   /// 保存本次推荐结果
   Future<bool> saveHistory(
     String token,
@@ -149,10 +160,7 @@ class HistoryNotifier extends StateNotifier<HistoryState> {
     try {
       final response = await http.post(
         Uri.parse('${ApiService.baseUrl}/history/save'),
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer $token',
-        },
+        headers: _buildHeaders(token),
         body: jsonEncode({
           'rank': rank,
           'province': province,
@@ -184,10 +192,7 @@ class HistoryNotifier extends StateNotifier<HistoryState> {
     try {
       final response = await http.get(
         Uri.parse('${ApiService.baseUrl}/history/list?page=$page&limit=10'),
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer $token',
-        },
+        headers: _buildHeaders(token),
       );
 
       final result = jsonDecode(response.body);
@@ -227,10 +232,7 @@ class HistoryNotifier extends StateNotifier<HistoryState> {
     try {
       final response = await http.get(
         Uri.parse('${ApiService.baseUrl}/history/detail/$historyId'),
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer $token',
-        },
+        headers: _buildHeaders(token),
       );
 
       final result = jsonDecode(response.body);
@@ -251,10 +253,7 @@ class HistoryNotifier extends StateNotifier<HistoryState> {
     try {
       final response = await http.delete(
         Uri.parse('${ApiService.baseUrl}/history/delete/$historyId'),
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer $token',
-        },
+        headers: _buildHeaders(token),
       );
 
       final result = jsonDecode(response.body);
