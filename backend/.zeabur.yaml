@@ -1,0 +1,54 @@
+# Zeabur配置文件 - 后端API服务
+
+# 应用名称
+name: xuefeng-volunteer-api
+
+# 服务类型
+type: worker
+
+# 构建配置
+build:
+  # 构建命令
+  command: |
+    pip install --no-cache-dir -r requirements.txt
+
+# 运行配置
+run:
+  # 启动命令
+  command: python -m uvicorn app.main:app --host 0.0.0.0 --port $PORT
+
+# 环境变量
+env:
+  - PORT=8000
+  - PYTHONUNBUFFERED=1
+  - PYTHONDONTWRITEBYTECODE=1
+
+# 端口配置
+ports:
+  - port: 8000
+    protocol: http
+
+# 健康检查
+health_check:
+  http_path: /health
+  interval: 30s
+  timeout: 10s
+  retries: 3
+
+# 资源配置
+resources:
+  memory: 512MB
+  cpu: 0.5
+
+# 持久化存储（如果需要）
+volumes:
+  - /app/data
+  - /app/database
+  - /app/logs
+
+# 水平扩展配置
+scaling:
+  min_instances: 1
+  max_instances: 3
+  target_cpu_percent: 70
+  target_memory_percent: 80
