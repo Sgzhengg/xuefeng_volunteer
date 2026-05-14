@@ -682,6 +682,11 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
     final score = int.tryParse(_scoreController.text.trim()) ?? 0;
     final rank = int.tryParse(_rankController.text.trim()) ?? (100000 - score * 100);
 
+    print('=== 开始留粤VS出省对比 ===');
+    print('分数: $score');
+    print('位次: $rank');
+    print('省份: ${_provinceController.text.trim()}');
+
     // 显示加载中
     setState(() => _isLoading = true);
 
@@ -699,22 +704,45 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
         }),
       ).timeout(const Duration(seconds: 15));
 
+      print('API响应状态码: ${response.statusCode}');
+      print('API响应内容: ${response.body}');
+
       setState(() => _isLoading = false);
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
 
         if (mounted && data['success'] == true) {
+          print('✅ 对比API调用成功');
           _showCompareResultModal(data['data']);
+        } else {
+          print('❌ API返回success=false');
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('对比服务暂时不可用，请稍后重试'),
+                backgroundColor: Colors.orange,
+                duration: Duration(seconds: 2),
+              ),
+            );
+          }
         }
       } else {
         throw Exception('API错误: ${response.statusCode}');
       }
     } catch (e) {
+      print('❌ 对比API调用失败: $e');
       setState(() => _isLoading = false);
 
       if (mounted) {
-        _showCompareResultModal(null); // 显示模拟数据
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('对比服务连接失败：$e'),
+            backgroundColor: Colors.red,
+            duration: const Duration(seconds: 3),
+          ),
+        );
+        // 不再显示模拟数据，而是直接显示错误
       }
     }
   }
