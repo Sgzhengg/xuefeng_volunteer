@@ -2,33 +2,33 @@
 FROM zeabur/caddy-static
 
 LABEL "language"="static"
-LABEL "version"="2026-05-14-v9"
+LABEL "version"="2026-05-14-v11"
 
-# 创建 Caddyfile 配置 - 使用Zeabur服务发现
+# 创建 Caddyfile 配置 - 使用后端服务名
 RUN mkdir -p /etc/caddy && cat > /etc/caddy/Caddyfile << 'EOF'
 :8080 {
-  # 反向代理 API 请求到后端服务（使用Zeabur服务名）
+  # 反向代理 API 请求到后端服务
   handle /api/* {
-    reverse_proxy http://backend-api:8000
+    reverse_proxy http://xuefeng-backend:8000
   }
 
   # 反向代理管理后台
   handle /admin* {
-    reverse_proxy http://backend-api:8000
+    reverse_proxy http://xuefeng-backend:8000
   }
 
   # 反向代理 API 文档
   handle /docs {
-    reverse_proxy http://backend-api:8000
+    reverse_proxy http://xuefeng-backend:8000
   }
 
   handle /openapi.json {
-    reverse_proxy http://backend-api:8000
+    reverse_proxy http://xuefeng-backend:8000
   }
 
   # 健康检查端点
   handle /health {
-    reverse_proxy http://backend-api:8000
+    reverse_proxy http://xuefeng-backend:8000
   }
 
   # 静态文件服务
@@ -46,7 +46,7 @@ RUN mkdir -p /etc/caddy && cat > /etc/caddy/Caddyfile << 'EOF'
 }
 EOF
 
-# 复制本地构建好的前端文件（需要先执行 flutter build web --release）
+# 复制本地构建好的前端文件
 COPY build/web /usr/share/caddy
 
 EXPOSE 8080
