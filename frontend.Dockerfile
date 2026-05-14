@@ -1,39 +1,33 @@
 FROM zeabur/caddy-static
 
 LABEL "language"="static"
-LABEL "version"="2026-05-14-v2"
+LABEL "version"="2026-05-14-v3"
 
-# 创建 Caddyfile 配置
-# 使用 Zeabur 内部网络直接访问后端服务（修复SSL/CORS问题）
+# 创建 Caddyfile 配置 - 使用内部服务通信
 RUN mkdir -p /etc/caddy && cat > /etc/caddy/Caddyfile << 'EOF'
 :8080 {
-  # 反向代理 API 请求到后端服务（使用Zeabur内部网络）
+  # 反向代理 API 请求到后端服务（使用内部服务名）
   handle /api/* {
-    reverse_proxy backend-api.zeabur.internal:8000 {
-      header_up Host {upstream_hostport}
-      header_up X-Real-IP {remote_host}
-      header_up X-Forwarded-For {remote_host}
-      header_up X-Forwarded-Proto {scheme}
-    }
+    reverse_proxy http://service-6a042f655e7e3bf5e93f3747:8000
   }
 
   # 反向代理管理后台
   handle /admin* {
-    reverse_proxy backend-api.zeabur.internal:8000
+    reverse_proxy http://service-6a042f655e7e3bf5e93f3747:8000
   }
 
   # 反向代理 API 文档
   handle /docs {
-    reverse_proxy backend-api.zeabur.internal:8000
+    reverse_proxy http://service-6a042f655e7e3bf5e93f3747:8000
   }
 
   handle /openapi.json {
-    reverse_proxy backend-api.zeabur.internal:8000
+    reverse_proxy http://service-6a042f655e7e3bf5e93f3747:8000
   }
 
   # 健康检查端点
   handle /health {
-    reverse_proxy backend-api.zeabur.internal:8000
+    reverse_proxy http://service-6a042f655e7e3bf5e93f3747:8000
   }
 
   # 静态文件服务
