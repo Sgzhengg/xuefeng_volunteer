@@ -47,7 +47,18 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
   }
 
   Future<void> _generateScheme() async {
+    // 验证表单
     if (!_formKey.currentState!.validate()) {
+      // 显示验证失败提示
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('请完善必填信息（标有 * 的字段）'),
+            backgroundColor: Colors.orange,
+            duration: Duration(seconds: 2),
+          ),
+        );
+      }
       return;
     }
 
@@ -65,6 +76,14 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
 
       // 🆕 解析位次（必填）
       final rank = int.parse(_rankController.text.trim());
+
+      // 调试信息
+      print('=== 开始推荐 ===');
+      print('省份: ${_provinceController.text.trim()}');
+      print('分数: ${_scoreController.text.trim()}');
+      print('位次: $rank');
+      print('科类: $_subjectType');
+      print('目标专业: $targetMajors');
 
       // 调用后端API生成推荐方案
       final response = await http.post(
@@ -85,6 +104,9 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
           },  // 🆕 用户偏好
         }),
       ).timeout(const Duration(seconds: 30));
+
+      print('API响应状态码: ${response.statusCode}');
+      print('API响应内容: ${response.body.substring(0, response.body.length > 200 ? 200 : response.body.length)}...');
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
@@ -118,7 +140,7 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
           );
         }
       } else {
-        throw Exception('API错误: ${response.statusCode}');
+        throw Exception('API错误: ${response.statusCode} - ${response.body}');
       }
     } catch (e) {
       // 如果API调用失败，使用模拟数据作为后备
@@ -143,6 +165,7 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
           SnackBar(
             content: Text('[提示] 后端连接失败，显示模拟数据：$e'),
             backgroundColor: Colors.orange,
+            duration: const Duration(seconds: 3),
           ),
         );
       }
@@ -446,7 +469,7 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
               children: [
                 Expanded(
                   child: _buildFormField(
-                    label: '所在省份',
+                    label: '所在省份 *',
                     child: DropdownButtonFormField<String>(
                       value: _provinceController.text.isEmpty
                           ? null
@@ -462,6 +485,12 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
                       }).toList(),
                       onChanged: (value) {
                         _provinceController.text = value ?? '';
+                      },
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return '请选择省份';
+                        }
+                        return null;
                       },
                     ),
                   ),
