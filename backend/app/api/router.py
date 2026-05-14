@@ -393,7 +393,8 @@ async def generate_recommendation(request: RecommendationRequest, algorithm: str
         print(f"[API] 推荐请求: province={request.province}, rank={request.rank}, score={request.score}, majors={request.target_majors}, algo={algorithm}")
 
         user_rank = request.rank if request.rank else 10000
-        target_majors = request.target_majors if request.target_majors else ["计算机科学与技术"]
+        # 修复：不硬编码专业，让用户留空时由推荐服务自动推荐
+        target_majors = request.target_majors if request.target_majors is not None else []
 
         # V3 推荐服务 (默认)
         if algorithm == "v3":
