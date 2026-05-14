@@ -1,9 +1,10 @@
 FROM zeabur/caddy-static
 
 LABEL "language"="static"
+LABEL "version"="2026-05-14-v2"
 
 # 创建 Caddyfile 配置
-# 使用 Zeabur 内部网络直接访问后端服务
+# 使用 Zeabur 内部网络直接访问后端服务（修复SSL/CORS问题）
 RUN mkdir -p /etc/caddy && cat > /etc/caddy/Caddyfile << 'EOF'
 :8080 {
   # 反向代理 API 请求到后端服务（使用Zeabur内部网络）
