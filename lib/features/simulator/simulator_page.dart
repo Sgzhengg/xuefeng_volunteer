@@ -27,6 +27,7 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
   final _targetUniversityController = TextEditingController();
 
   String _subjectType = '理科';
+  String _selectedProvince = '广东省'; // 添加状态变量来管理选中的省份
 
   // 🆕 用户偏好设置
   String _regionPreference = 'balanced';  // 'guangdong_first' | 'outprovince_first' | 'balanced'
@@ -54,7 +55,49 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
     print('位次: "${_rankController.text.trim()}"');
     print('专业: "${_majorsController.text.trim()}"');
 
+    // 手动验证每个字段
+    print('=== 手动验证各字段 ===');
+
+    // 验证省份
+    if (_provinceController.text.trim().isEmpty) {
+      print('❌ 省份为空');
+    } else {
+      print('✅ 省份: "${_provinceController.text.trim()}"');
+    }
+
+    // 验证分数
+    if (_scoreController.text.trim().isEmpty) {
+      print('❌ 分数为空');
+    } else {
+      final score = int.tryParse(_scoreController.text.trim());
+      if (score == null) {
+        print('❌ 分数格式错误: "${_scoreController.text.trim()}"');
+      } else {
+        print('✅ 分数: $score');
+      }
+    }
+
+    // 验证位次
+    if (_rankController.text.trim().isEmpty) {
+      print('❌ 位次为空');
+    } else {
+      final rank = int.tryParse(_rankController.text.trim());
+      if (rank == null) {
+        print('❌ 位次格式错误: "${_rankController.text.trim()}"');
+      } else {
+        print('✅ 位次: $rank');
+      }
+    }
+
+    // 验证专业（可以为空）
+    if (_majorsController.text.trim().isEmpty) {
+      print('✅ 专业为空（允许）');
+    } else {
+      print('✅ 专业: "${_majorsController.text.trim()}"');
+    }
+
     // 验证表单
+    print('=== 开始Flutter表单验证 ===');
     if (!_formKey.currentState!.validate()) {
       print('❌ 表单验证失败！');
       // 显示验证失败提示
@@ -481,9 +524,7 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
                   child: _buildFormField(
                     label: '所在省份 *',
                     child: DropdownButtonFormField<String>(
-                      value: _provinceController.text.isEmpty
-                          ? null
-                          : _provinceController.text,
+                      value: _selectedProvince,  // 使用状态变量
                       decoration: const InputDecoration(
                         hintText: '请选择省份',
                       ),
@@ -494,7 +535,10 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
                         );
                       }).toList(),
                       onChanged: (value) {
-                        _provinceController.text = value ?? '';
+                        setState(() {
+                          _selectedProvince = value ?? '广东省';
+                          _provinceController.text = _selectedProvince;
+                        });
                       },
                       validator: (value) {
                         if (value == null || value.isEmpty) {
