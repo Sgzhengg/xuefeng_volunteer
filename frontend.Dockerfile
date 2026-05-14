@@ -1,7 +1,20 @@
+# 多阶段构建 - 第一阶段：构建Flutter应用
+FROM flutter:3.24.5-web AS builder
+
+WORKDIR /app
+
+# 复制项目文件
+COPY . .
+
+# 安装依赖并构建Web应用
+RUN flutter pub get
+RUN flutter build web --release
+
+# 第二阶段：使用Caddy提供静态文件服务
 FROM zeabur/caddy-static
 
 LABEL "language"="static"
-LABEL "version"="2026-05-14-v3"
+LABEL "version"="2026-05-14-v4"
 
 # 创建 Caddyfile 配置 - 使用内部服务通信
 RUN mkdir -p /etc/caddy && cat > /etc/caddy/Caddyfile << 'EOF'
@@ -45,7 +58,7 @@ RUN mkdir -p /etc/caddy && cat > /etc/caddy/Caddyfile << 'EOF'
 }
 EOF
 
-# 复制前端构建产物
-COPY build/web /usr/share/caddy
+# 从构建阶段复制前端构建产物
+COPY --from=builder /app/build/web /usr/share/caddy
 
 EXPOSE 8080
