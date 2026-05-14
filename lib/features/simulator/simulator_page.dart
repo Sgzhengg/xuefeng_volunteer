@@ -749,9 +749,32 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
 
   // 🆕 新增：显示对比结果弹窗
   void _showCompareResultModal(dynamic data) {
+    print('=== _showCompareResultModal ===');
+    print('Data is null: ${data == null}');
+    print('Data type: ${data.runtimeType}');
+
+    if (data != null) {
+      print('Data keys: ${data is Map ? data.keys : "not a map"}');
+      print('guangdong_best: ${data['guangdong_best']}');
+      print('outprovince_best: ${data['outprovince_best']}');
+    }
+
     final guangdongBest = data?['guangdong_best'];
     final outprovinceBest = data?['outprovince_best'];
     final suggestion = data?['suggestion'] ?? '暂无建议';
+
+    // 如果数据为null，显示错误而不是模拟数据
+    if (guangdongBest == null || outprovinceBest == null) {
+      print('❌ 对比数据不完整！');
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('对比数据获取失败，请稍后重试'),
+          backgroundColor: Colors.red,
+          duration: Duration(seconds: 2),
+        ),
+      );
+      return; // 不显示弹窗
+    }
 
     showModalBottomSheet(
       context: context,
