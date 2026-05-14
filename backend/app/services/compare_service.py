@@ -124,9 +124,9 @@ class CompareService:
 
         for major in target_majors:
             for uni in guangdong_unis:
-                # 估算录取概率
+                # 估算录取概率（传入rank）
                 probability, score_gap, tag = self._estimate_probability(
-                    uni["level"], score, major
+                    uni["level"], score, major, is_outprovince=False, rank=rank
                 )
 
                 recommendations.append({
@@ -175,9 +175,9 @@ class CompareService:
                 if uni["province"] == user_province:
                     continue
 
-                # 估算录取概率（省外院校通常需要更高分数）
+                # 估算录取概率（省外院校通常需要更高分数，传入rank）
                 probability, score_gap, tag = self._estimate_probability(
-                    uni["level"], score, major, is_outprovince=True
+                    uni["level"], score, major, is_outprovince=True, rank=rank
                 )
 
                 recommendations.append({
@@ -199,16 +199,17 @@ class CompareService:
         university_level: str,
         score: int,
         major: str,
-        is_outprovince: bool = False
+        is_outprovince: bool = False,
+        rank: int = None
     ) -> tuple:
         """
-        估算录取概率
+        估算录取概率（改进版：综合考虑分数和位次）
 
         Returns:
             (概率, 分数差, 类别)
         """
 
-        # 基础分数线估算
+        # 基础分数线估算（基于广东省理科数据）
         base_scores = {
             "985": 620,
             "211": 560,
@@ -229,17 +230,53 @@ class CompareService:
 
         score_gap = score - base_score
 
+        # 基于位次的调整（更准确的估算）
+        # 广东理科位次参考：
+        # - 清北: 前100名
+        # - 复交浙科南: 前1000名
+        # - 中大华工: 前3000名
+        # - 其他985: 前8000名
+        # - 211: 前20000名
+        # - 一本: 前50000名
+
+        rank_adjustment = 0
+        if rank and rank < 100000:  # 只在前10万名考虑位次调整
+            if university_level == "985":
+                if rank <= 100:
+                    rank_adjustment = 50  # 清北水平
+                elif rank <= 1000:
+                    rank_adjustment = 30  # C9水平
+                elif rank <= 3000:
+                    rank_adjustment = 15  # 中大华工水平
+                elif rank <= 8000:
+                    rank_adjustment = 5   # 其他985
+                else:
+                    rank_adjustment = -10  # 985比较难
+            elif university_level == "211":
+                if rank <= 20000:
+                    rank_adjustment = 10
+                else:
+                    rank_adjustment = -5
+            elif university_level in ["双一流", "一本"]:
+                if rank <= 50000:
+                    rank_adjustment = 10
+                else:
+                    rank_adjustment = 0
+
+        # 综合分数和位次计算概率
+        adjusted_score = score + rank_adjustment
+
         # 计算概率
-        if score >= base_score + 30:
+        if adjusted_score >= base_score + 30:
             probability = 90
             tag = "保底"
-        elif score >= base_score + 10:
+        elif adjusted_score >= base_score + 10:
             probability = 70
             tag = "稳妥"
-        elif score >= base_score - 10:
+        elif adjusted_score >= base_score - 10:
             probability = 50
             tag = "稳妥"
-        elif score >= base_score - 30:
+        elif adjusted_score >= base_score - 30:
             probability = 30
             tag = "冲刺"
         else:
@@ -252,21 +289,37 @@ class CompareService:
         self,
         recommendations: List[Dict[str, Any]]
     ) -> Optional[Dict[str, Any]]:
-        """选择最优推荐（录取概率最高的稳妥或保底院校）"""
+        """
+        选择最优推荐
+
+        策略：综合考虑院校层次、录取概率和专业匹配度
+        - 对于高分考生：优先推荐高层次院校（985 > 211 > 双一流 > 一本）
+        - 对于低分考生：优先推荐录取概率高的院校
+        """
 
         if not recommendations:
             return None
 
-        # 优先选择稳妥或保底的院校
-        valid_recs = [r for r in recommendations if r["tag"] in ["稳妥", "保底"]]
+        # 定义院校层次权重
+        level_weights = {
+            "985": 100,
+            "211": 80,
+            "双一流": 70,
+            "一本": 50
+        }
 
-        if not valid_recs:
-            # 如果没有稳妥保底，选择概率最高的冲刺
-            valid_recs = recommendations
+        # 为每个推荐计算综合得分
+        for rec in recommendations:
+            level = rec.get("university_level", "一本")
+            probability = rec.get("probability", 0)
 
-        # 按概率排序，取最高的
-        valid_recs.sort(key=lambda x: x["probability"], reverse=True)
-        best = valid_recs[0]
+            # 综合得分 = 院校层次权重 + 录取概率
+            # 这样可以平衡学校层次和录取概率
+            rec["score"] = level_weights.get(level, 50) + probability * 0.3
+
+        # 按综合得分排序
+        recommendations.sort(key=lambda x: x["score"], reverse=True)
+        best = recommendations[0]
 
         # 添加ROI信息
         major = best["major"]
