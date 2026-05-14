@@ -18,7 +18,7 @@ class SimulatorPage extends ConsumerStatefulWidget {
 
 class _SimulatorPageState extends ConsumerState<SimulatorPage> {
   final _formKey = GlobalKey<FormState>();
-  final _provinceController = TextEditingController();
+  final _provinceController = TextEditingController(text: '广东'); // 设置默认值
   final _scoreController = TextEditingController();
   final _rankController = TextEditingController();
   final _majorsController = TextEditingController();
@@ -47,20 +47,30 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
   }
 
   Future<void> _generateScheme() async {
+    // 打印当前表单状态
+    print('=== 表单验证前检查 ===');
+    print('省份: "${_provinceController.text.trim()}"');
+    print('分数: "${_scoreController.text.trim()}"');
+    print('位次: "${_rankController.text.trim()}"');
+    print('专业: "${_majorsController.text.trim()}"');
+
     // 验证表单
     if (!_formKey.currentState!.validate()) {
+      print('❌ 表单验证失败！');
       // 显示验证失败提示
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('请完善必填信息（标有 * 的字段）'),
+            content: Text('请完善必填信息（标有 * 的字段）：省份、分数、位次'),
             backgroundColor: Colors.orange,
-            duration: Duration(seconds: 2),
+            duration: Duration(seconds: 3),
           ),
         );
       }
       return;
     }
+
+    print('✅ 表单验证通过');
 
     setState(() {
       _isLoading = true;
