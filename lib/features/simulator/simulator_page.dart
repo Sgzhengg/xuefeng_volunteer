@@ -196,29 +196,19 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
         throw Exception('API错误: ${response.statusCode} - ${response.body}');
       }
     } catch (e) {
-      // 如果API调用失败，使用模拟数据作为后备
-      print('API调用失败，使用模拟数据: $e');
-
-      final scheme = VolunteerScheme.create(
-        schemeId: DateTime.now().millisecondsSinceEpoch.toString(),
-        userId: 'current_user',
-        name: '${_provinceController.text}-${_scoreController.text}分-${_subjectType}',
-        choices: _generateMockChoices(),
-        analysis: '网络连接失败，显示模拟数据。请检查后端服务是否启动。',
-        createdAt: DateTime.now().millisecondsSinceEpoch,
-      );
+      // API调用失败，显示错误信息（不再使用模拟数据）
+      print('API调用失败: $e');
 
       setState(() {
-        _scheme = scheme;
         _isLoading = false;
       });
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('[提示] 后端连接失败，显示模拟数据：$e'),
-            backgroundColor: Colors.orange,
-            duration: const Duration(seconds: 3),
+            content: Text('推荐失败：${e.toString()}\n请检查后端服务是否正常运行'),
+            backgroundColor: Colors.red,
+            duration: const Duration(seconds: 5),
           ),
         );
       }
@@ -378,67 +368,6 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
     return result;
   }
 
-  // 生成模拟推荐数据
-  List<SchoolChoice> _generateMockChoices() {
-    final score = int.tryParse(_scoreController.text) ?? 0;
-
-    // 模拟数据：根据分数生成冲刺、稳妥、保底学校
-    try {
-      return [
-      SchoolChoice.create(
-        universityName: '清华大学',
-        majorName: '计算机科学与技术',
-        type: '冲',
-        probability: 0.3,
-        score: score + 20,
-        ranking: 1000,
-      ),
-      SchoolChoice.create(
-        universityName: '北京大学',
-        majorName: '人工智能',
-        type: '冲',
-        probability: 0.25,
-        score: score + 25,
-        ranking: 800,
-      ),
-      SchoolChoice.create(
-        universityName: '复旦大学',
-        majorName: '数据科学',
-        type: '稳',
-        probability: 0.6,
-        score: score,
-        ranking: 3000,
-      ),
-      SchoolChoice.create(
-        universityName: '上海交通大学',
-        majorName: '软件工程',
-        type: '稳',
-        probability: 0.65,
-        score: score - 5,
-        ranking: 3500,
-      ),
-      SchoolChoice.create(
-        universityName: '浙江大学',
-        majorName: '电子信息工程',
-        type: '保',
-        probability: 0.85,
-        score: score - 20,
-        ranking: 5000,
-      ),
-      SchoolChoice.create(
-        universityName: '南京大学',
-        majorName: '计算机科学',
-        type: '保',
-        probability: 0.9,
-        score: score - 25,
-        ranking: 5500,
-      ),
-    ];
-    } catch (e) {
-      print('生成模拟数据出错: $e');
-      return [];
-    }
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
