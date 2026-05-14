@@ -32,6 +32,9 @@ migrate_working_dir/
 .pub/
 /build/
 
+# 但保留Web构建产物用于Zeabur部署
+!/build/web/
+
 # Symbolication related
 app.*.symbols
 
