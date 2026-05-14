@@ -166,10 +166,10 @@ class AppTheme {
       ),
 
       // 卡片主题
-      cardTheme: CardTheme(
+      cardTheme: const CardTheme(
         elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(radiusLg),
+          borderRadius: BorderRadius.all(Radius.circular(12)),
         ),
         color: white,
       ),
