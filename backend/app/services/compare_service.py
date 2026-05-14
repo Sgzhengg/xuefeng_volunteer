@@ -326,7 +326,9 @@ class CompareService:
         roi_info = self._get_roi_info(major)
 
         best["roi_tags"] = roi_info.get("tags", [])
-        best["roi_hint"] = roi_info.get("hints", [""])[0]
+        # 安全获取hints，避免IndexError
+        hints = roi_info.get("hints", [])
+        best["roi_hint"] = hints[0] if hints else ""
 
         return best
 
