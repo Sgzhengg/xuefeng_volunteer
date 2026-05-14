@@ -358,10 +358,10 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
       ...bao.take(targetBao),
     ];
 
-    // 如果API没有返回数据，返回模拟数据
+    // 如果API没有返回数据，返回空列表（不再使用模拟数据）
     if (result.isEmpty) {
-      print('使用模拟数据');
-      return _generateMockChoices();
+      print('⚠️ API未返回任何推荐数据');
+      return [];
     }
 
     print('解析到 ${result.length} 个推荐学校（冲刺${result.where((c) => c.type == '冲').length}所，稳妥${result.where((c) => c.type == '稳').length}所，保底${result.where((c) => c.type == '保').length}所）');
