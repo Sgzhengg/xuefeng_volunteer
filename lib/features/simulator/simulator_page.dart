@@ -521,18 +521,12 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
                 const SizedBox(width: AppTheme.spacingMd),
                 Expanded(
                   child: _buildFormField(
-                    label: '目标专业',
+                    label: '目标专业（选填）',
                     child: TextFormField(
                       controller: _majorsController,
                       decoration: const InputDecoration(
                         hintText: '如：计算机科学',
                       ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return '请输入目标专业';
-                        }
-                        return null;
-                      },
                     ),
                   ),
                 ),
