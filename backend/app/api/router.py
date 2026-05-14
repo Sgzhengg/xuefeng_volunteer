@@ -846,6 +846,8 @@ async def compare_guangdong_vs_outprovince(request: CompareRequest):
         对比结果，包含留粤最优和出省最优推荐
     """
     try:
+        print(f"[API] /recommend/compare called with: province={request.province}, score={request.score}, rank={request.rank}, majors={request.target_majors}")
+
         result = compare_service.compare_guangdong_vs_outprovince(
             province=request.province,
             score=request.score,
@@ -854,9 +856,21 @@ async def compare_guangdong_vs_outprovince(request: CompareRequest):
             target_majors=request.target_majors,
             prefer_city=request.prefer_city
         )
+
+        print(f"[API] compare_service returned: success={result.get('success')}")
+
+        if result.get('data'):
+            gd = result['data'].get('guangdong_best', {})
+            out = result['data'].get('outprovince_best', {})
+            print(f"[API] guangdong_best: {gd.get('university')}")
+            print(f"[API] outprovince_best: {out.get('university')}")
+
         return result
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        print(f"[API] ERROR in /recommend/compare: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
 
 
 # ==================== [NEW] 热词管理API ====================
