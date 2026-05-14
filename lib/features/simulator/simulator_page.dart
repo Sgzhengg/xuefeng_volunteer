@@ -18,7 +18,7 @@ class SimulatorPage extends ConsumerStatefulWidget {
 
 class _SimulatorPageState extends ConsumerState<SimulatorPage> {
   final _formKey = GlobalKey<FormState>();
-  final _provinceController = TextEditingController(text: '广东'); // 设置默认值
+  final _provinceController = TextEditingController(text: '广东省'); // 修正：使用完整的省份名称
   final _scoreController = TextEditingController();
   final _rankController = TextEditingController();
   final _majorsController = TextEditingController();
