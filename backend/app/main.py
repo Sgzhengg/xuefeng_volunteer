@@ -5,6 +5,8 @@ import io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 from fastapi import FastAPI, Request
+from fastapi.exceptions import RequestValidationError
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
@@ -25,6 +27,29 @@ app = FastAPI(
     description="高考志愿填报 AI 教练后端服务",
     version="2.0.0",
 )
+
+
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request: Request, exc: RequestValidationError):
+    """Log validation errors with the raw request body to help debug 422 issues from frontend payloads."""
+    try:
+        body_bytes = await request.body()
+        try:
+            body_text = body_bytes.decode('utf-8')
+        except Exception:
+            body_text = str(body_bytes)
+    except Exception as e:
+        body_text = f"<could not read body: {e}>"
+
+    print(f"[VALIDATION ERROR] path={request.url.path} body={body_text} errors={exc.errors()}")
+
+    # Return a JSON response that the frontend can parse (keeps status 422)
+    return JSONResponse(status_code=422, content={
+        "code": 1,
+        "message": "validation error",
+        "detail": exc.errors(),
+        "body": body_text
+    })
 
 # ==================== 模板引擎配置 ====================
 # 配置Jinja2模板引擎，用于管理后台页面
