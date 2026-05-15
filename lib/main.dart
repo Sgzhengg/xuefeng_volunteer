@@ -8,6 +8,7 @@ import 'core/models/chat_message.dart';
 import 'core/models/user_profile.dart';
 import 'core/models/volunteer_scheme.dart';
 import 'core/skill_loader.dart';
+import 'core/auth/auth_service.dart';  // 🆕 添加认证服务
 import 'features/chat/chatgpt_page.dart';
 import 'features/simulator/simulator_page.dart';
 import 'features/discover/discover_page.dart';  // 🆕 改为发现页面
@@ -30,6 +31,11 @@ import 'shared/theme/chatgpt_theme.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  // 🆕 初始化认证服务（设备ID匿名登录）
+  final authService = AuthService();
+  await authService.initialize();
+  print('✅ 认证服务初始化完成');
+
   // 暂时禁用 Isar 初始化以支持 Web 平台
   // final dir = await getApplicationDocumentsDirectory();
   // final isar = await Isar.open(
@@ -43,12 +49,13 @@ void main() async {
   // );
 
   runApp(
-    const ProviderScope(
-      // 暂时移除 Isar provider
-      // overrides: [
-      //   isarProvider.overrideWithValue(isar),
-      // ],
-      child: MyApp(),
+    ProviderScope(
+      // 🆕 提供认证服务
+      overrides: [
+        // 暂时移除 Isar provider
+        // isarProvider.overrideWithValue(isar),
+      ],
+      child: const MyApp(),
     ),
   );
 }

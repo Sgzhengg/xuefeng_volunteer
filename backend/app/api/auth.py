@@ -1,10 +1,10 @@
 """
 认证模块
-处理用户登录、注册、验证码等功能
+处理用户登录、注册、验证码、设备ID匿名登录等功能
 """
 from fastapi import APIRouter, HTTPException, Depends, Header
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, Dict, Any
 from datetime import datetime, timedelta
 from jose import JWTError, jwt
 import random
@@ -19,6 +19,7 @@ ACCESS_TOKEN_EXPIRE_DAYS = 7
 # 内存存储
 sessions = {}  # {phone: {"user_id": phone, "phone": phone}}
 verification_codes = {}  # {phone: {"code": "123456", "expire_time": datetime}}
+anonymous_users = {}  # {device_id: {"user_id": "...", "device_id": "...", ...}}
 
 
 # 请求模型
@@ -44,6 +45,20 @@ class LoginResponse(BaseModel):
 
 
 class UserInfoResponse(BaseModel):
+    code: int
+    message: str
+    data: Optional[dict] = None
+
+
+class DeviceLoginRequest(BaseModel):
+    """设备登录请求"""
+    device_id: str
+    device_info: Optional[Dict[str, Any]] = None
+    timestamp: Optional[str] = None
+
+
+class DeviceLoginResponse(BaseModel):
+    """设备登录响应"""
     code: int
     message: str
     data: Optional[dict] = None
@@ -223,3 +238,154 @@ async def get_current_user_info(current_user: dict = Depends(get_current_user)):
             "created_at": current_user.get("created_at", "")
         }
     )
+
+
+# ==================== 匿名登录功能 ====================
+
+def get_or_create_anonymous_user(device_id: str, device_info: Dict[str, Any] = None) -> dict:
+    """获取或创建匿名用户"""
+    # 检查是否已存在该设备ID的用户
+    if device_id in anonymous_users:
+        user = anonymous_users[device_id]
+        # 更新最后登录时间
+        user["last_login_at"] = datetime.now().isoformat()
+        return user
+
+    # 创建新用户
+    now = datetime.now()
+    user = {
+        "id": f"anon_{device_id}_{now.strftime('%Y%m%d%H%M%S')}",
+        "device_id": device_id,
+        "is_anonymous": True,
+        "nickname": None,
+        "phone_number": None,
+        "created_at": now.isoformat(),
+        "last_login_at": now.isoformat(),
+        "device_info": device_info or {},
+    }
+
+    anonymous_users[device_id] = user
+    return user
+
+
+@router.post("/api/v1/auth/device-login", response_model=DeviceLoginResponse)
+async def device_login(request: DeviceLoginRequest):
+    """
+    设备ID匿名登录
+
+    MVP阶段的简化登录方式：
+    - 使用设备唯一标识符进行匿名登录
+    - 无需用户注册和输入个人信息
+    - 适合快速体验核心功能
+
+    Args:
+        request: 包含device_id的请求体
+
+    Returns:
+        登录结果，包含token和用户信息
+    """
+    try:
+        # 获取或创建用户
+        user = get_or_create_anonymous_user(
+            device_id=request.device_id,
+            device_info=request.device_info
+        )
+
+        # 创建JWT token
+        access_token = create_access_token(
+            data={"sub": user["id"], "device_id": user["device_id"]},
+            expires_delta=timedelta(days=30)  # 匿名用户token有效期30天
+        )
+
+        return DeviceLoginResponse(
+            code=0,
+            message="登录成功",
+            data={
+                "token": access_token,
+                "user": user
+            }
+        )
+
+    except Exception as e:
+        return DeviceLoginResponse(
+            code=1,
+            message=f"登录失败: {str(e)}"
+        )
+
+
+@router.get("/api/v1/auth/user/profile")
+async def get_anonymous_user_profile(device_id: str):
+    """
+    获取匿名用户信息
+
+    Args:
+        device_id: 设备ID
+
+    Returns:
+        用户信息
+    """
+    if device_id not in anonymous_users:
+        raise HTTPException(status_code=404, detail="用户不存在")
+
+    user = anonymous_users[device_id]
+    return {
+        "code": 0,
+        "message": "获取成功",
+        "user": user
+    }
+
+
+@router.put("/api/v1/auth/user/profile")
+async def update_anonymous_user_profile(
+    device_id: str,
+    nickname: Optional[str] = None,
+    phone_number: Optional[str] = None
+):
+    """
+    更新匿名用户信息
+
+    Args:
+        device_id: 设备ID
+        nickname: 昵称（可选）
+        phone_number: 手机号（可选，绑定后不再是匿名用户）
+
+    Returns:
+        更新后的用户信息
+    """
+    if device_id not in anonymous_users:
+        raise HTTPException(status_code=404, detail="用户不存在")
+
+    user = anonymous_users[device_id]
+
+    if nickname is not None:
+        user["nickname"] = nickname
+    if phone_number is not None:
+        user["phone_number"] = phone_number
+        user["is_anonymous"] = False  # 绑定手机号后不再是匿名用户
+
+    return {
+        "code": 0,
+        "message": "更新成功",
+        "user": user
+    }
+
+
+@router.post("/api/v1/auth/logout")
+async def anonymous_logout(device_id: str):
+    """
+    匿名用户登出
+
+    Args:
+        device_id: 设备ID
+
+    Returns:
+        登出结果
+    """
+    if device_id in anonymous_users:
+        # 更新最后登录时间
+        anonymous_users[device_id]["last_login_at"] = datetime.now().isoformat()
+
+    return {
+        "code": 0,
+        "message": "登出成功"
+    }

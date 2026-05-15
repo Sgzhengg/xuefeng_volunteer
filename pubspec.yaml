@@ -21,6 +21,10 @@ dependencies:
   dio: ^5.4.0
   json_annotation: ^4.8.1
   envied: ^0.5.4+1
+  uuid: ^4.3.3
+
+  # 设备信息 & 认证
+  device_info_plus: ^10.1.0
 
   # 本地存储
   shared_preferences: ^2.2.2
