@@ -49,24 +49,20 @@ class AuthNotifier extends StateNotifier<AuthState> {
       final prefs = await SharedPreferences.getInstance();
       final token = prefs.getString('auth_token');
       final phoneNumber = prefs.getString('phone_number');
+      final userId = prefs.getString('user_id'); // 支持匿名用户
 
       if (token != null && token.isNotEmpty) {
-        // 验证token是否有效
-        try {
-          await ApiService.getCurrentUser(token);
-          state = AuthState(
-            token: token,
-            phoneNumber: phoneNumber,
-            isLoggedIn: true,
-            isLoading: false,
-          );
-        } catch (e) {
-          // token无效，清除登录状态
-          await _clearLocalData();
-          state = AuthState(isLoggedIn: false, isLoading: false);
-        }
+        // 有token，认为用户已登录（支持匿名用户和手机用户）
+        state = AuthState(
+          token: token,
+          phoneNumber: phoneNumber, // 匿名用户为null
+          isLoggedIn: true,
+          isLoading: false,
+        );
+        print('✅ AuthNotifier: 用户已登录 (user_id: $userId, phone: $phoneNumber)');
       } else {
         state = AuthState(isLoggedIn: false, isLoading: false);
+        print('⚠️ AuthNotifier: 未找到登录token');
       }
     } catch (e) {
       state = AuthState(
@@ -74,6 +70,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
         isLoading: false,
         error: e.toString(),
       );
+      print('❌ AuthNotifier初始化失败: $e');
     }
   }
 

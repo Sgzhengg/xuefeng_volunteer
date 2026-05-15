@@ -798,6 +798,8 @@ class RecommendationServiceV3:
                     item['resolved_majors'] = resolved
                     if not item.get('major_name') or '专业组' in str(item.get('major_name', '')):
                         item['major_display'] = ', '.join(resolved[:3])
+                        # 🔧 修复：直接替换major_name字段
+                        item['major_name'] = resolved[0]
 
                 # 2. 从2025官方招生计划获取详细信息
                 detail = self.detailed_group_mapping.get((uni, code))
@@ -806,6 +808,9 @@ class RecommendationServiceV3:
                     if detail.get('majors'):
                         item['resolved_majors'] = detail['majors']
                         item['major_display'] = ', '.join(detail['majors'][:3])
+                        # 🔧 修复：确保用第一个专业名替换"专业组XXX"
+                        if '专业组' in str(item.get('major_name', '')):
+                            item['major_name'] = detail['majors'][0]
 
                     # 附加字段
                     item['tuition'] = detail.get('tuition')
@@ -815,10 +820,6 @@ class RecommendationServiceV3:
 
                     # 专业详细信息（含专业代码和备注）
                     item['major_details'] = detail.get('major_details', [])
-
-                    # 如果 major_name 仍是专业组XXX，用第一个解析到的专业名替换
-                    if '专业组' in str(item.get('major_name', '')) and detail.get('majors'):
-                        item['major_name'] = detail['majors'][0]
 
         return recommendations
 

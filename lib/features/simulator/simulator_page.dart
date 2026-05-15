@@ -243,14 +243,17 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
             final rankDiff = userRank - minRank;
 
             String type;
-            if (rankDiff >= -500) {
-              // 用户位次接近或高于学校最低位次，录取概率很高
+            if (rankDiff > 1000) {
+              // 用户位次明显高于学校最低位次（差距>1000），这是保底学校
+              // 例如：用户位次800，学校位次5000 → 保底
               type = '保';
-            } else if (rankDiff >= -3000) {
-              // 用户位次稍低于学校最低位次，录取概率较高
+            } else if (rankDiff >= -500) {
+              // 用户位次和学校最低位次相当（±500范围内），这是稳妥学校
+              // 例如：用户位次800，学校位次930 → 稳妥
               type = '稳';
             } else {
-              // 用户位次明显低于学校最低位次，需要冲刺
+              // 用户位次明显低于学校最低位次（差距<-500），这是冲刺学校
+              // 例如：用户位次800，学校位次100 → 冲刺
               type = '冲';
             }
 
