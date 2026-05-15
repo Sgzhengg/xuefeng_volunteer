@@ -2,33 +2,33 @@
 FROM zeabur/caddy-static
 
 LABEL "language"="static"
-LABEL "version"="2026-05-14-v12"
+LABEL "version"="2026-05-14-v13"
 
-# 创建 Caddyfile 配置 - 使用正确的后端服务名
+# 创建 Caddyfile 配置 - 使用Zeabur内部服务标识符
 RUN mkdir -p /etc/caddy && cat > /etc/caddy/Caddyfile << 'EOF'
 :8080 {
-  # 反向代理 API 请求到后端服务
+  # 反向代理 API 请求到后端服务（使用Zeabur内部服务ID）
   handle /api/* {
-    reverse_proxy http://backend-api:8000
+    reverse_proxy http://service-6a05936d2376f7967820b216:8000
   }
 
   # 反向代理管理后台
   handle /admin* {
-    reverse_proxy http://backend-api:8000
+    reverse_proxy http://service-6a05936d2376f7967820b216:8000
   }
 
   # 反向代理 API 文档
   handle /docs {
-    reverse_proxy http://backend-api:8000
+    reverse_proxy http://service-6a05936d2376f7967820b216:8000
   }
 
   handle /openapi.json {
-    reverse_proxy http://backend-api:8000
+    reverse_proxy http://service-6a05936d2376f7967820b216:8000
   }
 
   # 健康检查端点
   handle /health {
-    reverse_proxy http://backend-api:8000
+    reverse_proxy http://service-6a05936d2376f7967820b216:8000
   }
 
   # 静态文件服务
