@@ -328,6 +328,15 @@ class RecommendationServiceV3:
         """清洗 group_code 中的异常字符"""
         return str(code or '').replace('\n', '').strip()
 
+    def _normalize_group_code(self, group_code) -> str:
+        """标准化专业组代码，去除前导零和空格"""
+        if not group_code:
+            return ""
+        code = str(group_code).strip()
+        if code.isdigit():
+            return str(int(code))
+        return code
+
     # ============================================================
     # 主推荐方法
     # ============================================================
@@ -803,7 +812,9 @@ class RecommendationServiceV3:
         for cat_name, items in recommendations.items():
             for item in items:
                 uni = item.get('university_name', '')
-                code = self._clean_code(item.get('group_code', ''))
+                # 标准化 group_code，兼容不同来源的格式
+                raw_code = item.get('group_code', '')
+                code = self._normalize_group_code(raw_code)
 
                 # 1. 从旧映射获取基础专业名
                 resolved = self._resolve_major_name(uni, code)
@@ -813,6 +824,9 @@ class RecommendationServiceV3:
                         item['major_display'] = ', '.join(resolved[:3])
                         # 🔧 修复：直接替换major_name字段
                         item['major_name'] = resolved[0]
+                else:
+                    # 打印警告便于定位数据缺失
+                    print(f"[WARN 映射缺失] 未在 simple mapping 中找到: {uni}_{code}")
 
                 # 2. 从2025官方招生计划获取详细信息
                 detail = self.detailed_group_mapping.get((uni, code))
