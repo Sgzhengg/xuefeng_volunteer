@@ -815,38 +815,67 @@ class RecommendationServiceV3:
                 # 标准化 group_code，兼容不同来源的格式
                 raw_code = item.get('group_code', '')
                 code = self._normalize_group_code(raw_code)
-
-                # 1. 从旧映射获取基础专业名
+                # 1. 首先尝试 simple mapping（老映射表）
                 resolved = self._resolve_major_name(uni, code)
                 if resolved:
                     item['resolved_majors'] = resolved
-                    if not item.get('major_name') or '专业组' in str(item.get('major_name', '')):
-                        item['major_display'] = ', '.join(resolved[:3])
-                        # 🔧 修复：直接替换major_name字段
-                        item['major_name'] = resolved[0]
+                    item['major_display'] = ', '.join(resolved[:3])
+                    item['major_name'] = resolved[0]
                 else:
-                    # 打印警告便于定位数据缺失
-                    print(f"[WARN 映射缺失] 未在 simple mapping 中找到: {uni}_{code}")
+                    # 如果 simple mapping 未命中，先尝试更强的 detailed mapping 回退
+                    detail = self.detailed_group_mapping.get((uni, code))
+                    # 如果未找到精确的 (uni, code)，尝试对 university 名称做一些归一化后再匹配
+                    if not detail:
+                        # 常见归一化：去掉中文全角括号变体、英文小括号差异，以及多余空格
+                        def _norm_uni(u: str) -> str:
+                            if not u:
+                                return u
+                            s = u.replace('（', '(').replace('）', ')').strip()
+                            s = ' '.join(s.split())
+                            return s
 
-                # 2. 从2025官方招生计划获取详细信息
-                detail = self.detailed_group_mapping.get((uni, code))
-                if detail:
-                    # 专业列表
-                    if detail.get('majors'):
-                        item['resolved_majors'] = detail['majors']
-                        item['major_display'] = ', '.join(detail['majors'][:3])
-                        # 🔧 修复：确保用第一个专业名替换"专业组XXX"
-                        if '专业组' in str(item.get('major_name', '')):
-                            item['major_name'] = detail['majors'][0]
+                        uni_variants = {uni, _norm_uni(uni)}
+                        # 添加去掉括号内部内容的变体（例如 '北京师范大学(珠海校区)' -> '北京师范大学'）
+                        for v in list(uni_variants):
+                            if '(' in v and ')' in v:
+                                uni_variants.add(v.split('(')[0].strip())
 
-                    # 附加字段
-                    item['tuition'] = detail.get('tuition')
-                    item['duration'] = detail.get('duration')
-                    item['plan_count'] = detail.get('plan_count', 0)
-                    item['subjects_requirement'] = detail.get('subjects', '')
+                        for u_var in uni_variants:
+                            if (u_var, code) in self.detailed_group_mapping:
+                                detail = self.detailed_group_mapping.get((u_var, code))
+                                break
 
-                    # 专业详细信息（含专业代码和备注）
-                    item['major_details'] = detail.get('major_details', [])
+                    # 最后，如果仍未匹配到精确的 uni+code，尝试按 code 全局匹配（取第一个可能的）
+                    if not detail:
+                        for (d_uni, d_code), d_info in self.detailed_group_mapping.items():
+                            if d_code == code:
+                                detail = d_info
+                                # 记录发现以供日志参考
+                                print(f"[DEBUG 映射回退] 按 code 匹配: {uni}_{code} -> 使用 {d_uni}_{d_code}")
+                                break
+
+                    if detail:
+                        majors = detail.get('majors') or []
+                        # majors 可能为 dict 列表或字符串列表，已在加载时规范化
+                        if majors:
+                            item['resolved_majors'] = majors
+                            item['major_display'] = ', '.join(majors[:3])
+                            item['major_name'] = majors[0]
+
+                        # 附加字段（可选）
+                        item['tuition'] = detail.get('tuition')
+                        item['duration'] = detail.get('duration')
+                        item['plan_count'] = detail.get('plan_count', 0)
+                        item['subjects_requirement'] = detail.get('subjects', '')
+                        item['major_details'] = detail.get('major_details', [])
+                    else:
+                        # 两套映射都没有命中 -> 友好占位，避免前端显示原始 '专业组XXX'
+                        placeholder = f"{uni} (组{code})" if code else uni
+                        item['major_display'] = placeholder
+                        # 仅在未设置或看起来是组名的情况下替换 major_name
+                        if not item.get('major_name') or '专业组' in str(item.get('major_name', '')):
+                            item['major_name'] = placeholder
+                        print(f"[WARN 映射缺失] 未在 simple/detailed mapping 中找到: {uni}_{code}")
 
         return recommendations
 
