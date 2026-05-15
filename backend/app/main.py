@@ -136,6 +136,47 @@ async def health_check():
 async def startup_event():
     """应用启动时的初始化操作"""
     import uvicorn
+    # debug: print mapping file paths and counts to help detect missing data in deployments
+    try:
+        import json, subprocess, pathlib
+        base = pathlib.Path(__file__).resolve().parent.parent
+        simple_p = base / 'data' / 'group_code_mapping.json'
+        detailed_p = base / 'data' / 'group_code_to_majors.json'
+
+        def _try_count(p):
+            try:
+                if not p.exists():
+                    return None
+                with open(p, 'r', encoding='utf-8') as f:
+                    d = json.load(f)
+                    if isinstance(d, dict):
+                        return len(d)
+                    try:
+                        return len(d)
+                    except Exception:
+                        return None
+            except Exception as e:
+                print(f"[DEBUG] failed to read {p}: {e}")
+                return None
+
+        print(f"[DEBUG] simple mapping path: {simple_p}, exists: {simple_p.exists()}")
+        print(f"[DEBUG] detailed mapping path: {detailed_p}, exists: {detailed_p.exists()}")
+        print(f"[DEBUG] simple mapping entries: {_try_count(simple_p)}")
+        print(f"[DEBUG] detailed mapping entries: {_try_count(detailed_p)}")
+
+        # try to show current commit if .git available inside image
+        git_dir = base.parent / '.git'
+        if git_dir.exists():
+            try:
+                commit = subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD'], cwd=str(base.parent))
+                commit = commit.decode().strip()
+                print(f"[DEBUG] running commit: {commit}")
+            except Exception:
+                print("[DEBUG] could not read git commit")
+        else:
+            print('[DEBUG] .git not found in image; set DEPLOY_COMMIT env if needed')
+    except Exception as _e:
+        print('[DEBUG] startup mapping debug failed:', _e)
     print("""
     =========================================================
                      [OK] XueFeng Volunteer Coach
