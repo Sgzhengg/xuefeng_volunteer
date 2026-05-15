@@ -363,20 +363,33 @@ class RecommendationServiceV3:
                 ranks = [c.get('min_rank', 0) for c in candidates]
                 print(f'[V3] 候选位次范围: {min(ranks)} - {max(ranks)}')
 
-        # 2. 扩圈 (V3: 使用 expansion_trigger 和 candidate_pool_size)
-        if len(candidates) < self.expansion_trigger:
+        # 2. 扩圈 (V3: 关键修复)
+        # 修复说明：无论初始候选数量是否达到触发阈值，都应尝试所有扩圈层级，
+        # 直到收集到足够的候选（以去重后的数量为准）或耗尽所有层级。
+        expand_stages = self._get_expansion_stages(tier, rank_range_pct, province)
+        # 从第二层开始对外扩（第一层即为基准范围）
+        for idx, (stage_range, stage_province) in enumerate(expand_stages[1:], start=2):
+            # 在每层入口处打印诊断日志，便于追踪扩圈过程
+            current_results = self._deduplicate_candidates(candidates)
+            print(f"[DEBUG 扩圈] 当前层: 第 {idx-1} 层, 当前结果数: {len(current_results)}, 目标数量: {min_total}")
+
+            new_candidates = self._filter_candidates(user_rank, stage_range, stage_province)
+            before_add = len(candidates)
+            candidates.extend(new_candidates)
+            added = len(candidates) - before_add
+
             if verbose:
-                print(f'[V3] ⚠️ 候选池不足 ({len(candidates)} < {self.expansion_trigger})，触发扩圈')
-            expand_stages = self._get_expansion_stages(tier, rank_range_pct, province)
-            for stage_range, stage_province in expand_stages[1:]:
-                new_candidates = self._filter_candidates(
-                    user_rank, stage_range, stage_province
-                )
-                candidates.extend(new_candidates)
-                if verbose:
-                    print(f'[V3] 扩圈: range={stage_range:.0%}, province={stage_province}, 新增={len(new_candidates)}, 总计={len(candidates)}')
-                if len(candidates) >= self.candidate_pool_size:
-                    break
+                print(f'[V3] 扩圈 第{idx-1}层: range={stage_range:.0%}, province={stage_province}, 新增={added}, 总计={len(candidates)}')
+
+            # 使用去重后的数量判断是否已收集到足够的候选
+            deduped_now = self._deduplicate_candidates(candidates)
+            # 停止条件：去重后数量达到候选池上限或达到最小目标数量
+            if len(deduped_now) >= max(self.candidate_pool_size, min_total):
+                candidates = deduped_now
+                break
+            else:
+                # 保留累积（未达到则继续下一层），但 keep deduped for next iteration to avoid explosion
+                candidates = deduped_now
 
         # 3. 去重
         candidates = self._deduplicate_candidates(candidates)
