@@ -32,9 +32,7 @@ RUN mkdir -p /etc/caddy && cat > /etc/caddy/Caddyfile << 'EOF'
   }
 
   # 🆕 为静态文件设置缓存清除头（修复Caddy语法）
-  @staticFiles {
-    path *.js *.html *.css *.json *.svg *.png *.jpg *.webp *.wasm *.dat
-  }
+  @staticFiles path *.js *.html *.css *.json *.svg *.png *.jpg *.webp *.wasm *.dat
   header @staticFiles Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
   header @staticFiles Pragma "no-cache"
   header @staticFiles Expires "0"
