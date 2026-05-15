@@ -31,11 +31,18 @@ from datetime import datetime
 # ============================================================
 
 def get_dynamic_rank_range(user_rank: int) -> float:
-    """根据用户位次返回动态位次范围比例"""
-    if user_rank <= 10000:
-        return 0.10  # 高分考生 ±10%
+    """根据用户位次返回动态位次范围比例
+
+    关键修复：对于高分考生（前1000名），需要更大的范围才能找到合适的冲刺和保底学校
+    """
+    if user_rank <= 1000:
+        return 0.80  # 精英考生 ±80%（位次800 → 160-1440，能覆盖清北到普通一本）
+    elif user_rank <= 3000:
+        return 0.60  # 顶尖考生 ±60%
+    elif user_rank <= 10000:
+        return 0.40  # 高分考生 ±40%
     elif user_rank <= 30000:
-        return 0.15  # 中高分 ±15%
+        return 0.25  # 中高分 ±25%
     elif user_rank <= 70000:
         return 0.20  # 中分段 ±20%
     elif user_rank <= 120000:
@@ -345,15 +352,21 @@ class RecommendationServiceV3:
 
         if verbose:
             print(f'[V3] user_rank={user_rank}, tier={tier["name"]}, range={rank_range_pct:.0%}')
+            print(f'[V3] 候选池范围: {int(user_rank * (1 - rank_range_pct))} - {int(user_rank * (1 + rank_range_pct))}')
 
         # 1. 候选人筛选 (使用动态位次范围)
         candidates = self._filter_candidates(user_rank, rank_range_pct, province)
 
         if verbose:
-            print(f'[V3] Filtered {len(candidates)} candidates')
+            print(f'[V3] 初始筛选 {len(candidates)} 个候选 (province={province})')
+            if len(candidates) > 0:
+                ranks = [c.get('min_rank', 0) for c in candidates]
+                print(f'[V3] 候选位次范围: {min(ranks)} - {max(ranks)}')
 
         # 2. 扩圈 (V3: 使用 expansion_trigger 和 candidate_pool_size)
         if len(candidates) < self.expansion_trigger:
+            if verbose:
+                print(f'[V3] ⚠️ 候选池不足 ({len(candidates)} < {self.expansion_trigger})，触发扩圈')
             expand_stages = self._get_expansion_stages(tier, rank_range_pct, province)
             for stage_range, stage_province in expand_stages[1:]:
                 new_candidates = self._filter_candidates(
@@ -361,12 +374,14 @@ class RecommendationServiceV3:
                 )
                 candidates.extend(new_candidates)
                 if verbose:
-                    print(f'[V3] Expanded: range={stage_range}, total={len(candidates)}')
+                    print(f'[V3] 扩圈: range={stage_range:.0%}, province={stage_province}, 新增={len(new_candidates)}, 总计={len(candidates)}')
                 if len(candidates) >= self.candidate_pool_size:
                     break
 
         # 3. 去重
         candidates = self._deduplicate_candidates(candidates)
+        if verbose:
+            print(f'[V3] 去重后: {len(candidates)} 个候选')
 
         # 4. 多模型评分
         scored = self._multi_model_score(candidates, user_rank, tier, target_majors)
@@ -374,12 +389,23 @@ class RecommendationServiceV3:
         # 5. 分类 (V3: 使用新的分类阈值)
         recommendations = self._categorize(scored, user_rank, max_per_uni, min_total)
 
+        if verbose:
+            for cat, items in recommendations.items():
+                print(f'[V3] {cat}: {len(items)} 个')
+
         # 6. 数量补充
         total = sum(len(v) for v in recommendations.values())
         if total < min_total:
+            if verbose:
+                print(f'[V3] ⚠️ 总数不足 ({total} < {min_total})，触发补充')
             recommendations = self._supplement(
                 recommendations, user_rank, max_per_uni, min_total, tier
             )
+            if verbose:
+                total_after = sum(len(v) for v in recommendations.values())
+                print(f'[V3] 补充后: {total_after} 个')
+                for cat, items in recommendations.items():
+                    print(f'[V3] {cat}: {len(items)} 个')
 
         # 7. 解析专业名 (V3 新增: 为返回结果附加实际专业名称)
         recommendations = self._enrich_major_names(recommendations)
@@ -398,16 +424,25 @@ class RecommendationServiceV3:
         }
 
     def _get_expansion_stages(self, tier: dict, base_range: float, province: str) -> List[Tuple[float, str]]:
-        """获取扩圈阶段 (V3: 基于动态位次范围)"""
+        """获取扩圈阶段 (V3: 基于动态位次范围)
+
+        关键修复：对于精英考生，需要更激进的扩圈策略以确保有足够的冲刺和保底选择
+        """
         name = tier['name']
         stages = [(base_range, province)]
 
-        if name in ('elite', 'high'):
+        if name == 'elite':  # 位次1-3000
+            # 精英考生需要全国范围内的学校，扩圈到3-5倍
+            stages.append((min(base_range * 2.0, 1.5), province))  # 2倍或150%
+            stages.append((min(base_range * 3.0, 2.0), 'all'))     # 3倍或200%，全国
+            stages.append((min(base_range * 5.0, 3.0), 'all'))     # 5倍或300%，全国
+        elif name == 'high':  # 位次3001-10000
+            stages.append((base_range * 1.5, province))
+            stages.append((base_range * 2.0, 'all'))
+            stages.append((base_range * 3.0, 'all'))
+        elif name in ('upper_mid', 'mid'):
             stages.append((base_range * 1.5, 'all'))
             stages.append((base_range * 2.0, 'all'))
-        elif name in ('upper_mid', 'mid'):
-            stages.append((base_range * 1.3, 'all'))
-            stages.append((base_range * 1.8, 'all'))
         else:
             stages.append((base_range * 1.3, 'all'))
             stages.append((base_range * 1.8, 'all'))
@@ -417,9 +452,38 @@ class RecommendationServiceV3:
 
     def _filter_candidates(self, user_rank: int, expand_pct: float,
                            province: str) -> List[dict]:
-        """按位次范围和省份筛选候选人"""
-        min_rank = int(user_rank * (1 - expand_pct))
-        max_rank = int(user_rank * (1 + expand_pct))
+        """按位次范围和省份筛选候选人（修复：确保所有分数段的合理覆盖）"""
+
+        # 关键修复：确保所有分数段都有足够的冲刺和保底选择
+        if user_rank <= 1000:
+            # 精英考生：从清北到普通一本的广泛范围
+            min_rank = 1
+            max_rank = user_rank * 10
+        elif user_rank <= 5000:
+            # 高分考生：从清北到优秀211
+            min_rank = 1
+            max_rank = user_rank * 5
+        elif user_rank <= 10000:
+            # 中高分考生：从C9到211
+            min_rank = int(user_rank * 0.05)  # 向上小范围冲刺
+            max_rank = user_rank * 4           # 向下大幅扩保底
+        elif user_rank <= 30000:
+            # 中上分考生：从部分985到普通一本
+            min_rank = int(user_rank * 0.1)   # 向上冲刺
+            max_rank = user_rank * 3           # 向下保底
+        elif user_rank <= 80000:
+            # 中分考生：从211到二本
+            min_rank = int(user_rank * 0.2)   # 向上冲刺
+            max_rank = user_rank * 2.5         # 向下保底
+        elif user_rank <= 150000:
+            # 中低分考生：从普通一本到民办
+            min_rank = int(user_rank * 0.3)   # 向上冲刺
+            max_rank = user_rank * 2.0         # 向下保底
+        else:
+            # 低分考生：从二本到专科
+            min_rank = int(user_rank * 0.4)   # 向上冲刺
+            max_rank = user_rank * 1.8         # 向下保底
+
         if min_rank < 1:
             min_rank = 1
 
@@ -614,10 +678,13 @@ class RecommendationServiceV3:
 
             diff = (c_rank - user_rank) / max(1, user_rank)
 
-            # V3: 冲刺 rank 低于用户 15%, 稳妥 ±15%，保底 rank 高于用户 15%
-            if diff < -0.15:
+            # 修复分类逻辑：
+            # diff > 0.15: 学校位次 > 用户位次×1.15 → 学校要求更低 → 冲刺
+            # -0.15 <= diff <= 0.15: 位次相近 → 稳妥
+            # diff < -0.15: 学校位次 < 用户位次×0.85 → 学校要求更高 → 保底
+            if diff > 0.15:
                 chongci.append(c)
-            elif diff <= 0.15:
+            elif diff >= -0.15:
                 wenzuo.append(c)
             else:
                 baodi.append(c)
@@ -668,14 +735,15 @@ class RecommendationServiceV3:
 
     def _supplement(self, recommendations: Dict, user_rank: int,
                     max_per_uni: int, min_total: int, tier: dict) -> Dict:
-        """补充推荐到最小数量"""
+        """补充推荐到最小数量（修复：正确分类补充的学校）"""
         total = sum(len(v) for v in recommendations.values())
         if total >= min_total:
             return recommendations
 
         needed = min_total - total
-        max_rank = int(user_rank * 3.0)
-        min_rank = max(1, int(user_rank * 0.3))
+        # 扩大补充范围，确保能找到足够的学校
+        max_rank = int(user_rank * 5.0)  # 扩大到5倍
+        min_rank = max(1, int(user_rank * 0.1))  # 扩大到0.1倍
 
         existing_keys = set()
         for cat in recommendations.values():
@@ -697,10 +765,21 @@ class RecommendationServiceV3:
                 continue
             existing_keys.add(key)
             supplements.append(r)
-            if len(supplements) >= needed:
+            if len(supplements) >= needed * 2:  # 多找一些，然后筛选
                 break
 
-        recommendations['保底'] = recommendations.get('保底', []) + supplements[:needed]
+        # 对补充的学校进行评分和分类
+        if supplements:
+            scored_supplements = self._multi_model_score(supplements, user_rank, tier, None)
+            # 重新分类所有推荐（包括原有的和补充的）
+            all_items = []
+            for cat_items in recommendations.values():
+                all_items.extend(cat_items)
+            all_items.extend(scored_supplements)
+
+            # 重新分类
+            recommendations = self._categorize(all_items, user_rank, max_per_uni, min_total)
+
         return recommendations
 
     # ============================================================
@@ -755,14 +834,17 @@ class RecommendationServiceV3:
                 if c_rank > 0:
                     diff = (c_rank - user_rank) / max(1, user_rank)
                     if cat_name == '冲刺':
-                        # diff in [-0.30, -0.15] -> prob in [20, 45]
-                        prob = max(20, min(45, int(20 + (diff + 0.30) * 200)))
+                        # diff in [0.15, 0.40] -> prob in [20, 45]
+                        # 学校位次越高，录取概率越低
+                        prob = max(20, min(45, int(25 + (diff - 0.15) * 100)))
                     elif cat_name == '稳妥':
-                        # diff in [-0.15, 0.15] -> prob in [45, 75]
-                        prob = max(45, min(75, int(60 + diff * 100)))
+                        # diff in [-0.15, 0.15] -> prob in [50, 75]
+                        # 位次接近，录取概率较高
+                        prob = max(50, min(75, int(60 + diff * 83)))
                     else:  # 保底
-                        # diff in [0.15, 0.35] -> prob in [75, 95]
-                        prob = min(95, int(73 + (diff - 0.05) * 90))
+                        # diff in [-0.40, -0.15] -> prob in [75, 95]
+                        # 学校位次越低，录取概率越高
+                        prob = max(75, min(95, int(85 + (diff + 0.15) * 80)))
                 else:
                     prob = 50  # fallback
                 item['admission_probability'] = prob

@@ -234,32 +234,38 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
             final majorName = item['major_name']?.toString() ?? item['major']?.toString() ?? '未知专业';
             final universityLevel = item['university_level']?.toString() ?? '';
 
-            // 根据位次差距确定类别
+            // 根据位次差距确定类别（修正逻辑）
             final userRank = int.tryParse(_rankController.text) ?? 0;
             final minRank = item['min_rank'] ?? userRank;
-            final rankDiff = minRank - userRank;
+
+            // 正确的位次差距计算：用户位次 - 学校最低位次
+            // 正值表示用户排名更高（分数更高），负值表示用户排名更低（分数更低）
+            final rankDiff = userRank - minRank;
 
             String type;
-            if (rankDiff > 5000) {
-              type = '冲';
-            } else if (rankDiff > -2000) {
+            if (rankDiff >= -500) {
+              // 用户位次接近或高于学校最低位次，录取概率很高
+              type = '保';
+            } else if (rankDiff >= -3000) {
+              // 用户位次稍低于学校最低位次，录取概率较高
               type = '稳';
             } else {
-              type = '保';
+              // 用户位次明显低于学校最低位次，需要冲刺
+              type = '冲';
             }
 
             // 计算录取概率（基于位次差距）
             double probability;
-            if (rankDiff > 10000) {
-              probability = 0.2;
-            } else if (rankDiff > 5000) {
-              probability = 0.35;
-            } else if (rankDiff > 0) {
-              probability = 0.65;
-            } else if (rankDiff > -2000) {
-              probability = 0.85;
+            if (rankDiff >= -500) {
+              probability = 0.90;  // 保底：90%+
+            } else if (rankDiff >= -1500) {
+              probability = 0.75;  // 稳妥：70-80%
+            } else if (rankDiff >= -3000) {
+              probability = 0.60;  // 稳妥：50-70%
+            } else if (rankDiff >= -5000) {
+              probability = 0.35;  // 冲刺：30-40%
             } else {
-              probability = 0.95;
+              probability = 0.20;  // 大冲刺：15-25%
             }
 
             choices.add(SchoolChoice.create(

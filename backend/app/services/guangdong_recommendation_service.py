@@ -430,12 +430,15 @@ class GuangdongRecommendationService:
             # 计算位次差异
             rank_diff = (candidate_rank - user_rank) / user_rank
 
-            # 分类逻辑
-            if rank_diff < -0.1:  # 比用户位次高10%以上
+            # 分类逻辑（修复）
+            # rank_diff > 0.1: 学校位次比用户位次低10%以上（更容易录取）→ 冲刺
+            # -0.1 <= rank_diff <= 0.1: 位次相近 → 稳妥
+            # rank_diff < -0.1: 学校位次比用户位次高10%以上（更难录取）→ 保底
+            if rank_diff > 0.1:  # 比用户位次低10%以上
                 chongci.append(candidate)
-            elif rank_diff <= 0.1:  # 在用户位次±10%范围内
+            elif rank_diff >= -0.1:  # 在用户位次±10%范围内
                 wenzuo.append(candidate)
-            else:  # 比用户位次低10%以上
+            else:  # 比用户位次高10%以上
                 baodi.append(candidate)
 
         # 去重 + 按专业相关性排序

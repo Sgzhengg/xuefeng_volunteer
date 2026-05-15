@@ -82,9 +82,15 @@ class AuthService {
       );
 
       if (response.statusCode == 200) {
-        final data = response.data as Map<String, dynamic>;
+        final responseData = response.data as Map<String, dynamic>;
 
-        // 解析响应
+        // 检查响应码
+        if (responseData['code'] != 0) {
+          throw Exception('登录失败: ${responseData['message']}');
+        }
+
+        // 解析响应数据
+        final data = responseData['data'] as Map<String, dynamic>;
         final user = User.fromJson(data['user']);
         final token = data['token'] as String;
 
@@ -181,9 +187,14 @@ class AuthService {
       );
 
       if (response.statusCode == 200) {
-        final updatedUser = User.fromJson(response.data['user']);
-        _currentUser = updatedUser;
-        debugPrint('✅ 用户信息已更新');
+        final responseData = response.data as Map<String, dynamic>;
+
+        // 检查响应码
+        if (responseData['code'] == 0) {
+          final updatedUser = User.fromJson(responseData['user']);
+          _currentUser = updatedUser;
+          debugPrint('✅ 用户信息已更新');
+        }
       }
     } catch (e) {
       debugPrint('❌ 更新用户信息失败: $e');
