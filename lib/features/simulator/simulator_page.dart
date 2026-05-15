@@ -164,7 +164,7 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
 
-        // 解析推荐结果
+        // 解析推荐结果（适配后端实际返回格式）
         final choices = _parseRecommendationData(data);
 
         final scheme = VolunteerScheme.create(
@@ -220,11 +220,62 @@ class _SimulatorPageState extends ConsumerState<SimulatorPage> {
     final List<SchoolChoice> choices = [];
 
     try {
-      // 后端返回格式: {"success": true, "data": {"冲刺": [...], "稳妥": [...], "保底": [...], "垫底": [...]}}
+      // 后端返回格式: {"code":0,"message":"success","data":{"recommendations":[...]}}
       if (data.containsKey('data')) {
         final recommendationData = data['data'] as Map<String, dynamic>;
 
-        // 解析冲刺院校
+        // 检查是否有recommendations数组（新格式）
+        if (recommendationData.containsKey('recommendations')) {
+          final recommendations = recommendationData['recommendations'] as List;
+
+          for (var item in recommendations) {
+            // 解析每个推荐项
+            final universityName = item['university_name']?.toString() ?? '未知院校';
+            final majorName = item['major_name']?.toString() ?? item['major']?.toString() ?? '未知专业';
+            final universityLevel = item['university_level']?.toString() ?? '';
+
+            // 根据位次差距确定类别
+            final userRank = int.tryParse(_rankController.text) ?? 0;
+            final minRank = item['min_rank'] ?? userRank;
+            final rankDiff = minRank - userRank;
+
+            String type;
+            if (rankDiff > 5000) {
+              type = '冲';
+            } else if (rankDiff > -2000) {
+              type = '稳';
+            } else {
+              type = '保';
+            }
+
+            // 计算录取概率（基于位次差距）
+            double probability;
+            if (rankDiff > 10000) {
+              probability = 0.2;
+            } else if (rankDiff > 5000) {
+              probability = 0.35;
+            } else if (rankDiff > 0) {
+              probability = 0.65;
+            } else if (rankDiff > -2000) {
+              probability = 0.85;
+            } else {
+              probability = 0.95;
+            }
+
+            choices.add(SchoolChoice.create(
+              universityName: universityName,
+              majorName: majorName,
+              type: type,
+              probability: probability,
+              score: int.parse(_scoreController.text),
+              ranking: minRank,
+              roiTags: universityLevel.isNotEmpty ? [universityLevel] : null,
+              roiHint: '基于位次${minRank}推荐',
+            ));
+          }
+        }
+
+        // 解析冲刺院校（兼容旧格式）
         if (recommendationData.containsKey('冲刺')) {
           final chongList = recommendationData['冲刺'] as List;
           for (var item in chongList) {
