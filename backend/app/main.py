@@ -200,6 +200,38 @@ async def startup_event():
                 print("[DEBUG] could not read git commit")
         else:
             print('[DEBUG] .git not found in image; set DEPLOY_COMMIT env if needed')
+        # If mapping files are missing in the image, try to download them from GitHub raw
+        try:
+            import urllib.request
+            github_base = os.environ.get('GITHUB_RAW_BASE', 'https://raw.githubusercontent.com/Sgzhengg/xuefeng_volunteer/main')
+            # ensure data dir exists
+            app_data_dir = pathlib.Path(__file__).resolve().parent.parent / 'data'
+            app_data_dir.mkdir(parents=True, exist_ok=True)
+
+            def _download_if_missing(local_path: pathlib.Path, relative_url_path: str):
+                if local_path.exists():
+                    return False
+                url = f"{github_base}/{relative_url_path}"
+                try:
+                    print(f"[DEBUG] attempting to download {url} -> {local_path}")
+                    with urllib.request.urlopen(url, timeout=15) as resp:
+                        if resp.status != 200:
+                            print(f"[DEBUG] download failed status={resp.status} for {url}")
+                            return False
+                        data = resp.read()
+                    with open(local_path, 'wb') as f:
+                        f.write(data)
+                    print(f"[DEBUG] downloaded and saved {local_path}")
+                    return True
+                except Exception as e:
+                    print(f"[DEBUG] failed to download {url}: {e}")
+                    return False
+
+            # relative paths from repo root to backend/data
+            _download_if_missing(base / 'data' / 'group_code_mapping.json', 'backend/data/group_code_mapping.json')
+            _download_if_missing(base / 'data' / 'group_code_to_majors.json', 'backend/data/group_code_to_majors.json')
+        except Exception as _e:
+            print('[DEBUG] auto-download of mapping files failed:', _e)
     except Exception as _e:
         print('[DEBUG] startup mapping debug failed:', _e)
     print("""
