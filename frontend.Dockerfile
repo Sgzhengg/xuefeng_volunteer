@@ -2,7 +2,7 @@
 FROM zeabur/caddy-static
 
 LABEL "language"="static"
-LABEL "version"="2026-05-14-v13"
+LABEL "version"="2026-05-14-v14"
 
 # 创建 Caddyfile 配置 - 使用Zeabur内部服务标识符
 RUN mkdir -p /etc/caddy && cat > /etc/caddy/Caddyfile << 'EOF'
@@ -30,6 +30,19 @@ RUN mkdir -p /etc/caddy && cat > /etc/caddy/Caddyfile << 'EOF'
   handle /health {
     reverse_proxy http://service-6a05936d2376f7967820b216:8000
   }
+
+  # 🆕 为静态文件设置缓存清除头（修复Caddy语法）
+  @staticFiles {
+    path *.js *.html *.css *.json *.svg *.png *.jpg *.webp *.wasm *.dat
+  }
+  header @staticFiles Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
+  header @staticFiles Pragma "no-cache"
+  header @staticFiles Expires "0"
+
+  # 🆕 为Service Worker设置特殊头
+  @serviceWorker path /flutter_service_worker.js
+  header @serviceWorker Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
+  header @serviceWorker Service-Worker-Allowed "/"
 
   # 静态文件服务
   root * /usr/share/caddy
